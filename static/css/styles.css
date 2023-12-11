@@ -1,0 +1,933 @@
+body {
+    background: rgb(0, 0, 0);
+    font-family: 'DIN', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.lihsr {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+h1 {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    top: 60%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.version {
+    position: absolute;
+    color: white;
+    font-size: 44px;
+    text-shadow: 2px 2px 2px black;
+    bottom: 10px;
+    left: 10px;
+}
+.user {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+.play {
+    position: absolute;
+    top: 72%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    font-family: 'DIN', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.5s ease;
+}
+.play:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease; 
+}
+.settings {
+    position: absolute;
+    top: 72%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    font-family: 'DIN', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.5s ease;
+}
+.settings:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease; 
+}
+.settings-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 3;
+    transition: opacity 0.5s ease;
+}
+.settings-container.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+.settings-app {
+    position: fixed;
+    top: 18%;
+    left: 10%;
+    width: 80%;
+    height: 75%;
+    border-radius: 10px;
+    background-color: #C4BEC2;
+    display: none;
+    z-index: 4;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.settings-app.active {
+    display: block;
+    z-index: 4;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.settings-logo {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    color: white;
+    top: 7%;
+    left: 3%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-text {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 2.5%;
+    left: 13%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-map {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 20%;
+    left: 15%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.settings-map1,
+.settings-map2,
+.settings-map3,
+.settings-map4 {
+position: absolute;
+top: 20%;
+z-index: 4;
+width: 250px;
+height: 143px;
+background-size: cover;
+margin-block: 30px;
+cursor: pointer;
+display: none;
+transition: transform 0.2s ease;
+}
+
+.settings-map1 {
+left: 28%;
+background-image: url("../media/map/random.png");
+}
+
+.settings-map2 {
+left: 43%;
+background-image: url("../media/map/hertaspacestation.png");
+}
+
+.settings-map3 {
+left: 58%;
+background-image: url("../media/map/jarilovi.png");
+}
+
+.settings-map4 {
+left: 73%;
+background-image: url("../media/map/thexianzhouluofu.png");
+}
+
+.settings-map1:hover,
+.settings-map2:hover,
+.settings-map3:hover,
+.settings-map4:hover {
+transform: scale(1.05);
+}
+
+.settings-map1.active,
+.settings-map2.active,
+.settings-map3.active,
+.settings-map4.active {
+z-index: 4;
+}
+.settings-gamerulestext {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 40%;
+    left: 15%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerulestimer {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 47%;
+    left: 33%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerules-slider1{
+    width: 100%;
+}
+.slider1 {
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 40%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    display: none;
+    z-index: 4;
+}
+.slider1:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    z-index: 4;
+}
+.slider1::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background-image: url("../media/icons/radio-button-on-outline.svg");
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.slider1::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.settings-displayTime {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 40%;
+    left: 40%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+
+.settings-gamerulesseetime {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 60%;
+    left: 33%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerules-slider2{
+    width: 100%;
+}
+.slider2 {
+    position: absolute;
+    top: 64%;
+    left: 46%;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 40%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    display: none;
+    z-index: 4;
+}
+.slider2:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    z-index: 4;
+}
+.slider2::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background-image: url("../media/icons/radio-button-on-outline.svg");
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.slider2::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.settings-displaySeeTime {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 53.5%;
+    left: 40%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+
+.settings-gamerulemove {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 75%;
+    left: 33%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerulezoom {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 75%;
+    left: 45%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gameruleround {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 75%;
+    left: 57%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerules-slider3{
+    width: 100%;
+}
+.slider3 {
+    position: absolute;
+    top: 78%;
+    left: 68%;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 18%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    display: none;
+    z-index: 4;
+}
+.slider3:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    z-index: 4;
+}
+.slider3::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background-image: url("../media/icons/radio-button-on-outline.svg");
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.slider3::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.settings-displayRound {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 68%;
+    left: 64%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.move-switch {
+    position: absolute;
+    top: 76.5%;
+    left: 40%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
+
+.move-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.move-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.move-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .move-slider {
+    background-color: #252525;
+}
+
+input:focus + .move-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .move-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.move-slider.round {
+    border-radius: 34px;
+}
+
+.move-slider.round:before {
+    border-radius: 50%;
+}
+
+.zoom-switch {
+    position: absolute;
+    top: 76.5%;
+    left: 51.5%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
+
+.zoom-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.zoom-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.zoom-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .zoom-slider {
+    background-color: #252525;
+}
+
+input:focus + .zoom-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .zoom-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.zoom-slider.round {
+    border-radius: 34px;
+}
+
+.zoom-slider.round:before {
+    border-radius: 50%;
+}
+
+@font-face {
+   font-family: 'DIN';
+   src: url('../media/font/DIN.ttf') format('truetype');
+}
+.output-text {
+    position: absolute;
+    z-index: 4;
+    opacity: 0.3;
+    font-size: 50px;
+    color: white;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    text-align: center; /* Center the text horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown {
+    position: absolute;
+    bottom: 43.5%;
+    right: 1%;
+}
+.dropdown-btn {
+    padding: 20px 30px;
+    font-family: 'DIN', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 248, 0.5);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    z-index: 3;
+    display: none;
+    transition: 0.5s ease;
+}
+.dropdown-btn:hover {
+    opacity: 0.8;
+    color: rgb(255, 177, 177);
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    z-index: 3;
+    max-height: 400px; /* Adjust the height as needed */
+    overflow: auto;
+  }
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3;
+  }
+    .dropdown-menu .hst-mcz:hover,
+    .dropdown-menu .hst-bz:hover,
+    .dropdown-menu .hst-stz:hover,
+    .dropdown-menu .hst-suz:hover,
+    .dropdown-menu .j6-ad:hover,
+    .dropdown-menu .j6-osp:hover,
+    .dropdown-menu .j6-bp:hover,
+    .dropdown-menu .j6-sgrz:hover,
+    .dropdown-menu .j6-cofe:hover,
+    .dropdown-menu .j6-eh:hover,
+    .dropdown-menu .j6-poc:hover,
+    .dropdown-menu .j6-owtg:hover,
+    .dropdown-menu .j6-bt:hover,
+    .dropdown-menu .j6-gm:hover,
+    .dropdown-menu .j6-rt:hover,
+    .dropdown-menu .j6-rs:hover,
+    .dropdown-menu .j6-ad:hover,
+    .dropdown-menu .j6-owtg:hover,
+    .dropdown-menu .j6-rt:hover,
+    .dropdown-menu .j6-rs:hover,
+    .dropdown-menu .txl-csh:hover,
+    .dropdown-menu .txl-c:hover,
+    .dropdown-menu .txl-sn:hover,
+    .dropdown-menu .txl-es:hover,
+    .dropdown-menu .txl-aa:hover,
+    .dropdown-menu .txl-dc:hover,
+    .dropdown-menu .txl-fg:hover,
+    .dropdown-menu .txl-ac:hover,
+    .dropdown-menu .txl-sw:hover,
+    .dropdown-menu .txl-c:hover
+    .dropdown-menu .txl-dc:hover
+    .dropdown-menu .txl-ac:hover {
+        background-color: #f2f2f2;
+    }
+
+  .dropdown-menu .sub-menu-hst,
+  .dropdown-menu .sub-menu-j6,
+  .dropdown-menu .sub-menu-txl {
+   display: none;
+    max-height: 200px; /* Adjust the height as needed */
+    overflow: auto;
+  }
+  
+  .dropdown-menu .sub-menu-hst.show,
+  .dropdown-menu .sub-menu-j6.show,
+  .dropdown-menu .sub-menu-txl.show {
+    display: block;
+  }
+
+  .dropdown-menu .sub-menu-hst .hst-mcz:hover {
+    background-color: #f2f2f2;
+  }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #cecece;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #272727;
+  }
+  .floor-btn {
+    font-family: 'DIN', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    background-color: rgba(255, 248, 248, 0.5);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.5s ease;
+  }
+  .floor-btn:hover {
+    background-color: rgba(165, 165, 165, 0.5)
+  }
+#starrailmap {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    bottom: 2%;
+    right: 1%;
+    border-radius: 10px;
+    height: 400px;
+    width: 400px;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+#starrailmap:hover {
+    transform: scale(1.2) translateX(-8%) translateY(-8%);
+    justify-content: right;
+}
+.guess-btn {
+    position: absolute;
+    display: none;
+    padding: 5px 111px;
+    font-family: 'DIN', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(180, 180, 180);
+    color: rgb(105, 105, 105);
+    z-index: 3;
+    bottom: 2%;
+    right: 1%;
+    transition: 0.5s ease;
+}
+.guess-btn.has-marker {
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    padding: 5px 175px;
+}
+.guess-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 3;
+}
+.guess-result {
+    position: fixed;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    bottom: 18%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 30px;
+}
+.next-round {
+    padding: 20px 30px;
+    font-family: 'DIN', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 248, 0.5);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    z-index: 4;
+    bottom: 10%;
+    display: none;
+    transition: 0.5s ease;
+    position: fixed;
+}
+.next-round:hover {
+    opacity: 0.8;
+    color: rgb(255, 177, 177);
+}
+#resultmap {
+    position: fixed;
+    display: flex;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    top: 22%;
+    left: 39%;
+    border-radius: 10px;
+    height: 400px;
+    width: 400px;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+#countdown-text {
+    position: absolute;
+    top: 2.5%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 4;
+    display: none;
+    transition: 0.5s ease;
+}
+#countdown-s-text {
+    position: absolute;
+    top: 5%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 245, 159);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 4;
+    display: none;
+    transition: 0.5s ease;
+}
+#countdown-timeup {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 96px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 4;
+    display: none;
+}
+.game-stat {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    background-color: rgb(91, 99, 206);
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    z-index: 3;
+    display: none;
+}
+#final-score {
+    position: absolute;
+    text-align: center;
+    color: rgb(255, 228, 107);
+    font-size: 200px;
+    text-shadow: 2px 2px 2px black;
+    top: 35%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+#round-info {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    transition: opacity 0.75s ease;
+    top: -12%;
+    left: 2%
+}
+#score-info {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    transition: opacity 0.75s ease;
+    top: 17%;
+    left: 2%
+}
+#map-info {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    transition: opacity 0.75s ease;
+    top: 45%;
+    left: 2%
+}
+.finaltext {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+    top: 33%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.menu-btn {
+    padding: 20px 30px;
+    left: 47%;
+    font-family: 'DIN', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 248, 0.5);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    z-index: 4;
+    bottom: 20%;
+    display: none;
+    transition: 0.5s ease;
+    position: fixed;
+}
+.menu-btn:hover {
+    opacity: 0.8;
+    color: rgb(255, 177, 177);
+}
+.gameaudio {
+    display: none;
+}

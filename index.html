@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lost In Star Rail</title>
+        <link rel="icon" href="static/media/home/march7thcheer.png">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="static/css/styles.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.4/leaflet-image.js'></script>
+    </head>
+    <body>
+        <div class="container">
+            <img src="static/media/home/list.png" alt="Lost In Star Rail" class="lihsr" id="homelogo">
+            <video autoplay muted loop id="loadingscreen">
+                <source src="static/media/home/loadingscreen.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div>
+            <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
+            <div id="version" class="version">v.1.0.0 (closed-beta)/ @moemoe</div>
+            <button id="play-button" class="play" onclick="togglePlay()">Play</button>
+            <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
+            <div class="settings-container" onclick="toggleSettings()"></div>
+            <div class="settings-app"></div>
+                <img src="static/media/icons/settings-outline.svg" alt="Settings" class="settings-logo">
+                <p class="settings-text">Settings</p>
+                <!--Map-->
+                <p class="settings-map">Map</p>
+                <div class="settings-map1" onclick="changeColor()" title="Random"></div>
+                <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
+                <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
+                <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
+                <!--Game rules-->
+                <p class="settings-gamerulestext" onclick="toggleSettings">Game Rules</p>
+                <img src="static/media/icons/timer-outline.svg" alt="Game Time" class="settings-gamerulestimer" title="The amount of time the round will last.">
+                <div class="gamerules-slider1">
+                    <input type="range" min="1" max="600" value="60" class="slider1" id="Range">
+                    <p class="settings-displayTime"><span id="Time"></span></p>
+                </div>
+                <img src="static/media/icons/eye-outline.svg" alt="See Time" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
+                <div class="gamerules-slider2">
+                    <input type="range" min="0" max="600" value="60" class="slider2" id="Range2">
+                    <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
+                </div>
+                <img src="static/media/icons/move-outline.svg" alt="Move" class="settings-gamerulemove" title="The ability to pan around the screen.">
+                <label class="move-switch">
+                    <input type="checkbox" checked id="Move">
+                    <span class="move-slider round"></span>
+                  </label>
+                <img src="static/media/icons/search-outline.svg" alt="Zoom" class="settings-gamerulezoom" title="The ability to zoom in and out of the image.">
+                <label class="zoom-switch">
+                    <input type="checkbox" checked id="Zoom">
+                    <span class="zoom-slider round"></span>
+                </label>
+                <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
+                <div class="gamerules-slider3">
+                    <input type="range" min="2" max="99" value="5" class="slider3" id="Range3">
+                    <p class="settings-displayRound"><span id="Round"></span></p>
+                </div>
+
+                <!--debug-->
+                <p id="Output" class="output-text"></p>
+
+                <!--Functions-->
+                <div id="starrailmap"></div>
+                <div id="resultmap"></div>
+                <div id="game-stat" class="game-stat">
+                    <p id="map-info">Map: Random</p>
+                    <p id="round-info"></p>
+                    <p id="score-info"></p>
+                </div>
+                <p id="countdown-text"><span id="countdown-value"></span></p>
+                <p id="countdown-s-text"><span id="countdown-s-value"></span></p>
+                <p id="countdown-timeup"></p>
+                <p id="finaltext" class="finaltext">Final Score</p>
+                <button id="menu-btn" class="menu-btn">Menu</button>
+                <div id="final-score"></div>
+                    <div class="dropdown">
+                    <button class="dropdown-btn">Star Rail Map</button>
+                    <ul class="dropdown-menu">
+                        <li class="main-hst">Herta Space Station
+                            <ul class="sub-menu-hst">
+                                <li class="hst-mcz">Master Control Zone</li>
+                                <li class="hst-bz">Base Zone</li>
+                                <li class="hst-stz">Storage Zone
+                                    <button class="hst-stz-b1 floor-btn">B1</button>
+                                    <button class="hst-stz-f1 floor-btn">F1</button>
+                                    <button class="hst-stz-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="hst-suz">Supply Zone
+                                    <button class="hst-suz-f1 floor-btn">F1</button>
+                                    <button class="hst-suz-f2 floor-btn">F2</button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="main-j6">Jarilo-VI
+                            <ul class="sub-menu-j6">
+                                <li class="j6-ad">Administrative District
+                                    <button class="j6-ad-b1 floor-btn">B1</button>
+                                    <button class="j6-ad-f1 floor-btn">F1</button>
+                                </li>
+                                <li class="j6-osp">Outlying Snow Plains</li>
+                                <li class="j6-bp">Backwater Pass</li>
+                                <li class="j6-sgrz">Silvermane Guard Restricted Zone</li>
+                                <li class="j6-cofe">Corridor of Fading Echoes</li>
+                                <li class="j6-eh">Everwinter Hill</li>
+                                <li class="j6-poc">Pillars of Creation</li>
+                                <li class="j6-owtg">Old Weapon Testing Ground
+                                    <button class="j6-owtg-f1 floor-btn">F1</button>
+                                    <button class="j6-owtg-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="j6-bt">Boulder Town</li>
+                                <li class="j6-gm">Great Mine</li>
+                                <li class="j6-rt">Rivet Town
+                                    <button class="j6-rt-f1 floor-btn">F1</button>
+                                    <button class="j6-rt-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="j6-rs">Robot Settlement
+                                    <button class="j6-rs-f1 floor-btn">F1</button>
+                                    <button class="j6-rs-f2 floor-btn">F2</button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="main-txl">The Xianzhou Luofu
+                            <ul class="sub-menu-txl">
+                                <li class="txl-csh">Central Starskiff Haven</li>
+                                <li class="txl-c">Cloudford
+                                    <button class="txl-c-f1 floor-btn">F1</button>
+                                    <button class="txl-c-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="txl-sn">Stargazer Navalia</li>
+                                <li class="txl-es">Exalting Sanctum</li>
+                                <li class="txl-aa">Aurum Alley</li>
+                                <li class="txl-dc">Divination Commission
+                                    <button class="txl-dc-f1 floor-btn">F1</button>
+                                    <button class="txl-dc-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="txl-arc">Artisanship Commission</li>
+                                <li class="txl-fg">Fyxestroll Garden</li>
+                                <li class="txl-ac">Alchemy Commission
+                                    <button class="txl-ac-f1 floor-btn">F1</button>
+                                    <button class="txl-ac-f2 floor-btn">F2</button>
+                                </li>
+                                <li class="txl-sw">Scalegorge Waterscape</li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <button id="guessButton" class="guess-btn">Place your pin on the map</button>
+                    <div id="guessOverlay" class="guess-overlay"></div>
+                    <div id="guessResult" class="guess-result"></div>
+            </div>
+        </div>
+        <button id="next-round" class="next-round">Next Round</button>
+        <audio id="gameaudio" class="gameaudio" controls>    
+            <source src="static/media/audio/Cosmic Sacrifice For Love.mp3" type="audio/mp3">
+        </audio>
+        <script src="static/js/play.js"></script>
+        <script src="static/js/settings.js"></script>
+        <script src="static/js/dropdown.js"></script>
+        <script src="static/js/starrailmap.js"></script>
+        <script src="static/js/marker.js"></script>
+        <script src="static/js/resultmap.js"></script>
+        <script src="static/js/time-countdown.js"></script>
+        <script src="static/js/seetime-countdown.js"></script>
+        <script src="static/js/score.js"></script>
+        
+            
+        <script>
+            // Click event handler debug
+            starrailMap.on('click', function (e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            console.log('Clicked coordinates:', lat, lng);
+            console.log('Selected map:', currentMap);
+            });     
+        </script>
+        <script>
+            
+          </script>
+    </body>
+</html>
