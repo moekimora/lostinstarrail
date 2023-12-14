@@ -1,28 +1,39 @@
-var marker = null;          
-            function addMarker(latlng) {
-                const icon = L.icon({
-                    iconUrl: 'static/media/icons/z-marker.png',
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 16],
-                });
+var starrailMarker = null;
+var resultMapMarker = null;
 
-                if (marker) {
-                    removeMarker();
-                }
+function addMarker(latlng) {
+    const icon = L.icon({
+        iconUrl: 'static/media/icons/z-marker.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+    });
 
-                marker = L.marker(latlng, { icon }).addTo(starrailMap);
-                }
+    // Remove existing markers
+    removeMarker();
+    
+    // Add marker to starrailMap
+    starrailMarker = L.marker(latlng, { icon }).addTo(starrailMap);
+    
+    // Add marker to resultMap
+    resultMapMarker = L.marker(latlng, { icon }).addTo(resultMap);
+}
 
-            function removeMarker() {
-                if (marker) {
-                    starrailMap.removeLayer(marker);
-                    marker = null;
-                }
-            }
-            function onMapClick(e) {
-                addMarker(e.latlng);
-                guessButton.innerText = 'Guess';
-                guessButton.classList.add('has-marker');
-            }
+function removeMarker() {
+    if (starrailMarker) {
+        starrailMap.removeLayer(starrailMarker);
+        starrailMarker = null;
+    }
+    
+    if (resultMapMarker) {
+        resultMap.removeLayer(resultMapMarker);
+        resultMapMarker = null;
+    }
+}
 
-                starrailMap.on('click', onMapClick);
+function onMapClick(e) {
+    addMarker(e.latlng);
+    guessButton.innerText = 'Guess';
+    guessButton.classList.add('has-marker');
+}
+
+starrailMap.on('click', onMapClick);

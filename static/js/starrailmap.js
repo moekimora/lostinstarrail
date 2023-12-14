@@ -5,6 +5,15 @@ var starrailMap = L.map('starrailmap', {
     maxBoundsViscosity: 1
     }).setView([0, 0], 0);
 
+
+var resultMap = L.map('resultmap', {
+    minZoom: 0,
+    maxZoom: 4,
+    maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
+    maxBoundsViscosity: 1
+  }).setView([0, 0], 0);
+  
+
 var overlays = [
 {
     name: 'Master Control Zone',
@@ -264,13 +273,24 @@ var overlays = [
 
 var currentMap = overlays[0].name; // Default to first map
 
+var resultMapOverlay = null; // Variable to store the current resultMap overlay
+
 function toggleMapVisibility(index) {
-overlays.forEach(function (overlay, i) {
+  overlays.forEach(function (overlay, i) {
     overlay.visible = (i === index);
     overlay.overlay.setOpacity(overlay.visible ? 1 : 0);
-});
-currentMap = overlays[index].name;
+  });
+  currentMap = overlays[index].name;
+
+  var selectedMapImageUrl = overlays[index].imageUrl;
+
+  if (resultMapOverlay) {
+    resultMap.removeLayer(resultMapOverlay);
+  }
+
+  resultMapOverlay = L.imageOverlay(selectedMapImageUrl, [[-90, -180], [90, 180]]).addTo(resultMap);
 }
+
 
 function addClickListener(selector, index) {
 var element = document.querySelector(selector);

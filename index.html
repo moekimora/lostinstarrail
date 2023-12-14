@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.0 (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.1 (closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -41,7 +41,7 @@
                 <p class="settings-gamerulestext" onclick="toggleSettings">Game Rules</p>
                 <img src="static/media/icons/timer-outline.svg" alt="Game Time" class="settings-gamerulestimer" title="The amount of time the round will last.">
                 <div class="gamerules-slider1">
-                    <input type="range" min="1" max="600" value="60" class="slider1" id="Range">
+                    <input type="range" min="1" max="600000" value="60" class="slider1" id="Range">
                     <p class="settings-displayTime"><span id="Time"></span></p>
                 </div>
                 <img src="static/media/icons/eye-outline.svg" alt="See Time" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
@@ -167,7 +167,6 @@
         <script src="static/js/dropdown.js"></script>
         <script src="static/js/starrailmap.js"></script>
         <script src="static/js/marker.js"></script>
-        <script src="static/js/resultmap.js"></script>
         <script src="static/js/time-countdown.js"></script>
         <script src="static/js/seetime-countdown.js"></script>
         <script src="static/js/score.js"></script>
@@ -183,7 +182,49 @@
             });     
         </script>
         <script>
-            
-          </script>
+            var audio = document.getElementById("gameaudio");
+var guessButton = document.getElementById("guessButton");
+var nextRoundButton = document.getElementById("next-round");
+var audioContext;
+var gainNode;
+var filterNode;
+
+// Function to create AudioContext after a user gesture
+function createAudioContext() {
+  // Check if AudioContext is supported
+  if (typeof window.AudioContext !== 'undefined') {
+    // Create AudioContext if it doesn't exist
+    if (!audioContext) {
+      audioContext = new AudioContext();
+      gainNode = audioContext.createGain();
+      filterNode = audioContext.createBiquadFilter();
+
+      // Connect the audio element to the gain node
+      var source = audioContext.createMediaElementSource(audio);
+      source.connect(filterNode);
+      filterNode.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+    }
+  }
+}
+
+guessButton.addEventListener("click", function() {
+  createAudioContext(); // Create AudioContext on button click
+  filterNode.type = "lowpass"; // Set the filter type to lowpass
+  filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
+});
+
+nextRoundButton.addEventListener("click", function() {
+  createAudioContext(); // Create AudioContext on button click
+  filterNode.type = "allpass"; // Set the filter type back to allpass (no effect)
+  filterNode.frequency.value = 0; // Set the filter frequency to 0 (no effect)
+});
+
+function muffleAudio() {
+  createAudioContext(); // Create AudioContext for muffle effect
+  filterNode.type = "lowpass"; // Set the filter type to lowpass
+  filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
+}
+        </script>
     </body>
 </html>

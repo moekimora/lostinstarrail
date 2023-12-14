@@ -309,14 +309,34 @@ var guessButton = document.querySelector('.guess-btn');
 
             var currentImage = null;
 
-
+            var customIcon = L.icon({
+                iconUrl: 'static/media/icons/z-marker2.png',
+                iconSize: [32, 32],
+                iconAnchor: [16, 16],
+            });
+            
+            var correctMarker = null;
+            playButton.addEventListener('click', function() {
+                if (currentImage) {
+                    correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+                }
+            });
+            
+            guessButton.addEventListener('click', function() {
+                if (currentImage) {
+                    correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+                }
+            });
+            nextRoundButton.addEventListener('click', function() {
+                if (currentImage) {
+                    resultMap.removeLayer(correctMarker);
+                }
+            });
             function playNextRound() {
                 guessOverlay.style.display = 'none';
                 guessResult.textContent = '';
                 startCountdown();
                 startSCountdown();
-                var audio = document.getElementById('gameaudio');
-                audio.volume = 0.2;
             // Choose a random image
             randomIndex = Math.floor(Math.random() * images.length);
             currentImage = images[randomIndex];
@@ -330,6 +350,7 @@ var guessButton = document.querySelector('.guess-btn');
             if (existingImage) {
                 existingImage.remove();
             }
+            
 
             // Display the new image
             var imageElement = document.createElement('img');
@@ -340,14 +361,14 @@ var guessButton = document.querySelector('.guess-btn');
 
             // Hide the next round button
             nextRoundButton.style.display = 'none';
-            if (marker) {
-            starrailMap.removeLayer(marker);
+            if (starrailMarker) {
+            starrailMap.removeLayer(starrailMarker);
             }
-
             var resultMap = document.querySelector('#resultmap');
                 resultMap.style.opacity = '0';
                 resultMap.style.pointerEvents = 'none';
             }
+
             
             playButton.addEventListener('click', function () {
             // Choose a random image
@@ -362,6 +383,8 @@ var guessButton = document.querySelector('.guess-btn');
             imageElement.classList.add('random-image');
             document.body.appendChild(imageElement);
             });
+
+
 
 var guessButton = document.getElementById('guessButton');
 var guessOverlay = document.getElementById('guessOverlay');
@@ -393,11 +416,9 @@ guessButton.addEventListener('click', function() {
         var resultMap = document.querySelector('#resultmap');
         resultMap.style.opacity = '1';
         resultMap.style.pointerEvents = 'auto';
-        var audio = document.getElementById('gameaudio');
-        audio.volume = 0.1;
 
-    if (marker) {
-        var playerMarker = marker.getLatLng();
+    if (starrailMarker) {
+        var playerMarker = starrailMarker.getLatLng();
         var distance = calculateDistance(
         playerMarker.lat,
         playerMarker.lng,
@@ -461,11 +482,9 @@ guessButton.addEventListener('click', function() {
         var resultMap = document.querySelector('#resultmap');
         resultMap.style.opacity = '1';
         resultMap.style.pointerEvents = 'auto';
-        var audio = document.getElementById('gameaudio');
-        audio.volume = 0.1;
 
-    if (marker) {
-        var playerMarker = marker.getLatLng();
+    if (starrailMarker) {
+        var playerMarker = starrailMarker.getLatLng();
         var distance = calculateDistance(
         playerMarker.lat,
         playerMarker.lng,
@@ -613,3 +632,5 @@ slider3.oninput = function() {
 
 // Call updateRoundInfo initially to display the initial round value
 updateRoundInfo();
+
+

@@ -42,8 +42,7 @@ function updateDisplay() {
     stopSCountdown();
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
-    var audio = document.getElementById('gameaudio');
-    audio.volume = 0.1;
+    muffleAudio();
 
     var displaySElement = document.getElementById("countdown-s-text");
     displaySElement.style.display = "none";

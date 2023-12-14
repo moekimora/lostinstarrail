@@ -763,7 +763,7 @@ input:checked + .zoom-slider:before {
     text-shadow: 2px 2px 2px black;
     bottom: 18%;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 5;
     font-size: 30px;
 }
 .next-round {
