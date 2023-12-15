@@ -446,7 +446,205 @@ var guessButton = document.querySelector('.guess-btn');
                 lat: -65.17015553643031,
                 lng: 39.280704259872444,
                 currentLocation: "Administrative District - F1",
-              }
+              },
+              {
+                imageUrl: 'randommap/75.png',
+                lat: -6.663247101355723,
+                lng: 137.39960074424746,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/76.png',
+                lat: -6.168320985132103,
+                lng: 105.63812613487245,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/77.png',
+                lat: -54.29861871024962,
+                lng: 61.634234354548596,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/78.png',
+                lat: 6.410450721097361,
+                lng: 77.50073573474454,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/79.png',
+                lat: 27.801142504121824,
+                lng: 40.74365896948907,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/80.png',
+                lat: 22.790846277552294,
+                lng: -6.703722433100769,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/81.png',
+                lat: 51.0857840042465,
+                lng: -70.40522760425728,
+                currentLocation: "Outlying Snow Plains",
+              },
+              {
+                imageUrl: 'randommap/82.png',
+                lat: -50.29953059001753,
+                lng: -29.020973177128635,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/83.png',
+                lat: -50.435232975791436,
+                lng: -12.320154155316049,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/84.png',
+                lat: -59.235222221717656,
+                lng: 24.310001134872426,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/85.png',
+                lat: -65.52453544129283,
+                lng: 52.58148550987246,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/86.png',
+                lat: -69.45701016599833,
+                lng: 76.52472659127969,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/87.png',
+                lat: -49.43935251154197,
+                lng: 37.377496465659846,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/88.png',
+                lat: 25.29892047283829,
+                lng: 49.50531363487246,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/89.png',
+                lat: 35.93184475729444,
+                lng: 32.06587309326768,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/90.png',
+                lat: 61.77375455984338,
+                lng: 26.12640593063624,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/91.png',
+                lat: 72.0153914734914,
+                lng: 34.366095737129385,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/92.png',
+                lat: 77.98325986459763,
+                lng: 23.459785881941656,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/93.png',
+                lat: 79.1792682981513,
+                lng: -1.7825948375370106,
+                currentLocation: "Backwater Pass",
+              },
+              {
+                imageUrl: 'randommap/94.png',
+                lat: -80.10323415887105,
+                lng: -3.2876551151275573,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/95.png',
+                lat: -68.57058931981494,
+                lng: 11.71234488487245,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/96.png',
+                lat: -61.59957317713825,
+                lng: -2.6407915254758323,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/97.png',
+                lat: -73.96260772383846,
+                lng: -22.857967615127563,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/98.png',
+                lat: -69.22402515926848,
+                lng: -48.52843523025513,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/99.png',
+                lat: -59.443682442765166,
+                lng: -106.47765398025514,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/100.png',
+                lat: -30.748923495464506,
+                lng: -3.1768727302551274,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/101.png',
+                lat: 0.1771506810778137,
+                lng: 108.86078238487244,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/102.png',
+                lat: 0.8503034715380198,
+                lng: 32.1323089723232,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/103.png',
+                lat: 27.65288197375239,
+                lng: 5.43475590019135,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/104.png',
+                lat: 0.7058465748421238,
+                lng: -17.297966480255116,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/105.png',
+                lat: 1.2229228559528373,
+                lng: -68.93380287985141,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/106.png',
+                lat: 24.688196933132616,
+                lng: -77.78960824012758,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
+                {
+                imageUrl: 'randommap/107.png',
+                lat: 0.5353371334776911,
+                lng: -99.4399988651276,
+                currentLocation: "Silvermane Guards Restricted Zone",
+                },
             // ... Add more images and their assigned coordinates here
             ];
 
@@ -485,7 +683,7 @@ var guessButton = document.querySelector('.guess-btn');
                   return Math.floor(Math.random() * 50);
                 } else if (mapId === 2) {
                     // Randomize among images 1 to 3
-                    return Math.floor(Math.random() * 24) + 50;
+                    return Math.floor(Math.random() * 57) + 51;
                 } else if (mapId === 3) {
                     // Randomize among images 1 to 3
                     return Math.floor(Math.random() * 7) + 9;
