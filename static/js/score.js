@@ -427,19 +427,21 @@ guessButton.addEventListener('click', function() {
         );
 
         var score;
-        if (distance > 200) {
+        if (distance > 75) {
             score = Math.max(0, 5000 - distance * 50);
-        } else if (distance > 100) {
-        score = Math.max(0, 5000 - distance * 30);
         } else if (distance > 50) {
-        score = Math.max(0, 5000 - distance * 20);
+            score = Math.max(0, 5000 - distance * 30);
+        } else if (distance > 40) {
+        score = Math.max(0, 5000 - distance * 25);
         } else if (distance > 30) {
-        score = Math.max(0, 5000 - distance * 15);
+        score = Math.max(0, 5000 - distance * 20);
         } else if (distance > 20) {
-        score = Math.max(0, 5000 - distance * 10);
+        score = Math.max(0, 5000 - distance * 15);
         } else if (distance > 10) {
+        score = Math.max(0, 5000 - distance * 10);
+        } else if (distance > 5) {
         score = Math.max(0, 5000 - distance * 5);
-        } else if (distance < 3) {
+        } else if (distance < 2) {
             score = 5000
         } else {
         score = Math.max(0, 5000 - distance);

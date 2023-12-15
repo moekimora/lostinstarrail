@@ -582,9 +582,15 @@ input:checked + .zoom-slider:before {
     align-items: center;
     justify-content: center;
 }
+.starrail-container {
+    position: fixed;
+    width: 485px;
+    height: 485px;
+    right: 1%;
+    bottom: 1%;
+}
 .dropdown {
     position: absolute;
-    bottom: 43.5%;
     right: 1%;
 }
 .dropdown-btn {

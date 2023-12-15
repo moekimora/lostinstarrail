@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.1 (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.11 (closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -69,7 +69,81 @@
                 <p id="Output" class="output-text"></p>
 
                 <!--Functions-->
+                <div class="starrail-container">
                 <div id="starrailmap"></div>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Star Rail Map</button>
+                        <ul class="dropdown-menu">
+                            <li class="main-hst">Herta Space Station
+                                <ul class="sub-menu-hst">
+                                    <li class="hst-mcz">Master Control Zone</li>
+                                    <li class="hst-bz">Base Zone</li>
+                                    <li class="hst-stz">Storage Zone
+                                        <button class="hst-stz-b1 floor-btn">B1</button>
+                                        <button class="hst-stz-f1 floor-btn">F1</button>
+                                        <button class="hst-stz-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="hst-suz">Supply Zone
+                                        <button class="hst-suz-f1 floor-btn">F1</button>
+                                        <button class="hst-suz-f2 floor-btn">F2</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="main-j6">Jarilo-VI
+                                <ul class="sub-menu-j6">
+                                    <li class="j6-ad">Administrative District
+                                        <button class="j6-ad-b1 floor-btn">B1</button>
+                                        <button class="j6-ad-f1 floor-btn">F1</button>
+                                    </li>
+                                    <li class="j6-osp">Outlying Snow Plains</li>
+                                    <li class="j6-bp">Backwater Pass</li>
+                                    <li class="j6-sgrz">Silvermane Guard Restricted Zone</li>
+                                    <li class="j6-cofe">Corridor of Fading Echoes</li>
+                                    <li class="j6-eh">Everwinter Hill</li>
+                                    <li class="j6-poc">Pillars of Creation</li>
+                                    <li class="j6-owtg">Old Weapon Testing Ground
+                                        <button class="j6-owtg-f1 floor-btn">F1</button>
+                                        <button class="j6-owtg-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="j6-bt">Boulder Town</li>
+                                    <li class="j6-gm">Great Mine</li>
+                                    <li class="j6-rt">Rivet Town
+                                        <button class="j6-rt-f1 floor-btn">F1</button>
+                                        <button class="j6-rt-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="j6-rs">Robot Settlement
+                                        <button class="j6-rs-f1 floor-btn">F1</button>
+                                        <button class="j6-rs-f2 floor-btn">F2</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="main-txl">The Xianzhou Luofu
+                                <ul class="sub-menu-txl">
+                                    <li class="txl-csh">Central Starskiff Haven</li>
+                                    <li class="txl-c">Cloudford
+                                        <button class="txl-c-f1 floor-btn">F1</button>
+                                        <button class="txl-c-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="txl-sn">Stargazer Navalia</li>
+                                    <li class="txl-es">Exalting Sanctum</li>
+                                    <li class="txl-aa">Aurum Alley</li>
+                                    <li class="txl-dc">Divination Commission
+                                        <button class="txl-dc-f1 floor-btn">F1</button>
+                                        <button class="txl-dc-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="txl-arc">Artisanship Commission</li>
+                                    <li class="txl-fg">Fyxestroll Garden</li>
+                                    <li class="txl-ac">Alchemy Commission
+                                        <button class="txl-ac-f1 floor-btn">F1</button>
+                                        <button class="txl-ac-f2 floor-btn">F2</button>
+                                    </li>
+                                    <li class="txl-sw">Scalegorge Waterscape</li>
+                                </ul>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+                <div id="map"></div>
                 <div id="resultmap"></div>
                 <div id="game-stat" class="game-stat">
                     <p id="map-info">Map: Random</p>
@@ -82,77 +156,6 @@
                 <p id="finaltext" class="finaltext">Final Score</p>
                 <button id="menu-btn" class="menu-btn">Menu</button>
                 <div id="final-score"></div>
-                    <div class="dropdown">
-                    <button class="dropdown-btn">Star Rail Map</button>
-                    <ul class="dropdown-menu">
-                        <li class="main-hst">Herta Space Station
-                            <ul class="sub-menu-hst">
-                                <li class="hst-mcz">Master Control Zone</li>
-                                <li class="hst-bz">Base Zone</li>
-                                <li class="hst-stz">Storage Zone
-                                    <button class="hst-stz-b1 floor-btn">B1</button>
-                                    <button class="hst-stz-f1 floor-btn">F1</button>
-                                    <button class="hst-stz-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="hst-suz">Supply Zone
-                                    <button class="hst-suz-f1 floor-btn">F1</button>
-                                    <button class="hst-suz-f2 floor-btn">F2</button>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="main-j6">Jarilo-VI
-                            <ul class="sub-menu-j6">
-                                <li class="j6-ad">Administrative District
-                                    <button class="j6-ad-b1 floor-btn">B1</button>
-                                    <button class="j6-ad-f1 floor-btn">F1</button>
-                                </li>
-                                <li class="j6-osp">Outlying Snow Plains</li>
-                                <li class="j6-bp">Backwater Pass</li>
-                                <li class="j6-sgrz">Silvermane Guard Restricted Zone</li>
-                                <li class="j6-cofe">Corridor of Fading Echoes</li>
-                                <li class="j6-eh">Everwinter Hill</li>
-                                <li class="j6-poc">Pillars of Creation</li>
-                                <li class="j6-owtg">Old Weapon Testing Ground
-                                    <button class="j6-owtg-f1 floor-btn">F1</button>
-                                    <button class="j6-owtg-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="j6-bt">Boulder Town</li>
-                                <li class="j6-gm">Great Mine</li>
-                                <li class="j6-rt">Rivet Town
-                                    <button class="j6-rt-f1 floor-btn">F1</button>
-                                    <button class="j6-rt-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="j6-rs">Robot Settlement
-                                    <button class="j6-rs-f1 floor-btn">F1</button>
-                                    <button class="j6-rs-f2 floor-btn">F2</button>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="main-txl">The Xianzhou Luofu
-                            <ul class="sub-menu-txl">
-                                <li class="txl-csh">Central Starskiff Haven</li>
-                                <li class="txl-c">Cloudford
-                                    <button class="txl-c-f1 floor-btn">F1</button>
-                                    <button class="txl-c-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="txl-sn">Stargazer Navalia</li>
-                                <li class="txl-es">Exalting Sanctum</li>
-                                <li class="txl-aa">Aurum Alley</li>
-                                <li class="txl-dc">Divination Commission
-                                    <button class="txl-dc-f1 floor-btn">F1</button>
-                                    <button class="txl-dc-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="txl-arc">Artisanship Commission</li>
-                                <li class="txl-fg">Fyxestroll Garden</li>
-                                <li class="txl-ac">Alchemy Commission
-                                    <button class="txl-ac-f1 floor-btn">F1</button>
-                                    <button class="txl-ac-f2 floor-btn">F2</button>
-                                </li>
-                                <li class="txl-sw">Scalegorge Waterscape</li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </div>
                     <button id="guessButton" class="guess-btn">Place your pin on the map</button>
                     <div id="guessOverlay" class="guess-overlay"></div>
                     <div id="guessResult" class="guess-result"></div>
