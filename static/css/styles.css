@@ -592,6 +592,7 @@ input:checked + .zoom-slider:before {
 .dropdown {
     position: absolute;
     right: 1%;
+    z-index: 4;
 }
 .dropdown-btn {
     padding: 20px 30px;
@@ -767,7 +768,7 @@ input:checked + .zoom-slider:before {
     position: fixed;
     color: white;
     text-shadow: 2px 2px 2px black;
-    bottom: 18%;
+    bottom: 14%;
     transform: translateX(-50%);
     z-index: 5;
     font-size: 30px;
@@ -782,7 +783,7 @@ input:checked + .zoom-slider:before {
     color: rgb(0, 0, 0);
     cursor: pointer;
     z-index: 4;
-    bottom: 10%;
+    bottom: 8%;
     display: none;
     transition: 0.5s ease;
     position: fixed;
@@ -847,8 +848,8 @@ input:checked + .zoom-slider:before {
 }
 .game-stat {
     position: absolute;
-    top: 2%;
-    right: 2%;
+    top: 1%;
+    right: 1%;
     background-color: rgb(91, 99, 206);
     width: 400px;
     height: 150px;
