@@ -303,7 +303,150 @@ var guessButton = document.querySelector('.guess-btn');
                 lng: 109.98549598086582,
                 currentLocation: "Supply Zone - F2",
             },
-
+            {
+                imageUrl: 'randommap/51.png',
+                lat: -9.158595737398278,
+                lng: 23.40546011924744,
+                currentLocation: "Administrative District - B1",
+            },
+            {
+                imageUrl: 'randommap/52.png',
+                lat: 16.34188280935449,
+                lng: 5.5192583799362325,
+                currentLocation: "Administrative District - B1",
+            },
+            {
+                imageUrl: 'randommap/53.png',
+                lat: 0.5886665727339253,
+                lng: -24.27062273025513,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/54.png',
+                lat: 12.213857626859353,
+                lng: 4.440314769744861,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/55.png',
+                lat: -18.339321611520532,
+                lng: 17.68890738487245,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/56.png',
+                lat: 20.112248327491276,
+                lng: 16.25336050987244,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/57.png',
+                lat: 31.858695142420004,
+                lng: 11.744627935580853,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/58.png',
+                lat: 41.39981605018618,
+                lng: 11.390079259872424,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/59.png',
+                lat: 77.02657795103241,
+                lng: 2.83539175987245,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/60.png',
+                lat: 81.06161875416375,
+                lng: -11.490823514147849,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/61.png',
+                lat: 73.40372889353195,
+                lng: 33.77284836085216,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/62.png',
+                lat: 75.70150725704902,
+                lng: 21.175192110852144,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/63.png',
+                lat: 74.50460814302929,
+                lng: -0.03570199012755682,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/64.png',
+                lat: 70.9505843017091,
+                lng: 4.06586050987245,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/65.png',
+                lat: 12.32702957377287,
+                lng: 24.72015738487245,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/66.png',
+                lat: -18.28369491159254,
+                lng: 46.28265738487243,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/67.png',
+                lat: -42.672582574356255,
+                lng: 31.89868908353122,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/68.png',
+                lat: -70.51467049266009,
+                lng: 56.88812613487246,
+                currentLocation: "Administrative District - F1",
+            },
+            {
+                imageUrl: 'randommap/69.png',
+                lat: -58.52424394269064,
+                lng: -4.2382565908544905,
+                currentLocation: "Administrative District - F1",
+              },
+              {
+                imageUrl: 'randommap/70.png',
+                lat: -67.03312005888803,
+                lng: 20.51760278414552,
+                currentLocation: "Administrative District - F1",
+              },
+              {
+                imageUrl: 'randommap/71.png',
+                lat: -67.22186725350943,
+                lng: 54.84752332547792,
+                currentLocation: "Administrative District - F1",
+              },
+              {
+                imageUrl: 'randommap/72.png',
+                lat: 21.889803964475316,
+                lng: 48.655724664675716,
+                currentLocation: "Administrative District - F1",
+              },
+              {
+                imageUrl: 'randommap/73.png',
+                lat: 17.896260646901275,
+                lng: 50.413537164675716,
+                currentLocation: "Administrative District - F1",
+              },
+              {
+                imageUrl: 'randommap/74.png',
+                lat: -65.17015553643031,
+                lng: 39.280704259872444,
+                currentLocation: "Administrative District - F1",
+              }
             // ... Add more images and their assigned coordinates here
             ];
 
@@ -332,13 +475,32 @@ var guessButton = document.querySelector('.guess-btn');
                     resultMap.removeLayer(correctMarker);
                 }
             });
+
+            function getRandomImageIndex(mapId) {
+                if (mapId === 0) {
+                  // Randomize among all images
+                  return Math.floor(Math.random() * images.length);
+                } else if (mapId === 1) {
+                  // Randomize among images 1 to 3
+                  return Math.floor(Math.random() * 50);
+                } else if (mapId === 2) {
+                    // Randomize among images 1 to 3
+                    return Math.floor(Math.random() * 24) + 50;
+                } else if (mapId === 3) {
+                    // Randomize among images 1 to 3
+                    return Math.floor(Math.random() * 7) + 9;
+                } else {
+                  // Handle other mapId values or fallback to randomize among all images
+                  return Math.floor(Math.random() * images.length);
+                }
+              }
             function playNextRound() {
                 guessOverlay.style.display = 'none';
                 guessResult.textContent = '';
                 startCountdown();
                 startSCountdown();
             // Choose a random image
-            randomIndex = Math.floor(Math.random() * images.length);
+            randomIndex = getRandomImageIndex(mapId);
             currentImage = images[randomIndex];
             currentMapLocation = images[randomIndex].currentLocation;
             console.log('Current map location:', currentMapLocation);
@@ -372,7 +534,7 @@ var guessButton = document.querySelector('.guess-btn');
             
             playButton.addEventListener('click', function () {
             // Choose a random image
-            randomIndex = Math.floor(Math.random() * images.length);
+            randomIndex = getRandomImageIndex(mapId);
             currentImage = images[randomIndex];
             currentMapLocation = images[randomIndex].currentLocation;
             console.log('Current map location:', currentMapLocation);
