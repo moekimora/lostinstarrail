@@ -11,7 +11,6 @@ If you guess in the wrong map location, you get 0 points.
 ## v1.0.0
 
 - Initial release with one map: Herta Space Station, with 50+ unique locations
-- Initial release with one map: Herta Space Station, with 50+ unique locations
 
 ## v1.0.1
 
