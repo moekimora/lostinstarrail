@@ -27,8 +27,8 @@ Added the correct marker in the result map
 
 ## v1.0.2
 
-Update: Jarilo-VI
-Minor fixes and improvements
+- Update: Jarilo-VI
+  - Minor fixes and improvements
 Map selection in settings is now functional
 Pan and zoom buttons temporarily do not have a function
 
