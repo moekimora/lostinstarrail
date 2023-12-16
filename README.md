@@ -11,6 +11,7 @@ If you guess in the wrong map location, you get 0 points.
 ## v1.0.0
 
 - Initial release with one map: Herta Space Station, with 50+ unique locations
+- Initial release with one map: Herta Space Station, with 50+ unique locations
 
 ## v1.0.1
 
@@ -27,10 +28,10 @@ If you guess in the wrong map location, you get 0 points.
 
 ## v1.0.2
 
-- Update: Jarilo-VI
-- Minor fixes and improvements
- - Map selection in settings is now functional
- - Pan and zoom buttons temporarily do not have a function
+Update: Jarilo-VI
+Minor fixes and improvements
+Map selection in settings is now functional
+Pan and zoom buttons temporarily do not have a function
 
 ## v1.0.21
 - Several fixes and ỉmprovements:
