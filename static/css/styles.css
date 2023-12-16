@@ -62,8 +62,8 @@ h1 {
 }
 .play {
     position: absolute;
-    top: 72%;
-    left: 45%;
+    bottom: 17%;
+    left: 43%;
     transform: translate(-50%, -50%);
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
@@ -82,8 +82,8 @@ h1 {
 }
 .settings {
     position: absolute;
-    top: 72%;
-    left: 54%;
+    bottom: 17%;
+    left: 57%;
     transform: translate(-50%, -50%);
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
@@ -134,6 +134,9 @@ h1 {
     z-index: 4;
     transition: opacity 0.5s ease, transform 0.4s ease;
 }
+.setting-text-container {
+    position: relative;
+}
 .settings-logo {
     position: absolute;
     width: 10%;
@@ -147,6 +150,8 @@ h1 {
 }
 .settings-text {
     position: absolute;
+    width: 10%;
+    height: 10%;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
@@ -734,7 +739,7 @@ input:checked + .zoom-slider:before {
     justify-content: right;
 }
 .guess-btn {
-    position: absolute;
+    position: fixed;
     display: none;
     padding: 5px 111px;
     font-family: 'DIN', sans-serif;
@@ -766,6 +771,8 @@ input:checked + .zoom-slider:before {
 }
 .guess-result {
     position: fixed;
+    left: 50%;
+    text-align: center;
     color: white;
     text-shadow: 2px 2px 2px black;
     bottom: 14%;
@@ -806,9 +813,9 @@ input:checked + .zoom-slider:before {
     transition: opacity 0.5s ease, transform 0.4s ease;
 }
 #countdown-text {
-    position: absolute;
-    top: 2.5%;
-    left: 45%;
+    position: fixed;
+    top: 4%;
+    left: 46.5%;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
@@ -820,9 +827,9 @@ input:checked + .zoom-slider:before {
     transition: 0.5s ease;
 }
 #countdown-s-text {
-    position: absolute;
-    top: 5%;
-    left: 58%;
+    position: fixed;
+    top: 3%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
@@ -847,7 +854,7 @@ input:checked + .zoom-slider:before {
     display: none;
 }
 .game-stat {
-    position: absolute;
+    position: fixed;
     top: 1%;
     right: 1%;
     background-color: rgb(91, 99, 206);

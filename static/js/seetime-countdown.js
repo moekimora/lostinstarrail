@@ -44,16 +44,16 @@ function updateSDisplay() {
   var displaySElement = document.getElementById("countdown-text");
   if (countdownValueS < 0) {
     displayElement.style.display = "none";
-    displaySElement.style.transform = 'translateX(5%)';
+    displaySElement.style.transform = 'translateY(-50%)';
     
   } else {
     if (countdownValueS == countdownValue) {
       displayElement.style.display = "none";
-      displaySElement.style.transform = 'translateX(5%)';
+      displaySElement.style.transform = 'translateY(-50%)';
     }
     else {
     displayElement.style.display = "block";
-    displaySElement.style.transform = 'translateX(-50%)';
+    displaySElement.style.transform = 'translateY(50%)';
     displayElement.textContent = 'Remove image in ' + formattedMinutes + ":" + formattedSeconds;
     }
   }

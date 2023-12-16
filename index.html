@@ -24,13 +24,15 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.2 (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.21 (closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
             <div class="settings-app"></div>
+            <div class="settings-text-container">
                 <img src="static/media/icons/settings-outline.svg" alt="Settings" class="settings-logo">
                 <p class="settings-text">Settings</p>
+            </div>
                 <!--Map-->
                 <p class="settings-map">Map</p>
                 <div class="settings-map1" onclick="changeColor()" title="Random"></div>
@@ -41,12 +43,12 @@
                 <p class="settings-gamerulestext" onclick="toggleSettings">Game Rules</p>
                 <img src="static/media/icons/timer-outline.svg" alt="Game Time" class="settings-gamerulestimer" title="The amount of time the round will last.">
                 <div class="gamerules-slider1">
-                    <input type="range" min="1" max="600000" value="60" class="slider1" id="Range">
+                    <input type="range" min="1" max="600" value="120" class="slider1" id="Range">
                     <p class="settings-displayTime"><span id="Time"></span></p>
                 </div>
                 <img src="static/media/icons/eye-outline.svg" alt="See Time" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
                 <div class="gamerules-slider2">
-                    <input type="range" min="0" max="600" value="60" class="slider2" id="Range2">
+                    <input type="range" min="0" max="600" value="120" class="slider2" id="Range2">
                     <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
                 </div>
                 <img src="static/media/icons/move-outline.svg" alt="Move" class="settings-gamerulemove" title="The ability to pan around the screen.">
@@ -159,7 +161,8 @@
                     <button id="guessButton" class="guess-btn">Place your pin on the map</button>
                     <div id="guessOverlay" class="guess-overlay"></div>
                     <div id="guessResult" class="guess-result"></div>
-            </div>
+                </div>
+            
         </div>
         <button id="next-round" class="next-round">Next Round</button>
         <audio id="gameaudio" class="gameaudio" controls>    
@@ -212,9 +215,11 @@ function createAudioContext() {
 }
 
 guessButton.addEventListener("click", function() {
-  createAudioContext(); // Create AudioContext on button click
+    if (guessButton.classList.contains('has-marker')) {
+        createAudioContext(); // Create AudioContext on button click
   filterNode.type = "lowpass"; // Set the filter type to lowpass
   filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
+    }
 });
 
 nextRoundButton.addEventListener("click", function() {

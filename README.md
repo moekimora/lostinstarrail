@@ -7,27 +7,45 @@ The maximum score you can get for each round is 5000, the farther you are to the
 If you guess in the wrong map location, you get 0 points.
 
 # Update Log
+
 ## v1.0.0
 
-Initial release
-Including Herta Space Station with 50+ unique locations
+Initial release with one map: Herta Space Station, with 50+ unique locations
+
 ## v1.0.1
 
 Minor fixes and improvements
 Music now muffled after guessing for each round
 Updated scoring system
+
 ## v1.0.11
 
 Minor fixes and improvements
 Updated scoring system
 The result map is no longer empty after guessing
 Added the correct marker in the result map
+
 ## v1.0.2
 
 Update: Jarilo-VI
 Minor fixes and improvements
 Map selection in settings is now functional
 Pan and zoom buttons temporarily do not have a function
+
+## v1.0.21
+Several fixes and ỉmprovements:
+Fixed the issue where the guess button is located incorrectly
+Fixed the issue about the score display
+
+Update: Jarilo-VI
+Updated 50+ unique Jarilo-VI locations
+
+Quality of life changes:
+Maps now return to its original zoom after each round
+Time to see image is now located at the top center of the screen above the timer, instead of the right of the timer
+Default settings for Time and See Time is now 120 (2 minutes) instead of 60 (1 minute)
+The text display after guessing is now centerized
+Optimized for mobile device and small screen devices
 
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

@@ -12,8 +12,8 @@ var resultMap = L.map('resultmap', {
     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
     maxBoundsViscosity: 1
   }).setView([0, 0], 0);
-  
 
+// Star Rail Map
 var overlays = [
 {
     name: 'Master Control Zone',
@@ -344,3 +344,11 @@ overlay.overlay = L.imageOverlay(overlay.imageUrl, overlay.bounds).addTo(starrai
 });
 
 toggleMapVisibility(0);
+
+  
+// Specifically reset map zoom to 0 after each round
+document.querySelector(".next-round").addEventListener("click", function() {
+    starrailMap.setView([0, 0], 0);
+    resultMap.setView([0, 0], 0);
+  });
+  
