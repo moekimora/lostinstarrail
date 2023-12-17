@@ -645,6 +645,312 @@ var images = [
     lng: -99.4399988651276,
     currentLocation: "Silvermane Guards Restricted Zone",
     },
+    {
+      imageUrl: 'randommap/108.png',
+      lat: -74.1956594982485,
+      lng: 37.76092886924745,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/109.png',
+      lat: -75.96611836973955,
+      lng: 20.237735509872454,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/110.png',
+      lat: -73.44473686586149,
+      lng: -12.955623865127558,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/111.png',
+      lat: -77.81066876549549,
+      lng: -22.916561365127553,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/112.png',
+      lat: -80.49321338002174,
+      lng: -38.70757699012757,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/113.png',
+      lat: -80.84934375968567,
+      lng: -39.29351449012757,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/114.png',
+      lat: -80.51738509410636,
+      lng: -44.42300103806011,
+      currentLocation: "Corridor of Fading Echoes",
+    },
+    {
+      imageUrl: 'randommap/115.png',
+      lat: -79.72013377718896,
+      lng: -67.70251370329652,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/116.png',
+      lat: -78.44540847338533,
+      lng: -66.23766995329652,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/117.png',
+      lat: -73.23762217249289,
+      lng: -64.62634182829652,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/118.png',
+      lat: -78.82069593269736,
+      lng: -80.15368557829653,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/119.png',
+      lat: -75.07521560182755,
+      lng: -67.84899807829652,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/120.png',
+      lat: -73.22793528741663,
+      lng: -55.003600601648266,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/121.png',
+      lat: -70.27223576884194,
+      lng: -13.181029328296512,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/122.png',
+      lat: -31.327444883024157,
+      lng: -7.857967615127557,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/123.png',
+      lat: -40.032571300477635,
+      lng: -22.89217781115661,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/124.png',
+      lat: -5.418795849824008,
+      lng: -8.19071309023262,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+      imageUrl: 'randommap/125.png',
+      lat: 18.70305165083484,
+      lng: -13.775936365127551,
+      currentLocation: "Corridor of Fading Echoes",
+  },
+  {
+    imageUrl: 'randommap/126.png',
+    lat: 51.40091472545985,
+    lng: 29.7528147697449,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/127.png',
+    lat: 22.676111191304823,
+    lng: 27.005313634872454,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/128.png',
+    lat: 27.748972863353487,
+    lng: 9.04953181743622,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/129.png',
+    lat: 64.06639300859513,
+    lng: 55.83343863487246,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/130.png',
+    lat: 77.31282076932264,
+    lng: 57.415469884872465,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/131.png',
+    lat: 74.26805536460787,
+    lng: 30.901798009872426,
+    currentLocation: "Corridor of Fading Echoes",
+},
+{
+    imageUrl: 'randommap/132.png',
+    lat: -33.136404239662504,
+    lng: -32.906795740127556,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/133.png',
+    lat: 12.441490244247813,
+    lng: -40.52398324012757,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/134.png',
+    lat: 42.207834739894246,
+    lng: -13.68804574012757,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/135.png',
+    lat: 25.00721397274995,
+    lng: 58.49945425987247,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/136.png',
+    lat: 31.32978490166211,
+    lng: 42.82562613487246,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/137.png',
+    lat: 5.908836605293363,
+    lng: 44.58343863487246,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/138.png',
+    lat: -9.447710693857495,
+    lng: 29.993594884872454,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/139.png',
+    lat: -14.858526490509993,
+    lng: -15.592342615127558,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/140.png',
+    lat: 0.762381109618355,
+    lng: -12.923124432563784,
+    currentLocation: "Everwinter Hill",
+},
+{
+    imageUrl: 'randommap/141.png',
+    lat: 40.61032053298558,
+    lng: -89.24438856121033,
+    currentLocation: "Pillars of Creation",
+},
+{
+    imageUrl: 'randommap/142.png',
+    lat: 26.387583953099238,
+    lng: -65.51391981121033,
+    currentLocation: "Pillars of Creation",
+},
+{
+    imageUrl: 'randommap/143.png',
+    lat: -1.8147330408773048,
+    lng: 22.93304800987244,
+    currentLocation: "Pillars of Creation",
+},
+{
+    imageUrl: 'randommap/144.png',
+    lat: -49.95033857194149,
+    lng: 40.950626134872444,
+    currentLocation: "Pillars of Creation",
+},
+{
+    imageUrl: 'randommap/145.png',
+    lat: -49.81334029465826,
+    lng: 22.214818023998827,
+    currentLocation: "Pillars of Creation",
+},
+{
+    imageUrl: 'randommap/146.png',
+    lat: -59.14694206940307,
+    lng: 58.3587005445012,
+    currentLocation: "Pillars of Creation",
+},
+{
+  imageUrl: 'randommap/147.png',
+  lat: -63.78188091195873,
+  lng: 38.050235509872444,
+  currentLocation: "Pillars of Creation",
+},
+{
+  imageUrl: 'randommap/148.png',
+  lat: -69.94992814049907,
+  lng: 3.0697667598724365,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/149.png',
+  lat: -57.13549604520973,
+  lng: 0.9603917598724366,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/150.png',
+  lat: -36.80304381119128,
+  lng: 13.99989179566526,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/151.png',
+  lat: -48.97510096401923,
+  lng: -6.80088945433473,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/152.png',
+  lat: -39.158097311606404,
+  lng: 13.64832929566526,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/153.png',
+  lat: -35.071582737134875,
+  lng: -8.03135820433473,
+  currentLocation: "Old Weapon Testing Ground - F2",
+},
+{
+  imageUrl: 'randommap/154.png',
+  lat: -23.744695289283534,
+  lng: 0.02528242066525799,
+  currentLocation: "Old Weapon Testing Ground - F1",
+},
+{
+  imageUrl: 'randommap/155.png',
+  lat: -3.3718008780584783,
+  lng: 0.6372326611486835,
+  currentLocation: "Old Weapon Testing Ground - F1",
+},
+{
+  imageUrl: 'randommap/156.png',
+  lat: 28.17653912977964,
+  lng: 1.0189855098724634,
+  currentLocation: "Old Weapon Testing Ground - F1",
+},
+{
+  imageUrl: 'randommap/157.png',
+  lat: 43.22314284742881,
+  lng: -21.05025025835104,
+  currentLocation: "Old Weapon Testing Ground - F1",
+},
+{
+  imageUrl: 'randommap/158.png',
+  lat: 38.34663050328888,
+  lng: 18.35404661664896,
+  currentLocation: "Old Weapon Testing Ground - F1",
+}
 // ... Add more images and their assigned coordinates here
 ];
 
@@ -683,7 +989,7 @@ function getRandomImageIndex(mapId) {
       return Math.floor(Math.random() * 50);
     } else if (mapId === 2) {
         // Randomize among images 1 to 3
-        return Math.floor(Math.random() * 57) + 51;
+        return Math.floor(Math.random() * 108) + 51;
     } else if (mapId === 3) {
         // Randomize among images 1 to 3
         return Math.floor(Math.random() * 7) + 9;

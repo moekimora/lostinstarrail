@@ -1,6 +1,6 @@
 var starrailMap = L.map('starrailmap', {
     minZoom: 0,
-    maxZoom: 4,
+    maxZoom: 5,
     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
     maxBoundsViscosity: 1
     }).setView([0, 0], 0);
@@ -8,7 +8,7 @@ var starrailMap = L.map('starrailmap', {
 
 var resultMap = L.map('resultmap', {
     minZoom: 0,
-    maxZoom: 4,
+    maxZoom: 5,
     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
     maxBoundsViscosity: 1
   }).setView([0, 0], 0);
@@ -115,7 +115,7 @@ var overlays = [
     overlay: null
 },
 {
-    name: 'Pillars Of Creation',
+    name: 'Pillars of Creation',
     imageUrl: 'starrailmap/j6/j6-7.png',
     bounds: [[-90, -180], [90, 180]],
     visible: false,
