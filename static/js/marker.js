@@ -32,7 +32,6 @@ function removeMarker() {
 
 function onMapClick(e) {
     addMarker(e.latlng);
-    guessButton.innerText = 'Guess';
     guessButton.classList.add('has-marker');
 }
 

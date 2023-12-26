@@ -160,6 +160,7 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '';
         map4.style.border = '';
+        changeAudioSource(mapId);
     } else if (element === map2) {
         // Set map value to 1
         mapId = 1;
@@ -167,6 +168,7 @@ function changeColor(element) {
         map2.style.border = '2px solid #180872';
         map3.style.border = '';
         map4.style.border = '';
+        changeAudioSource(mapId);
     } else if (element === map3) {
         // Set map value to 2
         mapId = 2;
@@ -174,6 +176,7 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '2px solid #180872';
         map4.style.border = '';
+        changeAudioSource(mapId);
     } else if (element === map4) {
         // Set map value to 3
         mapId = 3;
@@ -181,6 +184,7 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '';
         map4.style.border = '2px solid #180872';
+        changeAudioSource(mapId);
     }
     // Display map name
     var roundMapElement = document.getElementById("map-info");

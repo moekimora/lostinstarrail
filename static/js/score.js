@@ -966,12 +966,14 @@ var correctMarker = null;
 playButton.addEventListener('click', function() {
     if (currentImage) {
         correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+        correctMarker.bindTooltip("Correct location: " + currentMapLocation, {className: 'guess-tooltip', maxWidth: 200});
     }
 });
 
 guessButton.addEventListener('click', function() {
     if (currentImage) {
         correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+        correctMarker.bindTooltip("Correct location: " + currentMapLocation, {className: 'guess-tooltip', maxWidth: 200});
     }
 });
 nextRoundButton.addEventListener('click', function() {
@@ -985,14 +987,11 @@ function getRandomImageIndex(mapId) {
       // Randomize among all images
       return Math.floor(Math.random() * images.length);
     } else if (mapId === 1) {
-      // Randomize among images 1 to 3
       return Math.floor(Math.random() * 50);
     } else if (mapId === 2) {
-        // Randomize among images 1 to 3
         return Math.floor(Math.random() * 108) + 51;
     } else if (mapId === 3) {
-        // Randomize among images 1 to 3
-        return Math.floor(Math.random() * 7) + 9;
+        return Math.floor(Math.random() * 108) + 1;
     } else {
       // Handle other mapId values or fallback to randomize among all images
       return Math.floor(Math.random() * images.length);
@@ -1007,7 +1006,7 @@ function playNextRound() {
 randomIndex = getRandomImageIndex(mapId);
 currentImage = images[randomIndex];
 currentMapLocation = images[randomIndex].currentLocation;
-console.log('Current map location:', currentMapLocation);
+// console.log('Current map location:', currentMapLocation);
 // Reset marker class
 guessButton.classList.remove('has-marker');
 
@@ -1040,13 +1039,14 @@ playButton.addEventListener('click', function () {
 randomIndex = getRandomImageIndex(mapId);
 currentImage = images[randomIndex];
 currentMapLocation = images[randomIndex].currentLocation;
-console.log('Current map location:', currentMapLocation);
+// console.log('Current map location:', currentMapLocation);
 
 // Display the image
 var imageElement = document.createElement('img');
 imageElement.src = currentImage.imageUrl;
 imageElement.classList.add('random-image');
 document.body.appendChild(imageElement);
+
 });
 
 
@@ -1095,17 +1095,17 @@ guessButton.addEventListener('click', function() {
         if (distance > 75) {
             score = Math.max(0, 5000 - distance * 50);
         } else if (distance > 50) {
-            score = Math.max(0, 5000 - distance * 30);
+            score = Math.max(0, 5000 - distance * 40);
         } else if (distance > 40) {
-        score = Math.max(0, 5000 - distance * 25);
+        score = Math.max(0, 5000 - distance * 30);
         } else if (distance > 30) {
-        score = Math.max(0, 5000 - distance * 20);
+        score = Math.max(0, 5000 - distance * 25);
         } else if (distance > 20) {
-        score = Math.max(0, 5000 - distance * 15);
+        score = Math.max(0, 5000 - distance * 20);
         } else if (distance > 10) {
-        score = Math.max(0, 5000 - distance * 10);
+        score = Math.max(0, 5000 - distance * 15);
         } else if (distance > 5) {
-        score = Math.max(0, 5000 - distance * 5);
+        score = Math.max(0, 5000 - distance * 10);
         } else if (distance < 2) {
             score = 5000
         } else {
@@ -1133,7 +1133,6 @@ guessButton.addEventListener('click', function() {
         var guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
-        console.log('Clicked coordinates:', playerMarker.lat, playerMarker.lng);
         console.log('Image Latitude:', currentImage.lat);
         console.log('Image Longitude:', currentImage.lng);
         console.log('Distance:', distance);
@@ -1181,7 +1180,6 @@ guessButton.addEventListener('click', function() {
         var guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
-        console.log('Clicked coordinates:', playerMarker.lat, playerMarker.lng);
         console.log('Image Latitude:', currentImage.lat);
         console.log('Image Longitude:', currentImage.lng);
         console.log('Distance:', distance);

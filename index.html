@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.22 (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.23 (closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -158,16 +158,16 @@
                 <p id="finaltext" class="finaltext">Final Score</p>
                 <button id="menu-btn" class="menu-btn">Menu</button>
                 <div id="final-score"></div>
-                    <button id="guessButton" class="guess-btn">Place your pin on the map</button>
+                    <button id="guessButton" class="guess-btn">Guess</button>
                     <div id="guessOverlay" class="guess-overlay"></div>
                     <div id="guessResult" class="guess-result"></div>
                 </div>
             
         </div>
         <button id="next-round" class="next-round">Next Round</button>
-        <audio id="gameaudio" class="gameaudio" controls>    
-            <source src="static/media/audio/Cosmic Sacrifice For Love.mp3" type="audio/mp3">
-        </audio>
+        <audio id="gameaudio" class="gameaudio" controls>
+            <source id="audioSource" type="audio/mp3" src="static/media/audio/Cosmic Sacrifice For Love.mp3">
+          </audio>
         <script src="static/js/play.js"></script>
         <script src="static/js/settings.js"></script>
         <script src="static/js/dropdown.js"></script>
@@ -232,6 +232,29 @@ function muffleAudio() {
   createAudioContext(); // Create AudioContext for muffle effect
   filterNode.type = "lowpass"; // Set the filter type to lowpass
   filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
+}
+        </script>
+        <script>
+ function changeAudioSource(mapId) {
+  var audioSource = document.getElementById('audioSource');
+  var gameAudio = document.getElementById('gameaudio');
+  
+  switch (mapId) {
+    case 0:
+      audioSource.src = 'static/media/audio/Cosmic Sacrifice For Love.mp3';
+      break;
+    case 1:
+      audioSource.src = 'static/media/audio/Space Walk.mp3';
+      break;
+    case 2:
+      audioSource.src = 'static/media/audio/Embers.mp3';
+      break;
+    case 3:
+      audioSource.src = 'static/media/audio/Anthropic Domain.mp3';
+      break;
+  }
+  
+  gameAudio.load();
 }
         </script>
     </body>

@@ -566,7 +566,10 @@ input:checked + .zoom-slider:before {
 .zoom-slider.round:before {
     border-radius: 50%;
 }
-
+.guess-tooltip {
+    font-family: 'DIN', sans-serif;
+    font-size: 10px;
+}
 @font-face {
    font-family: 'DIN';
    src: url('../media/font/DIN.ttf') format('truetype');

@@ -51,5 +51,10 @@ If you guess in the wrong map location, you get 0 points.
  - Fixed a bug where Pillars of Creations is not the correct location, even if your current location is Pillars of Creation
  - More optimizations
 
+## v1.0.23
+- Minor updates:
+ - Music now changes depends on the map you choose
+ - The correct marker now display the correct location when you hover to it
+
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
