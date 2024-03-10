@@ -982,7 +982,8 @@ nextRoundButton.addEventListener('click', function() {
     }
 });
 
-var uniqueRandomNumbers;
+var seed;
+var uniqueID;
 
 playButton.addEventListener('click', function () {
 // seed system (v1.0.24)
@@ -1014,29 +1015,46 @@ playButton.addEventListener('click', function () {
         }
     }
 
-    function generateUniqueRandomNumbers(seed, roundElement) {
-      var uniqueNumbers = new Set(); // Use a Set to store unique numbers
+    function generateuniqueID(seed, roundElement) {
+      var uniqueIDs = new Set(); // Use a Set to store unique numbers
       var seedRandom = function(seed) {
         var x = Math.sin(seed) * 10000;
         return Math.abs(x - Math.floor(x));
       };
     
-      while (uniqueNumbers.size < roundElement) {
-        var randomNumber = Math.floor(seedRandom(seed) * 150); // Adjust the range as needed
-        uniqueNumbers.add(randomNumber);
+      var getRandomNumber = function(mapId) {
+        if (mapId === 0) {
+          // Randomize among all numbers
+          return Math.floor(seedRandom(seed) * images.length); // Adjust the range as needed
+        } else if (mapId === 1) {
+          return Math.floor(seedRandom(seed) * 50);
+        } else if (mapId === 2) {
+          return Math.floor(seedRandom(seed) * 58) + 51;
+        } else if (mapId === 3) {
+          return Math.floor(seedRandom(seed) * 108) + 1;
+        } else {
+          // Handle other mapId values or fallback to randomize among all numbers
+          return Math.floor(seedRandom(seed) * images.length); // Adjust the range as needed
+        }
+      };
+    
+      while (uniqueIDs.size < roundElement) {
+        var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
+        uniqueIDs.add(randomNumber);
         seed++; // Increase the seed for the next number
       }
     
-      return Array.from(uniqueNumbers); // Convert the Set to an Array and return
+      return Array.from(uniqueIDs); // Convert the Set to an Array and return
     }
+    
     var roundElement = parseInt(document.getElementById('Round').innerText);
-    uniqueRandomNumbers = generateUniqueRandomNumbers(seed, roundElement);
+    uniqueID = generateuniqueID(seed, roundElement);
     
     // Log the unique random numbers to the console
-    console.log("Unique Random Numbers:", uniqueRandomNumbers);
+    console.log("Unique ID:", uniqueID);
 
     // Choose a random image
-    randomIndex = uniqueRandomNumbers[currentRound - 1];
+    randomIndex = uniqueID[currentRound - 1];
     currentImage = images[randomIndex];
     currentMapLocation = images[randomIndex].currentLocation;
     // console.log('Current map location:', currentMapLocation);
@@ -1071,7 +1089,7 @@ function playNextRound() {
   startCountdown();
   startSCountdown();
 // Choose a random image
-randomIndex = uniqueRandomNumbers[currentRound - 1];
+randomIndex = uniqueID[currentRound - 1];
 currentImage = images[randomIndex];
 currentMapLocation = images[randomIndex].currentLocation;
 // console.log('Current map location:', currentMapLocation);

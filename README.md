@@ -67,7 +67,13 @@ If you guess in the wrong map location, you get 0 points.
   - Time and See Time limit decreases from 600 (10 minutes) to 300 (5 minutes)
   - Updated Settings UI for better viewing
   - Several bugs here and there
-  
+
+## v1.0.241
+- Small bug fixes and improvements
+  - There is a bug that the image is not displaying correctly to the according map despite chosen a map (ex: A Herta Space Station image in Jarilo-VI map). This is now fixed.
+  - Deleted audio: Embers, Space Walk.
+  - Now the audio will change base on Time the player sets. (by default: 120 seconds = Cosmic Sacrifice For Love, anything lower or equal to 300 seconds = Anthropic Domain) *This will be changed later*
+
 
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
