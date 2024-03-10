@@ -3,6 +3,7 @@
     //debug test
     var timeElement = document.getElementById('Time');
     var seeTimeElement = document.getElementById('SeeTime');
+    var roundElement = document.getElementById('Round');
     var moveCheckbox = document.getElementById('Move');
     var zoomCheckbox = document.getElementById('Zoom');
     var output = document.getElementById('Output');
@@ -19,6 +20,7 @@
 
     timeElement.addEventListener('input', updateOutput);
     seeTimeElement.addEventListener('input', updateOutput);
+    roundElement.addEventListener('input', updateOutput);
 
     updateOutput(); // Call updateOutput initially to display the initial status
 

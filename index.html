@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.23 (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.24 (closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -32,25 +32,31 @@
             <div class="settings-text-container">
                 <img src="static/media/icons/settings-outline.svg" alt="Settings" class="settings-logo">
                 <p class="settings-text">Settings</p>
-            </div>
+        </div>
                 <!--Map-->
                 <p class="settings-map">Map</p>
                 <div class="settings-map1" onclick="changeColor()" title="Random"></div>
                 <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
                 <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
                 <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
+                <div class="settings-map5" onclick="changeColor()" title="Penacony"></div>
                 <!--Game rules-->
-                <p class="settings-gamerulestext" onclick="toggleSettings">Game Rules</p>
-                <img src="static/media/icons/timer-outline.svg" alt="Game Time" class="settings-gamerulestimer" title="The amount of time the round will last.">
-                <div class="gamerules-slider1">
-                    <input type="range" min="1" max="600" value="120" class="slider1" id="Range">
+                <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
+                <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
+                <div>
+                    <input type="range" min="1" max="300" value="120" class="slider1" id="Range">
                     <p class="settings-displayTime"><span id="Time"></span></p>
                 </div>
-                <img src="static/media/icons/eye-outline.svg" alt="See Time" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
-                <div class="gamerules-slider2">
-                    <input type="range" min="0" max="600" value="120" class="slider2" id="Range2">
+                <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
+                <div>
+                    <input type="range" min="0" max="300" value="120" class="slider2" id="Range2">
                     <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
                 </div>
+                <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
+                <div>
+                    <input type="text" maxlength="16" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
+                </div>
+
                 <img src="static/media/icons/move-outline.svg" alt="Move" class="settings-gamerulemove" title="The ability to pan around the screen.">
                 <label class="move-switch">
                     <input type="checkbox" checked id="Move">
@@ -161,8 +167,7 @@
                     <button id="guessButton" class="guess-btn">Guess</button>
                     <div id="guessOverlay" class="guess-overlay"></div>
                     <div id="guessResult" class="guess-result"></div>
-                </div>
-            
+                </div>    
         </div>
         <button id="next-round" class="next-round">Next Round</button>
         <audio id="gameaudio" class="gameaudio" controls>

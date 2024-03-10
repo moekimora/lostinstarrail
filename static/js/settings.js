@@ -5,7 +5,8 @@ function toggleSettings() {
     document.querySelector('.settings-map1'),
     document.querySelector('.settings-map2'),
     document.querySelector('.settings-map3'),
-    document.querySelector('.settings-map4')
+    document.querySelector('.settings-map4'),
+    document.querySelector('.settings-map5')
     ];
 
     // Loop through the settings maps
@@ -118,6 +119,8 @@ function toggleSettings() {
     document.querySelector('.settings-gameruleround'),
     document.querySelector('.settings-displayRound'),
     document.querySelector('.slider3'),
+    document.querySelector('.settings-seedtext'),
+    document.querySelector('.seedinput'),
     document.querySelector('.move-switch'),
     document.querySelector('.zoom-switch')
     ];
@@ -153,6 +156,11 @@ function changeColor(element) {
     changeColor(map4);
     });
 
+    var map5 = document.querySelector('.settings-map5');
+    map5.addEventListener('click', function() {
+    changeColor(map5);
+    });
+
     if (element === map1) {
         // Set map value to 0
         mapId = 0;
@@ -160,6 +168,7 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '';
         map4.style.border = '';
+        map5.style.border = '';
         changeAudioSource(mapId);
     } else if (element === map2) {
         // Set map value to 1
@@ -168,6 +177,7 @@ function changeColor(element) {
         map2.style.border = '2px solid #180872';
         map3.style.border = '';
         map4.style.border = '';
+        map5.style.border = '';
         changeAudioSource(mapId);
     } else if (element === map3) {
         // Set map value to 2
@@ -176,6 +186,7 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '2px solid #180872';
         map4.style.border = '';
+        map5.style.border = '';
         changeAudioSource(mapId);
     } else if (element === map4) {
         // Set map value to 3
@@ -184,8 +195,19 @@ function changeColor(element) {
         map2.style.border = '';
         map3.style.border = '';
         map4.style.border = '2px solid #180872';
+        map5.style.border = '';
+        changeAudioSource(mapId);
+    } else if (element === map5) {
+        // Set map value to 4
+        mapId = 4;
+        map1.style.border = '';
+        map2.style.border = '';
+        map3.style.border = '';
+        map4.style.border = '';
+        map5.style.border = '2px solid #180872';
         changeAudioSource(mapId);
     }
+    
     // Display map name
     var roundMapElement = document.getElementById("map-info");
             
@@ -197,7 +219,9 @@ function changeColor(element) {
                 roundMapElement.textContent = "Map: Jarilo-VI";
                 } else if (mapId === 3) {
                 roundMapElement.textContent = "Map: The Xianzhou Luofu";
-                }
+                } else if (mapId === 4) {
+                roundMapElement.textContent = "Map: Penacony";
+                } 
                 
 }
 
@@ -220,6 +244,11 @@ function changeColor(element) {
     var map4 = document.querySelector('.settings-map4');
     map4.addEventListener('click', function() {
     changeColor(map4);
+    });
+
+    var map5 = document.querySelector('.settings-map5');
+    map5.addEventListener('click', function() {
+    changeColor(map5);
     });
 
 var slider = document.getElementById("Range");

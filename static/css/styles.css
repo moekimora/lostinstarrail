@@ -175,50 +175,59 @@ h1 {
 .settings-map1,
 .settings-map2,
 .settings-map3,
-.settings-map4 {
+.settings-map4,
+.settings-map5 {
 position: absolute;
 top: 20%;
 z-index: 4;
-width: 250px;
-height: 143px;
+width: 212px;
+height: 122px;
 background-size: cover;
 margin-block: 30px;
 cursor: pointer;
 display: none;
+flex-wrap: wrap;
 transition: transform 0.2s ease;
 }
 
 .settings-map1 {
-left: 28%;
+left: 25%;
 background-image: url("../media/map/random.png");
 }
 
 .settings-map2 {
-left: 43%;
+left: 38%;
 background-image: url("../media/map/hertaspacestation.png");
 }
 
 .settings-map3 {
-left: 58%;
+left: 51%;
 background-image: url("../media/map/jarilovi.png");
 }
 
 .settings-map4 {
-left: 73%;
+left: 64%;
 background-image: url("../media/map/thexianzhouluofu.png");
+}
+
+.settings-map5 {
+left: 76%;
+background-image: url("../media/map/penacony.png");
 }
 
 .settings-map1:hover,
 .settings-map2:hover,
 .settings-map3:hover,
-.settings-map4:hover {
+.settings-map4:hover,
+.settings-map5:hover {
 transform: scale(1.05);
 }
 
 .settings-map1.active,
 .settings-map2.active,
 .settings-map3.active,
-.settings-map4.active {
+.settings-map4.active,
+.settings-map5.active {
 z-index: 4;
 }
 .settings-gamerulestext {
@@ -238,7 +247,7 @@ z-index: 4;
     height: 7%;
     color: white;
     top: 47%;
-    left: 33%;
+    left: 27%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -249,10 +258,10 @@ z-index: 4;
 .slider1 {
     position: absolute;
     top: 50%;
-    left: 46%;
+    left: 40%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 40%; /* Full-width */
+    width: 15%; /* Full-width */
     height: 10px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -288,7 +297,7 @@ z-index: 4;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
     top: 40%;
-    left: 40%;
+    left: 33%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -299,8 +308,8 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 60%;
-    left: 33%;
+    top: 47%;
+    left: 58%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -310,11 +319,11 @@ z-index: 4;
 }
 .slider2 {
     position: absolute;
-    top: 64%;
-    left: 46%;
+    top: 50%;
+    left: 71%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 40%; /* Full-width */
+    width: 15%; /* Full-width */
     height: 10px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -349,11 +358,39 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 53.5%;
-    left: 40%;
+    top: 40%;
+    left: 64%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-seedtext {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 50.5%;
+    left: 29%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.seedinput {
+    position: absolute;
+    padding: 20px 30px;
+    font-family: 'DIN', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 248);
+    top: 57.5%;
+    left: 38%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.seedinput::placeholder {
+    font-style: italic;
 }
 
 .settings-gamerulemove {
@@ -383,8 +420,8 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 75%;
-    left: 57%;
+    top: 57%;
+    left: 58%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -394,11 +431,11 @@ z-index: 4;
 }
 .slider3 {
     position: absolute;
-    top: 78%;
-    left: 68%;
+    top: 60.5%;
+    left: 71%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 18%; /* Full-width */
+    width: 15%; /* Full-width */
     height: 10px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -433,7 +470,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 68%;
+    top: 50.5%;
     left: 64%;
     z-index: 4;
     display: none;
@@ -736,6 +773,7 @@ input:checked + .zoom-slider:before {
     height: 400px;
     width: 400px;
     transition: opacity 0.5s ease, transform 0.4s ease;
+    z-index: 3;
 }
 #starrailmap:hover {
     transform: scale(1.2) translateX(-8%) translateY(-8%);

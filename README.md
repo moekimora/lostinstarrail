@@ -56,5 +56,18 @@ If you guess in the wrong map location, you get 0 points.
   - Music now changes depends on the map you choose
   - The correct marker now display the correct location when you hover to it
 
+## v1.0.24
+- Big update time:
+  - Added Penacony
+  - "Game Rules" is now renamed to "Mods"
+  - Added more "Mods" for more interesting gameplay
+  - Added "seed" for replayability
+
+- Several fixes and improvements
+  - Time and See Time limit decreases from 600 (10 minutes) to 300 (5 minutes)
+  - Updated Settings UI for better viewing
+  - Several bugs here and there
+  
+
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

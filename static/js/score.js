@@ -982,28 +982,96 @@ nextRoundButton.addEventListener('click', function() {
     }
 });
 
-function getRandomImageIndex(mapId) {
-    if (mapId === 0) {
-      // Randomize among all images
-      return Math.floor(Math.random() * images.length);
-    } else if (mapId === 1) {
-      return Math.floor(Math.random() * 50);
-    } else if (mapId === 2) {
-        return Math.floor(Math.random() * 108) + 51;
-    } else if (mapId === 3) {
-        return Math.floor(Math.random() * 108) + 1;
+var uniqueRandomNumbers;
+
+playButton.addEventListener('click', function () {
+// seed system (v1.0.24)
+    var inputElement = document.getElementById('Input');
+    // Get the value of the input
+    var seedValue = inputElement.value.trim();
+    // Check if the input is blank
+    if (seedValue === '') {
+        // Generate a random seed with a maximum of 16 digits
+        var randomSeed = Math.floor(Math.random() * (Math.pow(10, 16)));
+        seed = randomSeed;
+        // Use the random seed value
+        console.log('Random Seed:', randomSeed);
     } else {
-      // Handle other mapId values or fallback to randomize among all images
-      return Math.floor(Math.random() * images.length);
+        // Convert the provided seed value to a number if it's a string
+        var parsedSeed = parseInt(seedValue, 10); // Ensure to specify the radix (base) as 10 for decimal numbers
+    if (!isNaN(parsedSeed)) {
+        seed = parsedSeed;
+        // Use the parsed seed value
+        console.log('Provided Seed:', parsedSeed);
+    } else {
+        // Convert the string into a seed
+        var stringSeed = 0; // You can use any specific value for string seeds
+        for (var i = 0; i < seedValue.length; i++) {
+            stringSeed += seedValue.charCodeAt(i); // Sum the character codes to create a seed from the string
+        }
+        seed = stringSeed;
+        console.log('String Seed:', stringSeed);
+        }
     }
+
+    function generateUniqueRandomNumbers(seed, roundElement) {
+      var uniqueNumbers = new Set(); // Use a Set to store unique numbers
+      var seedRandom = function(seed) {
+        var x = Math.sin(seed) * 10000;
+        return Math.abs(x - Math.floor(x));
+      };
+    
+      while (uniqueNumbers.size < roundElement) {
+        var randomNumber = Math.floor(seedRandom(seed) * 150); // Adjust the range as needed
+        uniqueNumbers.add(randomNumber);
+        seed++; // Increase the seed for the next number
+      }
+    
+      return Array.from(uniqueNumbers); // Convert the Set to an Array and return
+    }
+    var roundElement = parseInt(document.getElementById('Round').innerText);
+    uniqueRandomNumbers = generateUniqueRandomNumbers(seed, roundElement);
+    
+    // Log the unique random numbers to the console
+    console.log("Unique Random Numbers:", uniqueRandomNumbers);
+
+    // Choose a random image
+    randomIndex = uniqueRandomNumbers[currentRound - 1];
+    currentImage = images[randomIndex];
+    currentMapLocation = images[randomIndex].currentLocation;
+    // console.log('Current map location:', currentMapLocation);
+
+    // Display the image
+    var imageElement = document.createElement('img');
+    imageElement.src = currentImage.imageUrl;
+    imageElement.classList.add('random-image');
+    document.body.appendChild(imageElement);
+
+});
+
+function getRandomImageIndex(mapId) {
+  if (mapId === 0) {
+    // Randomize among all images
+    return Math.floor(Math.random() * images.length);
+  } else if (mapId === 1) {
+    return Math.floor(Math.random() * 50);
+  } else if (mapId === 2) {
+      return Math.floor(Math.random() * 108) + 51;
+  } else if (mapId === 3) {
+      return Math.floor(Math.random() * 108) + 1;
+  } else {
+    // Handle other mapId values or fallback to randomize among all images
+    return Math.floor(Math.random() * images.length);
   }
+}
+
 function playNextRound() {
-    guessOverlay.style.display = 'none';
-    guessResult.textContent = '';
-    startCountdown();
-    startSCountdown();
+  guessOverlay.style.display = 'none';
+  guessResult.textContent = '';
+  startCountdown();
+  startSCountdown();
 // Choose a random image
-randomIndex = getRandomImageIndex(mapId);
+randomIndex = uniqueRandomNumbers[currentRound - 1];
 currentImage = images[randomIndex];
 currentMapLocation = images[randomIndex].currentLocation;
 // console.log('Current map location:', currentMapLocation);
@@ -1013,7 +1081,7 @@ guessButton.classList.remove('has-marker');
 // Remove existing image
 var existingImage = document.querySelector('.random-image');
 if (existingImage) {
-    existingImage.remove();
+  existingImage.remove();
 }
 
 
@@ -1029,26 +1097,9 @@ if (starrailMarker) {
 starrailMap.removeLayer(starrailMarker);
 }
 var resultMap = document.querySelector('#resultmap');
-    resultMap.style.opacity = '0';
-    resultMap.style.pointerEvents = 'none';
+  resultMap.style.opacity = '0';
+  resultMap.style.pointerEvents = 'none';
 }
-
-
-playButton.addEventListener('click', function () {
-// Choose a random image
-randomIndex = getRandomImageIndex(mapId);
-currentImage = images[randomIndex];
-currentMapLocation = images[randomIndex].currentLocation;
-// console.log('Current map location:', currentMapLocation);
-
-// Display the image
-var imageElement = document.createElement('img');
-imageElement.src = currentImage.imageUrl;
-imageElement.classList.add('random-image');
-document.body.appendChild(imageElement);
-
-});
-
 
 
 var guessButton = document.getElementById('guessButton');
