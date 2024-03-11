@@ -1006,7 +1006,7 @@ playButton.addEventListener('click', function () {
         console.log('Provided Seed:', parsedSeed);
     } else {
         // Convert the string into a seed
-        var stringSeed = 0; // You can use any specific value for string seeds
+        var stringSeed = 1; // You can use any specific value for string seeds
         for (var i = 0; i < seedValue.length; i++) {
             stringSeed += seedValue.charCodeAt(i); // Sum the character codes to create a seed from the string
         }
@@ -1014,6 +1014,11 @@ playButton.addEventListener('click', function () {
         console.log('String Seed:', stringSeed);
         }
     }
+    var seedText = document.createElement('div');
+    seedText.className = 'seedtext';
+    seedText.textContent =  seed;
+    document.body.appendChild(seedText);
+    seedText.style.display = 'block';
 
     function generateuniqueID(seed, roundElement) {
       var uniqueIDs = new Set(); // Use a Set to store unique numbers
@@ -1061,27 +1066,20 @@ playButton.addEventListener('click', function () {
 
     // Display the image
     var imageElement = document.createElement('img');
-    imageElement.src = currentImage.imageUrl;
+    imageElement.src = currentImage.imageUrl; 
+    if (BAWCheckbox.checked) {
+      imageElement.style.filter = 'grayscale()';
+    } else if (InvertCheckbox.checked) {
+      imageElement.style.filter = 'invert()';
+    } else if (BAWCheckbox.checked && InvertCheckbox.checked) {
+      imageElement.style.filter = 'grayscale() invert()';
+    } else{
+      imageElement.style.filter = 'none';
+    }
     imageElement.classList.add('random-image');
     document.body.appendChild(imageElement);
 
 });
-
-function getRandomImageIndex(mapId) {
-  if (mapId === 0) {
-    // Randomize among all images
-    return Math.floor(Math.random() * images.length);
-  } else if (mapId === 1) {
-    return Math.floor(Math.random() * 50);
-  } else if (mapId === 2) {
-      return Math.floor(Math.random() * 108) + 51;
-  } else if (mapId === 3) {
-      return Math.floor(Math.random() * 108) + 1;
-  } else {
-    // Handle other mapId values or fallback to randomize among all images
-    return Math.floor(Math.random() * images.length);
-  }
-}
 
 function playNextRound() {
   guessOverlay.style.display = 'none';
@@ -1106,6 +1104,15 @@ if (existingImage) {
 // Display the new image
 var imageElement = document.createElement('img');
 imageElement.src = currentImage.imageUrl;
+if (BAWCheckbox.checked) {
+  imageElement.style.filter = 'grayscale()';
+} else if (InvertCheckbox.checked) {
+  imageElement.style.filter = 'invert()';
+} else if (BAWCheckbox.checked && InvertCheckbox.checked) {
+  imageElement.style.filter = 'grayscale() invert()';
+} else{
+  imageElement.style.filter = 'none';
+}
 imageElement.classList.add('random-image');
 document.body.appendChild(imageElement);
 

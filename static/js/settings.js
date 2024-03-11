@@ -114,6 +114,10 @@ function toggleSettings() {
     document.querySelector('.settings-gamerulesseetime'),
     document.querySelector('.settings-displaySeeTime'),
     document.querySelector('.slider2'),
+    document.querySelector('.settings-gamerulebaw'),
+    document.querySelector('.settings-gameruleinvert'),
+    document.querySelector('.settings-gamerulepixelate'),
+    document.querySelector('.settings-gamerulescramble'),
     document.querySelector('.settings-gamerulemove'),
     document.querySelector('.settings-gamerulezoom'),
     document.querySelector('.settings-gameruleround'),
@@ -121,6 +125,11 @@ function toggleSettings() {
     document.querySelector('.slider3'),
     document.querySelector('.settings-seedtext'),
     document.querySelector('.seedinput'),
+    document.querySelector('.settings-filterstext'),
+    document.querySelector('.baw-switch'),
+    document.querySelector('.invert-switch'),
+    document.querySelector('.pixelate-switch'),
+    document.querySelector('.scramble-switch'),
     document.querySelector('.move-switch'),
     document.querySelector('.zoom-switch')
     ];

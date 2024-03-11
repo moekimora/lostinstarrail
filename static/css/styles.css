@@ -392,14 +392,69 @@ z-index: 4;
 .seedinput::placeholder {
     font-style: italic;
 }
+.seedtext {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    text-shadow: 2px 2px 2px black;
+    bottom: 2%;
+    left: 1%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
 
+.settings-gamerulebaw {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 67%;
+    left: 39%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gameruleinvert {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 67%;
+    left: 49%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerulepixelate {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 67%;
+    left: 59%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerulescramble {
+    position: absolute;
+    width: 7%;
+    height: 7%;
+    color: white;
+    top: 67%;
+    left: 69%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
 .settings-gamerulemove {
     position: absolute;
     width: 7%;
     height: 7%;
     color: white;
-    top: 75%;
-    left: 33%;
+    top: 76%;
+    left: 39%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -409,8 +464,8 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 75%;
-    left: 45%;
+    top: 76%;
+    left: 49%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -476,10 +531,21 @@ z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
+.settings-filterstext {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    top: 60%;
+    left: 29%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
 .move-switch {
     position: absolute;
-    top: 76.5%;
-    left: 40%;
+    top: 77.5%;
+    left: 45%;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -539,11 +605,262 @@ input:checked + .move-slider:before {
 .move-slider.round:before {
     border-radius: 50%;
 }
+.baw-switch {
+    position: absolute;
+    top: 68.5%;
+    left: 45%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
 
+.baw-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.baw-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.baw-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .baw-slider {
+    background-color: #252525;
+}
+
+input:focus + .baw-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .baw-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.baw-slider.round {
+    border-radius: 34px;
+}
+
+.baw-slider.round:before {
+    border-radius: 50%;
+}
+.invert-switch {
+    position: absolute;
+    top: 68.5%;
+    left: 55%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
+
+.invert-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.invert-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.invert-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .invert-slider {
+    background-color: #252525;
+}
+
+input:focus + .invert-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .invert-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.invert-slider.round {
+    border-radius: 34px;
+}
+
+.invert-slider.round:before {
+    border-radius: 50%;
+}
+.pixelate-switch {
+    position: absolute;
+    top: 68.5%;
+    left: 65%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
+
+.pixelate-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.pixelate-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.pixelate-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .pixelate-slider {
+    background-color: #252525;
+}
+
+input:focus + .pixelate-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .pixelate-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.pixelate-slider.round {
+    border-radius: 34px;
+}
+
+.pixelate-slider.round:before {
+    border-radius: 50%;
+}
+.scramble-switch {
+    position: absolute;
+    top: 68.5%;
+    left: 75%;
+    display: inline-block;
+    width: 75px;
+    height: 43px;
+    z-index: 4;
+    display: none;
+}
+
+.scramble-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.scramble-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.scramble-slider:before {
+    position: absolute;
+    content: "";
+    height: 33px;
+    width: 33px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .scramble-slider {
+    background-color: #252525;
+}
+
+input:focus + .scramble-slider {
+    box-shadow: 0 0 2px #000000;
+}
+
+input:checked + .scramble-slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+}
+
+/* Rounded sliders */
+.scramble-slider.round {
+    border-radius: 34px;
+}
+
+.scramble-slider.round:before {
+    border-radius: 50%;
+}
 .zoom-switch {
     position: absolute;
-    top: 76.5%;
-    left: 51.5%;
+    top: 77.5%;
+    left: 55%;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -627,6 +944,9 @@ input:checked + .zoom-slider:before {
     align-items: center;
     justify-content: center;
 }
+.random-image {
+    z-index: -1;
+}
 .starrail-container {
     position: fixed;
     width: 485px;
@@ -648,7 +968,7 @@ input:checked + .zoom-slider:before {
     background-color: rgba(255, 248, 248, 0.5);
     color: rgb(0, 0, 0);
     cursor: pointer;
-    z-index: 3;
+    z-index: 4;
     display: none;
     transition: 0.5s ease;
 }
