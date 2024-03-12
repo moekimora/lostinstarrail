@@ -89,5 +89,10 @@ If you guess in the wrong map location, you get 0 points.
   - Updated filter: Blur
   - Minor stuff
 
+## v1.0.269 (nice)
+- More updates:
+  - Updated filter: Scramble
+  - Minor updates
+
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

@@ -984,6 +984,7 @@ nextRoundButton.addEventListener('click', function() {
 
 var seed;
 var uniqueID;
+var canvas;
 
 playButton.addEventListener('click', function () {
 // seed system (v1.0.24)
@@ -1078,7 +1079,58 @@ playButton.addEventListener('click', function () {
         imageElement.style.filter += ' blur(15px)';
       }
       if (ScrambleCheckbox.checked) {
+        let scrambleHandler = function() {
+          var canvas = document.createElement('canvas');
+          canvas.width = imageElement.width;
+          canvas.height = imageElement.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
         
+          var sliceWidth = imageElement.width / 2;
+          var sliceHeight = imageElement.height / 3;
+        
+          var slices = [
+            ctx.getImageData(0, 0, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
+            ctx.getImageData(0, sliceHeight, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, sliceHeight, sliceWidth, sliceHeight),
+            ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
+          ];
+        
+          // Randomize the order of the slices
+          for (var i = slices.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            [slices[i], slices[j]] = [slices[j], slices[i]];
+          }
+        
+          // Flip some of the slices
+          var flipIndices = [0, 2, 5]; // Adjust the indices to flip as needed
+          flipIndices.forEach(function(index) {
+            for (var i = 0; i < slices[index].data.length; i += 4) {
+              // Flip the slice by reversing the pixel data
+              var temp = slices[index].data[i];
+              slices[index].data[i] = slices[index].data[i + 2];
+              slices[index].data[i + 2] = temp;
+            }
+          });
+        
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+          // Draw the randomized and flipped slices back to the canvas
+          ctx.putImageData(slices[0], 0, 0);
+          ctx.putImageData(slices[1], sliceWidth, 0);
+          ctx.putImageData(slices[2], 0, sliceHeight);
+          ctx.putImageData(slices[3], sliceWidth, sliceHeight);
+          ctx.putImageData(slices[4], 0, sliceHeight * 2);
+          ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
+        
+          imageElement.src = canvas.toDataURL();
+          canvas.remove();
+        };
+        
+        imageElement.addEventListener('load', scrambleHandler, { once: true });
       }
           imageElement.classList.add('random-image');
           document.body.appendChild(imageElement);
@@ -1106,18 +1158,73 @@ if (existingImage) {
 
 // Display the new image
 var imageElement = document.createElement('img');
-imageElement.src = currentImage.imageUrl;
-if (BAWCheckbox.checked) {
-  imageElement.style.filter += ' grayscale()';
-}
-if (InvertCheckbox.checked) {
-  imageElement.style.filter += ' invert()';
-}
-if (PixelateCheckbox.checked) {
-  imageElement.style.filter += ' blur(15px)';
-}
-imageElement.classList.add('random-image');
-document.body.appendChild(imageElement);
+      imageElement.src = currentImage.imageUrl;
+
+      if (BAWCheckbox.checked) {
+          imageElement.style.filter += ' grayscale()';
+      }
+      if (InvertCheckbox.checked) {
+          imageElement.style.filter += ' invert()';
+      }
+      if (PixelateCheckbox.checked) {
+        imageElement.style.filter += ' blur(15px)';
+      }
+      if (ScrambleCheckbox.checked) {
+        let scrambleHandler = function() {
+          var canvas = document.createElement('canvas');
+          canvas.width = imageElement.width;
+          canvas.height = imageElement.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+        
+          var sliceWidth = imageElement.width / 2;
+          var sliceHeight = imageElement.height / 3;
+        
+          var slices = [
+            ctx.getImageData(0, 0, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
+            ctx.getImageData(0, sliceHeight, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, sliceHeight, sliceWidth, sliceHeight),
+            ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
+            ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
+          ];
+        
+          // Randomize the order of the slices
+          for (var i = slices.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            [slices[i], slices[j]] = [slices[j], slices[i]];
+          }
+        
+          // Flip some of the slices
+          var flipIndices = [0, 2, 5]; // Adjust the indices to flip as needed
+          flipIndices.forEach(function(index) {
+            for (var i = 0; i < slices[index].data.length; i += 4) {
+              // Flip the slice by reversing the pixel data
+              var temp = slices[index].data[i];
+              slices[index].data[i] = slices[index].data[i + 2];
+              slices[index].data[i + 2] = temp;
+            }
+          });
+        
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+          // Draw the randomized and flipped slices back to the canvas
+          ctx.putImageData(slices[0], 0, 0);
+          ctx.putImageData(slices[1], sliceWidth, 0);
+          ctx.putImageData(slices[2], 0, sliceHeight);
+          ctx.putImageData(slices[3], sliceWidth, sliceHeight);
+          ctx.putImageData(slices[4], 0, sliceHeight * 2);
+          ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
+        
+          imageElement.src = canvas.toDataURL();
+          canvas.remove();
+        };
+        
+        imageElement.addEventListener('load', scrambleHandler, { once: true });
+      }
+          imageElement.classList.add('random-image');
+          document.body.appendChild(imageElement);
 
 // Hide the next round button
 nextRoundButton.style.display = 'none';
