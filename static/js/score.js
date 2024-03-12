@@ -1066,20 +1066,23 @@ playButton.addEventListener('click', function () {
 
     // Display the image
     var imageElement = document.createElement('img');
-    imageElement.src = currentImage.imageUrl; 
-    if (BAWCheckbox.checked) {
-      imageElement.style.filter = 'grayscale()';
-    } else if (InvertCheckbox.checked) {
-      imageElement.style.filter = 'invert()';
-    } else if (BAWCheckbox.checked && InvertCheckbox.checked) {
-      imageElement.style.filter = 'grayscale() invert()';
-    } else{
-      imageElement.style.filter = 'none';
-    }
-    imageElement.classList.add('random-image');
-    document.body.appendChild(imageElement);
+      imageElement.src = currentImage.imageUrl;
 
-});
+      if (BAWCheckbox.checked) {
+          imageElement.style.filter += ' grayscale()';
+      }
+      if (InvertCheckbox.checked) {
+          imageElement.style.filter += ' invert()';
+      }
+      if (PixelateCheckbox.checked) {
+        imageElement.style.filter += ' blur(15px)';
+      }
+      if (ScrambleCheckbox.checked) {
+        
+      }
+          imageElement.classList.add('random-image');
+          document.body.appendChild(imageElement);
+      });
 
 function playNextRound() {
   guessOverlay.style.display = 'none';
@@ -1105,13 +1108,13 @@ if (existingImage) {
 var imageElement = document.createElement('img');
 imageElement.src = currentImage.imageUrl;
 if (BAWCheckbox.checked) {
-  imageElement.style.filter = 'grayscale()';
-} else if (InvertCheckbox.checked) {
-  imageElement.style.filter = 'invert()';
-} else if (BAWCheckbox.checked && InvertCheckbox.checked) {
-  imageElement.style.filter = 'grayscale() invert()';
-} else{
-  imageElement.style.filter = 'none';
+  imageElement.style.filter += ' grayscale()';
+}
+if (InvertCheckbox.checked) {
+  imageElement.style.filter += ' invert()';
+}
+if (PixelateCheckbox.checked) {
+  imageElement.style.filter += ' blur(15px)';
 }
 imageElement.classList.add('random-image');
 document.body.appendChild(imageElement);

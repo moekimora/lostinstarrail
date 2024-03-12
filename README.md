@@ -77,11 +77,17 @@ If you guess in the wrong map location, you get 0 points.
 ## v1.0.25
 - Update go brrr:
   - Added "Filters" for more diverse gameplay and challenge
-  - Currently avaliable filters: Black And White, Invert (Pixelate and Scramble will be updated later, for now it is a placeholder)
+  - Currently avaliable filters: Black And White, Invert (Blur and Scramble will be updated later, for now it is a placeholder)
   - Updated UI, minor stuff
 - Several bug fixes and improvements
   - Image now has a z-index of -1 to serve for the filter update
   - Update code... that's it
+
+## v1.0.251
+- Small bug fixes and improvements
+  - Fixed a bug that when using filter Black And White and Invert, only one takes effect
+  - Updated filter: Blur
+  - Minor stuff
 
 # Attribution
 All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
