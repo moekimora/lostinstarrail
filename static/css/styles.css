@@ -177,42 +177,42 @@ h1 {
 .settings-map3,
 .settings-map4,
 .settings-map5 {
-position: absolute;
-top: 20%;
-z-index: 4;
-width: 212px;
-height: 122px;
-background-size: cover;
-margin-block: 30px;
-cursor: pointer;
-display: none;
-flex-wrap: wrap;
-transition: transform 0.2s ease;
+    position: absolute;
+    top: 20%;
+    z-index: 4;
+    width: 212px;
+    height: 122px;
+    background-size: cover;
+    margin-block: 30px;
+    cursor: pointer;
+    display: none;
+    flex-wrap: wrap;
+    transition: transform 0.2s ease;
 }
 
 .settings-map1 {
-left: 25%;
-background-image: url("../media/map/random.png");
+    left: 25%;
+    background-image: url("../media/map/random.png");
 }
 
 .settings-map2 {
-left: 38%;
-background-image: url("../media/map/hertaspacestation.png");
+    left: 38%;
+    background-image: url("../media/map/hertaspacestation.png");
 }
 
 .settings-map3 {
-left: 51%;
-background-image: url("../media/map/jarilovi.png");
+    left: 51%;
+    background-image: url("../media/map/jarilovi.png");
 }
 
 .settings-map4 {
-left: 64%;
-background-image: url("../media/map/thexianzhouluofu.png");
+    left: 64%;
+    background-image: url("../media/map/thexianzhouluofu.png");
 }
 
 .settings-map5 {
-left: 76%;
-background-image: url("../media/map/penacony.png");
+    left: 76%;
+    background-image: url("../media/map/penacony.png");
 }
 
 .settings-map1:hover,
@@ -220,7 +220,7 @@ background-image: url("../media/map/penacony.png");
 .settings-map3:hover,
 .settings-map4:hover,
 .settings-map5:hover {
-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .settings-map1.active,
@@ -228,8 +228,27 @@ transform: scale(1.05);
 .settings-map3.active,
 .settings-map4.active,
 .settings-map5.active {
-z-index: 4;
+    z-index: 4;
 }
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-items: center;
+    z-index: 5;
+    transition: opacity 0.5s ease;
+}
+#kurukuru {
+    width: 169px;
+    height: 169px;
+    margin: auto;
+}
+
 .settings-gamerulestext {
     position: absolute;
     color: white;

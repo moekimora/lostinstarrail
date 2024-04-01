@@ -97,6 +97,11 @@
                 <!--debug-->
                 <p id="Output" class="output-text"></p>
 
+                <!--kurukuru-->
+                <div id="loading-screen">
+                    <img id="kurukuru" src="static/media/home/kururin.gif" alt="Kurukuru">
+                </div>
+
                 <!--Functions-->
                 <div class="starrail-container">
                 <div id="starrailmap"></div>
@@ -253,7 +258,7 @@
             InvertCheckbox = document.getElementById("Invert");
             PixelateCheckbox = document.getElementById("Pixelate");
             ScrambleCheckbox = document.getElementById("Scramble");
-
+            loadingScreen = document.getElementById('loading-screen');
         </script>
 
         <script>
@@ -302,27 +307,6 @@ function muffleAudio() {
   createAudioContext(); // Create AudioContext for muffle effect
   filterNode.type = "lowpass"; // Set the filter type to lowpass
   filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
-}
-        </script>
-        <script>
-function changeAudioSource(CountdownValue) {
-  var audioSource = document.getElementById('audioSource');
-  var gameAudio = document.getElementById('gameaudio');
-  var sliderValue = document.getElementById("Range").value;
-  countdownValue = parseInt(sliderValue);
-
-  if (CountdownValue <= 120) {
-    audioSource.src = 'static/media/audio/Cosmic Sacrifice For Love.mp3';
-    console.log('Setting audio source to Cosmic Sacrifice For Love.mp3');
-  } else if (CountdownValue > 120 && CountdownValue <= 300) {
-    audioSource.src = 'static/media/audio/Anthropic Domain.mp3';
-    console.log('Setting audio source to Anthropic Domain.mp3');
-  } else {
-    audioSource.src = '';
-    console.log('No matching condition. Setting audio source to empty.');
-  }
-
-  gameAudio.load();
 }
         </script>
     </body>

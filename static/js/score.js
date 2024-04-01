@@ -987,6 +987,7 @@ var uniqueID;
 var canvas;
 
 playButton.addEventListener('click', function () {
+  loadingScreen.style.display = 'flex';
 // seed system (v1.0.24)
     var inputElement = document.getElementById('Input');
     // Get the value of the input
@@ -1137,6 +1138,7 @@ playButton.addEventListener('click', function () {
           imageElement.classList.add('random-image');
           document.body.appendChild(imageElement);
         imageElement.addEventListener("load", function () {
+          loadingScreen.style.display = 'none';
           if (countdownInterval) {
             stopCountdown();
           } else {
@@ -1152,6 +1154,7 @@ playButton.addEventListener('click', function () {
 
 
 function playNextRound() {
+  loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
   guessResult.textContent = '';
 // Choose a random image
@@ -1239,6 +1242,7 @@ var imageElement = document.createElement('img');
           imageElement.classList.add('random-image');
           document.body.appendChild(imageElement);
           imageElement.addEventListener("load", function () {
+            loadingScreen.style.display = 'none';
               startCountdown();
               startSCountdown();
           });
