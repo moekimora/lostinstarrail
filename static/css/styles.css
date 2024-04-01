@@ -235,7 +235,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 40%;
+    top: 35%;
     left: 15%;
     z-index: 4;
     display: none;
@@ -246,7 +246,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 47%;
+    top: 42%;
     left: 27%;
     z-index: 4;
     display: none;
@@ -257,7 +257,7 @@ z-index: 4;
 }
 .slider1 {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 40%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
@@ -296,7 +296,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 40%;
+    top: 35%;
     left: 33%;
     z-index: 4;
     display: none;
@@ -308,7 +308,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 47%;
+    top: 42%;
     left: 58%;
     z-index: 4;
     display: none;
@@ -319,7 +319,7 @@ z-index: 4;
 }
 .slider2 {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 71%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
@@ -358,7 +358,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 40%;
+    top: 35%;
     left: 64%;
     z-index: 4;
     display: none;
@@ -369,7 +369,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 50.5%;
+    top: 46.5%;
     left: 29%;
     z-index: 4;
     display: none;
@@ -383,7 +383,7 @@ z-index: 4;
     font-weight: bold;
     border-radius: 10px;
     background-color: rgba(255, 248, 248);
-    top: 57.5%;
+    top: 53.5%;
     left: 38%;
     z-index: 4;
     display: none;
@@ -409,7 +409,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 67%;
+    top: 64%;
     left: 39%;
     z-index: 4;
     display: none;
@@ -420,7 +420,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 67%;
+    top: 64%;
     left: 49%;
     z-index: 4;
     display: none;
@@ -431,7 +431,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 67%;
+    top: 64%;
     left: 59%;
     z-index: 4;
     display: none;
@@ -442,7 +442,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 67%;
+    top: 64%;
     left: 69%;
     z-index: 4;
     display: none;
@@ -475,7 +475,7 @@ z-index: 4;
     width: 7%;
     height: 7%;
     color: white;
-    top: 57%;
+    top: 53%;
     left: 58%;
     z-index: 4;
     display: none;
@@ -486,7 +486,7 @@ z-index: 4;
 }
 .slider3 {
     position: absolute;
-    top: 60.5%;
+    top: 56.5%;
     left: 71%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
@@ -525,7 +525,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 50.5%;
+    top: 46.5%;
     left: 64%;
     z-index: 4;
     display: none;
@@ -536,7 +536,7 @@ z-index: 4;
     color: white;
     font-size: 60px;
     text-shadow: 2px 2px 2px black;
-    top: 60%;
+    top: 57%;
     left: 29%;
     z-index: 4;
     display: none;
@@ -607,7 +607,7 @@ input:checked + .move-slider:before {
 }
 .baw-switch {
     position: absolute;
-    top: 68.5%;
+    top: 65.5%;
     left: 45%;
     display: inline-block;
     width: 75px;
@@ -670,7 +670,7 @@ input:checked + .baw-slider:before {
 }
 .invert-switch {
     position: absolute;
-    top: 68.5%;
+    top: 65.5%;
     left: 55%;
     display: inline-block;
     width: 75px;
@@ -733,7 +733,7 @@ input:checked + .invert-slider:before {
 }
 .pixelate-switch {
     position: absolute;
-    top: 68.5%;
+    top: 65.5%;
     left: 65%;
     display: inline-block;
     width: 75px;
@@ -796,7 +796,7 @@ input:checked + .pixelate-slider:before {
 }
 .scramble-switch {
     position: absolute;
-    top: 68.5%;
+    top: 65.5%;
     left: 75%;
     display: inline-block;
     width: 75px;
@@ -1002,6 +1002,7 @@ input:checked + .zoom-slider:before {
     .dropdown-menu .hst-bz:hover,
     .dropdown-menu .hst-stz:hover,
     .dropdown-menu .hst-suz:hover,
+    .dropdown-menu .hst-scz:hover,
     .dropdown-menu .j6-ad:hover,
     .dropdown-menu .j6-osp:hover,
     .dropdown-menu .j6-bp:hover,
@@ -1027,15 +1028,23 @@ input:checked + .zoom-slider:before {
     .dropdown-menu .txl-fg:hover,
     .dropdown-menu .txl-ac:hover,
     .dropdown-menu .txl-sw:hover,
-    .dropdown-menu .txl-c:hover
-    .dropdown-menu .txl-dc:hover
-    .dropdown-menu .txl-ac:hover {
+    .dropdown-menu .txl-c:hover,
+    .dropdown-menu .txl-dc:hover,
+    .dropdown-menu .txl-ac:hover,
+    .dropdown-menu .p-tr:hover,
+    .dropdown-menu .p-gh:hover,
+    .dropdown-menu .p-de:hover,
+    .dropdown-menu .p-acd:hover,
+    .dropdown-menu .p-trd:hover,
+    .dropdown-menu .p-dp:hover,
+    .dropdown-menu .p-cstp:hover{
         background-color: #f2f2f2;
     }
 
   .dropdown-menu .sub-menu-hst,
   .dropdown-menu .sub-menu-j6,
-  .dropdown-menu .sub-menu-txl {
+  .dropdown-menu .sub-menu-txl,
+  .dropdown-menu .sub-menu-p{
    display: none;
     max-height: 200px; /* Adjust the height as needed */
     overflow: auto;
@@ -1043,7 +1052,8 @@ input:checked + .zoom-slider:before {
   
   .dropdown-menu .sub-menu-hst.show,
   .dropdown-menu .sub-menu-j6.show,
-  .dropdown-menu .sub-menu-txl.show {
+  .dropdown-menu .sub-menu-txl.show,
+  .dropdown-menu .sub-menu-p.show{
     display: block;
   }
 

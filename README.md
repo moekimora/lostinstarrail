@@ -94,5 +94,18 @@ If you guess in the wrong map location, you get 0 points.
   - Updated filter: Scramble
   - Minor updates
 
+## v1.0.27
+- Updated Penacony
+  - Added Penacony to Star Rail Map
+  - More locations YIPPIEEEEEEEEE (they are the hardest location to guess so far)
+- Several bug fixes and improvements
+  - You can now enter seed up to 32 characters (Please note that random generated seed will only generate up to 16 characters)
+  - Seeds now can be randomly generated as a negative number
+- Notes
+  - May consider removing the Pan and Zoom switch, as they never got used, and I haven't figured out a way to make 360 images correctly
+  - May add Competitive option in Settings (Remove the Guess button and you can only guess after you've placed your guess on the map and the timer runs out)
+  - More locations coming soon
+
+
 # Attribution
-All files, images and sounds belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
+All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

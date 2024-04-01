@@ -14,20 +14,14 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const mainHST = document.querySelector('.main-hst');
-mainHST.addEventListener('click', function() {
-  const subMenuHST = this.querySelector('.sub-menu-hst');
-  subMenuHST.classList.toggle('show');
-});
+function toggleSubMenu(mainMap, subMenuClass) {
+  mainMap.addEventListener('click', function() {
+    const subMenu = this.querySelector(`.${subMenuClass}`);
+    subMenu.classList.toggle('show');
+  });
+}
 
-const mainJ6 = document.querySelector('.main-j6');
-mainJ6.addEventListener('click', function() {
-  const subMenuJ6 = this.querySelector('.sub-menu-j6');
-  subMenuJ6.classList.toggle('show');
-});
-
-const mainTXL = document.querySelector('.main-txl');
-mainTXL.addEventListener('click', function() {
-  const subMenuTXL = this.querySelector('.sub-menu-txl');
-  subMenuTXL.classList.toggle('show');
-});
+toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');
+toggleSubMenu(document.querySelector('.main-j6'), 'sub-menu-j6');
+toggleSubMenu(document.querySelector('.main-txl'), 'sub-menu-txl');
+toggleSubMenu(document.querySelector('.main-p'), 'sub-menu-p');

@@ -64,6 +64,27 @@ var overlays = [
     visible: false,
     overlay: null
 },
+{
+    name: 'Seclusion Zone - F1',
+    imageUrl: 'starrailmap/hst/hst-5f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Seclusion Zone - F2',
+    imageUrl: 'starrailmap/hst/hst-5f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Seclusion Zone - F3',
+    imageUrl: 'starrailmap/hst/hst-5f3.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
 
 {
     name: 'Administrative District - B1',
@@ -269,6 +290,119 @@ var overlays = [
     visible: false,
     overlay: null
 },
+
+{
+    name: 'The Reverie (Reality) - F1',
+    imageUrl: 'starrailmap/p/p-1f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'The Reverie (Reality) - F2',
+    imageUrl: 'starrailmap/p/p-1f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'The Reverie (Reality) - F3',
+    imageUrl: 'starrailmap/p/p-1f3.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Golden Hour - F1',
+    imageUrl: 'starrailmap/p/p-2f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Golden Hour - F2',
+    imageUrl: 'starrailmap/p/p-2f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Golden Hour - F3',
+    imageUrl: 'starrailmap/p/p-2f3.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: "Dream's Edge",
+    imageUrl: 'starrailmap/p/p-3.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: "A Child's Dream",
+    imageUrl: 'starrailmap/p/p-4.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'The Reverie (Dreamscape) - F1',
+    imageUrl: 'starrailmap/p/p-5f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'The Reverie (Dreamscape) - F2',
+    imageUrl: 'starrailmap/p/p-5f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'The Reverie (Dreamscape) - F3',
+    imageUrl: 'starrailmap/p/p-5f3.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Dewlight Pavilion - F1',
+    imageUrl: 'starrailmap/p/p-6f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Dewlight Pavilion - F2',
+    imageUrl: 'starrailmap/p/p-6f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Dewlight Pavilion - Sandpit Model',
+    imageUrl: 'starrailmap/p/p-6sm.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Clock Studios Theme Park - F1',
+    imageUrl: 'starrailmap/p/p-7f1.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
+{
+    name: 'Clock Studios Theme Park - F2',
+    imageUrl: 'starrailmap/p/p-7f2.png',
+    bounds: [[-90, -180], [90, 180]],
+    visible: false,
+    overlay: null
+},
 ];
 
 var currentMap = overlays[0].name; // Default to first map
@@ -306,38 +440,57 @@ addClickListener('.hst-stz-f1', 3);
 addClickListener('.hst-stz-f2', 4);
 addClickListener('.hst-suz-f1', 5);
 addClickListener('.hst-suz-f2', 6);
+addClickListener('.hst-scz-f1', 7);
+addClickListener('.hst-scz-f2', 8);
+addClickListener('.hst-scz-f3', 9);
 
-addClickListener('.j6-ad-b1', 7);
-addClickListener('.j6-ad-f1', 8);
-addClickListener('.j6-osp', 9);
-addClickListener('.j6-bp', 10);
-addClickListener('.j6-sgrz', 11);
-addClickListener('.j6-cofe', 12);
-addClickListener('.j6-eh', 13);
-addClickListener('.j6-poc', 14);
-addClickListener('.j6-owtg-f1', 15);
-addClickListener('.j6-owtg-f2', 16);
-addClickListener('.j6-bt', 17);
-addClickListener('.j6-gm', 18);
-addClickListener('.j6-rt-f1', 19);
-addClickListener('.j6-rt-f2', 20);
-addClickListener('.j6-rs-f1', 21);
-addClickListener('.j6-rs-f2', 22);
+addClickListener('.j6-ad-b1', 10);
+addClickListener('.j6-ad-f1', 11);
+addClickListener('.j6-osp', 12);
+addClickListener('.j6-bp', 13);
+addClickListener('.j6-sgrz', 14);
+addClickListener('.j6-cofe', 15);
+addClickListener('.j6-eh', 16);
+addClickListener('.j6-poc', 17);
+addClickListener('.j6-owtg-f1', 18);
+addClickListener('.j6-owtg-f2', 19);
+addClickListener('.j6-bt', 20);
+addClickListener('.j6-gm', 21);
+addClickListener('.j6-rt-f1', 22);
+addClickListener('.j6-rt-f2', 23);
+addClickListener('.j6-rs-f1', 24);
+addClickListener('.j6-rs-f2', 25);
 
-addClickListener('.txl-csh', 23);
-addClickListener('.txl-c-f1', 24);
-addClickListener('.txl-c-f2', 25);
-addClickListener('.txl-sn', 26);
-addClickListener('.txl-es', 27);
-addClickListener('.txl-aa', 28);
-addClickListener('.txl-dc-f1', 29);
-addClickListener('.txl-dc-f2', 30);
-addClickListener('.txl-arc', 31);
-addClickListener('.txl-fg', 32);
-addClickListener('.txl-ac-f1', 33);
-addClickListener('.txl-ac-f2', 34);
-addClickListener('.txl-sw', 35);
+addClickListener('.txl-csh', 26);
+addClickListener('.txl-c-f1', 27);
+addClickListener('.txl-c-f2', 28);
+addClickListener('.txl-sn', 29);
+addClickListener('.txl-es', 30);
+addClickListener('.txl-aa', 31);
+addClickListener('.txl-dc-f1', 32);
+addClickListener('.txl-dc-f2', 33);
+addClickListener('.txl-arc', 34);
+addClickListener('.txl-fg', 35);
+addClickListener('.txl-ac-f1', 36);
+addClickListener('.txl-ac-f2', 37);
+addClickListener('.txl-sw', 38);
 
+addClickListener('.p-tr-f1', 39);
+addClickListener('.p-tr-f2', 40);
+addClickListener('.p-tr-f3', 41);
+addClickListener('.p-gh-f1', 42);
+addClickListener('.p-gh-f2', 43);
+addClickListener('.p-gh-f3', 44);
+addClickListener('.p-de', 45);
+addClickListener('.p-acd', 46);
+addClickListener('.p-trd-f1', 47);
+addClickListener('.p-trd-f2', 48);
+addClickListener('.p-trd-f3', 49);
+addClickListener('.p-dp-f1', 50);
+addClickListener('.p-dp-f2', 51);
+addClickListener('.p-dp-sm', 52);
+addClickListener('.p-cstp-f1', 53);
+addClickListener('.p-cstp-f2', 54);
 
 overlays.forEach(function (overlay) {
 overlay.overlay = L.imageOverlay(overlay.imageUrl, overlay.bounds).addTo(starrailMap);

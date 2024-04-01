@@ -995,16 +995,17 @@ playButton.addEventListener('click', function () {
     if (seedValue === '') {
         // Generate a random seed with a maximum of 16 digits
         var randomSeed = Math.floor(Math.random() * (Math.pow(10, 16)));
-        seed = randomSeed;
+        var sign = Math.random() < 0.5 ? -1 : 1;
+        seed = randomSeed * sign;
         // Use the random seed value
-        console.log('Random Seed:', randomSeed);
+        console.log('Random Seed:', seed);
     } else {
         // Convert the provided seed value to a number if it's a string
         var parsedSeed = parseInt(seedValue, 10); // Ensure to specify the radix (base) as 10 for decimal numbers
     if (!isNaN(parsedSeed)) {
         seed = parsedSeed;
         // Use the parsed seed value
-        console.log('Provided Seed:', parsedSeed);
+        console.log('Provided Seed:', seed);
     } else {
         // Convert the string into a seed
         var stringSeed = 1; // You can use any specific value for string seeds
@@ -1012,7 +1013,7 @@ playButton.addEventListener('click', function () {
             stringSeed += seedValue.charCodeAt(i); // Sum the character codes to create a seed from the string
         }
         seed = stringSeed;
-        console.log('String Seed:', stringSeed);
+        console.log('String Seed:', seed);
         }
     }
     var seedText = document.createElement('div');

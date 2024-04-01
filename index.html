@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.269 (haha nice) (closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.27 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -54,7 +54,7 @@
                 </div>
                 <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
                 <div>
-                    <input type="text" maxlength="16" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
+                    <input type="text" maxlength="32" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
                 </div>
                 <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
                 <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
@@ -116,6 +116,11 @@
                                         <button class="hst-suz-f1 floor-btn">F1</button>
                                         <button class="hst-suz-f2 floor-btn">F2</button>
                                     </li>
+                                    <li class="hst-scz">Seclusion Zone
+                                        <button class="hst-scz-f1 floor-btn">F1</button>
+                                        <button class="hst-scz-f2 floor-btn">F2</button>
+                                        <button class="hst-scz-f3 floor-btn">F3</button>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="main-j6">Jarilo-VI
@@ -167,6 +172,36 @@
                                         <button class="txl-ac-f2 floor-btn">F2</button>
                                     </li>
                                     <li class="txl-sw">Scalegorge Waterscape</li>
+                                </ul>
+                            </li>
+                            <li class="main-p">Penacony
+                                <ul class="sub-menu-p">
+                                    <li class="p-tr">The Reverie (Reality)
+                                        <button class="p-tr-f1 floor-btn">F1</button>
+                                        <button class="p-tr-f2 floor-btn">F2</button>
+                                        <button class="p-tr-f3 floor-btn">F3</button>
+                                    </li>
+                                    <li class="p-gh">Golden Hour
+                                        <button class="p-gh-f1 floor-btn">F1</button>
+                                        <button class="p-gh-f2 floor-btn">F2</button>
+                                        <button class="p-gh-f3 floor-btn">F3</button>
+                                    </li>
+                                    <li class="p-de">Dream's Edge</li>
+                                    <li class="p-acd">A Child's Dream</li>
+                                    <li class="p-trd">The Reverie (Dreamscape)
+                                        <button class="p-trd-f1 floor-btn">F1</button>
+                                        <button class="p-trd-f2 floor-btn">F2</button>
+                                        <button class="p-trd-f3 floor-btn">F3</button>
+                                    </li>
+                                    <li class="p-dp">Dewlight Pavilion
+                                        <button class="p-dp-f1 floor-btn">F1</button>
+                                        <button class="p-dp-f2 floor-btn">F2</button>
+                                        <button class="p-dp-sm floor-btn">Sandpit Model</button>
+                                    </li>
+                                    <li class="p-cstp">Clock Studios Theme Park
+                                        <button class="p-cstp-f1 floor-btn">F1</button>
+                                        <button class="p-cstp-f2 floor-btn">F2</button>
+                                    </li>
                                 </ul>
                             </li>
                           </ul>
