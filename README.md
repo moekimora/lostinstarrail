@@ -106,6 +106,8 @@ If you guess in the wrong map location, you get 0 points.
   - May add Competitive option in Settings (Remove the Guess button and you can only guess after you've placed your guess on the map and the timer runs out)
   - More locations coming soon
 
+## v1.0.271
+- Small bug fixes, thats it.
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

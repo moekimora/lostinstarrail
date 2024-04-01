@@ -1084,12 +1084,13 @@ playButton.addEventListener('click', function () {
           var canvas = document.createElement('canvas');
           canvas.width = imageElement.width;
           canvas.height = imageElement.height;
+          canvas.willReadFrequently = true;
           var ctx = canvas.getContext('2d');
           ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
-        
+      
           var sliceWidth = imageElement.width / 2;
           var sliceHeight = imageElement.height / 3;
-        
+      
           var slices = [
             ctx.getImageData(0, 0, sliceWidth, sliceHeight),
             ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
@@ -1098,13 +1099,13 @@ playButton.addEventListener('click', function () {
             ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
             ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
           ];
-        
+      
           // Randomize the order of the slices
           for (var i = slices.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             [slices[i], slices[j]] = [slices[j], slices[i]];
           }
-        
+      
           // Flip some of the slices
           var flipIndices = [0, 2, 5]; // Adjust the indices to flip as needed
           flipIndices.forEach(function(index) {
@@ -1115,10 +1116,10 @@ playButton.addEventListener('click', function () {
               slices[index].data[i + 2] = temp;
             }
           });
-        
+      
           // Clear the canvas
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+      
           // Draw the randomized and flipped slices back to the canvas
           ctx.putImageData(slices[0], 0, 0);
           ctx.putImageData(slices[1], sliceWidth, 0);
@@ -1126,16 +1127,23 @@ playButton.addEventListener('click', function () {
           ctx.putImageData(slices[3], sliceWidth, sliceHeight);
           ctx.putImageData(slices[4], 0, sliceHeight * 2);
           ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
-        
+      
           imageElement.src = canvas.toDataURL();
           canvas.remove();
         };
-        
-        imageElement.addEventListener('load', scrambleHandler, { once: true });
+      
+        if (imageElement.complete) {
+          // If the image has already finished loading
+          scrambleHandler();
+        } else {
+          // If the image is still loading, wait for the 'load' event
+          imageElement.addEventListener('load', scrambleHandler, { once: true });
+        }
       }
-          imageElement.classList.add('random-image');
-          document.body.appendChild(imageElement);
-      });
+      
+      imageElement.classList.add('random-image');
+      document.body.appendChild(imageElement);
+    });
 
 function playNextRound() {
   guessOverlay.style.display = 'none';
