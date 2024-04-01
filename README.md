@@ -109,5 +109,9 @@ If you guess in the wrong map location, you get 0 points.
 ## v1.0.271
 - Small bug fixes, thats it.
 
+## v1.0.272
+- Small bug fixes and minor improvements
+  - Rework the countdown system, now only when the image was loaded will the countdown starts
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

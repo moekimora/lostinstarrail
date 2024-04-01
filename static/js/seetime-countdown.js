@@ -59,14 +59,6 @@ function updateSDisplay() {
   }
 }
 
-document.getElementById("play-button").addEventListener("click", function() {
-  if (countdownIntervalS) {
-    stopSCountdown();
-  } else {
-    startSCountdown();
-  }
-});
-
 document.querySelectorAll(".has-marker").forEach(function(button) {
   button.addEventListener("click", function() {
     stopSCountdown();

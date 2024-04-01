@@ -56,15 +56,7 @@ function updateDisplay() {
   }
 }
 
-document.getElementById("play-button").addEventListener("click", function() {
-  if (countdownInterval) {
-    stopCountdown();
-  } else {
-    startCountdown();
-  }
-});
-
-document.getElementsByClass(countdown-text).style.display = "none";
+document.getElementsByClassName("countdown-text").style.display = "none";
 
 // Call updateDisplay initially to display the initial countdown value
 updateDisplay();
