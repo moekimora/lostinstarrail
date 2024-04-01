@@ -1138,7 +1138,7 @@ playButton.addEventListener('click', function () {
           imageElement.classList.add('random-image');
           document.body.appendChild(imageElement);
         imageElement.addEventListener("load", function () {
-          loadingScreen.style.display = 'none';
+
           if (countdownInterval) {
             stopCountdown();
           } else {

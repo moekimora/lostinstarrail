@@ -236,17 +236,24 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(14, 15, 85);
+    background-color: rgba(0, 0, 0, 0.75);
     display: none;
+    flex-direction: column;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     z-index: 5;
+    backdrop-filter: blur(25px);
     transition: opacity 0.5s ease;
 }
 #kurukuru {
     width: 169px;
     height: 169px;
-    margin: auto;
+}
+#loading-text {
+    margin-top: 20px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
 }
 
 .settings-gamerulestext {
