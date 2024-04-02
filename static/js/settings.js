@@ -14,7 +14,7 @@ function toggleSettings() {
     settingsMap.classList.toggle('active');
 
     if (settingsMap.classList.contains('active')) {
-        settingsMap.style.display = 'block';
+        settingsMap.style.display = 'flex';
         setTimeout(function() {
         settingsMap.style.opacity = '1';
         settingsMap.style.transform = 'translateY(5%)';
@@ -74,7 +74,7 @@ function toggleSettings() {
     element.classList.toggle('active');
 
     if (element.classList.contains('active')) {
-        element.style.display = 'block';
+        element.style.display = 'flex';
         setTimeout(function() {
         element.style.opacity = elementData.opacity;
         element.style.transform = 'translateY(' + elementData.translateY + ')';
@@ -92,7 +92,7 @@ function toggleSettings() {
     element.classList.toggle('active');
 
     if (element.classList.contains('active')) {
-        element.style.display = 'block';
+        element.style.display = 'flex';
         setTimeout(function() {
         element.style.opacity = '1';
         element.style.transform = 'translateY(5%)';
@@ -178,7 +178,6 @@ function changeColor(element) {
         map3.style.border = '';
         map4.style.border = '';
         map5.style.border = '';
-        changeAudioSource(mapId);
     } else if (element === map2) {
         // Set map value to 1
         mapId = 1;
@@ -187,7 +186,6 @@ function changeColor(element) {
         map3.style.border = '';
         map4.style.border = '';
         map5.style.border = '';
-        changeAudioSource(mapId);
     } else if (element === map3) {
         // Set map value to 2
         mapId = 2;
@@ -196,7 +194,6 @@ function changeColor(element) {
         map3.style.border = '2px solid #180872';
         map4.style.border = '';
         map5.style.border = '';
-        changeAudioSource(mapId);
     } else if (element === map4) {
         // Set map value to 3
         mapId = 3;
@@ -205,7 +202,6 @@ function changeColor(element) {
         map3.style.border = '';
         map4.style.border = '2px solid #180872';
         map5.style.border = '';
-        changeAudioSource(mapId);
     } else if (element === map5) {
         // Set map value to 4
         mapId = 4;
@@ -214,7 +210,6 @@ function changeColor(element) {
         map3.style.border = '';
         map4.style.border = '';
         map5.style.border = '2px solid #180872';
-        changeAudioSource(mapId);
     }
     
     // Display map name

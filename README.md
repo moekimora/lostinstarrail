@@ -114,5 +114,10 @@ If you guess in the wrong map location, you get 0 points.
   - Rework the countdown system, now only when the image was loaded will the countdown starts
   - Added some cute loading screen eheheh (kurukuru)
 
+## v1.0.273
+- Small bug fixes and minor improvements
+  - Fixed a bug where the countdown does not start with the filter Scramble, only after guessing the first image, the countdown starts, twice lol
+  - The image now fits into different resolutions for the aspect ratio 16:9
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
