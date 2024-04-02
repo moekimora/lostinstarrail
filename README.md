@@ -119,5 +119,13 @@ If you guess in the wrong map location, you get 0 points.
   - Fixed a bug where the countdown does not start with the filter Scramble, only after guessing the first image, the countdown starts, twice lol
   - The image now fits into different resolutions for the aspect ratio 16:9
 
+## v1.0.28
+- Several bug fixes and improvements
+  - Fixed an error that makes a slice of the image using filter Scramble, red. This is now fixed (ChatGPT u suck)
+- Several changes
+  - Slightly changed the scoring system, made it harder to score 5k
+  - Seed at the bottom left corner now shows if the seed is randomly generated or provided manually
+  - Seed now generates randomly from 1 to 16 characters max
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

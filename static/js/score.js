@@ -989,20 +989,22 @@ var canvas;
 playButton.addEventListener('click', function () {
   loadingScreen.style.display = 'flex';
 // seed system (v1.0.24)
-    var inputElement = document.getElementById('Input');
-    // Get the value of the input
-    var seedValue = inputElement.value.trim();
-    // Check if the input is blank
-    if (seedValue === '') {
-        // Generate a random seed with a maximum of 16 digits
-        var randomSeed = Math.floor(Math.random() * (Math.pow(10, 16)));
-        var sign = Math.random() < 0.5 ? -1 : 1;
-        seed = randomSeed * sign;
-        // Use the random seed value
-        console.log('Random Seed:', seed);
-    } else {
-        // Convert the provided seed value to a number if it's a string
-        var parsedSeed = parseInt(seedValue, 10); // Ensure to specify the radix (base) as 10 for decimal numbers
+var inputElement = document.getElementById('Input');
+// Get the value of the input
+var seedValue = inputElement.value.trim();
+// Check if the input is blank
+if (seedValue === '') {
+    // Generate a random length between 1 and 16
+    var randomseedLength = Math.floor(Math.random() * 16) + 1;
+    // Generate a random seed with the specified length
+    var randomSeed = Math.floor(Math.random() * (Math.pow(10, randomseedLength)));
+    var sign = Math.random() < 0.5 ? -1 : 1;
+    seed = randomSeed * sign;
+    // Use the random seed value
+    console.log('Random Seed:', seed);
+} else {
+    // Convert the provided seed value to a number if it's a string
+    var parsedSeed = parseInt(seedValue, 10); // Ensure to specify the radix (base) as 10 for decimal numbers
     if (!isNaN(parsedSeed)) {
         seed = parsedSeed;
         // Use the parsed seed value
@@ -1015,11 +1017,15 @@ playButton.addEventListener('click', function () {
         }
         seed = stringSeed;
         console.log('String Seed:', seed);
-        }
     }
+}
     var seedText = document.createElement('div');
     seedText.className = 'seedtext';
-    seedText.textContent =  seed;
+    if (seedValue === '') {
+        seedText.innerHTML = 'Random Seed<br>' + seed;
+    } else {
+        seedText.innerHTML = 'Provided Seed<br>' + seed;
+    }
     document.body.appendChild(seedText);
     seedText.style.display = 'block';
 
@@ -1081,56 +1087,45 @@ playButton.addEventListener('click', function () {
         imageElement.style.filter += ' blur(15px)';
     }
     if (ScrambleCheckbox.checked) {
-    let scrambleHandler = function() {
-        var canvas = document.createElement('canvas');
-        canvas.width = imageElement.width;
-        canvas.height = imageElement.height;
-        canvas.willReadFrequently = true;
-        var ctx = canvas.getContext('2d');
-        ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+      let scrambleHandler = function() {
+          var canvas = document.createElement('canvas');
+          canvas.width = imageElement.width;
+          canvas.height = imageElement.height;
+          canvas.willReadFrequently = true;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+  
+          var sliceWidth = imageElement.width / 2;
+          var sliceHeight = imageElement.height / 3;
+  
+          var slices = [
+              ctx.getImageData(0, 0, sliceWidth, sliceHeight),
+              ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
+              ctx.getImageData(0, sliceHeight, sliceWidth, sliceHeight),
+              ctx.getImageData(sliceWidth, sliceHeight, sliceWidth, sliceHeight),
+              ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
+              ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
+          ];
+  
+          // Randomize the order of the slices
+          for (var i = slices.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              [slices[i], slices[j]] = [slices[j], slices[i]];
+          }
 
-        var sliceWidth = imageElement.width / 2;
-        var sliceHeight = imageElement.height / 3;
-
-        var slices = [
-            ctx.getImageData(0, 0, sliceWidth, sliceHeight),
-            ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
-            ctx.getImageData(0, sliceHeight, sliceWidth, sliceHeight),
-            ctx.getImageData(sliceWidth, sliceHeight, sliceWidth, sliceHeight),
-            ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
-            ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
-        ];
-
-        // Randomize the order of the slices
-        for (var i = slices.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            [slices[i], slices[j]] = [slices[j], slices[i]];
-        }
-
-        // Flip some of the slices
-        var flipIndices = [0, 2, 5]; // Adjust the indices to flip as needed
-        flipIndices.forEach(function(index) {
-            for (var i = 0; i < slices[index].data.length; i += 4) {
-                // Flip the slice by reversing the pixel data
-                var temp = slices[index].data[i];
-                slices[index].data[i] = slices[index].data[i + 2];
-                slices[index].data[i + 2] = temp;
-            }
-        });
-
-        // Clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the randomized and flipped slices back to the canvas
-        ctx.putImageData(slices[0], 0, 0);
-        ctx.putImageData(slices[1], sliceWidth, 0);
-        ctx.putImageData(slices[2], 0, sliceHeight);
-        ctx.putImageData(slices[3], sliceWidth, sliceHeight);
-        ctx.putImageData(slices[4], 0, sliceHeight * 2);
-        ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
-
-        imageElement.src = canvas.toDataURL();
-        canvas.remove();
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+          // Draw the randomized and flipped slices back to the canvas
+          ctx.putImageData(slices[0], 0, 0);
+          ctx.putImageData(slices[1], sliceWidth, 0);
+          ctx.putImageData(slices[2], 0, sliceHeight);
+          ctx.putImageData(slices[3], sliceWidth, sliceHeight);
+          ctx.putImageData(slices[4], 0, sliceHeight * 2);
+          ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
+  
+          imageElement.src = canvas.toDataURL();
+          canvas.remove();
 
         loadingScreen.style.display = 'none';
         if (countdownInterval) {
@@ -1225,17 +1220,6 @@ if (ScrambleCheckbox.checked) {
             [slices[i], slices[j]] = [slices[j], slices[i]];
         }
 
-        // Flip some of the slices
-        var flipIndices = [0, 2, 5]; // Adjust the indices to flip as needed
-        flipIndices.forEach(function(index) {
-            for (var i = 0; i < slices[index].data.length; i += 4) {
-                // Flip the slice by reversing the pixel data
-                var temp = slices[index].data[i];
-                slices[index].data[i] = slices[index].data[i + 2];
-                slices[index].data[i + 2] = temp;
-            }
-        });
-
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -1319,21 +1303,21 @@ guessButton.addEventListener('click', function() {
         );
 
         var score;
-        if (distance > 75) {
+        if (distance > 25) {
             score = Math.max(0, 5000 - distance * 50);
-        } else if (distance > 50) {
-            score = Math.max(0, 5000 - distance * 40);
-        } else if (distance > 40) {
-        score = Math.max(0, 5000 - distance * 30);
-        } else if (distance > 30) {
-        score = Math.max(0, 5000 - distance * 25);
         } else if (distance > 20) {
-        score = Math.max(0, 5000 - distance * 20);
+            score = Math.max(0, 5000 - distance * 40);
         } else if (distance > 10) {
-        score = Math.max(0, 5000 - distance * 15);
+        score = Math.max(0, 5000 - distance * 30);
         } else if (distance > 5) {
+        score = Math.max(0, 5000 - distance * 25);
+        } else if (distance > 4) {
+        score = Math.max(0, 5000 - distance * 20);
+        } else if (distance > 3) {
+        score = Math.max(0, 5000 - distance * 15);
+        } else if (distance > 2) {
         score = Math.max(0, 5000 - distance * 10);
-        } else if (distance < 2) {
+        } else if (distance < 1) {
             score = 5000
         } else {
         score = Math.max(0, 5000 - distance);
