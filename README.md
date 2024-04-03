@@ -130,7 +130,6 @@ If you guess in the wrong map location, you get 0 points.
 ## v1.0.29
 - New gamemode: Survival
   - There's no round limit for the new Survival gamemode, instead you try to play for as many round as possible. Each round will have a score condition in order to progress to the next round, increase over time. Mods and Filters works the same (except for round mod because there's no round limit)
-  - For now the gamemode is unfinished so consider it as Infinite mode kek, change later
 - Several changes
   - Seed now randomly generates from 5 to 16 characters max instead of 1 to 16
   - Removed Pan and Zoom, replaced with Gamemodes: Standard and Survival

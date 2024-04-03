@@ -1169,7 +1169,7 @@ if (seedValue === '') {
     imageElement.classList.add('random-image');
     document.body.appendChild(imageElement);
     });
-
+var survivalCondition = null;
 function playNextRound() {
   loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
@@ -1332,6 +1332,8 @@ guessButton.addEventListener('click', function() {
         }
         score = Math.ceil(score); // Round up the score to the nearest whole number
         updateScore();
+
+
         function updateScore() {
             // Calculate the score based on distance or any other relevant logic
             score = Math.ceil(score); // Round up the score to the nearest whole number
@@ -1430,7 +1432,7 @@ document.querySelector(".play").addEventListener("click", function() {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
-    survivalCondition = 100;
+    survivalCondition = 0;
     updateRoundInfo();
     //console.log("Round: " + currentRound);
     //console.log("Current Score: " + currentScore);
@@ -1451,10 +1453,16 @@ function updateNextRoundButton() {
       nextRoundButton.innerText = 'Next Round';
     }
   } else {
-    nextRoundButton.classList.remove('view-result');
-    nextRoundButton.innerText = 'Next Round';
+    if (currentScore < survivalCondition) {
+      nextRoundButton.classList.add('view-result');
+      nextRoundButton.innerText = 'View Result';
+    } else {
+      nextRoundButton.classList.remove('view-result');
+      nextRoundButton.innerText = 'Next Round';
+    }
   }
 }
+
 
 document.querySelectorAll(".has-marker").forEach(function(button) {
   button.addEventListener("click", function() {
@@ -1492,6 +1500,19 @@ document.querySelector(".next-round").addEventListener("click", function() {
   } else {
     // Handle logic for the "Next Round" button
       currentRound++;
+      if (currentRound < 5) {
+        survivalCondition += 500;
+      } else if (currentRound < 10) {
+        survivalCondition += 1000;
+      } else if (currentRound < 15) {
+        survivalCondition += 2000;
+      } else if (currentRound < 20) {
+        survivalCondition += 3000;
+      } else if (currentRound < 25) {
+        survivalCondition += 4000;
+      } else if (currentRound < 30) {
+        survivalCondition += 5000;
+      }
       updateRoundInfo();
       //console.log("Round: " + currentRound + "/" + round);
       //console.log("Current Score: " + currentScore);
@@ -1512,18 +1533,26 @@ function updateRoundInfo() {
     var roundInfoElement = document.getElementById("round-info");
     roundInfoElement.textContent = "Round: " + currentRound;
     var roundScoreElement = document.getElementById("score-info");
-    roundScoreElement.textContent = "Score: " + currentScore
+    roundScoreElement.textContent = "Score: " + currentScore + " (Req: " + survivalCondition + ")"
   }
 }
 
 function displayFinalScore() {
   var finalScoreElement = document.getElementById("final-score");
-  finalScoreElement.textContent = finalScore;
-  console.log("Final Score: " + finalScore);
-  finalScoreElement.style.display = "block";
+  var finalTextElement = document.getElementById("finaltext");
+  if (standardCheckbox.checked) {
+    finalScoreElement.textContent = finalScore;
+    console.log("Final Score: " + finalScore);
+    finalScoreElement.style.display = "block";
+  } else {
+    finalTextElement.innerHTML = `You survived for <span style='color: rgb(255, 228, 107)'>${currentRound}</span> rounds!`;
+    finalScoreElement.textContent = finalScore;
+    console.log("Final Score: " + finalScore);
+    finalScoreElement.style.display = "block";
+  }
+  
   stopCountdown();
   stopSCountdown();
-  
 }
 
 slider3.oninput = function() {
