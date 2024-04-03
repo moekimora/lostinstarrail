@@ -985,6 +985,8 @@ nextRoundButton.addEventListener('click', function() {
 var seed;
 var uniqueID;
 var canvas;
+standardCheckbox = document.getElementById('Standard');
+survivalCheckbox = document.getElementById('Survival');
 
 playButton.addEventListener('click', function () {
   loadingScreen.style.display = 'flex';
@@ -995,7 +997,7 @@ var seedValue = inputElement.value.trim();
 // Check if the input is blank
 if (seedValue === '') {
     // Generate a random length between 1 and 16
-    var randomseedLength = Math.floor(Math.random() * 16) + 1;
+    var randomseedLength = Math.floor(Math.random() * 11) + 5;
     // Generate a random seed with the specified length
     var randomSeed = Math.floor(Math.random() * (Math.pow(10, randomseedLength)));
     var sign = Math.random() < 0.5 ? -1 : 1;
@@ -1048,19 +1050,26 @@ if (seedValue === '') {
           return Math.floor(seedRandom(seed) * 108) + 1;
         } else {
           // Handle other mapId values or fallback to randomize among all numbers
-          return Math.floor(seedRandom(seed) * images.length); // Adjust the range as needed
+          return Math.floor(seedRandom(seed) * images.length);
         }
       };
     
+      if (standardCheckbox.checked) {
       while (uniqueIDs.size < roundElement) {
         var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
         uniqueIDs.add(randomNumber);
         seed++; // Increase the seed for the next number
       }
-    
+      return Array.from(uniqueIDs); // Convert the Set to an Array and return
+    } else {
+      while (uniqueIDs.size < 50) {
+        var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
+        uniqueIDs.add(randomNumber);
+        seed++; // Increase the seed for the next number
+      }
       return Array.from(uniqueIDs); // Convert the Set to an Array and return
     }
-    
+  }
     var roundElement = parseInt(document.getElementById('Round').innerText);
     uniqueID = generateuniqueID(seed, roundElement);
     
@@ -1159,8 +1168,7 @@ if (seedValue === '') {
 
     imageElement.classList.add('random-image');
     document.body.appendChild(imageElement);
-      });
-
+    });
 
 function playNextRound() {
   loadingScreen.style.display = 'flex';
@@ -1324,8 +1332,6 @@ guessButton.addEventListener('click', function() {
         }
         score = Math.ceil(score); // Round up the score to the nearest whole number
         updateScore();
-
-
         function updateScore() {
             // Calculate the score based on distance or any other relevant logic
             score = Math.ceil(score); // Round up the score to the nearest whole number
@@ -1344,9 +1350,9 @@ guessButton.addEventListener('click', function() {
         var guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
-        console.log('Image Latitude:', currentImage.lat);
-        console.log('Image Longitude:', currentImage.lng);
-        console.log('Distance:', distance);
+        //console.log('Image Latitude:', currentImage.lat);
+        //console.log('Image Longitude:', currentImage.lng);
+        //console.log('Distance:', distance);
         console.log('Score:', score);
     } else {
         console.log('Marker not set');
@@ -1391,9 +1397,9 @@ guessButton.addEventListener('click', function() {
         var guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
-        console.log('Image Latitude:', currentImage.lat);
-        console.log('Image Longitude:', currentImage.lng);
-        console.log('Distance:', distance);
+        //console.log('Image Latitude:', currentImage.lat);
+        //console.log('Image Longitude:', currentImage.lng);
+        //console.log('Distance:', distance);
         console.log('Score:', score);
     } else {
         console.log('Marker not set');
@@ -1412,21 +1418,38 @@ currentScore = 0;
 finalScore = 0;
 
 document.querySelector(".play").addEventListener("click", function() {
-  currentRound = 1;
-  currentScore = 0;
-  finalScore = 0;
-  updateRoundInfo();
-  console.log("Round: " + currentRound + "/" + round);
-  console.log("Current Score: " + currentScore);
-  console.log("Final Score: " + finalScore);
+  if (standardCheckbox.checked) {
+    currentRound = 1;
+    currentScore = 0;
+    finalScore = 0;
+    updateRoundInfo();
+    //console.log("Round: " + currentRound + "/" + round);
+    //console.log("Current Score: " + currentScore);
+    //console.log("Final Score: " + finalScore);
+  } else {
+    currentRound = 1;
+    currentScore = 0;
+    finalScore = 0;
+    survivalCondition = 100;
+    updateRoundInfo();
+    //console.log("Round: " + currentRound);
+    //console.log("Current Score: " + currentScore);
+    //console.log("Final Score: " + finalScore);
+    console.log("Survival Condition: " + survivalCondition);
+  }
 });
 
 var nextRoundButton = document.querySelector(".next-round");
 
 function updateNextRoundButton() {
-  if (currentRound == round) {
-    nextRoundButton.classList.add('view-result');
-    nextRoundButton.innerText = 'View Result';
+  if (standardCheckbox.checked) {
+    if (currentRound == round) {
+      nextRoundButton.classList.add('view-result');
+      nextRoundButton.innerText = 'View Result';
+    } else {
+      nextRoundButton.classList.remove('view-result');
+      nextRoundButton.innerText = 'Next Round';
+    }
   } else {
     nextRoundButton.classList.remove('view-result');
     nextRoundButton.innerText = 'Next Round';
@@ -1468,26 +1491,29 @@ document.querySelector(".next-round").addEventListener("click", function() {
 
   } else {
     // Handle logic for the "Next Round" button
-    if (currentRound < round) {
       currentRound++;
       updateRoundInfo();
-      console.log("Round: " + currentRound + "/" + round);
-      console.log("Current Score: " + currentScore);
-      console.log("Final Score: " + finalScore);
-    }
+      //console.log("Round: " + currentRound + "/" + round);
+      //console.log("Current Score: " + currentScore);
+      //console.log("Final Score: " + finalScore);
     playNextRound();
   }
   updateNextRoundButton();
 });
-
-
 updateNextRoundButton();
 
 function updateRoundInfo() {
+  if (standardCheckbox.checked) {
   var roundInfoElement = document.getElementById("round-info");
   roundInfoElement.textContent = "Round: " + currentRound + "/" + round;
   var roundScoreElement = document.getElementById("score-info");
   roundScoreElement.textContent = "Score: " + currentScore
+  } else {
+    var roundInfoElement = document.getElementById("round-info");
+    roundInfoElement.textContent = "Round: " + currentRound;
+    var roundScoreElement = document.getElementById("score-info");
+    roundScoreElement.textContent = "Score: " + currentScore
+  }
 }
 
 function displayFinalScore() {

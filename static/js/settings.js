@@ -118,8 +118,6 @@ function toggleSettings() {
     document.querySelector('.settings-gameruleinvert'),
     document.querySelector('.settings-gamerulepixelate'),
     document.querySelector('.settings-gamerulescramble'),
-    document.querySelector('.settings-gamerulemove'),
-    document.querySelector('.settings-gamerulezoom'),
     document.querySelector('.settings-gameruleround'),
     document.querySelector('.settings-displayRound'),
     document.querySelector('.slider3'),
@@ -130,8 +128,11 @@ function toggleSettings() {
     document.querySelector('.invert-switch'),
     document.querySelector('.pixelate-switch'),
     document.querySelector('.scramble-switch'),
-    document.querySelector('.move-switch'),
-    document.querySelector('.zoom-switch')
+    document.querySelector('.settings-gamemodestext'),
+    document.querySelector('.settings-gamemodesstandardtext'),
+    document.querySelector('.settings-gamemodessurvivaltext'),
+    document.querySelector('.standard-switch'),
+    document.querySelector('.survival-switch')
     ];
 
     elements.forEach(function(element) {
@@ -213,19 +214,18 @@ function changeColor(element) {
     }
     
     // Display map name
-    var roundMapElement = document.getElementById("map-info");
-            
-            if (mapId === 0) {
-                roundMapElement.textContent = "Map: Random";
-                } else if (mapId === 1) {
-                roundMapElement.textContent = "Map: Herta Space Station";
-                } else if (mapId === 2) {
-                roundMapElement.textContent = "Map: Jarilo-VI";
-                } else if (mapId === 3) {
-                roundMapElement.textContent = "Map: The Xianzhou Luofu";
-                } else if (mapId === 4) {
-                roundMapElement.textContent = "Map: Penacony";
-                } 
+    var roundMapElement = document.getElementById("map-info");  
+        if (mapId === 0) {
+            roundMapElement.textContent = "Map: Random";
+            } else if (mapId === 1) {
+            roundMapElement.textContent = "Map: Herta Space Station";
+            } else if (mapId === 2) {
+            roundMapElement.textContent = "Map: Jarilo-VI";
+            } else if (mapId === 3) {
+            roundMapElement.textContent = "Map: The Xianzhou Luofu";
+            } else if (mapId === 4) {
+            roundMapElement.textContent = "Map: Penacony";
+            } 
                 
 }
 

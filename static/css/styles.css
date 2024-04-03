@@ -268,6 +268,39 @@ h1 {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
+.settings-gamemodestext {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+    bottom: 12%;
+    left: 15%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamemodesstandardtext {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+    bottom: 14%;
+    left: 35%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamemodessurvivaltext {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+    bottom: 14%;
+    left: 55%;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
 .settings-gamerulestimer {
     position: absolute;
     width: 7%;
@@ -475,28 +508,7 @@ h1 {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.settings-gamerulemove {
-    position: absolute;
-    width: 7%;
-    height: 7%;
-    color: white;
-    top: 76%;
-    left: 39%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
-.settings-gamerulezoom {
-    position: absolute;
-    width: 7%;
-    height: 7%;
-    color: white;
-    top: 76%;
-    left: 49%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
+
 .settings-gameruleround {
     position: absolute;
     width: 7%;
@@ -569,7 +581,7 @@ h1 {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.move-switch {
+.standard-switch {
     position: absolute;
     top: 77.5%;
     left: 45%;
@@ -580,13 +592,13 @@ h1 {
     display: none;
 }
 
-.move-switch input { 
+.standard-switch input { 
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.move-slider {
+.standard-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -598,7 +610,7 @@ h1 {
     transition: .4s;
 }
 
-.move-slider:before {
+.standard-slider:before {
     position: absolute;
     content: "";
     height: 33px;
@@ -610,26 +622,26 @@ h1 {
     transition: .4s;
 }
 
-input:checked + .move-slider {
+input:checked + .standard-slider {
     background-color: #252525;
 }
 
-input:focus + .move-slider {
+input:focus + .standard-slider {
     box-shadow: 0 0 2px #000000;
 }
 
-input:checked + .move-slider:before {
+input:checked + .standard-slider:before {
     -webkit-transform: translateX(33px);
     -ms-transform: translateX(33px);
     transform: translateX(33px);
 }
 
 /* Rounded sliders */
-.move-slider.round {
+.standard-slider.round {
     border-radius: 34px;
 }
 
-.move-slider.round:before {
+.standard-slider.round:before {
     border-radius: 50%;
 }
 .baw-switch {
@@ -884,10 +896,10 @@ input:checked + .scramble-slider:before {
 .scramble-slider.round:before {
     border-radius: 50%;
 }
-.zoom-switch {
+.survival-switch {
     position: absolute;
     top: 77.5%;
-    left: 55%;
+    left: 64%;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -895,13 +907,13 @@ input:checked + .scramble-slider:before {
     display: none;
 }
 
-.zoom-switch input { 
+.survival-switch input { 
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.zoom-slider {
+.survival-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -913,7 +925,7 @@ input:checked + .scramble-slider:before {
     transition: .4s;
 }
 
-.zoom-slider:before {
+.survival-slider:before {
     position: absolute;
     content: "";
     height: 33px;
@@ -925,26 +937,26 @@ input:checked + .scramble-slider:before {
     transition: .4s;
 }
 
-input:checked + .zoom-slider {
+input:checked + .survival-slider {
     background-color: #252525;
 }
 
-input:focus + .zoom-slider {
+input:focus + .survival-slider {
     box-shadow: 0 0 2px #000000;
 }
 
-input:checked + .zoom-slider:before {
+input:checked + .survival-slider:before {
     -webkit-transform: translateX(33px);
     -ms-transform: translateX(33px);
     transform: translateX(33px);
 }
 
 /* Rounded sliders */
-.zoom-slider.round {
+.survival-slider.round {
     border-radius: 34px;
 }
 
-.zoom-slider.round:before {
+.survival-slider.round:before {
     border-radius: 50%;
 }
 .guess-tooltip {

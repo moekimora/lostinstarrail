@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.28 (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.29 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -77,16 +77,16 @@
                       <input type="checkbox" id="Scramble">
                       <span class="scramble-slider round"></span>
                 </label>
-
-                <img src="static/media/icons/move-outline.svg" alt="Move" class="settings-gamerulemove" title="The ability to pan around the screen.">
-                <label class="move-switch">
-                    <input type="checkbox" checked id="Move">
-                    <span class="move-slider round"></span>
+                <p class="settings-gamemodestext" onclick="toggleSettings">Gamemode</p>
+                <p class="settings-gamemodesstandardtext" onclick="toggleSettings">Standard</p>
+                <label class="standard-switch">
+                    <input type="checkbox" checked id="Standard">
+                    <span class="standard-slider round"></span>
                   </label>
-                <img src="static/media/icons/search-outline.svg" alt="Zoom" class="settings-gamerulezoom" title="The ability to zoom in and out of the image.">
-                <label class="zoom-switch">
-                    <input type="checkbox" checked id="Zoom">
-                    <span class="zoom-slider round"></span>
+                <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
+                <label class="survival-switch">
+                    <input type="checkbox" id="Survival">
+                    <span class="survival-slider round"></span>
                 </label>
                 <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
                 <div class="gamerules-slider3">
@@ -246,12 +246,30 @@
             
         <script>
             // Click event handler debug
-            starrailMap.on('click', function (e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
-            console.log('Clicked coordinates:', lat, lng);
-            console.log('Selected map:', currentMap);
-            });     
+            //starrailMap.on('click', function (e) {
+            //var lat = e.latlng.lat;
+            //var lng = e.latlng.lng;
+            //console.log('Clicked coordinates:', lat, lng);
+            //onsole.log('Selected map:', currentMap);
+            //});     
+        </script>
+
+        <script>
+            // Only one gamemode can be selected
+            standardCheckbox = document.getElementById('Standard');
+            survivalCheckbox = document.getElementById('Survival');
+
+            standardCheckbox.addEventListener('change', function() {
+                if (standardCheckbox.checked) {
+                    survivalCheckbox.checked = false;
+                }
+            });
+
+            survivalCheckbox.addEventListener('change', function() {
+                if (survivalCheckbox.checked) {
+                    standardCheckbox.checked = false;
+                }
+            });
         </script>
 
         <script>

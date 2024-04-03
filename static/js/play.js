@@ -1,29 +1,5 @@
  //play
  function togglePlay() {
-    //debug test
-    var timeElement = document.getElementById('Time');
-    var seeTimeElement = document.getElementById('SeeTime');
-    var roundElement = document.getElementById('Round');
-    var moveCheckbox = document.getElementById('Move');
-    var zoomCheckbox = document.getElementById('Zoom');
-    var output = document.getElementById('Output');
-
-    function updateOutput() {
-        var moveStatus = moveCheckbox.checked ? 'checked' : 'unchecked';
-        var zoomStatus = zoomCheckbox.checked ? 'checked' : 'unchecked';
-
-        //output.innerHTML = `Time: ${timeElement.innerHTML}, SeeTime: ${seeTimeElement.innerHTML}, Move: ${moveStatus}, Zoom: ${zoomStatus}, Map: ${mapId}`;
-    }
-
-    moveCheckbox.addEventListener('change', updateOutput);
-    zoomCheckbox.addEventListener('change', updateOutput);
-
-    timeElement.addEventListener('input', updateOutput);
-    seeTimeElement.addEventListener('input', updateOutput);
-    roundElement.addEventListener('input', updateOutput);
-
-    updateOutput(); // Call updateOutput initially to display the initial status
-
     //show ui
     var gameStat = document.getElementById('game-stat');
     gameStat.style.display = 'block';
