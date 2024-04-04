@@ -134,5 +134,12 @@ If you guess in the wrong map location, you get 0 points.
   - Seed now randomly generates from 5 to 16 characters max instead of 1 to 16
   - Removed Pan and Zoom, replaced with Gamemodes: Standard and Survival
 
+## v1.0.291
+- Small bug fixes and minor improvements
+  - There's a bug where if you choose Herta Space Station and play Survival mode, the website will crash. The same will happen when playing Herta Space Station in Standard Mode with the number of rounds > 58. This is currently being fixed.
+  - There is now a new (Req: ) appearing in Survival mode. You need to get a score equal or higher than the requirements in order to continue. Also the requirements will increase over time.
+  - New display for Survival mode, instead of "Final Score", it is "You survived for x round(s)"
+  - Seed can only be entered up to 16 characters now.
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

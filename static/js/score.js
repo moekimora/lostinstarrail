@@ -997,7 +997,7 @@ var seedValue = inputElement.value.trim();
 // Check if the input is blank
 if (seedValue === '') {
     // Generate a random length between 1 and 16
-    var randomseedLength = Math.floor(Math.random() * 11) + 5;
+    var randomseedLength = Math.floor(Math.random() * 10) + 5;
     // Generate a random seed with the specified length
     var randomSeed = Math.floor(Math.random() * (Math.pow(10, randomseedLength)));
     var sign = Math.random() < 0.5 ? -1 : 1;
@@ -1062,7 +1062,7 @@ if (seedValue === '') {
       }
       return Array.from(uniqueIDs); // Convert the Set to an Array and return
     } else {
-      while (uniqueIDs.size < 50) {
+      while (uniqueIDs.size < 150) {
         var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
         uniqueIDs.add(randomNumber);
         seed++; // Increase the seed for the next number
@@ -1335,10 +1335,19 @@ guessButton.addEventListener('click', function() {
 
 
         function updateScore() {
-            // Calculate the score based on distance or any other relevant logic
-            score = Math.ceil(score); // Round up the score to the nearest whole number
+          if (standardCheckbox.checked) {
+            score = Math.ceil(score);
             currentScore += score;
+          } else {
+            score = Math.ceil(score);
+            currentScore += score;
+            // Survival mode, check if current score is less than survival condition
+            if (currentScore < survivalCondition) {
+              nextRoundButton.classList.add('view-result');
+              nextRoundButton.innerText = 'View Result';
+            }
           }
+        }
 
         var displayElement = document.getElementById("countdown-text");
         displayElement.style.display = "none";
@@ -1380,12 +1389,20 @@ guessButton.addEventListener('click', function() {
         score = 0;
         updateScore();
 
-
         function updateScore() {
-            // Calculate the score based on distance or any other relevant logic
-            score = Math.ceil(score); // Round up the score to the nearest whole number
+          if (standardCheckbox.checked) {
+            score = Math.ceil(score);
             currentScore += score;
+          } else {
+            score = Math.ceil(score);
+            currentScore += score;
+            // Survival mode, check if current score is less than survival condition
+            if (currentScore < survivalCondition) {
+              nextRoundButton.classList.add('view-result');
+              nextRoundButton.innerText = 'View Result';
+            }
           }
+        }
 
         var displayElement = document.getElementById("countdown-text");
         displayElement.style.display = "none";
@@ -1432,7 +1449,7 @@ document.querySelector(".play").addEventListener("click", function() {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
-    survivalCondition = 0;
+    survivalCondition = 100;
     updateRoundInfo();
     //console.log("Round: " + currentRound);
     //console.log("Current Score: " + currentScore);
@@ -1453,15 +1470,10 @@ function updateNextRoundButton() {
       nextRoundButton.innerText = 'Next Round';
     }
   } else {
-    if (currentScore < survivalCondition) {
-      nextRoundButton.classList.add('view-result');
-      nextRoundButton.innerText = 'View Result';
-    } else {
       nextRoundButton.classList.remove('view-result');
       nextRoundButton.innerText = 'Next Round';
     }
   }
-}
 
 
 document.querySelectorAll(".has-marker").forEach(function(button) {
@@ -1500,18 +1512,24 @@ document.querySelector(".next-round").addEventListener("click", function() {
   } else {
     // Handle logic for the "Next Round" button
       currentRound++;
-      if (currentRound < 5) {
+      if (currentRound < 6) {
+        survivalCondition += 100;
+      } else if (currentRound < 11) {
+        survivalCondition += 250;
+      } else if (currentRound < 16) {
         survivalCondition += 500;
-      } else if (currentRound < 10) {
-        survivalCondition += 1000;
-      } else if (currentRound < 15) {
-        survivalCondition += 2000;
-      } else if (currentRound < 20) {
-        survivalCondition += 3000;
-      } else if (currentRound < 25) {
-        survivalCondition += 4000;
-      } else if (currentRound < 30) {
-        survivalCondition += 5000;
+      } else if (currentRound < 21) {
+        survivalCondition += 750;
+      } else if (currentRound < 26) {
+        survivalCondition += 1500;
+      } else if (currentRound < 31) {
+        survivalCondition += 2250;
+      } else if (currentRound < 36) {
+        survivalCondition += 3750;
+      } else if (currentRound < 101) {
+        survivalCondition += 4500;
+      } else {
+        survivalCondition += 6250;
       }
       updateRoundInfo();
       //console.log("Round: " + currentRound + "/" + round);
@@ -1545,12 +1563,18 @@ function displayFinalScore() {
     console.log("Final Score: " + finalScore);
     finalScoreElement.style.display = "block";
   } else {
+    if (currentRound == 1) {
+    finalTextElement.innerHTML = `You survived for <span style='color: rgb(255, 228, 107)'>${currentRound}</span> round!`;
+    finalScoreElement.textContent = finalScore;
+    console.log("Final Score: " + finalScore);
+    finalScoreElement.style.display = "block";
+  } else {
     finalTextElement.innerHTML = `You survived for <span style='color: rgb(255, 228, 107)'>${currentRound}</span> rounds!`;
     finalScoreElement.textContent = finalScore;
     console.log("Final Score: " + finalScore);
     finalScoreElement.style.display = "block";
   }
-  
+}
   stopCountdown();
   stopSCountdown();
 }
