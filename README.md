@@ -145,6 +145,7 @@ If you guess in the wrong map location, you get 0 points.
 - Small bug fixes and minor improvements
   - Fixed a bug where you can disable both gamemodes, if press Play, it automatically play as Survival mode. This is now fixed.
   - UI overhall (i fixed a lot of my janky ChatGPT code lol)
+  - Fixing bugs, fixing bugs...
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

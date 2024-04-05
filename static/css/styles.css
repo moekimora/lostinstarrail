@@ -39,7 +39,7 @@ h1 {
     position: absolute;
     color: white;
     text-shadow: 2px 2px 2px black;
-    bottom: 33vh;
+    bottom: 30vh;
     transform: translateX(-50%);
     text-align: center;
     z-index: 2;
@@ -323,7 +323,17 @@ h1 {
 }
 .settings-gamerules-wrapper2 {
     position: absolute;
-    top: 20vw;
+    top: 22vw;
+    right: 2vw;
+    width: 100%; /* Set the desired width */
+    height: 15%; /* Set the desired height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Start from the right side */
+}
+.settings-gamerules-wrapper3 {
+    position: absolute;
+    top: 29vw;
     right: 2vw;
     width: 100%; /* Set the desired width */
     height: 15%; /* Set the desired height */
@@ -332,6 +342,11 @@ h1 {
     justify-content: flex-end; /* Start from the right side */
 }
 .settings-gamerules-container1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.settings-gamerules-container2 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -472,60 +487,47 @@ h1 {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
-.settings-gamerulebaw {
-    position: absolute;
-    width: 7%;
-    height: 7%;
+.settings-filterstext {
+    position: relative;
     color: white;
-    top: 64%;
-    left: 39%;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.settings-gamerulebaw {
+    position: relative;
+    width: 7vw;
+    height: 7vh;
+    color: white;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .settings-gameruleinvert {
-    position: absolute;
-    width: 7%;
-    height: 7%;
+    position: relative;
+    width: 7vw;
+    height: 7vh;
     color: white;
-    top: 64%;
-    left: 49%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .settings-gamerulepixelate {
-    position: absolute;
-    width: 7%;
-    height: 7%;
+    position: relative;
+    width: 7vw;
+    height: 7vh;
     color: white;
-    top: 64%;
-    left: 59%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .settings-gamerulescramble {
-    position: absolute;
-    width: 7%;
-    height: 7%;
+    position: relative;
+    width: 7vw;
+    height: 7vh;
     color: white;
-    top: 64%;
-    left: 69%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
-
-
-.settings-filterstext {
-    position: absolute;
-    color: white;
-    font-size: 40px;
-    text-shadow: 2px 2px 2px black;
-    top: 57%;
-    left: 29%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -592,9 +594,7 @@ input:checked + .standard-slider:before {
     border-radius: 50%;
 }
 .baw-switch {
-    position: absolute;
-    top: 65.5%;
-    left: 45%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -655,9 +655,7 @@ input:checked + .baw-slider:before {
     border-radius: 50%;
 }
 .invert-switch {
-    position: absolute;
-    top: 65.5%;
-    left: 55%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -718,9 +716,7 @@ input:checked + .invert-slider:before {
     border-radius: 50%;
 }
 .pixelate-switch {
-    position: absolute;
-    top: 65.5%;
-    left: 65%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -781,9 +777,7 @@ input:checked + .pixelate-slider:before {
     border-radius: 50%;
 }
 .scramble-switch {
-    position: absolute;
-    top: 65.5%;
-    left: 75%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -912,32 +906,13 @@ input:checked + .survival-slider:before {
    font-family: 'DIN';
    src: url('../media/font/DIN.ttf') format('truetype');
 }
-.output-text {
-    position: absolute;
-    z-index: 4;
-    opacity: 0.3;
-    font-size: 50px;
-    color: white;
-    top: 50px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-    text-align: center; /* Center the text horizontally */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .random-image {
     z-index: -1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 .starrail-container {
     position: fixed;
-    width: 485px;
-    height: 485px;
+    width: 435px;
+    height: 435px;
     right: 1%;
     bottom: 1%;
 }
@@ -947,6 +922,7 @@ input:checked + .survival-slider:before {
     z-index: 4;
 }
 .dropdown-btn {
+    position: relative;
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
     font-size: 24px;
@@ -1087,8 +1063,8 @@ input:checked + .survival-slider:before {
     bottom: 2%;
     right: 1%;
     border-radius: 10px;
-    height: 400px;
-    width: 400px;
+    width: 350px;
+    height: 350px;
     transition: opacity 0.5s ease, transform 0.4s ease;
     z-index: 3;
 }
@@ -1115,7 +1091,6 @@ input:checked + .survival-slider:before {
     background-color: green;
     cursor: pointer;
     color: white;
-    padding: 5px 175px;
 }
 .guess-overlay {
     position: fixed;
@@ -1123,7 +1098,7 @@ input:checked + .survival-slider:before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     display: none;
     z-index: 3;
 }
@@ -1133,7 +1108,7 @@ input:checked + .survival-slider:before {
     text-align: center;
     color: white;
     text-shadow: 2px 2px 2px black;
-    bottom: 14%;
+    bottom: 12%;
     transform: translateX(-50%);
     z-index: 5;
     font-size: 30px;
@@ -1148,7 +1123,7 @@ input:checked + .survival-slider:before {
     color: rgb(0, 0, 0);
     cursor: pointer;
     z-index: 4;
-    bottom: 8%;
+    bottom: 5%;
     display: none;
     transition: 0.5s ease;
     position: fixed;
@@ -1163,15 +1138,17 @@ input:checked + .survival-slider:before {
     z-index: 4;
     opacity: 0;
     pointer-events: none;
-    top: 22%;
-    left: 39%;
+    top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-50%);
     border-radius: 10px;
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
     transition: opacity 0.5s ease, transform 0.4s ease;
 }
 #countdown-text {
-    position: fixed;
+    position: absolute;
     top: 4%;
     left: 46.5%;
     transform: translate(-50%, -50%);
@@ -1185,7 +1162,7 @@ input:checked + .survival-slider:before {
     transition: 0.5s ease;
 }
 #countdown-s-text {
-    position: fixed;
+    position: absolute;
     top: 3%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1219,7 +1196,6 @@ input:checked + .survival-slider:before {
     width: 400px;
     height: 150px;
     border-radius: 10px;
-    z-index: 3;
     display: none;
 }
 #final-score {

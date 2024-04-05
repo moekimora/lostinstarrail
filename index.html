@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.292b (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.292test452024 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -88,27 +88,32 @@
                         <input type="range" min="2" max="99" value="5" class="slider3" id="Range3">
                     </div>
                 </div>
-                <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
-                <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
-                <label class="baw-switch">
-                    <input type="checkbox" id="BAW">
-                    <span class="baw-slider round"></span>
-                </label>
-                <img src="static/media/icons/invert-mode-outline.svg" alt="Invert" class="settings-gameruleinvert" title="Invert the color of the image.">
-                <label class="invert-switch">
-                      <input type="checkbox" id="Invert">>
-                      <span class="invert-slider round"></span>
-                </label>
-                <img src="static/media/icons/grid-outline.svg" alt="Pixelate" class="settings-gamerulepixelate" title="Reduce visibility of the image by blur.">
-                <label class="pixelate-switch">
-                      <input type="checkbox" id="Pixelate">
-                      <span class="pixelate-slider round"></span>
-                </label>
-                <img src="static/media/icons/dice-outline.svg" alt="Scramble" class="settings-gamerulescramble" title="Reduce visibility of the image by slice the image and reorder them.">
-                <label class="scramble-switch">
-                      <input type="checkbox" id="Scramble">
-                      <span class="scramble-slider round"></span>
-                </label>
+
+                <div class="settings-gamerules-wrapper3">
+                    <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
+                        <div class="settings-gamerules-container2">
+                        <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
+                        <label class="baw-switch">
+                            <input type="checkbox" id="BAW">
+                            <span class="baw-slider round"></span>
+                        </label>
+                        <img src="static/media/icons/invert-mode-outline.svg" alt="Invert" class="settings-gameruleinvert" title="Invert the color of the image.">
+                        <label class="invert-switch">
+                            <input type="checkbox" id="Invert">>
+                            <span class="invert-slider round"></span>
+                        </label>
+                        <img src="static/media/icons/grid-outline.svg" alt="Pixelate" class="settings-gamerulepixelate" title="Reduce visibility of the image by blur.">
+                        <label class="pixelate-switch">
+                            <input type="checkbox" id="Pixelate">
+                            <span class="pixelate-slider round"></span>
+                        </label>
+                        <img src="static/media/icons/dice-outline.svg" alt="Scramble" class="settings-gamerulescramble" title="Reduce visibility of the image by slice the image and reorder them.">
+                        <label class="scramble-switch">
+                            <input type="checkbox" id="Scramble">
+                            <span class="scramble-slider round"></span>
+                        </label>
+                    </div>
+                </div>
 
             </div>
                 <!--kurukuru-->
