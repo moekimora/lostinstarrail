@@ -17,9 +17,9 @@ body {
 }
 .lihsr {
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 45vh;
+    left: 50vw;
+    transform: translate(-50%, -50%) scale(0.8);
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -39,14 +39,16 @@ h1 {
     position: absolute;
     color: white;
     text-shadow: 2px 2px 2px black;
-    top: 60%;
+    bottom: 33vh;
     transform: translateX(-50%);
     text-align: center;
+    z-index: 2;
+    font-size: 28px;
 }
 .version {
     position: absolute;
     color: white;
-    font-size: 44px;
+    font-size: 30px;
     text-shadow: 2px 2px 2px black;
     bottom: 10px;
     left: 10px;
@@ -59,6 +61,31 @@ h1 {
     align-items: center;
     color: white;
     font-weight: bold;
+}
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    backdrop-filter: blur(25px);
+    transition: opacity 0.5s ease;
+}
+#kurukuru {
+    width: 169px;
+    height: 169px;
+}
+#loading-text {
+    margin-top: 20px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
 }
 .play {
     position: absolute;
@@ -163,28 +190,47 @@ h1 {
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .settings-map {
-    position: absolute;
+    position: relative;
     color: white;
-    font-size: 60px;
+    font-size: 45px;
     text-shadow: 2px 2px 2px black;
-    top: 20%;
-    left: 15%;
+    left: 10vh;
     z-index: 4;
     display: none;
     transition: opacity 0.5s ease, transform 0.4s ease;
 }
+
+.settings-map-wrapper {
+    position: absolute;
+    top: 1.5vw;
+    right: 2vw;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Start from the right side */
+}
+
+.settings-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Start from the right side */
+    right: 0;
+}
+
 .settings-map1,
 .settings-map2,
 .settings-map3,
 .settings-map4,
 .settings-map5 {
-    position: absolute;
-    top: 20%;
+    position: relative;
+    top: 1%;
     z-index: 4;
-    width: 212px;
-    height: 122px;
-    background-size: cover;
-    margin-block: 30px;
+    width: 10vw;
+    height: 11.25vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 1.25vw;
     cursor: pointer;
     display: none;
     flex-wrap: wrap;
@@ -192,27 +238,22 @@ h1 {
 }
 
 .settings-map1 {
-    left: 25%;
     background-image: url("../media/map/random.png");
 }
 
 .settings-map2 {
-    left: 38%;
     background-image: url("../media/map/hertaspacestation.png");
 }
 
 .settings-map3 {
-    left: 51%;
     background-image: url("../media/map/jarilovi.png");
 }
 
 .settings-map4 {
-    left: 64%;
     background-image: url("../media/map/thexianzhouluofu.png");
 }
 
 .settings-map5 {
-    left: 76%;
     background-image: url("../media/map/penacony.png");
 }
 
@@ -231,159 +272,105 @@ h1 {
 .settings-map5.active {
     z-index: 4;
 }
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    backdrop-filter: blur(25px);
-    transition: opacity 0.5s ease;
-}
-#kurukuru {
-    width: 169px;
-    height: 169px;
-}
-#loading-text {
-    margin-top: 20px;
-    color: white;
-    font-size: 22px;
-    text-align: center;
-}
 
-.settings-gamerulestext {
+.settings-gamemode-wrapper {
     position: absolute;
-    color: white;
-    font-size: 60px;
-    text-shadow: 2px 2px 2px black;
-    top: 35%;
-    left: 15%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
+    top: 9vw;
+    right: 2vw;
+    width: 100%; /* Set the desired width */
+    height: 15%; /* Set the desired height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Start from the right side */
+}
+.settings-gamemode-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    right: 0;
 }
 .settings-gamemodestext {
-    position: absolute;
+    position: relative;
     color: white;
-    font-size: 60px;
+    left: 10vh;
+    font-size: 45px;
     text-shadow: 2px 2px 2px black;
-    bottom: 12%;
-    left: 15%;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.settings-gamemodesstandardtext {
-    position: absolute;
-    color: white;
-    font-size: 40px;
-    text-shadow: 2px 2px 2px black;
-    bottom: 14%;
-    left: 35%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
+.settings-gamemodesstandardtext,
 .settings-gamemodessurvivaltext {
-    position: absolute;
+    position: relative;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: 2px 2px 2px black;
-    bottom: 14%;
-    left: 55%;
+    z-index: 4;
+    display: none;
+    margin: 5vw;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+
+.settings-gamerules-wrapper1 {
+    position: absolute;
+    top: 15vw;
+    right: 2vw;
+    width: 100%; /* Set the desired width */
+    height: 15%; /* Set the desired height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Start from the right side */
+}
+.settings-gamerules-wrapper2 {
+    position: absolute;
+    top: 20vw;
+    right: 2vw;
+    width: 100%; /* Set the desired width */
+    height: 15%; /* Set the desired height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Start from the right side */
+}
+.settings-gamerules-container1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.settings-gamerulestext {
+    position: relative;
+    color: white;
+    left: 10vh;
+    font-size: 45px;
+    text-shadow: 2px 2px 2px black;
     z-index: 4;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.settings-gamerulestimer {
-    position: absolute;
-    width: 7%;
-    height: 7%;
+.settings-gamerulestimer,
+.settings-gamerulesseetime,
+.settings-gameruleround  {
+    position: relative;
     color: white;
-    top: 42%;
-    left: 27%;
     z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
-.settings-gamerules-slider1{
-    width: 100%;
-}
-.slider1 {
-    position: absolute;
-    top: 45%;
-    left: 40%;
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 15%; /* Full-width */
-    height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    display: none;
-    z-index: 4;
-}
-.slider1:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-    z-index: 4;
-}
-.slider1::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 35px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
-    background-image: url("../media/icons/radio-button-on-outline.svg");
-    cursor: pointer; /* Cursor on hover */
-    z-index: 4;
-}
-.slider1::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 10px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    z-index: 4;
-}
-.settings-displayTime {
-    position: absolute;
-    color: white;
-    font-size: 60px;
-    text-shadow: 2px 2px 2px black;
-    top: 35%;
-    left: 33%;
-    z-index: 4;
+    width: 7vw;
+    height: 7vh;
+    margin: -1vw;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 
-.settings-gamerulesseetime {
-    position: absolute;
-    width: 7%;
-    height: 7%;
-    color: white;
-    top: 42%;
-    left: 58%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
+.slider1-container,
+.slider2-container,
+.slider3-container {
+    display: flex;
+    align-items: center;
 }
-.settings-gamerules-slider2{
-    width: 100%;
-}
+
+.slider1,
 .slider2 {
-    position: absolute;
-    top: 45%;
-    left: 71%;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 15%; /* Full-width */
+    width: 20vw; /* Full-width */
     height: 10px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -393,11 +380,27 @@ h1 {
     display: none;
     z-index: 4;
 }
+.slider3 {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 15vw; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    display: none;
+    z-index: 4;
+}
+.slider1:hover,
 .slider2:hover {
     opacity: 1; /* Fully shown on mouse-over */
     z-index: 4;
 }
-.slider2::-webkit-slider-thumb {
+.slider1::-webkit-slider-thumb,
+.slider2::-webkit-slider-thumb,
+.slider3::-webkit-slider-thumb  {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     width: 35px; /* Set a specific slider handle width */
@@ -406,47 +409,53 @@ h1 {
     cursor: pointer; /* Cursor on hover */
     z-index: 4;
 }
-.slider2::-moz-range-thumb {
+.slider1::-moz-range-thumb,
+.slider2::-moz-range-thumb,
+.slider3::-moz-range-thumb  {
     width: 25px; /* Set a specific slider handle width */
     height: 10px; /* Slider handle height */
     background: #04AA6D; /* Green background */
     cursor: pointer; /* Cursor on hover */
     z-index: 4;
 }
-.settings-displaySeeTime {
-    position: absolute;
+.settings-displayTime,
+.settings-displaySeeTime,
+.settings-displayRound  {
+    position: relative;
     color: white;
-    font-size: 60px;
+    font-size: 40px;
     text-shadow: 2px 2px 2px black;
-    top: 35%;
-    left: 64%;
     z-index: 4;
     display: none;
+    margin: 1vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.settings-seedtext {
-    position: absolute;
-    color: white;
-    font-size: 60px;
-    text-shadow: 2px 2px 2px black;
-    top: 46.5%;
-    left: 29%;
+.slider3:hover {
+    opacity: 1; /* Fully shown on mouse-over */
     z-index: 4;
+}
+
+.settings-seedtext {
+    position: relative;
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    margin: 1vw;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .seedinput {
-    position: absolute;
-    padding: 20px 30px;
+    position: relative;
+    padding: 2vh 8vw;
     font-family: 'DIN', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
     background-color: rgba(255, 248, 248);
-    top: 53.5%;
-    left: 38%;
     z-index: 4;
     display: none;
+    margin: 1vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .seedinput::placeholder {
@@ -509,71 +518,11 @@ h1 {
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 
-.settings-gameruleround {
-    position: absolute;
-    width: 7%;
-    height: 7%;
-    color: white;
-    top: 53%;
-    left: 58%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
-.settings-gamerules-slider3{
-    width: 100%;
-}
-.slider3 {
-    position: absolute;
-    top: 56.5%;
-    left: 71%;
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 15%; /* Full-width */
-    height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    display: none;
-    z-index: 4;
-}
-.slider3:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-    z-index: 4;
-}
-.slider3::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 35px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
-    background-image: url("../media/icons/radio-button-on-outline.svg");
-    cursor: pointer; /* Cursor on hover */
-    z-index: 4;
-}
-.slider3::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 10px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    z-index: 4;
-}
-.settings-displayRound {
-    position: absolute;
-    color: white;
-    font-size: 60px;
-    text-shadow: 2px 2px 2px black;
-    top: 46.5%;
-    left: 64%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
+
 .settings-filterstext {
     position: absolute;
     color: white;
-    font-size: 60px;
+    font-size: 40px;
     text-shadow: 2px 2px 2px black;
     top: 57%;
     left: 29%;
@@ -582,9 +531,7 @@ h1 {
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .standard-switch {
-    position: absolute;
-    top: 77.5%;
-    left: 45%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;
@@ -897,9 +844,7 @@ input:checked + .scramble-slider:before {
     border-radius: 50%;
 }
 .survival-switch {
-    position: absolute;
-    top: 77.5%;
-    left: 64%;
+    position: relative;
     display: inline-block;
     width: 75px;
     height: 43px;

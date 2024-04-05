@@ -141,5 +141,10 @@ If you guess in the wrong map location, you get 0 points.
   - New display for Survival mode, instead of "Final Score", it is "You survived for x round(s)"
   - Seed can only be entered up to 16 characters now.
 
+## v1.0.292
+- Small bug fixes and minor improvements
+  - Fixed a bug where you can disable both gamemodes, if press Play, it automatically play as Survival mode. This is now fixed.
+  - UI overhall (i fixed a lot of my janky ChatGPT code lol)
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

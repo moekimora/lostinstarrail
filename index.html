@@ -24,37 +24,69 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.291 (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.292b (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
-            <div class="settings-app"></div>
             <div class="settings-text-container">
                 <img src="static/media/icons/settings-outline.svg" alt="Settings" class="settings-logo">
                 <p class="settings-text">Settings</p>
             </div>
+            <div class="settings-app">
                 <!--Map-->
-                <p class="settings-map">Map</p>
-                <div class="settings-map1" onclick="changeColor()" title="Random"></div>
-                <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
-                <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
-                <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
-                <div class="settings-map5" onclick="changeColor()" title="Penacony"></div>
+                <div class="settings-map-wrapper">
+                    <p class="settings-map">Map</p>
+                    <div class="settings-map-container">
+                        <div class="settings-map1" onclick="changeColor()" title="Random"></div>
+                        <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
+                        <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
+                        <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
+                        <div class="settings-map5" onclick="changeColor()" title="Penacony"></div>
+                    </div>
+                </div>
+                <!--Gamemodes-->
+                <div class="settings-gamemode-wrapper">
+                    <p class="settings-gamemodestext" onclick="toggleSettings">Gamemode</p>
+                    <div class="settings-gamemode-container">
+                        <p class="settings-gamemodesstandardtext" onclick="toggleSettings">Standard</p>
+                        <label class="standard-switch">
+                            <input type="checkbox" checked id="Standard">
+                            <span class="standard-slider round"></span>
+                        </label>
+                        <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
+                        <label class="survival-switch">
+                            <input type="checkbox" id="Survival">
+                            <span class="survival-slider round"></span>
+                        </label>
+                    </div>
+                </div>
                 <!--Mods-->
-                <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
-                <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
-                <div>
-                    <input type="range" min="1" max="300" value="120" class="slider1" id="Range">
-                    <p class="settings-displayTime"><span id="Time"></span></p>
+                <div class="settings-gamerules-wrapper1">
+                    <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
+                    <div class="settings-gamerules-container1">
+                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
+                        <div class="slider1-container">
+                            <p class="settings-displayTime"><span id="Time"></span></p>
+                            <input type="range" min="1" max="300" value="120" class="slider1" id="Range">
+                        </div>
+                        <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
+                        <div class="slider2-container">
+                            <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
+                            <input type="range" min="0" max="300" value="120" class="slider2" id="Range2">
+                        </div>
+                    </div>
                 </div>
-                <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
-                <div>
-                    <input type="range" min="0" max="300" value="120" class="slider2" id="Range2">
-                    <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
-                </div>
-                <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
-                <div>
-                    <input type="text" maxlength="16" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
+
+                <div class="settings-gamerules-wrapper2">
+                    <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
+                    <div>
+                        <input type="text" maxlength="16" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
+                    </div>
+                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
+                    <div class="slider3-container">
+                        <p class="settings-displayRound"><span id="Round"></span></p>
+                        <input type="range" min="2" max="99" value="5" class="slider3" id="Range3">
+                    </div>
                 </div>
                 <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
                 <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
@@ -77,26 +109,8 @@
                       <input type="checkbox" id="Scramble">
                       <span class="scramble-slider round"></span>
                 </label>
-                <p class="settings-gamemodestext" onclick="toggleSettings">Gamemode</p>
-                <p class="settings-gamemodesstandardtext" onclick="toggleSettings">Standard</p>
-                <label class="standard-switch">
-                    <input type="checkbox" checked id="Standard">
-                    <span class="standard-slider round"></span>
-                  </label>
-                <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
-                <label class="survival-switch">
-                    <input type="checkbox" id="Survival">
-                    <span class="survival-slider round"></span>
-                </label>
-                <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
-                <div class="gamerules-slider3">
-                    <input type="range" min="2" max="99" value="5" class="slider3" id="Range3">
-                    <p class="settings-displayRound"><span id="Round"></span></p>
-                </div>
 
-                <!--debug-->
-                <p id="Output" class="output-text"></p>
-
+            </div>
                 <!--kurukuru-->
                 <div id="loading-screen">
                     <img id="kurukuru" src="static/media/home/kururin.gif" alt="Kurukuru">
@@ -262,12 +276,16 @@
             standardCheckbox.addEventListener('change', function() {
                 if (standardCheckbox.checked) {
                     survivalCheckbox.checked = false;
+                } else {
+                    survivalCheckbox.checked = true;
                 }
             });
 
             survivalCheckbox.addEventListener('change', function() {
                 if (survivalCheckbox.checked) {
                     standardCheckbox.checked = false;
+                } else {
+                    standardCheckbox.checked = true;
                 }
             });
         </script>
