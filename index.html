@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.293test462024 (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.294test462024 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -49,19 +49,19 @@
                     <p class="settings-gamemodestext" onclick="toggleSettings">Gamemode</p>
                     <div class="settings-gamemode-container">
                         <p class="settings-gamemodesstandardtext" onclick="toggleSettings">Standard</p>
-                        <label class="standard-switch">
+                        <label class="switch standard-switch">
                             <input type="checkbox" checked id="Standard">
-                            <span class="standard-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                         <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
-                        <label class="survival-switch">
+                        <label class="switch survival-switch">
                             <input type="checkbox" id="Survival">
-                            <span class="survival-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                     </div>
                 </div>
                 <!--Mods-->
-                <div class="settings-gamerules-wrapper1">
+                <div class="settings-gamerules-wrapper settings-gamerules-wrapper1">
                     <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
                     <div class="settings-gamerules-container1">
                         <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <div class="settings-gamerules-wrapper2">
+                <div class="settings-gamerules-wrapper settings-gamerules-wrapper2">
                     <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
                     <div>
                         <input type="text" maxlength="16" placeholder="Leave blank for a random seed." class="seedinput" id="Input">
@@ -89,28 +89,28 @@
                     </div>
                 </div>
 
-                <div class="settings-gamerules-wrapper3">
+                <div class="settings-gamerules-wrapper settings-gamerules-wrapper3">
                     <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
                         <div class="settings-gamerules-container2">
                         <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
-                        <label class="baw-switch">
+                        <label class="switch baw-switch">
                             <input type="checkbox" id="BAW">
-                            <span class="baw-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                         <img src="static/media/icons/invert-mode-outline.svg" alt="Invert" class="settings-gameruleinvert" title="Invert the color of the image.">
-                        <label class="invert-switch">
+                        <label class="switch invert-switch">
                             <input type="checkbox" id="Invert">>
-                            <span class="invert-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                         <img src="static/media/icons/grid-outline.svg" alt="Pixelate" class="settings-gamerulepixelate" title="Reduce visibility of the image by blur.">
-                        <label class="pixelate-switch">
+                        <label class="switch pixelate-switch">
                             <input type="checkbox" id="Pixelate">
-                            <span class="pixelate-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                         <img src="static/media/icons/dice-outline.svg" alt="Scramble" class="settings-gamerulescramble" title="Reduce visibility of the image by slice the image and reorder them.">
-                        <label class="scramble-switch">
+                        <label class="switch scramble-switch">
                             <input type="checkbox" id="Scramble">
-                            <span class="scramble-slider round"></span>
+                            <span class="slider round"></span>
                         </label>
                     </div>
                 </div>
@@ -255,10 +255,12 @@
             <source id="audioSource" type="audio/mp3" src="static/media/audio/Anthropic Domain.mp3">
           </audio>
         <script src="static/js/play.js"></script>
+        <script src="static/js/audio.js"></script>
         <script src="static/js/settings.js"></script>
         <script src="static/js/dropdown.js"></script>
         <script src="static/js/starrailmap.js"></script>
         <script src="static/js/marker.js"></script>
+        <script src="static/js/image.js"></script>
         <script src="static/js/score.js"></script>
         <script src="static/js/time-countdown.js"></script>
         <script src="static/js/seetime-countdown.js"></script>
@@ -303,53 +305,5 @@
             loadingScreen = document.getElementById('loading-screen');
         </script>
 
-        <script>
-            var audio = document.getElementById("gameaudio");
-            var guessButton = document.getElementById("guessButton");
-            var nextRoundButton = document.getElementById("next-round");
-
-            var audioContext;
-            var gainNode;
-            var filterNode;
-
-            // Function to create AudioContext after a user gesture
-            function createAudioContext() {
-            // Check if AudioContext is supported
-            if (typeof window.AudioContext !== 'undefined') {
-                // Create AudioContext if it doesn't exist
-                if (!audioContext) {
-                audioContext = new AudioContext();
-                gainNode = audioContext.createGain();
-                filterNode = audioContext.createBiquadFilter();
-
-                // Connect the audio element to the gain node
-                var source = audioContext.createMediaElementSource(audio);
-                source.connect(filterNode);
-                filterNode.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                }
-            }
-            }
-
-guessButton.addEventListener("click", function() {
-    if (guessButton.classList.contains('has-marker')) {
-        createAudioContext(); // Create AudioContext on button click
-  filterNode.type = "lowpass"; // Set the filter type to lowpass
-  filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
-    }
-});
-
-nextRoundButton.addEventListener("click", function() {
-  createAudioContext(); // Create AudioContext on button click
-  filterNode.type = "allpass"; // Set the filter type back to allpass (no effect)
-  filterNode.frequency.value = 0; // Set the filter frequency to 0 (no effect)
-});
-
-function muffleAudio() {
-  createAudioContext(); // Create AudioContext for muffle effect
-  filterNode.type = "lowpass"; // Set the filter type to lowpass
-  filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
-}
-        </script>
     </body>
 </html>

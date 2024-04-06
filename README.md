@@ -154,6 +154,11 @@ If you guess in the wrong map location, you get **0** points.
   - Better UI for smaller resolutions, still shit on mobile tho lol.
   - Improved code for better performance.
 
+## v1.0.294
+- Small bug fixes and minor improvements
+  - There's a bug where after you played for 1 round, even if you selected more than 1, the game stops at 1. This is now fixed.
+  - Improved code for better performance.
+
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
