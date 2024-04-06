@@ -216,15 +216,15 @@ function changeColor(element) {
     // Display map name
     var roundMapElement = document.getElementById("map-info");  
         if (mapId === 0) {
-            roundMapElement.textContent = "Map: Random";
+            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Random";
             } else if (mapId === 1) {
-            roundMapElement.textContent = "Map: Herta Space Station";
+            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Herta Space Station";
             } else if (mapId === 2) {
-            roundMapElement.textContent = "Map: Jarilo-VI";
+            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Jarilo-VI";
             } else if (mapId === 3) {
-            roundMapElement.textContent = "Map: The Xianzhou Luofu";
+            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>The Xianzhou Luofu";
             } else if (mapId === 4) {
-            roundMapElement.textContent = "Map: Penacony";
+            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Penacony";
             } 
                 
 }

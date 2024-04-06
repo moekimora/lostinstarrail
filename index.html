@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.292test452024 (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.293test462024 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -85,7 +85,7 @@
                     <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
                     <div class="slider3-container">
                         <p class="settings-displayRound"><span id="Round"></span></p>
-                        <input type="range" min="2" max="99" value="5" class="slider3" id="Range3">
+                        <input type="range" min="1" max="99" value="5" class="slider3" id="Range3">
                     </div>
                 </div>
 
@@ -235,7 +235,7 @@
                 <div id="map"></div>
                 <div id="resultmap"></div>
                 <div id="game-stat" class="game-stat">
-                    <p id="map-info">Map: Random</p>
+                    <p id="map-info"><span class="map-text">Map</span><br>Random</p>
                     <p id="round-info"></p>
                     <p id="score-info"></p>
                 </div>

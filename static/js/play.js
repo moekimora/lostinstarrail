@@ -2,7 +2,7 @@
  function togglePlay() {
     //show ui
     var gameStat = document.getElementById('game-stat');
-    gameStat.style.display = 'block';
+    gameStat.style.display = 'flex';
 
     //hide ui
     var video = document.getElementById('loadingscreen');

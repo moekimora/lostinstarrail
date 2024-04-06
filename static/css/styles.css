@@ -68,7 +68,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     display: none;
     flex-direction: column;
     align-items: center;
@@ -1193,10 +1193,23 @@ input:checked + .survival-slider:before {
     top: 1%;
     right: 1%;
     background-color: rgb(91, 99, 206);
-    width: 400px;
-    height: 150px;
+    min-width: 280px;
+    height: 80px;
     border-radius: 10px;
     display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+#map-info,
+#round-info,
+#score-info {
+    position: relative;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    transition: opacity 0.75s ease;
+    margin: 10px;
 }
 #final-score {
     position: absolute;
@@ -1212,35 +1225,9 @@ input:checked + .survival-slider:before {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-#round-info {
-    position: absolute;
-    color: white;
-    font-size: 30px;
-    text-shadow: 2px 2px 2px black;
-    z-index: 4;
-    transition: opacity 0.75s ease;
-    top: -12%;
-    left: 2%
-}
-#score-info {
-    position: absolute;
-    color: white;
-    font-size: 30px;
-    text-shadow: 2px 2px 2px black;
-    z-index: 4;
-    transition: opacity 0.75s ease;
-    top: 17%;
-    left: 2%
-}
-#map-info {
-    position: absolute;
-    color: white;
-    font-size: 30px;
-    text-shadow: 2px 2px 2px black;
-    z-index: 4;
-    transition: opacity 0.75s ease;
-    top: 45%;
-    left: 2%
+.map-text {
+    font-size: 20px;
+    opacity: 0.5;
 }
 .finaltext {
     position: absolute;

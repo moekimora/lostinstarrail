@@ -1338,6 +1338,10 @@ guessButton.addEventListener('click', function() {
           if (standardCheckbox.checked) {
             score = Math.ceil(score);
             currentScore += score;
+            if (currentRound == 1) {
+              nextRoundButton.classList.add('view-result');
+              nextRoundButton.innerText = 'View Result';
+            }
           } else {
             score = Math.ceil(score);
             currentScore += score;
@@ -1393,6 +1397,10 @@ guessButton.addEventListener('click', function() {
           if (standardCheckbox.checked) {
             score = Math.ceil(score);
             currentScore += score;
+            if (currentRound == 1) {
+              nextRoundButton.classList.add('view-result');
+              nextRoundButton.innerText = 'View Result';
+            }
           } else {
             score = Math.ceil(score);
             currentScore += score;
@@ -1544,14 +1552,14 @@ updateNextRoundButton();
 function updateRoundInfo() {
   if (standardCheckbox.checked) {
   var roundInfoElement = document.getElementById("round-info");
-  roundInfoElement.textContent = "Round: " + currentRound + "/" + round;
+  roundInfoElement.innerHTML = "<span class='map-text'>Round</span><br>" + currentRound + "/" + round;
   var roundScoreElement = document.getElementById("score-info");
-  roundScoreElement.textContent = "Score: " + currentScore
+  roundScoreElement.innerHTML = "<span class='map-text'>Score</span><br>" + currentScore
   } else {
     var roundInfoElement = document.getElementById("round-info");
-    roundInfoElement.textContent = "Round: " + currentRound;
+    roundInfoElement.innerHTML = "<span class='map-text'>Round</span><br>" + currentRound;
     var roundScoreElement = document.getElementById("score-info");
-    roundScoreElement.textContent = "Score: " + currentScore + " (Req: " + survivalCondition + ")"
+    roundScoreElement.innerHTML = "<span class='map-text'>Score</span><br>" + currentScore + " (Req: " + survivalCondition + ")"
   }
 }
 
