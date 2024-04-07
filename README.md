@@ -159,6 +159,15 @@ If you guess in the wrong map location, you get **0** points.
   - There's a bug where after you played for 1 round, even if you selected more than 1, the game stops at 1. This is now fixed.
   - Improved code for better performance.
 
+## v1.0.3
+- Update: Herta Space Station
+  - Updated 250+ locations, just about enough :)
+- Small changes
+  - For now, the only map playable is Herta Space Station, every other map just links to Herta Space Station
+  - Changed the scoring system
+  - Changed the survival gamemode's ID generation from **150** to **250**
+
+
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

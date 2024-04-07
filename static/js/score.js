@@ -91,7 +91,7 @@ if (seedValue === '') {
           // Randomize among all numbers
           return Math.floor(seedRandom(seed) * images.length);
         } else if (mapId === 1) {
-          return Math.floor(seedRandom(seed) * 50);
+          return Math.floor(seedRandom(seed) * 255);
         } else if (mapId === 2) {
           return Math.floor(seedRandom(seed) * 58) + 51;
         } else if (mapId === 3) {
@@ -110,7 +110,7 @@ if (seedValue === '') {
       }
       return Array.from(uniqueIDs); // Convert the Set to an Array and return
     } else {
-      while (uniqueIDs.size < 150) {
+      while (uniqueIDs.size < 250) {
         var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
         uniqueIDs.add(randomNumber);
         seed++; // Increase the seed for the next number
@@ -360,19 +360,13 @@ guessButton.addEventListener('click', function() {
         );
 
         var score;
-        if (distance > 25) {
+        if (distance > 35) {
             score = Math.max(0, 5000 - distance * 50);
         } else if (distance > 20) {
             score = Math.max(0, 5000 - distance * 40);
         } else if (distance > 10) {
-        score = Math.max(0, 5000 - distance * 30);
-        } else if (distance > 5) {
-        score = Math.max(0, 5000 - distance * 25);
-        } else if (distance > 4) {
         score = Math.max(0, 5000 - distance * 20);
-        } else if (distance > 3) {
-        score = Math.max(0, 5000 - distance * 15);
-        } else if (distance > 2) {
+        } else if (distance > 5) {
         score = Math.max(0, 5000 - distance * 10);
         } else if (distance < 1) {
             score = 5000

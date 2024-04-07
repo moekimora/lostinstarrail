@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.294test462024 (2.1#closed-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.3 (2.1#closed-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             <div class="settings-container" onclick="toggleSettings()"></div>
@@ -267,12 +267,12 @@
             
         <script>
             // Click event handler debug
-            //starrailMap.on('click', function (e) {
-            //var lat = e.latlng.lat;
-            //var lng = e.latlng.lng;
-            //console.log('Clicked coordinates:', lat, lng);
-            //onsole.log('Selected map:', currentMap);
-            //});     
+            starrailMap.on('click', function (e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            console.log('Clicked coordinates:', lat, lng);
+            console.log('Selected map:', currentMap);
+            });     
         </script>
 
         <script>
