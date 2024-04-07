@@ -343,6 +343,11 @@ function toRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
 
+var nextRoundButton = document.querySelector(".next-round");
+var backMenu = document.querySelector('.menu-btn');
+var guessButtonActivated = false;
+var nextRoundButtonActivated = false;
+
 guessButton.addEventListener('click', function() {
     if (guessButton.classList.contains('has-marker')) {
       if (currentMap === currentMapLocation) {
@@ -509,7 +514,6 @@ document.querySelector(".play").addEventListener("click", function() {
   }
 });
 
-var nextRoundButton = document.querySelector(".next-round");
 
 function updateNextRoundButton() {
   if (standardCheckbox.checked) {
@@ -553,10 +557,8 @@ document.querySelector(".next-round").addEventListener("click", function() {
                 resultMap.style.pointerEvents = 'none';
     finalScore = currentScore;
     displayFinalScore();
-
-     var backMenu = document.getElementById('menu-btn');
-     backMenu.style.display = 'block';
-     backMenu.addEventListener('click', function() {
+    backMenu.style.display = 'block';
+    backMenu.addEventListener('click', function() {
       location.reload();
      })
 
@@ -566,19 +568,19 @@ document.querySelector(".next-round").addEventListener("click", function() {
       if (currentRound < 6) {
         survivalCondition += 100;
       } else if (currentRound < 11) {
-        survivalCondition += 250;
-      } else if (currentRound < 16) {
         survivalCondition += 500;
+      } else if (currentRound < 16) {
+        survivalCondition += 1000;
       } else if (currentRound < 21) {
-        survivalCondition += 750;
+        survivalCondition += 1750;
       } else if (currentRound < 26) {
-        survivalCondition += 1500;
+        survivalCondition += 2500;
       } else if (currentRound < 31) {
-        survivalCondition += 2250;
+        survivalCondition += 3250;
       } else if (currentRound < 36) {
-        survivalCondition += 3750;
+        survivalCondition += 4000;
       } else if (currentRound < 101) {
-        survivalCondition += 4500;
+        survivalCondition += 4750;
       } else {
         survivalCondition += 6250;
       }

@@ -167,7 +167,13 @@ If you guess in the wrong map location, you get **0** points.
   - Changed the scoring system
   - Changed the survival gamemode's ID generation from **150** to **250**
 
-
+## v1.0.31
+- Several bug fixes and improvements
+  - There's a bug where if you choose Herta Space Station and play Survival mode, the website will crash. The same will happen when playing Herta Space Station in Standard Mode with the number of rounds > **58**. This is now fixed.
+  - Buffed score condition for Survival mode.
+  - You can now press **Spacebar** to guess faster and move to the next round faster.
+  - There's a bug related to the Spacebar that add multiple result text on screen when pressing Spacebar *after* click **Guess**. This is now fixed.
+  - There's also a bug related to the Next Round function and Spacebar that skips a round text when pressing Spacebar *after* click **Next Round**. This is now fixed.
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
