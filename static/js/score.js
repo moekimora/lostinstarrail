@@ -93,7 +93,7 @@ if (seedValue === '') {
         } else if (mapId === 1) {
           return Math.floor(seedRandom(seed) * 255);
         } else if (mapId === 2) {
-          return Math.floor(seedRandom(seed) * 58) + 51;
+          return Math.floor(seedRandom(seed) * 254) + 256;
         } else if (mapId === 3) {
           return Math.floor(seedRandom(seed) * 108) + 1;
         } else {
@@ -366,14 +366,14 @@ guessButton.addEventListener('click', function() {
 
         var score;
         if (distance > 35) {
-            score = Math.max(0, 5000 - distance * 50);
-        } else if (distance > 20) {
             score = Math.max(0, 5000 - distance * 40);
-        } else if (distance > 10) {
-        score = Math.max(0, 5000 - distance * 20);
-        } else if (distance > 5) {
+        } else if (distance > 30) {
+            score = Math.max(0, 5000 - distance * 20);
+        } else if (distance > 15) {
         score = Math.max(0, 5000 - distance * 10);
-        } else if (distance < 1) {
+        } else if (distance > 5) {
+        score = Math.max(0, 5000 - distance * 5);
+        } else if (distance < 1.5) {
             score = 5000
         } else {
         score = Math.max(0, 5000 - distance);
@@ -505,7 +505,7 @@ document.querySelector(".play").addEventListener("click", function() {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
-    survivalCondition = 100;
+    survivalCondition = 500;
     updateRoundInfo();
     //console.log("Round: " + currentRound);
     //console.log("Current Score: " + currentScore);
@@ -566,21 +566,21 @@ document.querySelector(".next-round").addEventListener("click", function() {
     // Handle logic for the "Next Round" button
       currentRound++;
       if (currentRound < 6) {
-        survivalCondition += 100;
-      } else if (currentRound < 11) {
         survivalCondition += 500;
-      } else if (currentRound < 16) {
+      } else if (currentRound < 11) {
         survivalCondition += 1000;
-      } else if (currentRound < 21) {
+      } else if (currentRound < 16) {
         survivalCondition += 1750;
+      } else if (currentRound < 21) {
+        survivalCondition += 2250;
       } else if (currentRound < 26) {
-        survivalCondition += 2500;
-      } else if (currentRound < 31) {
-        survivalCondition += 3250;
-      } else if (currentRound < 36) {
-        survivalCondition += 4000;
+        survivalCondition += 3000;
+      } else if (currentRound < 41) {
+        survivalCondition += 3750;
+      } else if (currentRound < 66) {
+        survivalCondition += 4500;
       } else if (currentRound < 101) {
-        survivalCondition += 4750;
+        survivalCondition += 5000;
       } else {
         survivalCondition += 6250;
       }

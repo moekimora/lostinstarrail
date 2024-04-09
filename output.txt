@@ -1530,237 +1530,237 @@
 },
 {
     imageUrl: "randommap/256.png",
-    lat: 76.23420729471125,
-    lng: -17.39501733545778,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/257.png",
-    lat: 72.67745308138613,
-    lng: -1.2817384270684908,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/258.png",
-    lat: 74.7838946619914,
-    lng: 18.640137765024242,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/259.png",
-    lat: 78.51418350387327,
-    lng: 18.933106472449474,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/260.png",
-    lat: 79.4111091328071,
-    lng: 3.845218040048626,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/261.png",
-    lat: 80.56974729681588,
-    lng: -12.865546731996186,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/262.png",
-    lat: 82.2776877782422,
-    lng: 9.024675521837594,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/263.png",
-    lat: 74.86067993063352,
-    lng: 38.76099932550148,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/264.png",
-    lat: 69.67803256989934,
-    lng: 32.90162517699629,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/265.png",
-    lat: 70.9602204472919,
-    lng: 8.438113991537374,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/266.png",
-    lat: 62.23955248612224,
-    lng: 21.790433992652165,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/267.png",
-    lat: 64.69324987331771,
-    lng: -1.5512844858866173,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/268.png",
-    lat: 38.97104472921715,
-    lng: -5.066940587349823,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/269.png",
-    lat: 46.861128858514576,
-    lng: 30.50537501381921,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/270.png",
-    lat: 40.18097059259076,
-    lng: 30.541997813751905,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/271.png",
-    lat: 21.617856513235168,
-    lng: 47.29248023778201,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/272.png",
-    lat: 17.05809865129276,
-    lng: 26.491702010588593,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/273.png",
-    lat: 28.89023114276704,
-    lng: 7.78541038811913,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/274.png",
-    lat: 41.52869822969931,
-    lng: 11.1579081841211,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/275.png",
-    lat: -0.7896167632712909,
-    lng: 13.044439514831973,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/276.png",
-    lat: -19.805332652455036,
-    lng: 43.889131738734676,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/277.png",
-    lat: -8.317351832072264,
-    lng: 31.730930380586376,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/278.png",
-    lat: -20.63007704533378,
-    lng: 16.05710453333499,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/279.png",
-    lat: 3.07111735565815,
-    lng: -12.370482761027658,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/280.png",
-    lat: -39.072155770159576,
-    lng: 0.5346676100578175,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/281.png",
-    lat: -53.17229401650389,
-    lng: 2.5854485620346246,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/282.png",
-    lat: -27.392252495353276,
-    lng: 40.140854662114776,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/283.png",
-    lat: -47.67432826515287,
-    lng: 36.36474941777282,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/284.png",
-    lat: -63.94375086892429,
-    lng: 46.754570887385746,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/285.png",
-    lat: -73.00507318757657,
-    lng: 43.4838880630474,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/286.png",
-    lat: -75.99450698593908,
-    lng: 67.36084065586317,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/287.png",
-    lat: -68.18975773905159,
-    lng: 30.700586989617243,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/288.png",
-    lat: -68.93914987511049,
-    lng: 12.243558421825853,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/289.png",
-    lat: -46.85925516519292,
-    lng: -7.58056474264203,
-    currentLocation: "Administrator District - F1"
-},
-{
-    imageUrl: "randommap/290.png",
     lat: -14.258613288836427,
     lng: 27.225110268342718,
     currentLocation: "Administrator District - B1"
 },
 {
-    imageUrl: "randommap/291.png",
+    imageUrl: "randommap/257.png",
     lat: -14.517479085454221,
     lng: -3.7525438422034516,
     currentLocation: "Administrator District - B1"
 },
 {
-    imageUrl: "randommap/292.png",
+    imageUrl: "randommap/258.png",
     lat: 4.509430079240833,
     lng: -11.95566765011074,
     currentLocation: "Administrator District - B1"
 },
 {
-    imageUrl: "randommap/293.png",
+    imageUrl: "randommap/259.png",
     lat: 16.019936222637654,
     lng: 0.7884711228880682,
     currentLocation: "Administrator District - B1"
 },
 {
-    imageUrl: "randommap/294.png",
+    imageUrl: "randommap/260.png",
     lat: 17.365928529745283,
     lng: 31.003420462565394,
     currentLocation: "Administrator District - B1"
+},
+{
+    imageUrl: "randommap/261.png",
+    lat: 76.23420729471125,
+    lng: -17.39501733545778,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/262.png",
+    lat: 72.67745308138613,
+    lng: -1.2817384270684908,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/263.png",
+    lat: 74.7838946619914,
+    lng: 18.640137765024242,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/264.png",
+    lat: 78.51418350387327,
+    lng: 18.933106472449474,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/265.png",
+    lat: 79.4111091328071,
+    lng: 3.845218040048626,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/266.png",
+    lat: 80.56974729681588,
+    lng: -12.865546731996186,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/267.png",
+    lat: 82.2776877782422,
+    lng: 9.024675521837594,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/268.png",
+    lat: 74.86067993063352,
+    lng: 38.76099932550148,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/269.png",
+    lat: 69.67803256989934,
+    lng: 32.90162517699629,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/270.png",
+    lat: 70.9602204472919,
+    lng: 8.438113991537374,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/271.png",
+    lat: 62.23955248612224,
+    lng: 21.790433992652165,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/272.png",
+    lat: 64.69324987331771,
+    lng: -1.5512844858866173,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/273.png",
+    lat: 38.97104472921715,
+    lng: -5.066940587349823,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/274.png",
+    lat: 46.861128858514576,
+    lng: 30.50537501381921,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/275.png",
+    lat: 40.18097059259076,
+    lng: 30.541997813751905,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/276.png",
+    lat: 21.617856513235168,
+    lng: 47.29248023778201,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/277.png",
+    lat: 17.05809865129276,
+    lng: 26.491702010588593,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/278.png",
+    lat: 28.89023114276704,
+    lng: 7.78541038811913,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/279.png",
+    lat: 41.52869822969931,
+    lng: 11.1579081841211,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/280.png",
+    lat: -0.7896167632712909,
+    lng: 13.044439514831973,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/281.png",
+    lat: -19.805332652455036,
+    lng: 43.889131738734676,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/282.png",
+    lat: -8.317351832072264,
+    lng: 31.730930380586376,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/283.png",
+    lat: -20.63007704533378,
+    lng: 16.05710453333499,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/284.png",
+    lat: 3.07111735565815,
+    lng: -12.370482761027658,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/285.png",
+    lat: -39.072155770159576,
+    lng: 0.5346676100578175,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/286.png",
+    lat: -53.17229401650389,
+    lng: 2.5854485620346246,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/287.png",
+    lat: -27.392252495353276,
+    lng: 40.140854662114776,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/288.png",
+    lat: -47.67432826515287,
+    lng: 36.36474941777282,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/289.png",
+    lat: -63.94375086892429,
+    lng: 46.754570887385746,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/290.png",
+    lat: -73.00507318757657,
+    lng: 43.4838880630474,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/291.png",
+    lat: -75.99450698593908,
+    lng: 67.36084065586317,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/292.png",
+    lat: -68.18975773905159,
+    lng: 30.700586989617243,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/293.png",
+    lat: -68.93914987511049,
+    lng: 12.243558421825853,
+    currentLocation: "Administrator District - F1"
+},
+{
+    imageUrl: "randommap/294.png",
+    lat: -46.85925516519292,
+    lng: -7.58056474264203,
+    currentLocation: "Administrator District - F1"
 },
 {
     imageUrl: "randommap/295.png",

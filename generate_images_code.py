@@ -41,10 +41,10 @@ def generate_code(template, input_file, output_file):
                     location = "Seclusion Zone - F3"
                 if location == "scz-f3":
                     location = "Seclusion Zone - F3"
-                if location == "ad-f1":
-                    location = "Administrator District - F1"
                 if location == "ad-b1":
-                    location = "Administrator District - B1"
+                    location = "Administrative District - B1 - B1"
+                if location == "ad-f1":
+                    location = "Administrative District - B1 - F1"
                 if location == "osp":
                     location = "Outlying Snow Plains"
                 if location == "bp":

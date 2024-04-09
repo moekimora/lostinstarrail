@@ -179,6 +179,15 @@ If you guess in the wrong map location, you get **0** points.
 - Update: Jarilo-VI
   - Updated 250+ locations
   - Still updating...
+- Small add-ons
+  - Added some python programs for renaming the images and write the code for those images.
+
+## v1.0.41
+- Several bug fixes and improvements
+  - There's a bug where Administrative District is always incorrect, even if the guess is correct. This is now fixed.
+  - Better scoring system, slightly easier to 5k.
+  - There's a bug that Jarilo-VI in Survival mode cause the game to crash. This is now fixed.
+
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
