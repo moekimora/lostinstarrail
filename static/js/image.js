@@ -1529,6 +1529,1531 @@ var images = [
         lng: -92.33086639437879,
         currentLocation: "Seclusion Zone - F3"
     },
+    {
+        imageUrl: "randommap/256.png",
+        lat: 76.23420729471125,
+        lng: -17.39501733545778,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/257.png",
+        lat: 72.67745308138613,
+        lng: -1.2817384270684908,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/258.png",
+        lat: 74.7838946619914,
+        lng: 18.640137765024242,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/259.png",
+        lat: 78.51418350387327,
+        lng: 18.933106472449474,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/260.png",
+        lat: 79.4111091328071,
+        lng: 3.845218040048626,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/261.png",
+        lat: 80.56974729681588,
+        lng: -12.865546731996186,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/262.png",
+        lat: 82.2776877782422,
+        lng: 9.024675521837594,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/263.png",
+        lat: 74.86067993063352,
+        lng: 38.76099932550148,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/264.png",
+        lat: 69.67803256989934,
+        lng: 32.90162517699629,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/265.png",
+        lat: 70.9602204472919,
+        lng: 8.438113991537374,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/266.png",
+        lat: 62.23955248612224,
+        lng: 21.790433992652165,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/267.png",
+        lat: 64.69324987331771,
+        lng: -1.5512844858866173,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/268.png",
+        lat: 38.97104472921715,
+        lng: -5.066940587349823,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/269.png",
+        lat: 46.861128858514576,
+        lng: 30.50537501381921,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/270.png",
+        lat: 40.18097059259076,
+        lng: 30.541997813751905,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/271.png",
+        lat: 21.617856513235168,
+        lng: 47.29248023778201,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/272.png",
+        lat: 17.05809865129276,
+        lng: 26.491702010588593,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/273.png",
+        lat: 28.89023114276704,
+        lng: 7.78541038811913,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/274.png",
+        lat: 41.52869822969931,
+        lng: 11.1579081841211,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/275.png",
+        lat: -0.7896167632712909,
+        lng: 13.044439514831973,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/276.png",
+        lat: -19.805332652455036,
+        lng: 43.889131738734676,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/277.png",
+        lat: -8.317351832072264,
+        lng: 31.730930380586376,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/278.png",
+        lat: -20.63007704533378,
+        lng: 16.05710453333499,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/279.png",
+        lat: 3.07111735565815,
+        lng: -12.370482761027658,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/280.png",
+        lat: -39.072155770159576,
+        lng: 0.5346676100578175,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/281.png",
+        lat: -53.17229401650389,
+        lng: 2.5854485620346246,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/282.png",
+        lat: -27.392252495353276,
+        lng: 40.140854662114776,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/283.png",
+        lat: -47.67432826515287,
+        lng: 36.36474941777282,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/284.png",
+        lat: -63.94375086892429,
+        lng: 46.754570887385746,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/285.png",
+        lat: -73.00507318757657,
+        lng: 43.4838880630474,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/286.png",
+        lat: -75.99450698593908,
+        lng: 67.36084065586317,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/287.png",
+        lat: -68.18975773905159,
+        lng: 30.700586989617243,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/288.png",
+        lat: -68.93914987511049,
+        lng: 12.243558421825853,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/289.png",
+        lat: -46.85925516519292,
+        lng: -7.58056474264203,
+        currentLocation: "Administrator District - F1"
+    },
+    {
+        imageUrl: "randommap/290.png",
+        lat: -14.258613288836427,
+        lng: 27.225110268342718,
+        currentLocation: "Administrator District - B1"
+    },
+    {
+        imageUrl: "randommap/291.png",
+        lat: -14.517479085454221,
+        lng: -3.7525438422034516,
+        currentLocation: "Administrator District - B1"
+    },
+    {
+        imageUrl: "randommap/292.png",
+        lat: 4.509430079240833,
+        lng: -11.95566765011074,
+        currentLocation: "Administrator District - B1"
+    },
+    {
+        imageUrl: "randommap/293.png",
+        lat: 16.019936222637654,
+        lng: 0.7884711228880682,
+        currentLocation: "Administrator District - B1"
+    },
+    {
+        imageUrl: "randommap/294.png",
+        lat: 17.365928529745283,
+        lng: 31.003420462565394,
+        currentLocation: "Administrator District - B1"
+    },
+    {
+        imageUrl: "randommap/295.png",
+        lat: -6.983226377237837,
+        lng: 147.0190420140115,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/296.png",
+        lat: -5.527143939148856,
+        lng: 115.52490596579604,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/297.png",
+        lat: -6.894314612618865,
+        lng: 100.67002099447517,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/298.png",
+        lat: -27.19875686705631,
+        lng: 85.55164641229702,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/299.png",
+        lat: -51.85475249269456,
+        lng: 68.1005897894499,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/300.png",
+        lat: -28.84591669484901,
+        lng: 63.64746444885197,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/301.png",
+        lat: -16.824574178292753,
+        lng: 66.28945650616122,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/302.png",
+        lat: -1.9834233123767553,
+        lng: 70.68398743685064,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/303.png",
+        lat: 25.90407377512007,
+        lng: 56.762698302311335,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/304.png",
+        lat: 31.051717794167708,
+        lng: 44.60449606073726,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/305.png",
+        lat: 25.243277384059013,
+        lng: 11.333597718260032,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/306.png",
+        lat: 27.020169307959783,
+        lng: -14.787774496668751,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/307.png",
+        lat: 29.54754441996963,
+        lng: -44.34652025889781,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/308.png",
+        lat: 47.78330193417469,
+        lng: -65.00081563313813,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/309.png",
+        lat: 51.66316254115151,
+        lng: -75.25472113808013,
+        currentLocation: "Outlying Snow Plains"
+    },
+    {
+        imageUrl: "randommap/310.png",
+        lat: -45.203032790849136,
+        lng: -57.442221563827545,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/311.png",
+        lat: -55.27105298317237,
+        lng: -49.82503461729921,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/312.png",
+        lat: -50.14026820873863,
+        lng: -13.666988410055925,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/313.png",
+        lat: -50.365057736312764,
+        lng: 23.39355819885196,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/314.png",
+        lat: -61.75993461239832,
+        lng: 23.920902012714077,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/315.png",
+        lat: -66.18585709675564,
+        lng: 48.560322500916755,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/316.png",
+        lat: -69.64834199665479,
+        lng: 59.83961855635295,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/317.png",
+        lat: -53.490515382019986,
+        lng: 45.92360394250311,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/318.png",
+        lat: -57.70636481991799,
+        lng: 54.27321271081301,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/319.png",
+        lat: -62.71516566630779,
+        lng: 75.21586436719988,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/320.png",
+        lat: -69.33954515723728,
+        lng: 72.4326614444299,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/321.png",
+        lat: -50.64472127702597,
+        lng: 30.98161180714803,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/322.png",
+        lat: -45.972684101786136,
+        lng: 41.52848604080268,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/323.png",
+        lat: -30.62652846567766,
+        lng: 41.733401331518166,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/324.png",
+        lat: 9.158547299838416,
+        lng: 49.87793375232361,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/325.png",
+        lat: 24.098666205541292,
+        lng: 49.37988663251884,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/326.png",
+        lat: 3.1146697917310355,
+        lng: 19.459259474199953,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/327.png",
+        lat: 36.095419228243955,
+        lng: 32.784318031527384,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/328.png",
+        lat: 57.9644872813642,
+        lng: 25.4509114899527,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/329.png",
+        lat: 66.5100964783394,
+        lng: 26.913264754865327,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/330.png",
+        lat: 73.65214547238018,
+        lng: 61.743166115667,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/331.png",
+        lat: 77.80447105339722,
+        lng: 17.416995890438304,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/332.png",
+        lat: 79.01475846128412,
+        lng: -2.3547019588492017,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/333.png",
+        lat: 80.68862231482882,
+        lng: 12.000765748069592,
+        currentLocation: "Backwater Pass"
+    },
+    {
+        imageUrl: "randommap/334.png",
+        lat: -80.19892392922979,
+        lng: -3.120113218469576,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/335.png",
+        lat: -77.89755247805986,
+        lng: 10.942385759736617,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/336.png",
+        lat: -73.87411061893806,
+        lng: -17.065425803619053,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/337.png",
+        lat: -61.67664890305444,
+        lng: -4.321285274412223,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/338.png",
+        lat: -63.035683076386796,
+        lng: 13.549807177058108,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/339.png",
+        lat: -59.041284828504054,
+        lng: 19.73144781270181,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/340.png",
+        lat: -54.70851756097305,
+        lng: -4.204098051148045,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/341.png",
+        lat: -70.71977640149618,
+        lng: -28.579097965998574,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/342.png",
+        lat: -69.95088393544734,
+        lng: -49.73144180114805,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/343.png",
+        lat: -57.62655779513396,
+        lng: -51.04980108035488,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/344.png",
+        lat: -58.07862681052523,
+        lng: -117.93456718432076,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/345.png",
+        lat: -35.36631872081282,
+        lng: -2.7392543437228016,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/346.png",
+        lat: -15.69597118151624,
+        lng: -2.1790385403962813,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/347.png",
+        lat: 0.9653327535630253,
+        lng: 110.46387078400144,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/348.png",
+        lat: 0.5182342031363864,
+        lng: 94.4857277603634,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/349.png",
+        lat: 1.0573225328189182,
+        lng: 34.24052236212589,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/350.png",
+        lat: 1.6430947474745037,
+        lng: 26.47685105124123,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/351.png",
+        lat: -3.5148208232723035,
+        lng: -67.9816650661119,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/352.png",
+        lat: 27.61768484593428,
+        lng: -77.68990132664534,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/353.png",
+        lat: 0.18085938443472693,
+        lng: -78.5727992955431,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/354.png",
+        lat: 0.7113678688843901,
+        lng: -101.33558769409669,
+        currentLocation: "Silvermane Guard Restricted Zone"
+    },
+    {
+        imageUrl: "randommap/355.png",
+        lat: 64.282143820036,
+        lng: 28.87207434539258,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/356.png",
+        lat: 73.01361991630147,
+        lng: 29.165043074105185,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/357.png",
+        lat: 76.05110498694229,
+        lng: 52.74902573547177,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/358.png",
+        lat: 75.40111370371962,
+        lng: 64.17480615526426,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/359.png",
+        lat: 64.66091012478424,
+        lng: 57.72949412358647,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/360.png",
+        lat: 60.4055226388234,
+        lng: 57.146440185951256,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/361.png",
+        lat: 62.96789593406881,
+        lng: 8.1884806166799,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/362.png",
+        lat: 60.958199485000925,
+        lng: -6.342770128378091,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/363.png",
+        lat: 50.75409601564895,
+        lng: -13.374019617481167,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/364.png",
+        lat: 17.055429464108954,
+        lng: -10.825190502618415,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/365.png",
+        lat: 22.754612431836787,
+        lng: -39.38964410658424,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/366.png",
+        lat: 43.833502779873406,
+        lng: 6.870120826576188,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/367.png",
+        lat: 49.742447498957546,
+        lng: 29.428729364449225,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/368.png",
+        lat: 35.31620962434722,
+        lng: 38.686526501817156,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/369.png",
+        lat: 22.778155069921585,
+        lng: 43.52303867667518,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/370.png",
+        lat: 22.372375758081848,
+        lng: 26.384368046986438,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/371.png",
+        lat: 26.767141416592597,
+        lng: 16.130462542044423,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/372.png",
+        lat: 25.71606470244002,
+        lng: 9.245697417297649,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/373.png",
+        lat: -75.15581146202386,
+        lng: 39.23893377537684,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/374.png",
+        lat: -77.66162020052197,
+        lng: 38.21354322488262,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/375.png",
+        lat: -76.31037129496846,
+        lng: -8.661453369137938,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/376.png",
+        lat: -78.68214810485526,
+        lng: -27.524410146687995,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/377.png",
+        lat: -81.5966161949621,
+        lng: -39.37125123304662,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/378.png",
+        lat: -80.50414765654304,
+        lng: -43.76578216373604,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/379.png",
+        lat: -80.49283901006773,
+        lng: -63.13931360729115,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/380.png",
+        lat: -78.64083514651735,
+        lng: -67.68032890233688,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/381.png",
+        lat: -73.2440098707057,
+        lng: -81.66503482737738,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/382.png",
+        lat: -73.2440098707057,
+        lng: -61.1572238174934,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/383.png",
+        lat: -72.98875517083549,
+        lng: -50.90331831255143,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/384.png",
+        lat: -73.14235724815097,
+        lng: -38.36425483333233,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/385.png",
+        lat: -70.95060027685497,
+        lng: -13.110348923930307,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/386.png",
+        lat: -60.65952208860219,
+        lng: -13.110348923930307,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/387.png",
+        lat: -51.804829318942375,
+        lng: -13.247805969919499,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/388.png",
+        lat: -39.387768549683656,
+        lng: -11.974309769215587,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/389.png",
+        lat: -33.25671153579325,
+        lng: -7.8727475672388065,
+        currentLocation: "Corridor of Fading Echoes"
+    },
+    {
+        imageUrl: "randommap/390.png",
+        lat: -50.76835956485933,
+        lng: -55.882213522592245,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/391.png",
+        lat: -37.81347276886775,
+        lng: -34.54100941121624,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/392.png",
+        lat: -28.218246293437733,
+        lng: -33.942333149304204,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/393.png",
+        lat: -8.310417110554999,
+        lng: -42.73139501068306,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/394.png",
+        lat: 12.553474577817441,
+        lng: -40.63912353543981,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/395.png",
+        lat: 24.20587127509899,
+        lng: -34.19381150376198,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/396.png",
+        lat: 41.58591691915475,
+        lng: -14.52028475706285,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/397.png",
+        lat: 43.95122114408028,
+        lng: 11.846900827073727,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/398.png",
+        lat: 30.478706586445135,
+        lng: 39.53532449359309,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/399.png",
+        lat: 16.034401201946245,
+        lng: 55.714927009658005,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/400.png",
+        lat: -4.070256365931183,
+        lng: 52.98340113993185,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/401.png",
+        lat: -25.086883427929468,
+        lng: 46.88965167211611,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/402.png",
+        lat: 4.27196118344369,
+        lng: 64.14551035527653,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/403.png",
+        lat: -5.8214543481197305,
+        lng: 37.19238731371471,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/404.png",
+        lat: -5.585338900985008,
+        lng: 16.437328533038464,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/405.png",
+        lat: 8.872076814822586,
+        lng: 20.831859463727884,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/406.png",
+        lat: 13.751346164974876,
+        lng: 8.129886079047193,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/407.png",
+        lat: 15.593167731812988,
+        lng: -9.454538539427478,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/408.png",
+        lat: -1.934940395181068,
+        lng: -13.556100741404299,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/409.png",
+        lat: -20.66180246486971,
+        lng: -16.925241121599537,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/410.png",
+        lat: -32.40292401542718,
+        lng: -18.99380919888295,
+        currentLocation: "Everwinter Hill"
+    },
+    {
+        imageUrl: "randommap/411.png",
+        lat: 49.67664855984586,
+        lng: -99.17724419438429,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/412.png",
+        lat: 41.36528329930963,
+        lng: -87.32665819834399,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/413.png",
+        lat: 24.37981156701293,
+        lng: -51.36474674886887,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/414.png",
+        lat: 19.988987840057955,
+        lng: -12.172160278080774,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/415.png",
+        lat: 5.877626439990065,
+        lng: 18.85986537220207,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/416.png",
+        lat: -19.09114585760972,
+        lng: 29.956058092415088,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/417.png",
+        lat: -43.21955279671672,
+        lng: 32.00683919340349,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/418.png",
+        lat: -52.903127220447494,
+        lng: 31.651237194179338,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/419.png",
+        lat: -58.92050530779168,
+        lng: 52.51465275777207,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/420.png",
+        lat: -59.371248214990175,
+        lng: 65.40527682112773,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/421.png",
+        lat: -64.82462618202602,
+        lng: 39.18457387707038,
+        currentLocation: "Pillars of Creation"
+    },
+    {
+        imageUrl: "randommap/422.png",
+        lat: -73.35346086313709,
+        lng: 3.8525445429338006,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/423.png",
+        lat: -67.11360378482718,
+        lng: 6.196294372634853,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/424.png",
+        lat: -61.41143567967453,
+        lng: 3.1044817819046027,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/425.png",
+        lat: -45.93178716121373,
+        lng: 1.2001850452725327,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/426.png",
+        lat: -49.000394339420396,
+        lng: -4.219736435911095,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/427.png",
+        lat: -49.19222685360052,
+        lng: 10.721668728432963,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/428.png",
+        lat: -32.4986342907519,
+        lng: 4.56932542546777,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/429.png",
+        lat: -32.4986342907519,
+        lng: -3.3408302497732105,
+        currentLocation: "Old Weapon Testing Ground - F2"
+    },
+    {
+        imageUrl: "randommap/430.png",
+        lat: -23.323416018851663,
+        lng: 0.3212788591346483,
+        currentLocation: "Old Weapon Testing Ground - F1"
+    },
+    {
+        imageUrl: "randommap/431.png",
+        lat: 41.02304716848045,
+        lng: 19.086916903299745,
+        currentLocation: "Old Weapon Testing Ground - F1"
+    },
+    {
+        imageUrl: "randommap/432.png",
+        lat: 37.29209141724559,
+        lng: -12.257251202892652,
+        currentLocation: "Old Weapon Testing Ground - F1"
+    },
+    {
+        imageUrl: "randommap/433.png",
+        lat: -9.972127238746051,
+        lng: -32.118131912039,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/434.png",
+        lat: -16.527065797761953,
+        lng: -38.70992830807315,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/435.png",
+        lat: 0.13946209539886886,
+        lng: -46.12041672611069,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/436.png",
+        lat: 20.489054838776312,
+        lng: -32.05791774790454,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/437.png",
+        lat: 28.73581587864735,
+        lng: -36.30596431423764,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/438.png",
+        lat: 40.503787373436545,
+        lng: -43.56558440901062,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/439.png",
+        lat: 53.08267115378118,
+        lng: -43.95095603659059,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/440.png",
+        lat: 32.91291531463402,
+        lng: -29.15603523660286,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/441.png",
+        lat: 33.013607593778566,
+        lng: -6.881371761645104,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/442.png",
+        lat: 52.92570483405199,
+        lng: 18.606908402698934,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/443.png",
+        lat: 38.40943888848425,
+        lng: 34.134251024468256,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/444.png",
+        lat: 34.64408492523758,
+        lng: 23.73386115516994,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/445.png",
+        lat: 40.668444717514426,
+        lng: 8.06003416904432,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/446.png",
+        lat: 28.01900698043659,
+        lng: 11.136205820526916,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/447.png",
+        lat: 15.226287500686997,
+        lng: 32.15332381320826,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/448.png",
+        lat: -9.487937824060808,
+        lng: 28.39786705064387,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/449.png",
+        lat: -14.359347745875516,
+        lng: 46.12247513775786,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/450.png",
+        lat: 32.71832384683857,
+        lng: 30.219730637967302,
+        currentLocation: "Boulder Town"
+    },
+    {
+        imageUrl: "randommap/451.png",
+        lat: 46.95929204647687,
+        lng: -68.217768404101,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/452.png",
+        lat: 20.76848597130408,
+        lng: -65.87401857439997,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/453.png",
+        lat: 24.28573493825408,
+        lng: -39.50683299026339,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/454.png",
+        lat: 22.72759329240082,
+        lng: -14.604489836309806,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/455.png",
+        lat: 30.701216784193566,
+        lng: 20.862047401767374,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/456.png",
+        lat: 31.741388536019063,
+        lng: 61.18466468421234,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/457.png",
+        lat: 27.930502569433653,
+        lng: 45.65732206244303,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/458.png",
+        lat: -15.172480239903917,
+        lng: 44.19434010876048,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/459.png",
+        lat: -50.792942296050924,
+        lng: 37.54394821716186,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/460.png",
+        lat: -57.53281294784286,
+        lng: 19.334725002856196,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/461.png",
+        lat: -42.779311885457645,
+        lng: -4.254229985558289,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/462.png",
+        lat: -45.71644244861075,
+        lng: 22.112955598578285,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/463.png",
+        lat: -32.80943724305803,
+        lng: -23.58075975509894,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/464.png",
+        lat: -26.902307147669383,
+        lng: -52.72614660725456,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/465.png",
+        lat: -12.727468612277843,
+        lng: -41.235347646688,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/466.png",
+        lat: -1.7003890839780755,
+        lng: -36.547847987285934,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/467.png",
+        lat: -49.85778814272543,
+        lng: 64.08691639240283,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/468.png",
+        lat: -64.64958361306233,
+        lng: 49.46777773648471,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/469.png",
+        lat: -60.09933276352468,
+        lng: 71.17226816164981,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/470.png",
+        lat: 33.11182689125472,
+        lng: -67.04589553283816,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/471.png",
+        lat: 22.315609106897224,
+        lng: -94.20286571302758,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/472.png",
+        lat: -9.248106400887863,
+        lng: -84.36034811501017,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/473.png",
+        lat: -45.6252749203472,
+        lng: -58.54980112292964,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/474.png",
+        lat: -57.095291523883105,
+        lng: -52.14143330496641,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/475.png",
+        lat: -65.70172403196392,
+        lng: -27.544731646716787,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/476.png",
+        lat: -71.86171220086682,
+        lng: -26.519341096222576,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/477.png",
+        lat: -65.81536292008549,
+        lng: -0.27831665213645446,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/478.png",
+        lat: -68.77405269036977,
+        lng: 23.188479552311335,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/479.png",
+        lat: -58.141284689204696,
+        lng: -18.017569356731652,
+        currentLocation: "Great Mine"
+    },
+    {
+        imageUrl: "randommap/480.png",
+        lat: -58.76893555278899,
+        lng: 10.854496252323598,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/481.png",
+        lat: -42.98425754971756,
+        lng: 11.293949345392582,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/482.png",
+        lat: -47.51815950558026,
+        lng: -2.329096539744669,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/483.png",
+        lat: -47.79986190940694,
+        lng: -11.997515185016868,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/484.png",
+        lat: -35.055144662794525,
+        lng: -19.995113410055925,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/485.png",
+        lat: -16.30041493261732,
+        lng: -42.84667424964094,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/486.png",
+        lat: -0.3478891177293791,
+        lng: -44.604486621916706,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/487.png",
+        lat: -0.9337873722161215,
+        lng: -28.637690907078465,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/488.png",
+        lat: 16.578682155442667,
+        lng: -32.24120624469895,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/489.png",
+        lat: 15.311074940486291,
+        lng: -5.5810519318497525,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/490.png",
+        lat: 17.837995284985457,
+        lng: 11.411134333482714,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/491.png",
+        lat: -19.312480755274912,
+        lng: -19.028315928365824,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/492.png",
+        lat: -42.532537803709594,
+        lng: 9.82910384982806,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/493.png",
+        lat: -22.975710708569512,
+        lng: 11.357446876208979,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/494.png",
+        lat: 7.39011405323338,
+        lng: 41.82129218003558,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/495.png",
+        lat: 32.71865310806175,
+        lng: 26.147265514316487,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/496.png",
+        lat: 40.839988289915404,
+        lng: 49.47864955684168,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/497.png",
+        lat: 8.890310619516875,
+        lng: 41.568493881600716,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/498.png",
+        lat: -19.126317587698438,
+        lng: 49.91810264991062,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/499.png",
+        lat: -36.0087834619721,
+        lng: 46.68457385578302,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/500.png",
+        lat: 47.89084051796932,
+        lng: 27.993167776082007,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/501.png",
+        lat: 50.47524877647416,
+        lng: 39.12597946716186,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/502.png",
+        lat: 54.684144264106756,
+        lng: 12.639883197735736,
+        currentLocation: "Rivet Town - F1"
+    },
+    {
+        imageUrl: "randommap/503.png",
+        lat: 47.43024573198835,
+        lng: -2.7409750596772846,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/504.png",
+        lat: 59.87752460094334,
+        lng: 13.989787896261554,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/505.png",
+        lat: 57.51934201411673,
+        lng: 4.907757306170067,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/506.png",
+        lat: 56.48229175278564,
+        lng: -4.760210741346663,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/507.png",
+        lat: 62.89152844963529,
+        lng: 5.640179127951651,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/508.png",
+        lat: 47.45684946270973,
+        lng: -23.159176293228597,
+        currentLocation: "Rivet Town - F2"
+    },
+    {
+        imageUrl: "randommap/509.png",
+        lat: 40.74927436737935,
+        lng: -34.31647521203602,
+        currentLocation: "Rivet Town - F2"
+    },
+    
     
     // ... Add more images and their assigned coordinates here
     ];

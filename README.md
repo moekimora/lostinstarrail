@@ -175,5 +175,10 @@ If you guess in the wrong map location, you get **0** points.
   - There's a bug related to the Spacebar that add multiple result text on screen when pressing Spacebar *after* click **Guess**. This is now fixed.
   - There's also a bug related to the Next Round function and Spacebar that skips a round text when pressing Spacebar *after* click **Next Round**. This is now fixed.
 
+## v1.0.4
+- Update: Jarilo-VI
+  - Updated 250+ locations
+  - Still updating...
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
