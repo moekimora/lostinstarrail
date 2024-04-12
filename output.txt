@@ -1532,235 +1532,235 @@
     imageUrl: "randommap/256.png",
     lat: -14.258613288836427,
     lng: 27.225110268342718,
-    currentLocation: "Administrator District - B1"
+    currentLocation: "Administrative District - B1"
 },
 {
     imageUrl: "randommap/257.png",
     lat: -14.517479085454221,
     lng: -3.7525438422034516,
-    currentLocation: "Administrator District - B1"
+    currentLocation: "Administrative District - B1"
 },
 {
     imageUrl: "randommap/258.png",
     lat: 4.509430079240833,
     lng: -11.95566765011074,
-    currentLocation: "Administrator District - B1"
+    currentLocation: "Administrative District - B1"
 },
 {
     imageUrl: "randommap/259.png",
     lat: 16.019936222637654,
     lng: 0.7884711228880682,
-    currentLocation: "Administrator District - B1"
+    currentLocation: "Administrative District - B1"
 },
 {
     imageUrl: "randommap/260.png",
     lat: 17.365928529745283,
     lng: 31.003420462565394,
-    currentLocation: "Administrator District - B1"
+    currentLocation: "Administrative District - B1"
 },
 {
     imageUrl: "randommap/261.png",
     lat: 76.23420729471125,
     lng: -17.39501733545778,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/262.png",
     lat: 72.67745308138613,
     lng: -1.2817384270684908,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/263.png",
     lat: 74.7838946619914,
     lng: 18.640137765024242,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/264.png",
     lat: 78.51418350387327,
     lng: 18.933106472449474,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/265.png",
     lat: 79.4111091328071,
     lng: 3.845218040048626,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/266.png",
     lat: 80.56974729681588,
     lng: -12.865546731996186,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/267.png",
     lat: 82.2776877782422,
     lng: 9.024675521837594,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/268.png",
     lat: 74.86067993063352,
     lng: 38.76099932550148,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/269.png",
     lat: 69.67803256989934,
     lng: 32.90162517699629,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/270.png",
     lat: 70.9602204472919,
     lng: 8.438113991537374,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/271.png",
     lat: 62.23955248612224,
     lng: 21.790433992652165,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/272.png",
     lat: 64.69324987331771,
     lng: -1.5512844858866173,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/273.png",
     lat: 38.97104472921715,
     lng: -5.066940587349823,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/274.png",
     lat: 46.861128858514576,
     lng: 30.50537501381921,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/275.png",
     lat: 40.18097059259076,
     lng: 30.541997813751905,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/276.png",
     lat: 21.617856513235168,
     lng: 47.29248023778201,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/277.png",
     lat: 17.05809865129276,
     lng: 26.491702010588593,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/278.png",
     lat: 28.89023114276704,
     lng: 7.78541038811913,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/279.png",
     lat: 41.52869822969931,
     lng: 11.1579081841211,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/280.png",
     lat: -0.7896167632712909,
     lng: 13.044439514831973,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/281.png",
     lat: -19.805332652455036,
     lng: 43.889131738734676,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/282.png",
     lat: -8.317351832072264,
     lng: 31.730930380586376,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/283.png",
     lat: -20.63007704533378,
     lng: 16.05710453333499,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/284.png",
     lat: 3.07111735565815,
     lng: -12.370482761027658,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/285.png",
     lat: -39.072155770159576,
     lng: 0.5346676100578175,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/286.png",
     lat: -53.17229401650389,
     lng: 2.5854485620346246,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/287.png",
     lat: -27.392252495353276,
     lng: 40.140854662114776,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/288.png",
     lat: -47.67432826515287,
     lng: 36.36474941777282,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/289.png",
     lat: -63.94375086892429,
     lng: 46.754570887385746,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/290.png",
     lat: -73.00507318757657,
     lng: 43.4838880630474,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/291.png",
     lat: -75.99450698593908,
     lng: 67.36084065586317,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/292.png",
     lat: -68.18975773905159,
     lng: 30.700586989617243,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/293.png",
     lat: -68.93914987511049,
     lng: 12.243558421825853,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/294.png",
     lat: -46.85925516519292,
     lng: -7.58056474264203,
-    currentLocation: "Administrator District - F1"
+    currentLocation: "Administrative District - F1"
 },
 {
     imageUrl: "randommap/295.png",
@@ -3051,4 +3051,268 @@
     lat: 40.74927436737935,
     lng: -34.31647521203602,
     currentLocation: "Rivet Town - F2"
+},
+{
+    imageUrl: "randommap/510.png",
+    lat: -30.197008886204127,
+    lng: -71.79198743083683,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/511.png",
+    lat: -25.801167972846176,
+    lng: -82.92479912191672,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/512.png",
+    lat: -12.555948773662678,
+    lng: -82.33886166449146,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/513.png",
+    lat: -20.764347191961647,
+    lng: -48.36843752301787,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/514.png",
+    lat: 11.865962933790156,
+    lng: -37.95409849818286,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/515.png",
+    lat: 12.981765463840556,
+    lng: -69.33105095263068,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/516.png",
+    lat: -8.625172553608229,
+    lng: -33.669432354292795,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/517.png",
+    lat: -8.480317227244921,
+    lng: -27.59033123350576,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/518.png",
+    lat: -6.806419034924078,
+    lng: -11.605861302960504,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/519.png",
+    lat: -9.710455070942768,
+    lng: 5.317384737942766,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/520.png",
+    lat: -9.42156045337939,
+    lng: 20.698242995355788,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/521.png",
+    lat: -9.27702198019858,
+    lng: 37.83691362504453,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/522.png",
+    lat: 1.7268353892443336,
+    lng: 45.77636912358647,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/523.png",
+    lat: 19.365091356883724,
+    lng: 26.87988612162192,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/524.png",
+    lat: 23.991647446093296,
+    lng: 74.45801020626494,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/525.png",
+    lat: 19.36509238111855,
+    lng: 61.71387050726562,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/526.png",
+    lat: 6.837761681806852,
+    lng: 47.065434071634186,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/527.png",
+    lat: -9.56603888877149,
+    lng: 54.741215491933175,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/528.png",
+    lat: -20.167304699755864,
+    lng: 68.07129264835774,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/529.png",
+    lat: -11.151051267506277,
+    lng: 56.791996592921535,
+    currentLocation: "Robot Settlement - F1"
+},
+{
+    imageUrl: "randommap/530.png",
+    lat: 64.59753700952879,
+    lng: -6.416005707213569,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/531.png",
+    lat: 62.5791986504096,
+    lng: -18.99901744616928,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/532.png",
+    lat: 57.937429874582456,
+    lng: -7.86620575508942,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/533.png",
+    lat: 44.69368390883083,
+    lng: 0.776371741933124,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/534.png",
+    lat: 43.53690283443758,
+    lng: 12.202152161725621,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/535.png",
+    lat: 46.53773677681001,
+    lng: -14.897455244192498,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/536.png",
+    lat: 45.909409132923294,
+    lng: -32.21191146650502,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/537.png",
+    lat: 34.30597298812967,
+    lng: -31.625974009079783,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/538.png",
+    lat: 29.644100094074208,
+    lng: -20.515961915991607,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/539.png",
+    lat: 29.644100094074208,
+    lng: -0.00815090610762237,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/540.png",
+    lat: 13.489745974050823,
+    lng: 0.581224000258831,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/541.png",
+    lat: -12.675650969852697,
+    lng: -1.952602768836163,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/542.png",
+    lat: -34.8023579065238,
+    lng: -0.1098611850159337,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/543.png",
+    lat: -44.83040572658462,
+    lng: 5.23681814596043,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/544.png",
+    lat: -49.332603993690306,
+    lng: 2.6309929952292066,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/545.png",
+    lat: -58.232825503260635,
+    lng: 5.5004897655119676,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/546.png",
+    lat: -66.05400424084628,
+    lng: 7.917482192494921,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/547.png",
+    lat: -67.48641460882702,
+    lng: 25.43701319769012,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/548.png",
+    lat: -70.70502663156476,
+    lng: 4.88525564596043,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/549.png",
+    lat: -71.65005629273875,
+    lng: -18.2006817476027,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/550.png",
+    lat: -56.929378040914244,
+    lng: 23.18115396105805,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/551.png",
+    lat: -55.90671405851033,
+    lng: 36.86200295996132,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/552.png",
+    lat: -63.561914920815184,
+    lng: 52.595216290759105,
+    currentLocation: "Robot Settlement - F2"
+},
+{
+    imageUrl: "randommap/553.png",
+    lat: -37.509271546845994,
+    lng: 0.004345993379493152,
+    currentLocation: "Robot Settlement - F2"
 },

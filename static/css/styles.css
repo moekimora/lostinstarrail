@@ -77,6 +77,174 @@ h1 {
     backdrop-filter: blur(25px);
     transition: opacity 0.5s ease;
 }
+.options-wrapper {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    right: 0;
+}
+.options,
+.credits {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    margin: 0 3px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.options:hover,
+.credits:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease; 
+}
+.options {
+    background-image: url('../media/icons/cog-outline.svg');
+}
+.credits {
+    background-image: url('../media/icons/heart-outline.svg');
+}
+.options-container,
+.credits-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 3;
+    transition: opacity 0.5s ease;
+}
+.options-container.active,
+.credits-container.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+.options-text,
+.credits-text {
+    position: fixed;
+    top: 5%;
+    left: 7%;
+    width: 100%;
+    height: auto;
+    color: white;
+    font-size: 60px; /* Adjust the font-size as needed */
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+    text-align: center;
+}
+.credits-content {
+    position: fixed;
+    top: 18%;
+    left: 10%;
+    width: 100%;
+    height: auto;
+    color: white;
+    font-size: 40px; /* Adjust the font-size as needed */
+    text-shadow: 2px 2px 2px black;
+    z-index: 4;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+    text-align: left;
+}
+.highlighted-credit {
+    color: rgb(255, 228, 107);
+}
+.options-app {
+    position: fixed;
+    top: 18%;
+    left: 30%;
+    width: 40%;
+    height: 25%;
+    border-radius: 10px;
+    background-color: #C4BEC2;
+    display: none;
+    z-index: 4;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.options-app.active {
+    display: block;
+    z-index: 4;
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.volume {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 15vw; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    display: none;
+    z-index: 4;
+}
+.volume:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    z-index: 4;
+}
+.volume::-webkit-slider-thumb  {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background-image: url("../media/icons/radio-button-on-outline.svg");
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.volume::-moz-range-thumb  {
+    width: 25px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    z-index: 4;
+}
+.options-volume {
+    position: relative;
+    color: white;
+    z-index: 4;
+    width: 7vw;
+    height: 7vh;
+    display: none;
+    margin: 1vw;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.options-volumetext {
+    position: relative;
+    color: white;
+    z-index: 4;
+    width: 4vw;
+    display: none;
+    font-size: 40px;
+    margin: 1vw;
+    text-shadow: 2px 2px 2px black;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+.options-volumewrapper {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.options-volumecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Start from the right side */
+    right: 0;
+}
 #kurukuru {
     width: 169px;
     height: 169px;
@@ -139,6 +307,7 @@ h1 {
     transition: opacity 0.5s ease;
 }
 .settings-container.active {
+    opacity: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -400,7 +569,8 @@ h1 {
     z-index: 4;
 }
 .slider1:hover,
-.slider2:hover {
+.slider2:hover,
+.slider3:hover {
     opacity: 1; /* Fully shown on mouse-over */
     z-index: 4;
 }
@@ -436,10 +606,7 @@ h1 {
     margin: 1vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.slider3:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-    z-index: 4;
-}
+
 
 .settings-seedtext {
     position: relative;
@@ -468,7 +635,7 @@ h1 {
     font-style: italic;
 }
 .seedtext {
-    position: absolute;
+    position: fixed;
     color: white;
     font-size: 24px;
     text-shadow: 2px 2px 2px black;

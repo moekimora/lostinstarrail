@@ -42,9 +42,9 @@ def generate_code(template, input_file, output_file):
                 if location == "scz-f3":
                     location = "Seclusion Zone - F3"
                 if location == "ad-b1":
-                    location = "Administrative District - B1 - B1"
+                    location = "Administrative District - B1"
                 if location == "ad-f1":
-                    location = "Administrative District - B1 - F1"
+                    location = "Administrative District - F1"
                 if location == "osp":
                     location = "Outlying Snow Plains"
                 if location == "bp":
@@ -69,11 +69,15 @@ def generate_code(template, input_file, output_file):
                     location = "Rivet Town - F1"
                 if location == "rt-f2":
                     location = "Rivet Town - F2"
+                if location == "rs-f1":
+                    location = "Robot Settlement - F1"
+                if location == "rs-f2":
+                    location = "Robot Settlement - F2"
 
                 code = template.format(number, lat, lng, location)
                 file.write(code)
 
-input_file = 'data.txt'  # Replace with the path to your input file
+input_file = 'data.txt'  # Replace with the path to your input fil
 output_file = 'output.txt'  # Replace with the desired output file name
 
 generate_code(template, input_file, output_file)

@@ -32,7 +32,8 @@
     guessButton.style.display = 'block';
 
     var audio = document.getElementById('gameaudio');
-    audio.volume = 0.2;
+    var volume = Range4.value / 100;
+    audio.volume = volume;
     audio.addEventListener('ended', function() {
         audio.currentTime = 0; // Reset the audio to the beginning
         audio.play(); // Start playing again

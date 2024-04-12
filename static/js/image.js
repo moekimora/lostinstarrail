@@ -3053,6 +3053,271 @@ var images = [
         lng: -34.31647521203602,
         currentLocation: "Rivet Town - F2"
     },
+    {
+        imageUrl: "randommap/510.png",
+        lat: -30.197008886204127,
+        lng: -71.79198743083683,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/511.png",
+        lat: -25.801167972846176,
+        lng: -82.92479912191672,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/512.png",
+        lat: -12.555948773662678,
+        lng: -82.33886166449146,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/513.png",
+        lat: -20.764347191961647,
+        lng: -48.36843752301787,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/514.png",
+        lat: 11.865962933790156,
+        lng: -37.95409849818286,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/515.png",
+        lat: 12.981765463840556,
+        lng: -69.33105095263068,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/516.png",
+        lat: -8.625172553608229,
+        lng: -33.669432354292795,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/517.png",
+        lat: -8.480317227244921,
+        lng: -27.59033123350576,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/518.png",
+        lat: -6.806419034924078,
+        lng: -11.605861302960504,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/519.png",
+        lat: -9.710455070942768,
+        lng: 5.317384737942766,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/520.png",
+        lat: -9.42156045337939,
+        lng: 20.698242995355788,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/521.png",
+        lat: -9.27702198019858,
+        lng: 37.83691362504453,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/522.png",
+        lat: 1.7268353892443336,
+        lng: 45.77636912358647,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/523.png",
+        lat: 19.365091356883724,
+        lng: 26.87988612162192,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/524.png",
+        lat: 23.991647446093296,
+        lng: 74.45801020626494,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/525.png",
+        lat: 19.36509238111855,
+        lng: 61.71387050726562,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/526.png",
+        lat: 6.837761681806852,
+        lng: 47.065434071634186,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/527.png",
+        lat: -9.56603888877149,
+        lng: 54.741215491933175,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/528.png",
+        lat: -20.167304699755864,
+        lng: 68.07129264835774,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/529.png",
+        lat: -11.151051267506277,
+        lng: 56.791996592921535,
+        currentLocation: "Robot Settlement - F1"
+    },
+    {
+        imageUrl: "randommap/530.png",
+        lat: 64.59753700952879,
+        lng: -6.416005707213569,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/531.png",
+        lat: 62.5791986504096,
+        lng: -18.99901744616928,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/532.png",
+        lat: 57.937429874582456,
+        lng: -7.86620575508942,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/533.png",
+        lat: 44.69368390883083,
+        lng: 0.776371741933124,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/534.png",
+        lat: 43.53690283443758,
+        lng: 12.202152161725621,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/535.png",
+        lat: 46.53773677681001,
+        lng: -14.897455244192498,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/536.png",
+        lat: 45.909409132923294,
+        lng: -32.21191146650502,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/537.png",
+        lat: 34.30597298812967,
+        lng: -31.625974009079783,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/538.png",
+        lat: 29.644100094074208,
+        lng: -20.515961915991607,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/539.png",
+        lat: 29.644100094074208,
+        lng: -0.00815090610762237,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/540.png",
+        lat: 13.489745974050823,
+        lng: 0.581224000258831,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/541.png",
+        lat: -12.675650969852697,
+        lng: -1.952602768836163,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/542.png",
+        lat: -34.8023579065238,
+        lng: -0.1098611850159337,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/543.png",
+        lat: -44.83040572658462,
+        lng: 5.23681814596043,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/544.png",
+        lat: -49.332603993690306,
+        lng: 2.6309929952292066,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/545.png",
+        lat: -58.232825503260635,
+        lng: 5.5004897655119676,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/546.png",
+        lat: -66.05400424084628,
+        lng: 7.917482192494921,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/547.png",
+        lat: -67.48641460882702,
+        lng: 25.43701319769012,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/548.png",
+        lat: -70.70502663156476,
+        lng: 4.88525564596043,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/549.png",
+        lat: -71.65005629273875,
+        lng: -18.2006817476027,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/550.png",
+        lat: -56.929378040914244,
+        lng: 23.18115396105805,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/551.png",
+        lat: -55.90671405851033,
+        lng: 36.86200295996132,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/552.png",
+        lat: -63.561914920815184,
+        lng: 52.595216290759105,
+        currentLocation: "Robot Settlement - F2"
+    },
+    {
+        imageUrl: "randommap/553.png",
+        lat: -37.509271546845994,
+        lng: 0.004345993379493152,
+        currentLocation: "Robot Settlement - F2"
+    },
+    
     
     // ... Add more images and their assigned coordinates here
     ];

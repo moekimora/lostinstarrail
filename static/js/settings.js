@@ -28,7 +28,7 @@ function toggleSettings() {
     }
     });
 
-    // settings transition
+    // Settings transition
     // Define an array of elements
     var settingsElements = [
     {

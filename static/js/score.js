@@ -93,7 +93,7 @@ if (seedValue === '') {
         } else if (mapId === 1) {
           return Math.floor(seedRandom(seed) * 255);
         } else if (mapId === 2) {
-          return Math.floor(seedRandom(seed) * 254) + 256;
+          return Math.floor(seedRandom(seed) * 298) + 256;
         } else if (mapId === 3) {
           return Math.floor(seedRandom(seed) * 108) + 1;
         } else {

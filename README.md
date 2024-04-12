@@ -188,6 +188,15 @@ If you guess in the wrong map location, you get **0** points.
   - Better scoring system, slightly easier to 5k.
   - There's a bug that Jarilo-VI in Survival mode cause the game to crash. This is now fixed.
 
+## v1.0.5
+- Update: Jarilo-VI
+- Several new things
+  - Added Options and Credits buttons at the top right corner
+  - Audio volume is now editable via Options button, this value can be reuse in a session. (Keep the same volume value after reloading the page, but only in a session)
+- Notes
+  - May add some functions to change the audio to the players liking
+  - More options
+  - DEV mode maybe
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
