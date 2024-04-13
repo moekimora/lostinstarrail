@@ -50,7 +50,7 @@ def generate_code(template, input_file, output_file):
                 if location == "bp":
                     location = "Backwater Pass"
                 if location == "sgrz":
-                    location = "Silvermane Guard Restricted Zone"
+                    location = "Silvermane Guards Restricted Zone"
                 if location == "cofe":
                     location = "Corridor of Fading Echoes"
                 if location == "eh":

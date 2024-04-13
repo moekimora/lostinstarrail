@@ -198,5 +198,11 @@ If you guess in the wrong map location, you get **0** points.
   - More options
   - DEV mode maybe
 
+## v1.0.51
+- Several bug fixes and improvements
+  - Credits button and Options button still present after pressing the Play button. This is now updated.
+  - Added option to change the music in Options
+  - There's a bug where Silvermane Guards Restricted Zone is always incorrect, even if the guess is correct. This is now fixed. (blud made a typo, woopsies)
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

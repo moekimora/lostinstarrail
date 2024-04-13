@@ -2001,127 +2001,127 @@ var images = [
         imageUrl: "randommap/334.png",
         lat: -80.19892392922979,
         lng: -3.120113218469576,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/335.png",
         lat: -77.89755247805986,
         lng: 10.942385759736617,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/336.png",
         lat: -73.87411061893806,
         lng: -17.065425803619053,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/337.png",
         lat: -61.67664890305444,
         lng: -4.321285274412223,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/338.png",
         lat: -63.035683076386796,
         lng: 13.549807177058108,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/339.png",
         lat: -59.041284828504054,
         lng: 19.73144781270181,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/340.png",
         lat: -54.70851756097305,
         lng: -4.204098051148045,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/341.png",
         lat: -70.71977640149618,
         lng: -28.579097965998574,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/342.png",
         lat: -69.95088393544734,
         lng: -49.73144180114805,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/343.png",
         lat: -57.62655779513396,
         lng: -51.04980108035488,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/344.png",
         lat: -58.07862681052523,
         lng: -117.93456718432076,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/345.png",
         lat: -35.36631872081282,
         lng: -2.7392543437228016,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/346.png",
         lat: -15.69597118151624,
         lng: -2.1790385403962813,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/347.png",
         lat: 0.9653327535630253,
         lng: 110.46387078400144,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/348.png",
         lat: 0.5182342031363864,
         lng: 94.4857277603634,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/349.png",
         lat: 1.0573225328189182,
         lng: 34.24052236212589,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/350.png",
         lat: 1.6430947474745037,
         lng: 26.47685105124123,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/351.png",
         lat: -3.5148208232723035,
         lng: -67.9816650661119,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/352.png",
         lat: 27.61768484593428,
         lng: -77.68990132664534,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/353.png",
         lat: 0.18085938443472693,
         lng: -78.5727992955431,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/354.png",
         lat: 0.7113678688843901,
         lng: -101.33558769409669,
-        currentLocation: "Silvermane Guard Restricted Zone"
+        currentLocation: "Silvermane Guards Restricted Zone"
     },
     {
         imageUrl: "randommap/355.png",

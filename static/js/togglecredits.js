@@ -110,6 +110,9 @@ function toggleOptions() {
             document.querySelector('.options-volume'),
             document.querySelector('.options-volumetext'),
             document.querySelector('.volume'),
+            document.querySelector('.options-audioleft'),
+            document.querySelector('.options-audioright'),
+            document.querySelector('.audioname'),
             ];
         
             elements.forEach(function(element) {

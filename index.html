@@ -24,11 +24,11 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.5 (2.1#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.51 (2.1#open-beta)/ @moemoe</div>
             <button id="play-button" class="play" onclick="togglePlay()">Play</button>
             <div class="options-wrapper">
-                <button class="options" onclick="toggleOptions()"></button>
-                <button class="credits" onclick="toggleCredits()"></button>
+                <button id="options" class="options" onclick="toggleOptions()"></button>
+                <button id="credits" class="credits" onclick="toggleCredits()"></button>
             </div>
             <div class="options-text" onclick="toggleOptions()">⚙ Options</div>
             <div class="options-app">
@@ -39,15 +39,28 @@
                         <input type="range" min="0" max="100" class="volume" id="Range4">
                     </div>
                 </div>
+                <div class="options-volumewrapper2">
+                    <img src="static/media/icons/caret-back-outline.svg" class="options-audioleft">
+                    <p class="audioname"></p>
+                    <img src="static/media/icons/caret-forward-outline.svg" class="options-audioright">
+                </div>
             </div>
             <div class="credits-text" onclick="toggleCredits()">♡ Credits</div>
             <div class="credits-content" onclick="toggleCredits()">
                 <div>
-                  Inspired by<span class="highlighted-credit">&nbsp;Lost In Teyvat&nbsp;</span>by<span class="highlighted-credit">&nbsp;SirFelpudo</span>.
+                  Inspired by<a href="https://lostinteyvat.app">&nbsp;Lost In Teyvat&nbsp;</a>by<span class="highlighted-credit">&nbsp;SirFelpudo</span>.
+                  <br>
+                  Spinning Herta GIF by<a href="https://twitter.com/Seseren_kr">&nbsp;Seseren (Twitter)</a>.
+                  <br>
+                  Interactive Map using<a href="https://leafletjs.com">&nbsp;Leaflet.js</a>.
+                  <br>
+                  Icons using<a href="https://ionic.io/ionicons">&nbsp;Ionicons</a>.
+                  <br>
+                  All audio files, images from<span class="highlighted-credit">&nbsp;Honkai Star Rail</span>.
                   <br>
                   I am not affiliated with<span class="highlighted-credit">&nbsp;Honkai Star Rail&nbsp;</span>or<span class="highlighted-credit">&nbsp;Hoyoverse</span>.
                   <br>
-                  Playtesters:<span class="highlighted-credit">&nbsp;moemoe</span>,<span class="highlighted-credit">&nbsp;Nryst</span>,<span class="highlighted-credit">&nbsp;tuechinh09</span>,<span class="highlighted-credit">&nbsp;kimura_zukikuto.0007</span>,<span class="highlighted-credit">&nbsp;masatoraharuka_60723</span>
+                  Playtesters:<span class="highlighted-credit">&nbsp;moemoe</span>,<span class="highlighted-credit">&nbsp;Nryst</span>,<span class="highlighted-credit">&nbsp;tuechinh08</span>,<span class="highlighted-credit">&nbsp;kimura_zukikuto.0007</span>
                 </div>
             </div>
             <div class="options-container" onclick="toggleOptions()"></div>
@@ -277,8 +290,8 @@
         </div>
         <button id="next-round" class="next-round">Next Round</button>
         <audio id="gameaudio" class="gameaudio" controls>
-            <source id="audioSource" type="audio/mp3" src="static/media/audio/Anthropic Domain.mp3">
-          </audio>
+            <source id="audioSource" class="audioSource" type="audio/mp3" src="">
+        </audio>
         <script src="static/js/play.js"></script>
         <script src="static/js/audio.js"></script>
         <script src="static/js/settings.js"></script>
@@ -294,12 +307,12 @@
             
         <script>
             // Click event handler debug
-            starrailMap.on('click', function (e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
-            console.log('Clicked coordinates:', lat, lng);
-            console.log('Selected map:', currentMap);
-            });     
+            //starrailMap.on('click', function (e) {
+            //var lat = e.latlng.lat;
+            //var lng = e.latlng.lng;
+            //console.log('Clicked coordinates:', lat, lng);
+            //console.log('Selected map:', currentMap);
+            //});     
         </script>
 
         <script>

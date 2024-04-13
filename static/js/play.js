@@ -11,6 +11,8 @@
     var version = document.getElementById('version');
     var playButton = document.getElementById('play-button');
     var settingsButton = document.getElementById('settings-button');
+    var options = document.getElementById('options');
+    var credits = document.getElementById('credits');
 
     video.style.display = 'none';
     homelogo.style.display = 'none';
@@ -18,7 +20,8 @@
     version.style.display = 'none';
     playButton.style.display = 'none';
     settingsButton.style.display = 'none';
-
+    options.style.display = 'none';
+    credits.style.display = 'none';
 
     //toggle map
     var starrailMap = document.querySelector('#starrailmap');
@@ -32,8 +35,11 @@
     guessButton.style.display = 'block';
 
     var audio = document.getElementById('gameaudio');
-    var volume = Range4.value / 100;
-    audio.volume = volume;
+    volume = sessionStorage.getItem('volume');
+    if (volume == null) {
+        volume = 20;
+    }
+    audio.volume = volume / 100;
     audio.addEventListener('ended', function() {
         audio.currentTime = 0; // Reset the audio to the beginning
         audio.play(); // Start playing again

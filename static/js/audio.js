@@ -44,3 +44,43 @@ function muffleAudio() {
   filterNode.type = "lowpass"; // Set the filter type to lowpass
   filterNode.frequency.value = 1000; // Adjust the cutoff frequency for the muffle effect
 }
+
+var audioLeft = document.querySelector('.options-audioleft');
+var audioRight = document.querySelector('.options-audioright');
+var audioName = document.querySelector('.audioname');
+
+var audioList = [
+  "Cosmic Sacrifice For Love",
+  "Space Walk",
+  "Order",
+  "Anthropic Domain",
+  "Halfway House"
+];
+
+var audioIndex = 0;
+// Check if a default audio is stored in sessionStorage
+var defaultAudio = sessionStorage.getItem('defaultAudio');
+if (defaultAudio) {
+  audioIndex = audioList.indexOf(defaultAudio);
+  updateAudio(defaultAudio);
+} else {
+  updateAudio(audioList[audioIndex]);
+}
+
+audioLeft.addEventListener('click', function() {
+  audioIndex = (audioIndex - 1 + audioList.length) % audioList.length;
+  updateAudio(audioList[audioIndex]);
+});
+
+audioRight.addEventListener('click', function() {
+  audioIndex = (audioIndex + 1) % audioList.length;
+  updateAudio(audioList[audioIndex]);
+});
+
+function updateAudio(audioTitle) {
+  audioName.textContent = audioTitle;
+  var audio = document.getElementById('gameaudio');
+  audio.src = "static/media/audio/" + audioTitle + ".mp3";
+  audio.load();
+  sessionStorage.setItem('defaultAudio', audioTitle);
+}
