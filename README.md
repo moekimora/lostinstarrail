@@ -204,5 +204,10 @@ If you guess in the wrong map location, you get **0** points.
   - Added option to change the music in Options
   - There's a bug where Silvermane Guards Restricted Zone is always incorrect, even if the guess is correct. This is now fixed. (blud made a typo, woopsies)
 
+## v1.0.6
+- Update: The Xianzhou Luofu
+  - Updated 200+ locations and still updating (i swear it is enormous)
+- Minor bug fixes
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

@@ -73,6 +73,16 @@ def generate_code(template, input_file, output_file):
                     location = "Robot Settlement - F1"
                 if location == "rs-f2":
                     location = "Robot Settlement - F2"
+                if location == "csh":
+                    location = "Central Starskiff Haven"
+                if location == "c-f2":
+                    location = "Cloudford - F2"
+                if location == "c-f1":
+                    location = "Cloudford - F1"
+                if location == "sn":
+                    location = "Stargazer Navalia"
+                if location == "es":
+                    location = "Exalting Sanctum"
 
                 code = template.format(number, lat, lng, location)
                 file.write(code)

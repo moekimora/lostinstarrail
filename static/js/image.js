@@ -3317,7 +3317,1248 @@ var images = [
         lng: 0.004345993379493152,
         currentLocation: "Robot Settlement - F2"
     },
-    
+    {
+        imageUrl: "randommap/554.png",
+        lat: 66.46079945146077,
+        lng: 77.85117931527643,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/555.png",
+        lat: 56.17534639486674,
+        lng: 77.97788698823712,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/556.png",
+        lat: 43.84142631418388,
+        lng: 85.44858902758128,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/557.png",
+        lat: 43.83489959086348,
+        lng: 61.356242460301885,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/558.png",
+        lat: 43.70778634981906,
+        lng: 42.759921140833605,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/559.png",
+        lat: 43.58508261664928,
+        lng: 16.40343687106291,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/560.png",
+        lat: 43.05221486268133,
+        lng: 14.059687211660796,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/561.png",
+        lat: 44.02540837052604,
+        lng: -26.915587277417906,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/562.png",
+        lat: 44.34054679213797,
+        lng: -47.657775799211656,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/563.png",
+        lat: 62.779362113022344,
+        lng: -70.16667120231311,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/564.png",
+        lat: 54.74153194509961,
+        lng: -69.87781886512738,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/565.png",
+        lat: 44.86105742779859,
+        lng: -70.02430321883999,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/566.png",
+        lat: 33.79088227954049,
+        lng: -64.44486274479681,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/567.png",
+        lat: 18.1776601142965,
+        lng: -71.19004972957929,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/568.png",
+        lat: 21.074731048867523,
+        lng: -97.11778033671479,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/569.png",
+        lat: 25.11591264896219,
+        lng: -82.4693449654518,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/570.png",
+        lat: 32.86843709377043,
+        lng: -48.94683591502622,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/571.png",
+        lat: 35.19887399647429,
+        lng: -21.05621172394627,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/572.png",
+        lat: 54.154257477443274,
+        lng: -2.5593551169151922,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/573.png",
+        lat: 26.16982076943025,
+        lng: 3.641053709467386,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/574.png",
+        lat: 24.58168169198107,
+        lng: 25.467222412649274,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/575.png",
+        lat: 24.58182351999385,
+        lng: 49.20149321536729,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/576.png",
+        lat: 22.430551009306768,
+        lng: 61.25911337683281,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/577.png",
+        lat: 14.943961121075587,
+        lng: 70.4876276607285,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/578.png",
+        lat: 31.6775888464075,
+        lng: 54.66731745976447,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/579.png",
+        lat: 31.67948363332134,
+        lng: 9.441838024848696,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/580.png",
+        lat: 9.739285021742045,
+        lng: 64.84222688299698,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/581.png",
+        lat: -15.452356322225363,
+        lng: 65.02104870725466,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/582.png",
+        lat: 1.7881900300213156,
+        lng: 93.87846638864274,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/583.png",
+        lat: -17.419223682101737,
+        lng: 83.03862421390812,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/584.png",
+        lat: -16.71906938017207,
+        lng: 92.56010720522909,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/585.png",
+        lat: -23.900381135158316,
+        lng: 65.30421337530919,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/586.png",
+        lat: -33.83288372781048,
+        lng: 62.713007637282,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/587.png",
+        lat: -41.988928014392826,
+        lng: 53.5002143547337,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/588.png",
+        lat: -37.9956218170904,
+        lng: 36.49337787440576,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/589.png",
+        lat: -37.20645192828404,
+        lng: 44.91622936239997,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/590.png",
+        lat: -44.9890955016217,
+        lng: 36.902994142354785,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/591.png",
+        lat: -51.98715170825162,
+        lng: 23.056904761707163,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/592.png",
+        lat: -51.75381550808836,
+        lng: 63.197478851503085,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/593.png",
+        lat: -49.60077270847157,
+        lng: 14.198456212279444,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/594.png",
+        lat: -36.137320671427545,
+        lng: 1.4250189464405196,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/595.png",
+        lat: -14.452150985714422,
+        lng: -2.099576270485213,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/596.png",
+        lat: 18.60330398203283,
+        lng: -2.8663194645116956,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/597.png",
+        lat: 18.742077794977746,
+        lng: -42.417094966921795,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/598.png",
+        lat: 1.0138749147774748,
+        lng: -45.21749279449637,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/599.png",
+        lat: -19.718780426229536,
+        lng: -44.92165527977885,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/600.png",
+        lat: -36.05391023183954,
+        lng: -45.13824169670408,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/601.png",
+        lat: -44.88084963391537,
+        lng: -62.423398627899935,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/602.png",
+        lat: -52.731026549252775,
+        lng: -45.314023713049416,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/603.png",
+        lat: -59.41457728552769,
+        lng: -58.204652842799206,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/604.png",
+        lat: -65.79065276805967,
+        lng: -47.20104849550441,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/605.png",
+        lat: -64.56090968320143,
+        lng: -21.273317888368908,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/606.png",
+        lat: -69.56512947904488,
+        lng: -12.191287958185848,
+        currentLocation: "Central Starskiff Haven"
+    },
+    {
+        imageUrl: "randommap/607.png",
+        lat: 78.65363567269547,
+        lng: 36.16546211417129,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/608.png",
+        lat: 72.253372914827,
+        lng: 35.70341710473172,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/609.png",
+        lat: 64.50009367345781,
+        lng: 33.79326616782311,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/610.png",
+        lat: 64.15445405657118,
+        lng: 15.68118978667723,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/611.png",
+        lat: 60.246926232495014,
+        lng: 1.8080225297555554,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/612.png",
+        lat: 42.04542374524691,
+        lng: -0.670211726900225,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/613.png",
+        lat: 53.49801650968162,
+        lng: -16.05106886672636,
+        currentLocation: "Cloudford - F2"
+    },
+    {
+        imageUrl: "randommap/614.png",
+        lat: 28.60245687562667,
+        lng: 19.837598942385952,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/615.png",
+        lat: 41.71824130546372,
+        lng: 18.519239758972297,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/616.png",
+        lat: 53.14803645566191,
+        lng: 28.04072275029322,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/617.png",
+        lat: 62.69965615732945,
+        lng: 32.91659573523024,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/618.png",
+        lat: 63.10764980233526,
+        lng: 53.88214901247452,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/619.png",
+        lat: 63.50248263032666,
+        lng: 70.72784968942699,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/620.png",
+        lat: 55.129579027280556,
+        lng: 74.4107078909646,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/621.png",
+        lat: 44.90428343378458,
+        lng: 79.21776356251956,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/622.png",
+        lat: 46.64103254855587,
+        lng: 96.20994859318465,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/623.png",
+        lat: 39.68696803897955,
+        lng: 101.36406030203224,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/624.png",
+        lat: 37.156540157967605,
+        lng: 74.3788934015813,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/625.png",
+        lat: 36.78906710071499,
+        lng: 56.84077968106591,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/626.png",
+        lat: 28.97410532059742,
+        lng: 0.9750399790433485,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/627.png",
+        lat: 50.97429238513984,
+        lng: -33.20547650154703,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/628.png",
+        lat: 50.78945250829881,
+        lng: -48.43984928766055,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/629.png",
+        lat: 32.483893229037484,
+        lng: -42.90491584541745,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/630.png",
+        lat: 13.024630238092957,
+        lng: -39.242807002601694,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/631.png",
+        lat: 33.41907374033222,
+        lng: -68.97500960890514,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/632.png",
+        lat: 34.02824177508508,
+        lng: -92.55899055663855,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/633.png",
+        lat: 7.538769612165234,
+        lng: -84.76805473843577,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/634.png",
+        lat: 0.9974145740325697,
+        lng: -29.31793226208537,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/635.png",
+        lat: -3.6874860985821654,
+        lng: -24.337464235855947,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/636.png",
+        lat: -11.234531613289812,
+        lng: -17.306215257649693,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/637.png",
+        lat: -27.8690830898806,
+        lng: -15.250920903614272,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/638.png",
+        lat: -27.098454390866877,
+        lng: -5.503836378577317,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/639.png",
+        lat: -22.03833389424323,
+        lng: -7.11516426941626,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/640.png",
+        lat: -23.3895280803703,
+        lng: 27.015690145626536,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/641.png",
+        lat: -31.576718004325954,
+        lng: 22.671952166478306,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/642.png",
+        lat: -49.09458548902083,
+        lng: 45.51139963546912,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/643.png",
+        lat: -30.01722804083183,
+        lng: 41.32194448816897,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/644.png",
+        lat: 13.754056843351787,
+        lng: 44.480896224799935,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/645.png",
+        lat: 18.952615831614875,
+        lng: 22.654727521618085,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/646.png",
+        lat: -46.85924896427214,
+        lng: 22.713320292399047,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/647.png",
+        lat: -46.85924896427214,
+        lng: -15.226127319172116,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/648.png",
+        lat: -55.8745367633664,
+        lng: -7.023003511264846,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/649.png",
+        lat: -68.77304177336732,
+        lng: -12.2378422374455,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/650.png",
+        lat: -69.95996828577884,
+        lng: -18.683153800801232,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/651.png",
+        lat: -70.74785493958612,
+        lng: -22.931200058467482,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/652.png",
+        lat: -71.55230550782849,
+        lng: -18.09721638595069,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/653.png",
+        lat: -77.11129969500003,
+        lng: -11.798326143122502,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/654.png",
+        lat: -72.25874945220404,
+        lng: -33.665630671759224,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/655.png",
+        lat: -69.73436094533281,
+        lng: -36.009380331161324,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/656.png",
+        lat: -71.89225959979018,
+        lng: -62.24761788879682,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/657.png",
+        lat: -76.00159517346638,
+        lng: -56.974181155142126,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/658.png",
+        lat: -78.97359928643199,
+        lng: -43.058211135647284,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/659.png",
+        lat: -81.45057367274833,
+        lng: -41.00743018367045,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/660.png",
+        lat: -81.55877196805046,
+        lng: -47.59922610073881,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/661.png",
+        lat: -80.50985252602008,
+        lng: -29.581650594085318,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/662.png",
+        lat: -80.58203527677404,
+        lng: -6.583607061202408,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/663.png",
+        lat: -81.77110671628719,
+        lng: 7.185922187784803,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/664.png",
+        lat: -83.88309820190244,
+        lng: 7.918343956347959,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/665.png",
+        lat: -80.78388478397085,
+        lng: 34.373475180007354,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/666.png",
+        lat: -80.76039439431135,
+        lng: 56.785581298039745,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/667.png",
+        lat: -77.81066874306416,
+        lng: 42.72308334162727,
+        currentLocation: "Cloudford - F1"
+    },
+    {
+        imageUrl: "randommap/668.png",
+        lat: 59.19285303992918,
+        lng: 68.82904166888895,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/669.png",
+        lat: 55.92535333319112,
+        lng: 46.76605183617885,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/670.png",
+        lat: 54.58983485264887,
+        lng: 13.660587897124465,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/671.png",
+        lat: 48.303597212013635,
+        lng: 30.213319866651656,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/672.png",
+        lat: 46.9211924138573,
+        lng: 49.9887076178567,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/673.png",
+        lat: 43.62381534664393,
+        lng: 45.154723945339896,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/674.png",
+        lat: 46.21626728854508,
+        lng: 65.2230804039702,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/675.png",
+        lat: 10.724864156306747,
+        lng: 78.1378426942208,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/676.png",
+        lat: 9.715757676391156,
+        lng: 65.68667262864722,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/677.png",
+        lat: 10.724864156306747,
+        lng: 44.006988279177975,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/678.png",
+        lat: 18.096623914988953,
+        lng: 51.62417467223475,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/679.png",
+        lat: 31.858447189784354,
+        lng: 30.530427737616055,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/680.png",
+        lat: 29.464647470039754,
+        lng: 52.21011208708529,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/681.png",
+        lat: 27.53378402410529,
+        lng: 28.186678078213983,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/682.png",
+        lat: 24.794628876495924,
+        lng: 10.760194781502156,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/683.png",
+        lat: 29.357838246081403,
+        lng: -1.105037869220864,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/684.png",
+        lat: 36.00874385088353,
+        lng: -4.91363106574923,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/685.png",
+        lat: 49.95209933895599,
+        lng: -11.798395690242845,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/686.png",
+        lat: 40.603870872494774,
+        lng: -25.860893646655327,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/687.png",
+        lat: 36.363429656149115,
+        lng: -39.86480470760096,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/688.png",
+        lat: 25.959279183271793,
+        lng: -21.554260365798,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/689.png",
+        lat: 26.48491388854232,
+        lng: -37.08160185933677,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/690.png",
+        lat: 42.661902389804084,
+        lng: -28.585509344004237,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/691.png",
+        lat: 54.214663480209715,
+        lng: -7.9019151256820965,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/692.png",
+        lat: 54.38562189307303,
+        lng: -23.136287911795613,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/693.png",
+        lat: 49.89551893164252,
+        lng: -26.798397776405114,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/694.png",
+        lat: 65.25728050763186,
+        lng: -36.730039870233654,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/695.png",
+        lat: 60.60202583026898,
+        lng: -36.583555516521024,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/696.png",
+        lat: 52.97061858045689,
+        lng: -48.76276549860037,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/697.png",
+        lat: 29.59410249018251,
+        lng: -49.20177617989207,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/698.png",
+        lat: 6.531289658201513,
+        lng: -49.41159137662566,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/699.png",
+        lat: 18.24101067429956,
+        lng: -64.2065111016013,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/700.png",
+        lat: 30.222286780839518,
+        lng: -41.271054835325174,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/701.png",
+        lat: 29.737905111173788,
+        lng: -65.02432898680367,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/702.png",
+        lat: 18.11687620118023,
+        lng: -80.11221741920457,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/703.png",
+        lat: 35.31848666671694,
+        lng: -90.92925776873886,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/704.png",
+        lat: 43.539149650137674,
+        lng: -60.08285301739765,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/705.png",
+        lat: 43.645243212132236,
+        lng: -52.90511968547879,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/706.png",
+        lat: 15.483238719123676,
+        lng: -90.60699242047467,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/707.png",
+        lat: 16.04713244028794,
+        lng: -74.78668221951062,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/708.png",
+        lat: -0.5845524502396884,
+        lng: -82.25738425885476,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/709.png",
+        lat: -15.056648796539063,
+        lng: -87.53082099250943,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/710.png",
+        lat: -5.712189641250221,
+        lng: -59.277117454896334,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/711.png",
+        lat: -21.324851206252298,
+        lng: -55.17555555094268,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/712.png",
+        lat: -15.010584913066019,
+        lng: -42.20453375426176,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/713.png",
+        lat: -25.39431976704655,
+        lng: -30.165904840346247,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/714.png",
+        lat: -35.77384823991924,
+        lng: -26.357311643817866,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/715.png",
+        lat: -35.30485234508503,
+        lng: -42.81326206939841,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/716.png",
+        lat: -13.008761045292884,
+        lng: -7.957145032992507,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/717.png",
+        lat: -35.84045179613695,
+        lng: -62.89214539221968,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/718.png",
+        lat: -41.36105227378279,
+        lng: -62.45803143351966,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/719.png",
+        lat: -59.07494836574627,
+        lng: -70.80763959513956,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/720.png",
+        lat: -40.67440992249168,
+        lng: -91.13960402366412,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/721.png",
+        lat: -65.01955103224708,
+        lng: -72.29984202345318,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/722.png",
+        lat: -65.81173378033255,
+        lng: -42.56351821978929,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/723.png",
+        lat: -54.49975605291164,
+        lng: -42.27054951236404,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/724.png",
+        lat: -66.05069653217623,
+        lng: -25.424848835411574,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/725.png",
+        lat: -59.96833262610522,
+        lng: -16.096435838546306,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/726.png",
+        lat: -29.24787306497592,
+        lng: -9.311176007870246,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/727.png",
+        lat: -37.317577388315954,
+        lng: -6.9674263484681696,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/728.png",
+        lat: -46.95511073223509,
+        lng: -5.356098457629227,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/729.png",
+        lat: -38.70248790975578,
+        lng: 28.335302896275646,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/730.png",
+        lat: -43.23437080387577,
+        lng: 43.7161600361018,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/731.png",
+        lat: -53.38309683937529,
+        lng: 37.611212079492724,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/732.png",
+        lat: -62.363020947141926,
+        lng: 37.46472772578007,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/733.png",
+        lat: -59.592987284406064,
+        lng: -4.239803217485057,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/734.png",
+        lat: -62.56572462399492,
+        lng: 33.99261310151139,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/735.png",
+        lat: -59.23915199770747,
+        lng: -92.83355296203662,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/736.png",
+        lat: -70.29637515047125,
+        lng: -86.51964165437047,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/737.png",
+        lat: -70.20945073699312,
+        lng: -112.69683766059056,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/738.png",
+        lat: -71.69086115214031,
+        lng: -127.78472609299145,
+        currentLocation: "Stargazer Navalia"
+    },
+    {
+        imageUrl: "randommap/739.png",
+        lat: -80.83535513840697,
+        lng: -24.542541488073773,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/740.png",
+        lat: -80.74214492337612,
+        lng: 16.770778399022234,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/741.png",
+        lat: -72.41821546753657,
+        lng: 31.58940971430824,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/742.png",
+        lat: -76.27246288547829,
+        lng: 48.58159474497331,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/743.png",
+        lat: -70.45480049716286,
+        lng: 112.69226337091163,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/744.png",
+        lat: -69.55331496903479,
+        lng: 88.66882936204031,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/745.png",
+        lat: -60.351639752401915,
+        lng: 52.32893482513491,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/746.png",
+        lat: -32.39117734161005,
+        lng: 45.00471713950345,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/747.png",
+        lat: 4.682369153079911,
+        lng: 48.25394985655531,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/748.png",
+        lat: 34.7609847325267,
+        lng: 31.002919418938774,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/749.png",
+        lat: 16.321557366719535,
+        lng: 7.673979489616205,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/750.png",
+        lat: -10.16919497956327,
+        lng: -41.19400631641389,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/751.png",
+        lat: -58.397824308957205,
+        lng: -62.22134313635788,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/752.png",
+        lat: -67.94986374967999,
+        lng: -40.54165878688865,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/753.png",
+        lat: 40.44885585583221,
+        lng: -53.772544403720865,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/754.png",
+        lat: 49.57777997316639,
+        lng: -80.26349530528711,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/755.png",
+        lat: 47.93756686056112,
+        lng: -1.529861394326693,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/756.png",
+        lat: 48.125213043844596,
+        lng: 40.98059696503274,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/757.png",
+        lat: 48.71043140497898,
+        lng: 93.23120392035459,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/758.png",
+        lat: 36.24444050573093,
+        lng: 132.7819794227647,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/759.png",
+        lat: 47.537121731262275,
+        lng: 49.28589780656563,
+        currentLocation: "Exalting Sanctum"
+    },
+    {
+        imageUrl: "randommap/760.png",
+        lat: 67.06675986039275,
+        lng: 10.599872257251121,
+        currentLocation: "Exalting Sanctum"
+    },
     
     // ... Add more images and their assigned coordinates here
     ];

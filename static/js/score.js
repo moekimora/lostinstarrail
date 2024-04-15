@@ -95,7 +95,7 @@ if (seedValue === '') {
         } else if (mapId === 2) {
           return Math.floor(seedRandom(seed) * 298) + 256;
         } else if (mapId === 3) {
-          return Math.floor(seedRandom(seed) * 108) + 1;
+          return Math.floor(seedRandom(seed) * 231) + 554;
         } else {
           // Handle other mapId values or fallback to randomize among all numbers
           return Math.floor(seedRandom(seed) * images.length);
