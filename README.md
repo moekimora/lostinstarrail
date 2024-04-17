@@ -206,8 +206,10 @@ If you guess in the wrong map location, you get **0** points.
 
 ## v1.0.6
 - Update: The Xianzhou Luofu
-  - Updated 200+ locations and still updating (i swear it is enormous)
+  - Updated 500+ locations and still updating (i swear it is enormous)
 - Minor bug fixes
+  - There is a bug where you can get Jarilo-VI's location even if you picked Herta Space Station, this is now fixed
+  - Update the scoring system
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

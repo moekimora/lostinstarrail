@@ -4558,3 +4558,1239 @@
     lng: 10.599872257251121,
     currentLocation: "Exalting Sanctum"
 },
+{
+    imageUrl: "randommap/761.png",
+    lat: -42.85553009458149,
+    lng: -62.69580378273391,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/762.png",
+    lat: -47.498368293233625,
+    lng: -47.60791425403356,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/763.png",
+    lat: -36.66955655207752,
+    lng: -31.49463417483897,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/764.png",
+    lat: -28.53752113801054,
+    lng: -38.23291493522945,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/765.png",
+    lat: -34.04169744653475,
+    lng: -23.291509770885394,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/766.png",
+    lat: -12.040708458370817,
+    lng: -37.500491900067686,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/767.png",
+    lat: -1.2769778667493197,
+    lng: -55.82477981074957,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/768.png",
+    lat: 22.21321610914081,
+    lng: -49.541507493136635,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/769.png",
+    lat: 18.36708162908676,
+    lng: -30.645024491172094,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/770.png",
+    lat: -3.57331729386976,
+    lng: -29.180180847608966,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/771.png",
+    lat: 10.716791405175545,
+    lng: -31.23096194859736,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/772.png",
+    lat: 15.142745605995398,
+    lng: -14.159443050701741,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/773.png",
+    lat: 12.725994768412045,
+    lng: -5.077412460610253,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/774.png",
+    lat: -9.28633283092572,
+    lng: 0.7853714262122137,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/775.png",
+    lat: -20.72516510902252,
+    lng: -8.882596621304536,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/776.png",
+    lat: -8.379588105031583,
+    lng: 34.77489924647293,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/777.png",
+    lat: -16.10347850102071,
+    lng: 44.44286729398966,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/778.png",
+    lat: -7.944587587869934,
+    lng: 47.07958585240331,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/779.png",
+    lat: -7.073227100394913,
+    lng: 73.88622452960882,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/780.png",
+    lat: -22.324288093818687,
+    lng: 79.30614601079243,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/781.png",
+    lat: 9.131785464439735,
+    lng: 61.58049803292585,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/782.png",
+    lat: 23.430356036741323,
+    lng: 52.79143617154701,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/783.png",
+    lat: 10.574967684793398,
+    lng: 30.965236250402626,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/784.png",
+    lat: 22.78162675809181,
+    lng: 31.903805155874988,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/785.png",
+    lat: 46.356059723042854,
+    lng: 25.10692864447161,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/786.png",
+    lat: 46.85922140503024,
+    lng: 5.624508185081809,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/787.png",
+    lat: 44.295841230767266,
+    lng: -15.767508990330182,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/788.png",
+    lat: 58.951181232768775,
+    lng: -28.753661238103476,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/789.png",
+    lat: 58.723779567890574,
+    lng: -13.519287345046795,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/790.png",
+    lat: 59.10654502787285,
+    lng: 17.043122326800315,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/791.png",
+    lat: 58.57600929984047,
+    lng: -1.2674232177389613,
+    currentLocation: "Aurum Alley"
+},
+{
+    imageUrl: "randommap/792.png",
+    lat: 1.4173208532882824,
+    lng: 71.95263256774803,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/793.png",
+    lat: 26.362545649837294,
+    lng: 72.09911693210437,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/794.png",
+    lat: 44.78630308191292,
+    lng: 73.41782751346119,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/795.png",
+    lat: 54.93391436720722,
+    lng: 80.88853009563326,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/796.png",
+    lat: 57.07789291571988,
+    lng: 105.78317450568954,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/797.png",
+    lat: 51.89607109369755,
+    lng: 103.1464559472759,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/798.png",
+    lat: 30.699690565041692,
+    lng: 106.20067994300123,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/799.png",
+    lat: 69.09943348189798,
+    lng: 69.22802405488659,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/800.png",
+    lat: 72.9583107837519,
+    lng: 75.24967954009409,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/801.png",
+    lat: 54.546572614129026,
+    lng: 42.78874365793433,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/802.png",
+    lat: 54.546572614129026,
+    lng: 56.265305178715245,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/803.png",
+    lat: 35.08479110138847,
+    lng: 35.163914889129806,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/804.png",
+    lat: 24.877120691043075,
+    lng: 25.248985587642718,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/805.png",
+    lat: 11.579105735770465,
+    lng: 11.688961661323447,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/806.png",
+    lat: 66.27807410242538,
+    lng: 34.97997680735758,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/807.png",
+    lat: 71.29094264312411,
+    lng: 28.095211682610806,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/808.png",
+    lat: 75.48212086637946,
+    lng: 13.153805432610806,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/809.png",
+    lat: 79.64787658189687,
+    lng: -27.530299050124288,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/810.png",
+    lat: 78.51110719673053,
+    lng: -38.37014201249154,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/811.png",
+    lat: 80.60178790981186,
+    lng: -36.90529836892841,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/812.png",
+    lat: 79.6869301982385,
+    lng: -54.63913485990687,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/813.png",
+    lat: 75.90915896812994,
+    lng: -81.00632044404341,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/814.png",
+    lat: 72.93000943911342,
+    lng: -80.49326142170169,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/815.png",
+    lat: 72.22190674552287,
+    lng: -96.47157634075666,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/816.png",
+    lat: 77.08770122936858,
+    lng: -96.38685850064876,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/817.png",
+    lat: 82.56699700310757,
+    lng: -109.04346045848136,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/818.png",
+    lat: 79.67643517837836,
+    lng: -129.69775672679128,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/819.png",
+    lat: 70.15504721624161,
+    lng: -105.05883992355125,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/820.png",
+    lat: 64.76103238474137,
+    lng: -109.65869499313666,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/821.png",
+    lat: 64.98357826127791,
+    lng: -132.96372806244872,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/822.png",
+    lat: 41.901221944483076,
+    lng: -133.27197556194074,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/823.png",
+    lat: 54.247281096294365,
+    lng: -106.31885252037894,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/824.png",
+    lat: 60.470960341189766,
+    lng: -80.97705748673658,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/825.png",
+    lat: 47.615082432551326,
+    lng: -80.83057312238027,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/826.png",
+    lat: 32.59499637646136,
+    lng: -108.92627253273393,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/827.png",
+    lat: 19.641252134403818,
+    lng: -92.66650776987247,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/828.png",
+    lat: 3.4827634184907783,
+    lng: -79.68799241096463,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/829.png",
+    lat: 22.375856680388043,
+    lng: -77.93018003868885,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/830.png",
+    lat: 4.5056496797426595,
+    lng: -96.82666304065339,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/831.png",
+    lat: -20.16730499948949,
+    lng: -121.34814731986023,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/832.png",
+    lat: -0.850997192274959,
+    lng: -73.77002202183701,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/833.png",
+    lat: -8.147647084139537,
+    lng: -53.262211011953006,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/834.png",
+    lat: -8.147647084139537,
+    lng: -31.289556358505898,
+    currentLocation: "Divination Commission - F1"
+},
+{
+    imageUrl: "randommap/835.png",
+    lat: -82.41219459928051,
+    lng: -76.13140301942849,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/836.png",
+    lat: -82.44895035086338,
+    lng: -43.91650742927452,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/837.png",
+    lat: -82.27371470285833,
+    lng: -27.656742985723636,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/838.png",
+    lat: -82.35209078808937,
+    lng: -8.174322526333855,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/839.png",
+    lat: -76.48979978613384,
+    lng: -37.822757450561895,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/840.png",
+    lat: -75.2178359917032,
+    lng: 6.349877317543161,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/841.png",
+    lat: -74.33306167974514,
+    lng: -35.34640473569951,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/842.png",
+    lat: -72.67033691180546,
+    lng: -64.21970126474082,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/843.png",
+    lat: -73.84176059105386,
+    lng: -94.11218759903079,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/844.png",
+    lat: -65.45311044847314,
+    lng: -74.92273586835361,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/845.png",
+    lat: -57.91617484778308,
+    lng: -70.2362754248624,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/846.png",
+    lat: -57.73463864579737,
+    lng: -91.58707284703142,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/847.png",
+    lat: -57.458011542154956,
+    lng: -116.44088272593909,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/848.png",
+    lat: -54.17154417369454,
+    lng: -48.04479198586634,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/849.png",
+    lat: -61.544076150006866,
+    lng: -25.486199874993936,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/850.png",
+    lat: -45.85019774707806,
+    lng: -37.11963270601036,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/851.png",
+    lat: -28.86342461407539,
+    lng: -37.26564762483499,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/852.png",
+    lat: -1.729670930569462,
+    lng: -37.11963251442401,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/853.png",
+    lat: 17.899127129773998,
+    lng: -37.26627346717484,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/854.png",
+    lat: 37.88969206919955,
+    lng: -37.40159502178045,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/855.png",
+    lat: 48.134648939498035,
+    lng: -40.47776667326304,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/856.png",
+    lat: 53.05983410085515,
+    lng: -26.795316660776766,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/857.png",
+    lat: 60.131400264699415,
+    lng: -32.21523814196038,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/858.png",
+    lat: 44.39478171240383,
+    lng: -53.2146003863311,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/859.png",
+    lat: 62.930021683986894,
+    lng: -53.35868162754749,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/860.png",
+    lat: 54.62482669681746,
+    lng: -14.393840708767891,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/861.png",
+    lat: -56.80165410177521,
+    lng: 2.8998992890476765,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/862.png",
+    lat: -56.72136236084923,
+    lng: 23.847163392000603,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/863.png",
+    lat: -43.68867855972376,
+    lng: 40.32342417905753,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/864.png",
+    lat: -64.33417841761137,
+    lng: 38.87646093755278,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/865.png",
+    lat: -65.02095857924328,
+    lng: 63.53290440476834,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/866.png",
+    lat: -47.044182021915816,
+    lng: 61.60888033441354,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/867.png",
+    lat: -58.557942928162404,
+    lng: 62.48778652055143,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/868.png",
+    lat: -53.316879640576,
+    lng: 52.819818473034694,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/869.png",
+    lat: -62.24337718764672,
+    lng: 52.673334108678354,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/870.png",
+    lat: -47.73834504534864,
+    lng: 83.72801935221699,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/871.png",
+    lat: -63.66311677934643,
+    lng: 87.74798191979305,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/872.png",
+    lat: -56.70123481987786,
+    lng: 131.83977559104358,
+    currentLocation: "Divination Commission - F2"
+},
+{
+    imageUrl: "randommap/873.png",
+    lat: -23.75312863060275,
+    lng: -119.7368191203544,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/874.png",
+    lat: 2.2448878285696576,
+    lng: -120.63218129054523,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/875.png",
+    lat: 15.528357773782243,
+    lng: -120.92515001925786,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/876.png",
+    lat: 15.736456852711031,
+    lng: -103.28991097853849,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/877.png",
+    lat: 15.736456852711031,
+    lng: -90.54577127953914,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/878.png",
+    lat: 16.01824858993716,
+    lng: -78.38756747334325,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/879.png",
+    lat: 8.291833382934676,
+    lng: -71.35631798424018,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/880.png",
+    lat: 23.59323754225821,
+    lng: -65.35020878638704,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/881.png",
+    lat: 15.42739253141237,
+    lng: -43.18924141010255,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/882.png",
+    lat: -12.412926486984876,
+    lng: -44.678226456010364,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/883.png",
+    lat: -27.892666942377858,
+    lng: -44.53170825466881,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/884.png",
+    lat: -38.99450152659998,
+    lng: -41.43048920965111,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/885.png",
+    lat: -38.670852278553696,
+    lng: -62.950418255608945,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/886.png",
+    lat: -42.88367364821691,
+    lng: -67.34494918629838,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/887.png",
+    lat: -58.2177718746149,
+    lng: -67.3247100540213,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/888.png",
+    lat: -68.11755210376135,
+    lng: -68.26220994758444,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/889.png",
+    lat: -68.76344338935596,
+    lng: -60.498538636699784,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/890.png",
+    lat: -68.0081022339312,
+    lng: -53.32080478324038,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/891.png",
+    lat: -63.83483551858559,
+    lng: -41.1626025416663,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/892.png",
+    lat: -77.61813156055526,
+    lng: -37.64683266727428,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/893.png",
+    lat: 29.79885453500907,
+    lng: -34.118810589187106,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/894.png",
+    lat: 44.328579904130855,
+    lng: -47.87133939136696,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/895.png",
+    lat: 43.69649048213417,
+    lng: -33.07641859137922,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/896.png",
+    lat: 57.68023786882041,
+    lng: -41.8361959089834,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/897.png",
+    lat: 71.11654073786079,
+    lng: -46.479738025775156,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/898.png",
+    lat: 70.04535576641818,
+    lng: -47.871339487160135,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/899.png",
+    lat: 62.5522033521181,
+    lng: -61.49463242927452,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/900.png",
+    lat: 59.79647998784455,
+    lng: -79.1086699421373,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/901.png",
+    lat: 54.19589606425224,
+    lng: -74.35596056491819,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/902.png",
+    lat: 44.610318107412276,
+    lng: -61.904789594631495,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/903.png",
+    lat: 46.55788568138574,
+    lng: -67.0317423471025,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/904.png",
+    lat: 37.22874522403227,
+    lng: -80.85560404405112,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/905.png",
+    lat: 67.85292792968175,
+    lng: -68.14502227728546,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/906.png",
+    lat: 73.32093771721466,
+    lng: -71.66256835268517,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/907.png",
+    lat: 77.85020746335903,
+    lng: -54.651295218101225,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/908.png",
+    lat: 76.68892992821773,
+    lng: -43.81145225573397,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/909.png",
+    lat: 82.62363202171562,
+    lng: -44.825383664670575,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/910.png",
+    lat: 78.0677548580945,
+    lng: -40.57733709833747,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/911.png",
+    lat: 81.70186888409742,
+    lng: -66.2700230649182,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/912.png",
+    lat: 81.80690907128528,
+    lng: -66.56299179363084,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/913.png",
+    lat: 73.95469461065085,
+    lng: -77.6516129832004,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/914.png",
+    lat: 78.361094174215,
+    lng: -78.19360533567755,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/915.png",
+    lat: 68.80508120646057,
+    lng: -58.18383991290757,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/916.png",
+    lat: 68.83154554839615,
+    lng: -70.70825306537245,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/917.png",
+    lat: 68.8474091631191,
+    lng: -80.96215965597037,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/918.png",
+    lat: 73.34664555960616,
+    lng: -84.35231513877261,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/919.png",
+    lat: 14.943414926650535,
+    lng: -35.215336927309984,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/920.png",
+    lat: 15.084898544299577,
+    lng: -9.873541893667632,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/921.png",
+    lat: 28.380486635786344,
+    lng: 8.144034922159042,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/922.png",
+    lat: 0.6138057826333349,
+    lng: 7.118644371664857,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/923.png",
+    lat: 15.084898544299577,
+    lng: 22.645986993434136,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/924.png",
+    lat: 27.376799272454143,
+    lng: 45.2157659369454,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/925.png",
+    lat: 3.285116914136719,
+    lng: 47.85248449535905,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/926.png",
+    lat: 20.418595967374134,
+    lng: 65.8700613111857,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/927.png",
+    lat: 10.55099338793873,
+    lng: 64.9911551250478,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/928.png",
+    lat: -11.477737021083726,
+    lng: 72.77864989109419,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/929.png",
+    lat: -25.070216122031084,
+    lng: 64.86849421585323,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/930.png",
+    lat: -29.624675025837785,
+    lng: 73.07255280171199,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/931.png",
+    lat: -45.9725007776985,
+    lng: 71.04442968755278,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/932.png",
+    lat: -54.554279483181425,
+    lng: 67.54050096704212,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/933.png",
+    lat: -57.982642533852385,
+    lng: 52.43300430449358,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/934.png",
+    lat: -61.52074706668053,
+    lng: 46.57362973024103,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/935.png",
+    lat: -66.51163199692006,
+    lng: 69.86464366289498,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/936.png",
+    lat: -68.63373046701294,
+    lng: 55.06972286290724,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/937.png",
+    lat: -66.80184236416798,
+    lng: 45.841207908459445,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/938.png",
+    lat: -70.43432422784284,
+    lng: 43.849477466234646,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/939.png",
+    lat: -73.88005708503336,
+    lng: 55.13746150065647,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/940.png",
+    lat: -72.5261887766022,
+    lng: 42.10035307294451,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/941.png",
+    lat: -58.12506878370812,
+    lng: 33.01708534150642,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/942.png",
+    lat: -80.05323470737656,
+    lng: 26.77685253112821,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/943.png",
+    lat: -77.3834157416587,
+    lng: -34.2485394456199,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/944.png",
+    lat: -76.34531665082991,
+    lng: 11.542474359309828,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/945.png",
+    lat: -66.1372641484125,
+    lng: 11.689273710578883,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/946.png",
+    lat: -51.58250264708157,
+    lng: 25.136227445978697,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/947.png",
+    lat: -47.00120436300951,
+    lng: 20.741696515289277,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/948.png",
+    lat: -43.92002185687296,
+    lng: 37.88036714497807,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/949.png",
+    lat: -40.000654411733436,
+    lng: 22.499508887565042,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/950.png",
+    lat: -41.663029919475946,
+    lng: 16.347165584599853,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/951.png",
+    lat: -25.00726071277,
+    lng: 40.51708570339172,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/952.png",
+    lat: -25.669216124773577,
+    lng: 31.28857074894389,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/953.png",
+    lat: -7.9445918888140845,
+    lng: 31.28857074894389,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/954.png",
+    lat: 37.089107808279365,
+    lng: 30.20458661874869,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/955.png",
+    lat: 52.6066331774145,
+    lng: 30.11669596181763,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/956.png",
+    lat: 58.55414051169054,
+    lng: 29.823727233105032,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/957.png",
+    lat: 63.704092653484935,
+    lng: 47.98778841328797,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/958.png",
+    lat: 63.639124618942844,
+    lng: 67.03075577960882,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/959.png",
+    lat: 71.18533023783688,
+    lng: 59.72753297296705,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/960.png",
+    lat: 72.19432944737385,
+    lng: 34.73402620212804,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/961.png",
+    lat: 72.41693839323493,
+    lng: 59.489883778345195,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/962.png",
+    lat: 74.96241482159992,
+    lng: 82.04847588921756,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/963.png",
+    lat: 75.00037369016667,
+    lng: 71.64808601991923,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/964.png",
+    lat: 80.31248902136764,
+    lng: 46.40575792963335,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/965.png",
+    lat: 80.97887339531864,
+    lng: 36.88427424647293,
+    currentLocation: "Artisanship Commission"
+},
+{
+    imageUrl: "randommap/966.png",
+    lat: 71.43628221516533,
+    lng: -13.008057098285748,
+    currentLocation: "Artisanship Commission"
+},

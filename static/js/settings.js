@@ -144,33 +144,6 @@ function toggleSettings() {
 var mapId = 0;
 
 function changeColor(element) {
-
-    var map1 = document.querySelector('.settings-map1');
-    map1.style.border = '2px solid #180872'; // Set border for map1 by default
-    map1.addEventListener('click', function() {
-    changeColor(map1);
-    });
-
-    var map2 = document.querySelector('.settings-map2');
-    map2.addEventListener('click', function() {
-    changeColor(map2);
-    });
-    
-    var map3 = document.querySelector('.settings-map3');
-    map3.addEventListener('click', function() {
-    changeColor(map3);
-    });
-
-    var map4 = document.querySelector('.settings-map4');
-    map4.addEventListener('click', function() {
-    changeColor(map4);
-    });
-
-    var map5 = document.querySelector('.settings-map5');
-    map5.addEventListener('click', function() {
-    changeColor(map5);
-    });
-
     if (element === map1) {
         // Set map value to 0
         mapId = 0;

@@ -83,6 +83,22 @@ def generate_code(template, input_file, output_file):
                     location = "Stargazer Navalia"
                 if location == "es":
                     location = "Exalting Sanctum"
+                if location == "aa":
+                    location = "Aurum Alley"
+                if location == "dc-f1":
+                    location = "Divination Commission - F1"
+                if location == "dc-f2":
+                    location = "Divination Commission - F2"
+                if location == "arc":
+                    location = "Artisanship Commission"
+                if location == "fg":
+                    location = "Fyxestroll Garden"
+                if location == "ac":
+                    location = "Alchemy Commission"
+                if location == "sw":
+                    location = "Scalegorge Waterscape"
+
+                number = int(number)
 
                 code = template.format(number, lat, lng, location)
                 file.write(code)
