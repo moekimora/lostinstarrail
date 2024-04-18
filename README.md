@@ -206,7 +206,7 @@ If you guess in the wrong map location, you get **0** points.
 
 ## v1.0.6
 - Update: The Xianzhou Luofu
-  - Updated 500+ locations and still updating (i swear it is enormous)
+  - Updated 600+ locations and still updating (i swear it is enormous)
 - Minor bug fixes
   - There is a bug where you can get Jarilo-VI's location even if you picked Herta Space Station, this is now fixed
   - Update the scoring system

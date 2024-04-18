@@ -93,8 +93,10 @@ def generate_code(template, input_file, output_file):
                     location = "Artisanship Commission"
                 if location == "fg":
                     location = "Fyxestroll Garden"
-                if location == "ac":
-                    location = "Alchemy Commission"
+                if location == "ac-f1":
+                    location = "Alchemy Commission - F1"
+                if location == "ac-f2":
+                    location = "Alchemy Commission - F2"
                 if location == "sw":
                     location = "Scalegorge Waterscape"
 
