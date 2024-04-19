@@ -16,6 +16,7 @@ function addMarker(latlng) {
     
     // Add marker to resultMap
     resultMapMarker = L.marker(latlng, { icon }).addTo(resultMap);
+    resultMapMarker.bindTooltip("Your guess: " + currentMap, {className: 'guess-tooltip', maxWidth: 200});
 }
 
 function removeMarker() {

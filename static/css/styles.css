@@ -17,7 +17,7 @@ body {
 }
 .lihsr {
     position: absolute;
-    top: 45vh;
+    top: 40vh;
     left: 50vw;
     transform: translate(-50%, -50%) scale(0.8);
     max-width: 100%;
@@ -39,7 +39,7 @@ h1 {
     position: absolute;
     color: white;
     text-shadow: 2px 2px 2px black;
-    bottom: 30vh;
+    bottom: 32vh;
     transform: translateX(-50%);
     text-align: center;
     z-index: 2;
@@ -54,7 +54,7 @@ a:hover {
     text-decoration: underline;
 }
 .version {
-    position: absolute;
+    position: fixed;
     color: white;
     font-size: 30px;
     text-shadow: 2px 2px 2px black;
@@ -303,8 +303,8 @@ a:hover {
 }
 .play {
     position: absolute;
-    bottom: 17%;
-    left: 43%;
+    bottom: 17vh;
+    left: 43vw;
     transform: translate(-50%, -50%);
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
@@ -323,8 +323,8 @@ a:hover {
 }
 .settings {
     position: absolute;
-    bottom: 17%;
-    left: 57%;
+    bottom: 17vh;
+    left: 57vw;
     transform: translate(-50%, -50%);
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
@@ -388,7 +388,7 @@ a:hover {
     width: 20%;
     height: auto;
     color: white;
-    z-index: 4;
+    z-index: 5;
     display: none;
     margin-right: 18px;
     transition: opacity 0.75s ease, transform 0.5s ease;
@@ -400,7 +400,7 @@ a:hover {
     color: white;
     font-size: 60px; /* Adjust the font-size as needed */
     text-shadow: 2px 2px 2px black;
-    z-index: 4;
+    z-index: 5;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
@@ -781,6 +781,7 @@ input:checked + .slider:before {
 }
 .random-image {
     z-index: -1;
+    object-fit: contain;
 }
 .starrail-container {
     position: fixed;
@@ -975,7 +976,7 @@ input:checked + .slider:before {
     z-index: 3;
 }
 .guess-result {
-    position: fixed;
+    position: absolute;
     left: 50%;
     text-align: center;
     color: white;

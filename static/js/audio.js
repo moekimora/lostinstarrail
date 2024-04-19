@@ -59,7 +59,7 @@ var audioList = [
 
 var audioIndex = 0;
 // Check if a default audio is stored in sessionStorage
-var defaultAudio = sessionStorage.getItem('defaultAudio');
+var defaultAudio = localStorage.getItem('defaultAudio');
 if (defaultAudio) {
   audioIndex = audioList.indexOf(defaultAudio);
   updateAudio(defaultAudio);
@@ -82,5 +82,5 @@ function updateAudio(audioTitle) {
   var audio = document.getElementById('gameaudio');
   audio.src = "static/media/audio/" + audioTitle + ".mp3";
   audio.load();
-  sessionStorage.setItem('defaultAudio', audioTitle);
+  localStorage.setItem('defaultAudio', audioTitle);
 }

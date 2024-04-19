@@ -35,7 +35,7 @@
     guessButton.style.display = 'block';
 
     var audio = document.getElementById('gameaudio');
-    volume = sessionStorage.getItem('volume');
+    volume = localStorage.getItem('volume');
     if (volume == null) {
         volume = 20;
     }

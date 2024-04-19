@@ -11,17 +11,11 @@ var customIcon = L.icon({
 });
 
 var correctMarker = null;
-playButton.addEventListener('click', function() {
-    if (currentImage) {
-        correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
-        correctMarker.bindTooltip("Correct location: " + currentMapLocation, {className: 'guess-tooltip', maxWidth: 200});
-    }
-});
 
 guessButton.addEventListener('click', function() {
     if (currentImage) {
         correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
-        correctMarker.bindTooltip("Correct location: " + currentMapLocation, {className: 'guess-tooltip', maxWidth: 200});
+        correctMarker.bindTooltip("Correct location", {className: 'guess-tooltip', maxWidth: 200});
     }
 });
 nextRoundButton.addEventListener('click', function() {
@@ -37,7 +31,7 @@ standardCheckbox = document.getElementById('Standard');
 survivalCheckbox = document.getElementById('Survival');
 
 playButton.addEventListener('click', function () {
-  loadingScreen.style.display = 'flex';
+loadingScreen.style.display = 'flex';
 // seed system (v1.0.24)
 var inputElement = document.getElementById('Input');
 // Get the value of the input

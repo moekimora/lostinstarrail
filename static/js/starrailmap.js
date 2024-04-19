@@ -406,7 +406,7 @@ var overlays = [
 ];
 
 var currentMap = overlays[0].name; // Default to first map
-
+var guessButton = document.querySelector('.guess-btn');
 var resultMapOverlay = null; // Variable to store the current resultMap overlay
 
 function toggleMapVisibility(index) {
@@ -416,15 +416,22 @@ function toggleMapVisibility(index) {
   });
   currentMap = overlays[index].name;
 
-  var selectedMapImageUrl = overlays[index].imageUrl;
-
-  if (resultMapOverlay) {
-    resultMap.removeLayer(resultMapOverlay);
-  }
-
-  resultMapOverlay = L.imageOverlay(selectedMapImageUrl, [[-90, -180], [90, 180]]).addTo(resultMap);
+  guessButton.addEventListener('click', function () {
+    var selectedOverlay = overlays.find(function(overlays) {
+        return overlays.name === currentMapLocation;
+      });
+      
+      if (selectedOverlay) {
+        var selectedMapImageUrl = selectedOverlay.imageUrl;
+      
+        if (resultMapOverlay) {
+          resultMap.removeLayer(resultMapOverlay);
+        }
+      
+        resultMapOverlay = L.imageOverlay(selectedMapImageUrl, selectedOverlay.bounds).addTo(resultMap);
+      }
+    });
 }
-
 
 function addClickListener(selector, index) {
 var element = document.querySelector(selector);

@@ -123,7 +123,7 @@ var slider4 = document.getElementById("Range4");
 var output4 = document.getElementById("Volume");
 
 // Get the saved volume value from localStorage
-var savedVolume = sessionStorage.getItem('volume');
+var savedVolume = localStorage.getItem('volume');
 
 // Set the saved volume as the initial value for the slider
 if (savedVolume !== null && !isNaN(savedVolume)) {
@@ -137,5 +137,5 @@ if (savedVolume !== null && !isNaN(savedVolume)) {
 
 slider4.oninput = function() {
   output4.innerHTML = this.value;
-  sessionStorage.setItem('volume', this.value);
+  localStorage.setItem('volume', this.value);
 }
