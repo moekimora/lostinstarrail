@@ -1118,7 +1118,6 @@ input:checked + .slider:before {
 }
 .menu-btn {
     padding: 20px 30px;
-    left: 47%;
     font-family: 'DIN', sans-serif;
     font-size: 24px;
     font-weight: bold;
@@ -1127,7 +1126,7 @@ input:checked + .slider:before {
     color: rgb(0, 0, 0);
     cursor: pointer;
     z-index: 4;
-    bottom: 20%;
+    bottom: 15%;
     display: none;
     transition: 0.5s ease;
     position: fixed;

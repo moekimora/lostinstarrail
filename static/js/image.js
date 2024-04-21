@@ -6917,6 +6917,618 @@ var images = [
         lng: -25.898928825308666,
         currentLocation: "Alchemy Commission - F2"
     },
+    {
+        imageUrl: "randommap/1154.png",
+        lat: 2.2708748910122742,
+        lng: 168.48541388135132,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1155.png",
+        lat: 2.2708748910122742,
+        lng: 168.48541388135132,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1156.png",
+        lat: -2.6511300418989765,
+        lng: 154.21783520287966,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1157.png",
+        lat: -4.186432325670779,
+        lng: 144.03717188011584,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1158.png",
+        lat: -4.288691063570996,
+        lng: 123.397524214283,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1159.png",
+        lat: 3.468849251338147,
+        lng: 132.68463306774242,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1160.png",
+        lat: 10.083549433903682,
+        lng: 126.60553194695538,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1161.png",
+        lat: 8.203538694382368,
+        lng: 112.32330642221474,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1162.png",
+        lat: -10.60371631133642,
+        lng: 119.35455591131782,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1163.png",
+        lat: -18.18827997795603,
+        lng: 123.80767962343184,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1164.png",
+        lat: -31.25411699909709,
+        lng: 116.131897149408,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1165.png",
+        lat: -21.90293869426874,
+        lng: 109.32037420683935,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1166.png",
+        lat: -11.394578109839083,
+        lng: 110.6387334860462,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1167.png",
+        lat: -4.434755308169785,
+        lng: 114.37408477713221,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1168.png",
+        lat: -14.392808420445162,
+        lng: 105.07232764050627,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1169.png",
+        lat: -18.257852180659313,
+        lng: 97.38189851179978,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1170.png",
+        lat: 5.440311363797608,
+        lng: 105.65826509793148,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1171.png",
+        lat: 8.276020176299413,
+        lng: 97.23541414744344,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1172.png",
+        lat: -4.507774576959198,
+        lng: 103.46099963258676,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1173.png",
+        lat: -11.523782544511725,
+        lng: 95.00885131748919,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1174.png",
+        lat: 4.57936711708184,
+        lng: 92.22564839471924,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1175.png",
+        lat: -4.4931677346377565,
+        lng: 89.1494767432366,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1176.png",
+        lat: -4.4931677346377565,
+        lng: 89.1494767432366,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1177.png",
+        lat: -9.146186547413713,
+        lng: 78.89557123829462,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1178.png",
+        lat: 3.337244745091219,
+        lng: 82.63092252938065,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1179.png",
+        lat: -4.127993360441271,
+        lng: 73.32916539275469,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1180.png",
+        lat: -4.186432803358707,
+        lng: 70.48736812393828,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1181.png",
+        lat: -2.7242921278620975,
+        lng: 62.28424371998468,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1182.png",
+        lat: -2.065390975699601,
+        lng: 54.44369134150732,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1183.png",
+        lat: -1.4065175055228902,
+        lng: 56.71419898903019,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1184.png",
+        lat: -4.405394092219965,
+        lng: 46.8982589249831,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1185.png",
+        lat: -4.068394320472956,
+        lng: 34.77857922231002,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1186.png",
+        lat: -4.141448604935188,
+        lng: 31.92213411736188,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1187.png",
+        lat: -4.652633155449402,
+        lng: 25.550064267862233,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1188.png",
+        lat: -4.215103598812475,
+        lng: 15.627801035599273,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1189.png",
+        lat: -12.111098937063659,
+        lng: 15.40807448906478,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1190.png",
+        lat: -24.341715650311592,
+        lng: 19.890750670140058,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1191.png",
+        lat: -13.197855295544123,
+        lng: 20.741273735317126,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1192.png",
+        lat: -24.34106928323117,
+        lng: 18.251039541259768,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1193.png",
+        lat: -40.7033891960835,
+        lng: 18.075258067742404,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1194.png",
+        lat: -31.11626690532852,
+        lng: 28.255921390506227,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1195.png",
+        lat: -37.579974590179035,
+        lng: 28.18267920832808,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1196.png",
+        lat: -37.11417153484916,
+        lng: 18.148500249920556,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1197.png",
+        lat: -36.83330476339081,
+        lng: 4.759828013035259,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1198.png",
+        lat: -38.96051173216053,
+        lng: -6.066280047675622,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1199.png",
+        lat: -33.28580611934978,
+        lng: -2.4041709387677828,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1200.png",
+        lat: -37.114737156153666,
+        lng: -15.29479500212345,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1201.png",
+        lat: -36.6460543917043,
+        lng: -25.40221614270908,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1202.png",
+        lat: -41.20176791083395,
+        lng: -26.867059786272247,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1203.png",
+        lat: -46.98121951663668,
+        lng: -26.720575421915946,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1204.png",
+        lat: -50.17780575828814,
+        lng: -21.447138305088636,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1205.png",
+        lat: -35.22284823782816,
+        lng: -27.01354415062855,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1206.png",
+        lat: -31.579139914425948,
+        lng: -27.04192842110745,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1207.png",
+        lat: -4.2594763549909995,
+        lng: -10.21087528226373,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1208.png",
+        lat: -4.2594763549909995,
+        lng: -16.21673422087262,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1209.png",
+        lat: -4.186433026279637,
+        lng: -23.54095243868834,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1210.png",
+        lat: 2.476588543750827,
+        lng: 15.399696137381264,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1211.png",
+        lat: 2.6960911325085224,
+        lng: 11.444618299760785,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1212.png",
+        lat: 14.92473262596364,
+        lng: 17.41396386621561,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1213.png",
+        lat: 22.023888029031692,
+        lng: 9.813539605121925,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1214.png",
+        lat: 15.74069600444123,
+        lng: 4.507616099063197,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1215.png",
+        lat: 7.42445202948021,
+        lng: 0.5516078110188084,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1216.png",
+        lat: 5.017280603731708,
+        lng: -5.728452704780458,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1217.png",
+        lat: 2.89844484451396,
+        lng: -17.52044403546375,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1218.png",
+        lat: 2.532645791503305,
+        lng: -26.74895898991154,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1219.png",
+        lat: 5.892198096212305,
+        lng: -26.675716807733387,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1220.png",
+        lat: 14.320475623930399,
+        lng: -26.675716807733387,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1221.png",
+        lat: 19.572924289470603,
+        lng: -26.822202353538827,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1222.png",
+        lat: 29.362164357536468,
+        lng: -27.189121652143665,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1223.png",
+        lat: 36.68567389152245,
+        lng: -27.119315161560216,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1224.png",
+        lat: 42.65517123419478,
+        lng: -34.07732246848514,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1225.png",
+        lat: 49.83296210600759,
+        lng: -26.826346432847615,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1226.png",
+        lat: 43.987214903641096,
+        lng: -20.01482349027899,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1227.png",
+        lat: 44.77743058721897,
+        lng: -46.568295230756604,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1228.png",
+        lat: 38.86005431851541,
+        lng: -53.759254880408676,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1229.png",
+        lat: 43.9641798092541,
+        lng: -51.56198941506397,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1230.png",
+        lat: 38.917063722516744,
+        lng: -50.09714577150081,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1231.png",
+        lat: 31.81887071443336,
+        lng: -55.95652034575339,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1232.png",
+        lat: 22.38257026219741,
+        lng: -56.0985407582287,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1233.png",
+        lat: 15.644816433063083,
+        lng: -58.96510254016593,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1234.png",
+        lat: -1.0486125916621947,
+        lng: -58.37398507179396,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1235.png",
+        lat: -4.75598026315018,
+        lng: -50.171812324585254,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1236.png",
+        lat: -46.90072614564114,
+        lng: -33.54583575676342,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1237.png",
+        lat: -45.22382191688628,
+        lng: -38.59954632705626,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1238.png",
+        lat: -40.54768775260829,
+        lng: -43.79325387537013,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1239.png",
+        lat: -36.06738107737206,
+        lng: -51.8498939149674,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1240.png",
+        lat: -31.940277449088327,
+        lng: -67.45047871891487,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1241.png",
+        lat: -34.150227808798945,
+        lng: -64.66727579614492,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1242.png",
+        lat: -29.165514518049918,
+        lng: -71.99149401396062,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1243.png",
+        lat: -25.059644972984575,
+        lng: -73.16336892881112,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1244.png",
+        lat: -18.674611529457533,
+        lng: -74.11551729712718,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1245.png",
+        lat: -9.015938528586808,
+        lng: -76.23954058029373,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1246.png",
+        lat: 0.3654991282092826,
+        lng: -74.64935082829174,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1247.png",
+        lat: 7.0129634239070455,
+        lng: -67.25189042829787,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1248.png",
+        lat: 0.7290407545249217,
+        lng: -79.79089007715707,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1249.png",
+        lat: -4.174467635744078,
+        lng: -87.92077229893249,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1250.png",
+        lat: -4.247512089140909,
+        lng: -98.3211621682308,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1251.png",
+        lat: -4.247512089140909,
+        lng: -96.78307634248952,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1252.png",
+        lat: -4.174467635744078,
+        lng: -110.55260659198304,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1253.png",
+        lat: 4.398179473823446,
+        lng: -123.43852013010445,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1254.png",
+        lat: -4.544217994586884,
+        lng: -133.54594127069012,
+        currentLocation: "Scalegorge Waterscape"
+    },
+    {
+        imageUrl: "randommap/1255.png",
+        lat: -5.01869332876889,
+        lng: -149.06341382854498,
+        currentLocation: "Scalegorge Waterscape"
+    },
     
     // ... Add more images and their assigned coordinates here
     ];

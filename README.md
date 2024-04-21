@@ -220,5 +220,12 @@ If you guess in the wrong map location, you get **0** points.
   - Maps now display the correct map if you guessed wrong
   - Changed markers (Now there is "Your guess" in the map and "Correct location" no longer include the correct location's name)
 
+## v1.0.62
+- Update: The Xianzhou Luofu
+  - Completed with 700+ locations holy shit
+- Minor changes
+  - Improved loading time by ~65%
+  - Another UI change woohoo
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
