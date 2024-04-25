@@ -303,7 +303,7 @@ a:hover {
 }
 .game-container {
     position: absolute;
-    bottom: 8.5vw;
+    bottom: 6.5vw;
     right: 50%;
     transform: translateX(50%);
     width: 100%;
@@ -315,16 +315,17 @@ a:hover {
 }
 .play,
 .settings {
-    padding: 10px 20px;
-    margin: 0 10px;
+    position: relative;
+    padding: 20px 30px;
+    margin: 0 30px;
     font-family: 'DIN', sans-serif;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     border-radius: 50px;
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
     transition: 0.5s ease;
 }
 .play:hover,
@@ -332,14 +333,17 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.5s ease; 
 }
-@media (min-width: 480px) {
+@media (max-height: 320px) {
     .play,
     .settings {
-        padding: 20px 30px;
-        font-size: 24px;
+        padding: 10px 20px;
+        font-size: 16px;
     }
-    .h1 {
-        font-size: 12px;
+    h1 {
+        font-size: 16px;
+    }
+    .settings-map {
+        font-size: 25px;
     }
 }
 .settings-container {
