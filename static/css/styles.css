@@ -333,7 +333,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.5s ease; 
 }
-@media (max-height: 700px) {
+@media (max-height: 1200px) {
     .play,
     .settings {
         padding: 10px 20px;
@@ -341,7 +341,7 @@ a:hover {
     }
     h1 {
         font-size: 16px;
-        bottom: 38vh;
+        bottom: 35vh;
     }
     .lihsr {
         transform: translate(-50%, -50%) scale(0.5); /* Shrink the logo by 50% */
@@ -355,7 +355,9 @@ a:hover {
     .settings-displaySeeTime.active,
     .settings-displayRound.active,
     .settings-seedtext.active,
-    .settings-filterstext.active {
+    .settings-filterstext.active,
+    .options-volumetext.active,
+    .audioname.active {
         font-size: 20px;
     }
 }
