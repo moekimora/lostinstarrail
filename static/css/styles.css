@@ -333,7 +333,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.5s ease; 
 }
-@media (max-height: 320px) {
+@media (max-height: 700px) {
     .play,
     .settings {
         padding: 10px 20px;
@@ -341,11 +341,25 @@ a:hover {
     }
     h1 {
         font-size: 16px;
+        bottom: 38vh;
     }
-    .settings-map {
-        font-size: 25px;
+    .lihsr {
+        transform: translate(-50%, -50%) scale(0.5); /* Shrink the logo by 50% */
+    }
+    .settings-map.active,
+    .settings-gamemodestext.active,
+    .settings-gamemodesstandardtext.active,
+    .settings-gamemodessurvivaltext.active,
+    .settings-gamerulestext.active,
+    .settings-displayTime.active,
+    .settings-displaySeeTime.active,
+    .settings-displayRound.active,
+    .settings-seedtext.active,
+    .settings-filterstext.active {
+        font-size: 20px;
     }
 }
+
 .settings-container {
     position: fixed;
     top: 0;
