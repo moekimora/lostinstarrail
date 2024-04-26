@@ -227,5 +227,13 @@ If you guess in the wrong map location, you get **0** points.
   - Improved loading time by ~65%
   - Another UI change woohoo
 
+## v1.0.63
+- Responsive update
+  - Update compatibility for mobile and smaller screens
+  - Improve load time
+- Small fixes
+  - In mobile, certain maps can't be selected due to the Guess button covering them. This is now fixed
+  - Update the scoring system
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
