@@ -88,11 +88,10 @@ a:hover {
 .options-wrapper {
     position: fixed;
     top: 1%;
-    right: 1%;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    right: 0;
 }
 .options,
 .credits {
@@ -331,41 +330,6 @@ a:hover {
 .settings:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.5s ease; 
-}
-@media (max-height: 768px) {
-    .play,
-    .settings {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-    h1 {
-        font-size: 16px;
-        bottom: 35vh;
-    }
-    .lihsr {
-        transform: translate(-50%, -50%) scale(0.5); /* Shrink the logo by 50% */
-    }
-    .version {
-        font-size: 20px;
-    }
-    .options,
-    .credits {
-        padding: 15px;
-    }
-    .settings-map.active,
-    .settings-gamemodestext.active,
-    .settings-gamemodesstandardtext.active,
-    .settings-gamemodessurvivaltext.active,
-    .settings-gamerulestext.active,
-    .settings-displayTime.active,
-    .settings-displaySeeTime.active,
-    .settings-displayRound.active,
-    .settings-seedtext.active,
-    .settings-filterstext.active,
-    .options-volumetext.active,
-    .audioname.active {
-        font-size: 20px;
-    }
 }
 
 .settings-container {
@@ -1164,4 +1128,82 @@ input:checked + .slider:before {
 }
 .gameaudio {
     display: none;
+}
+@media (max-height: 768px) or (max-width: 1024px) {
+    .play,
+    .settings {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 16px;
+        bottom: 35vh;
+    }
+    .lihsr {
+        transform: translate(-50%, -50%) scale(0.5); /* Shrink the logo by 50% */
+    }
+    .version {
+        font-size: 20px;
+    }
+    .options,
+    .credits {
+        padding: 15px;
+    }
+    .settings-logo {
+        width: 10%;
+        height: auto;
+    }
+    
+    .settings-text {
+        width: 10%;
+        font-size: 30px; /* Adjust the font-size as needed */
+    }
+    .options-text,
+    .credits-text {
+        font-size: 30px; /* Adjust the font-size as needed */
+    }
+    .credits-content {
+        font-size: 16px;
+    }
+    .settings-map.active,
+    .settings-gamemodestext.active,
+    .settings-gamemodesstandardtext.active,
+    .settings-gamemodessurvivaltext.active,
+    .settings-gamerulestext.active,
+    .settings-displayTime.active,
+    .settings-displaySeeTime.active,
+    .settings-displayRound.active,
+    .settings-seedtext.active,
+    .settings-filterstext.active,
+    .options-volumetext.active,
+    .audioname.active {
+        font-size: 20px;
+    }
+    .switch {
+        width: 39.5px;
+        height: 21.5px;
+    }
+
+    .slider:before {
+        height: 16.5px;
+        width: 16.5px;
+        left: 2.5px;
+        bottom: 2.5px;
+    }
+    input:checked + .slider:before {
+        transform: translateX(16.5px);
+    }
+    .seedtext {
+        font-size: 16px;
+    }
+    #starrailmap {
+        width: 350px;
+        height: 350px;
+    }
+    #countdown-text {
+        left: 1%;
+    }
+    #countdown-s-text {
+        left: 1%;
+    }
 }
