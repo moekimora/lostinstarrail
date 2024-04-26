@@ -772,7 +772,7 @@ input:checked + .slider:before {
 }
 .random-image {
     z-index: -1;
-    object-fit: contain;
+    object-fit: cover;
 }
 .starrail-container {
     position: fixed;
@@ -939,7 +939,7 @@ input:checked + .slider:before {
 .guess-btn {
     position: fixed;
     display: none;
-    padding: 5px 111px;
+    padding: 5px 152px;
     font-family: 'DIN', sans-serif;
     font-size: 15px;
     font-weight: bold;
@@ -1193,17 +1193,68 @@ input:checked + .slider:before {
     input:checked + .slider:before {
         transform: translateX(16.5px);
     }
+    .settings-map-wrapper {
+        height: 8%;
+    }
+    .settings-gamerules-wrapper {
+        height: 8%;
+    }
     .seedtext {
         font-size: 16px;
     }
     #starrailmap {
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
+    }
+    #resultmap {
+        width: 250px;
+        height: 250px;
     }
     #countdown-text {
         left: 1%;
     }
     #countdown-s-text {
         left: 1%;
+    }
+    .guess-btn {
+        padding: 3px 102px;
+    }
+    .starrail-container {
+        width: 310px;
+        height: 310px;
+    }
+    .dropdown-btn {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+    .guess-result {
+        font-size: 16px;
+    }
+    .next-round {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+    .finaltext {
+        font-size: 30px;
+    }
+    #final-score {
+        font-size: 100px;
+    }
+    .menu-btn {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+    #map-info,
+    #round-info,
+    #score-info {
+        font-size: 20px;
+    }
+    .game-stat {
+        min-width: 220px;
+        height: 60px;
+        border-radius: 10px;
+        display: none;
+        align-items: center;
+        justify-content: flex-end;
     }
 }
