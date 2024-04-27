@@ -235,5 +235,10 @@ If you guess in the wrong map location, you get **0** points.
   - In mobile, certain maps can't be selected due to the Guess button covering them. This is now fixed
   - Update the scoring system
 
+## v1.0.631
+- Small fixes
+  - Fixed UI issues related to mobile
+  - Minor improvements
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

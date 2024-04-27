@@ -950,7 +950,7 @@ input:checked + .slider:before {
     border-radius: 10px;
     background-color: rgb(180, 180, 180);
     color: rgb(105, 105, 105);
-    z-index: 3;
+    z-index: 2;
     bottom: 2%;
     right: 1%;
     transition: 0.5s ease;
@@ -970,15 +970,26 @@ input:checked + .slider:before {
     display: none;
     z-index: 3;
 }
-.guess-result {
+.guess-wrapper {
+    display: flex;
+    align-items: flex-start;
+    z-index: 4;
+}
+.guess-container {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
+    bottom: 8%;
+    z-index: 4;
+    justify-content: center;
+    align-items: center;
+}
+.guess-result {
     text-align: center;
     color: white;
     text-shadow: 2px 2px 2px black;
-    bottom: 12%;
-    transform: translateX(-50%);
-    z-index: 5;
     font-size: 30px;
 }
 .next-round {
@@ -990,11 +1001,8 @@ input:checked + .slider:before {
     background-color: rgba(255, 248, 248, 0.5);
     color: rgb(0, 0, 0);
     cursor: pointer;
-    z-index: 4;
-    bottom: 5%;
     display: none;
     transition: 0.5s ease;
-    position: fixed;
 }
 .next-round:hover {
     opacity: 0.8;
@@ -1279,5 +1287,18 @@ input:checked + .slider:before {
         display: none;
         align-items: center;
         justify-content: flex-end;
+    }
+}
+
+@media (max-height: 864px) {
+    #resultmap {
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .guess-container {
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
