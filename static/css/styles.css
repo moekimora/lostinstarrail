@@ -970,18 +970,13 @@ input:checked + .slider:before {
     display: none;
     z-index: 3;
 }
-.guess-wrapper {
-    display: flex;
-    align-items: flex-start;
-    z-index: 4;
-}
 .guess-container {
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 8%;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 4;
     justify-content: center;
     align-items: center;
@@ -1014,10 +1009,9 @@ input:checked + .slider:before {
     z-index: 4;
     opacity: 0;
     pointer-events: none;
-    top: 20vh;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateX(-50%);
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 10px;
     height: 350px;
     width: 350px;
@@ -1287,18 +1281,5 @@ input:checked + .slider:before {
         display: none;
         align-items: center;
         justify-content: flex-end;
-    }
-}
-
-@media (max-height: 864px) {
-    #resultmap {
-        left: 10%;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .guess-container {
-        right: 10%;
-        top: 50%;
-        transform: translateY(-50%);
     }
 }
