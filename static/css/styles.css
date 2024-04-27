@@ -970,13 +970,22 @@ input:checked + .slider:before {
     display: none;
     z-index: 3;
 }
+.guess-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 25%;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .guess-container {
     display: flex;
+    position: relative;
     flex-direction: column;
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 4;
     justify-content: center;
     align-items: center;
@@ -984,6 +993,7 @@ input:checked + .slider:before {
 .guess-result {
     text-align: center;
     color: white;
+    word-break: break-word;
     text-shadow: 2px 2px 2px black;
     font-size: 30px;
 }
@@ -1004,18 +1014,17 @@ input:checked + .slider:before {
     color: rgb(255, 177, 177);
 }
 #resultmap {
-    position: fixed;
+    position: relative;
     display: flex;
     z-index: 4;
     opacity: 0;
     pointer-events: none;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
     border-radius: 10px;
+    margin: 0 20px;
     height: 350px;
     width: 350px;
     transition: opacity 0.5s ease, transform 0.4s ease;
+    flex-shrink: 0;
 }
 #countdown-text {
     position: absolute;
