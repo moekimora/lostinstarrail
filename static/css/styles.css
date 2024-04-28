@@ -977,7 +977,7 @@ input:checked + .slider:before {
     transform: translate(-50%, -50%);
     width: 75%;
     height: 25%;
-    z-index: 4;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1026,11 +1026,11 @@ input:checked + .slider:before {
     transition: opacity 0.5s ease, transform 0.4s ease;
     flex-shrink: 0;
 }
+
 #countdown-text {
     position: absolute;
     top: 4%;
-    left: 46.5%;
-    margin: auto;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
@@ -1045,7 +1045,6 @@ input:checked + .slider:before {
     position: absolute;
     top: 3%;
     left: 50%;
-    margin: auto;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
@@ -1058,9 +1057,7 @@ input:checked + .slider:before {
 }
 #countdown-timeup {
     position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
     font-size: 96px;
     font-weight: bold;
     color: rgb(255, 255, 255);

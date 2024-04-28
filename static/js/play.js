@@ -28,11 +28,14 @@
     starrailMap.style.opacity = '1';
     starrailMap.style.pointerEvents = 'auto';
 
-    const dropdownBtn = document.querySelector('.dropdown-btn');
+    var dropdownBtn = document.querySelector('.dropdown-btn');
     dropdownBtn.style.display = 'block';
 
-    const guessButton = document.querySelector('.guess-btn');
+    var guessButton = document.querySelector('.guess-btn');
     guessButton.style.display = 'block';
+
+    var guessWrapper = document.querySelector('.guess-wrapper');
+    guessWrapper.style.zIndex = '4'; // Fix z-index value
 
     var audio = document.getElementById('gameaudio');
     volume = localStorage.getItem('volume');

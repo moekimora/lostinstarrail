@@ -240,5 +240,16 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed UI issues related to mobile
   - Minor improvements
 
+## v1.0.632
+- Small updates
+  - Updated UI
+  - Better endscreen
+
+## v1.0.633
+- Minor bug fixes
+  - Fixed a bug where you can't change gamemode in some situations
+  - Changed "Time up!" to fit with the new endscreen
+
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
