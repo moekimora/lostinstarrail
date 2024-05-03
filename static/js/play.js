@@ -34,9 +34,6 @@
     var guessButton = document.querySelector('.guess-btn');
     guessButton.style.display = 'block';
 
-    var guessWrapper = document.querySelector('.guess-wrapper');
-    guessWrapper.style.zIndex = '4'; // Fix z-index value
-
     var audio = document.getElementById('gameaudio');
     volume = localStorage.getItem('volume');
     if (volume == null) {

@@ -1,6 +1,7 @@
 var guessButton = document.querySelector('.guess-btn');
 var nextRoundButton = document.querySelector('.next-round');
 var playButton = document.querySelector('.play');
+var guessWrapper = document.querySelector('.guess-wrapper');
 
 var currentImage = null;
 
@@ -216,6 +217,7 @@ function playNextRound() {
   loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
   guessResult.textContent = '';
+  guessWrapper.style.zIndex = '-1'; // Fix z-index value
 // Choose a random image
 randomIndex = uniqueID[currentRound - 1];
 currentImage = images[randomIndex];
@@ -477,6 +479,7 @@ guessButton.addEventListener('click', function() {
     }
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
+    guessWrapper.style.zIndex = '4'; // Fix z-index value
     stopCountdown();
     stopSCountdown();
       }
