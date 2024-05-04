@@ -253,6 +253,9 @@ If you guess in the wrong map location, you get **0** points.
 ## v1.0.634
 - Minor bug fixes
   - Fixed a bug where you can't interact with some places on the map
+  - Fixed several bugs related to countdown and time up functions
+  - Fixed several bugs related to Star Rail Map dropdown
+  - Updated timer UI
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

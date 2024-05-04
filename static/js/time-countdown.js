@@ -49,10 +49,11 @@ function updateDisplay() {
     var score;
       score = 0
     console.log('Score:', score);
+    guessWrapper.style.zIndex = '4'; // Fix z-index value
   } else {
     displayElement.style.display = "block";
     displayTimeUp.style.display = "none";
-    displayElement.textContent = "Time: " + formattedMinutes + ":" + formattedSeconds;
+    displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
   }
 }
 

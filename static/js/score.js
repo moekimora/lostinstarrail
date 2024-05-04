@@ -420,6 +420,7 @@ guessButton.addEventListener('click', function() {
     }
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
+    guessWrapper.style.zIndex = '4'; // Fix z-index value
     stopCountdown();
     stopSCountdown();
       } else {
@@ -568,17 +569,17 @@ document.querySelector(".next-round").addEventListener("click", function() {
         survivalCondition += 500;
       } else if (currentRound < 11) {
         survivalCondition += 1000;
-      } else if (currentRound < 16) {
-        survivalCondition += 1750;
       } else if (currentRound < 21) {
+        survivalCondition += 1750;
+      } else if (currentRound < 31) {
         survivalCondition += 2250;
-      } else if (currentRound < 26) {
-        survivalCondition += 3000;
       } else if (currentRound < 41) {
+        survivalCondition += 3000;
+      } else if (currentRound < 51) {
         survivalCondition += 3750;
-      } else if (currentRound < 66) {
-        survivalCondition += 4500;
       } else if (currentRound < 101) {
+        survivalCondition += 4500;
+      } else if (currentRound < 201) {
         survivalCondition += 5000;
       } else {
         survivalCondition += 6250;
