@@ -230,25 +230,34 @@ function changeColor(element) {
 
 var slider = document.getElementById("Range");
 var output = document.getElementById("Time");
-output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-output.innerHTML = this.value;
-}
+slider.addEventListener('input', () => {
+    output.value = slider.value;
+});
+output.addEventListener('input', () => {
+    slider.value = output.value;
+});
+output.value = slider.value;
 
 var slider2 = document.getElementById("Range2");
 var output2 = document.getElementById("SeeTime");
-output2.innerHTML = slider2.value;
 
-slider2.oninput = function() {
-output2.innerHTML = this.value;
-}
+slider2.addEventListener('input', () => {
+    output2.value = slider2.value;
+});
+output2.addEventListener('input', () => {
+    slider2.value = output2.value;
+});
+output2.value = slider2.value;
 
 var slider3 = document.getElementById("Range3");
 var output3 = document.getElementById("Round");
-output3.innerHTML = slider3.value;
 
-slider3.oninput = function() {
-output3.innerHTML = this.value;
-}
+slider3.addEventListener('input', () => {
+    output3.value = slider3.value;
+});
+output3.addEventListener('input', () => {
+    slider3.value = output3.value;
+});
+output3.value = slider3.value;

@@ -69,7 +69,11 @@ if (seedValue === '') {
     if (seedValue === '') {
         seedText.innerHTML = 'Random Seed<br>' + seed;
     } else {
-        seedText.innerHTML = 'Provided Seed<br>' + seed;
+      if (!isNaN(parsedSeed)) {
+        seedText.innerHTML = 'Provided Seed<br>' + parsedSeed;
+      } else {
+        seedText.innerHTML = 'Provided Seed<br>' + seedValue + ' (' + seed + ')';
+      }
     }
     document.body.appendChild(seedText);
     seedText.style.display = 'block';
@@ -113,7 +117,7 @@ if (seedValue === '') {
       return Array.from(uniqueIDs); // Convert the Set to an Array and return
     }
   }
-    var roundElement = parseInt(document.getElementById('Round').innerText);
+    var roundElement = parseInt(document.getElementById('Round').value);
     uniqueID = generateuniqueID(seed, roundElement);
     
     // Log the unique random numbers to the console
@@ -488,7 +492,23 @@ guessButton.addEventListener('click', function() {
 });
 
 currentRound = 1;
-round = parseInt(slider3.value);
+slider3.oninput = function() {
+  round = parseInt(this.value);
+  output3.value = round;
+  updateRoundInfo();
+};
+
+output3.oninput = function() {
+  round = parseInt(this.value);
+  slider3.value = round;
+  updateRoundInfo();
+};
+
+round = parseInt(output3.value);
+if (output3.value < 0) {
+  round = 5;
+}
+
 currentScore = 0;
 finalScore = 0;
 
@@ -631,12 +651,6 @@ function displayFinalScore() {
   stopCountdown();
   stopSCountdown();
 }
-
-slider3.oninput = function() {
-  round = parseInt(this.value);
-  output3.innerHTML = round;
-  updateRoundInfo();
-};
 
 // Call updateRoundInfo initially to display the initial round value
 updateRoundInfo();

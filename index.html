@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.634 (2.1#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.64 (2.1#open-beta)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -107,13 +107,13 @@
                     <div class="settings-gamerules-container1">
                         <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
                         <div class="slider1-container">
-                            <p class="settings-displayTime"><span id="Time"></span></p>
-                            <input type="range" min="1" max="300" value="120" class="slider1" id="Range">
+                            <input type="number"  onkeyup="if(parseInt(this.value) > 99999){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 99999){this.value=120; return false;}" class="settings-displayTime" id="Time" value="120">
+                            <input type="range" min="0" max="600" value="120" step="10" class="slider1" id="Range">
                         </div>
                         <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
                         <div class="slider2-container">
-                            <p class="settings-displaySeeTime"><span id="SeeTime"></span></p>
-                            <input type="range" min="0" max="300" value="120" class="slider2" id="Range2">
+                            <input type="number" onkeyup="if(parseInt(this.value) > 99999){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 99999){this.value=120; return false;}" class="settings-displaySeeTime" id="SeeTime" value="120">
+                            <input type="range" min="0" max="600" value="120" step="10" class="slider2" id="Range2">
                         </div>
                     </div>
                 </div>
@@ -121,11 +121,11 @@
                 <div class="settings-gamerules-wrapper settings-gamerules-wrapper2">
                     <p class="settings-seedtext" onclick="toggleSettings">Seed</p>
                     <div>
-                        <input type="text" maxlength="16" placeholder="Leave blank for random" class="seedinput" id="Input">
+                        <input type="text" maxlength="64" onkeyup="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" onkeydown="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" placeholder="Leave blank for random" class="seedinput" id="Input">
                     </div>
                     <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
                     <div class="slider3-container">
-                        <p class="settings-displayRound"><span id="Round"></span></p>
+                        <input type="number" onkeyup="if(parseInt(this.value) > 250){this.value=5; output3.value=5; round=5; return false;}" onkeydown="if(parseInt(this.value) > 250){this.value=5; output3.value=5; round=5; return false;}" class="settings-displayRound" id="Round" value="5">
                         <input type="range" min="1" max="99" value="5" class="slider3" id="Range3">
                     </div>
                 </div>

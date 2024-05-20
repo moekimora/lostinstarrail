@@ -87,14 +87,13 @@ a:hover {
 }
 .options-wrapper {
     position: fixed;
+    z-index: 1;
     top: 1%;
     right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }
 .options,
 .credits {
+    position: relative;
     background-color: rgba(0, 0, 0, 0.2);
     padding: 30px;
     border-radius: 10px;
@@ -633,17 +632,20 @@ a:hover {
 }
 .settings-displayTime,
 .settings-displaySeeTime,
-.settings-displayRound  {
+.settings-displayRound  { 
     position: relative;
-    color: white;
-    font-size: 40px;
-    text-shadow: 2px 2px 2px black;
+    width: 3vw;
+    padding: 1.5vh;
+    font-family: 'DIN', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 248);
     z-index: 4;
     display: none;
     margin: 1vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
 
 .settings-seedtext {
     position: relative;
@@ -657,7 +659,7 @@ a:hover {
 }
 .seedinput {
     position: relative;
-    padding: 2vh 8vw;
+    padding: 1.5vh 6vw;
     font-family: 'DIN', sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -776,7 +778,6 @@ input:checked + .slider:before {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 .starrail-container {
     position: fixed;
@@ -1037,7 +1038,6 @@ input:checked + .slider:before {
     justify-content: center;
     align-items: baseline;
     flex-direction: row;
-    z-index: 4;
 }
 #countdown-text,
 #countdown-s-text {

@@ -257,5 +257,16 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed several bugs related to Star Rail Map dropdown
   - Updated timer UI
 
+## v1.0.64
+- Several improvements
+  - You can now input Time, See Time and Round with text, with Time and See Time limited to 5 characters, and Round limited to 250 rounds.
+  - Time and See Time slider limit increases from **300** (5 minutes) to **600** (10 minutes)
+  - Seed text limit increases from **16** to **64** (Note: You cannot write any number higher than **9*(10^15)**)
+  - Seed now display text input and seed from text input correspondingly
+  - Now Time and See Time can be set to Infinity (**0**)
+- Small bug fixes
+  - An error in Console log related to Countdown finally resolved (i was a total idiot lol)
+  - Fixed some bugs for Time, See Time, and Round able to type in text input WAYYY more than the limit
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

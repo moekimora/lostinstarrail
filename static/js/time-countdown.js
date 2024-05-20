@@ -3,15 +3,20 @@ var countdownValue = 0;
 var previousCountdownValue = 0;
 
 function startCountdown() {
-  var sliderValue = document.getElementById("Range").value;
+  var sliderValue = document.getElementById("Time").value;
   countdownValue = parseInt(sliderValue);
-  previousCountdownValue = countdownValue;
-  updateDisplay();
-
-  countdownInterval = setInterval(function() {
-    countdownValue--;
+  if (countdownValue > 60000) {
+    // no countdown
+  } else if (countdownValue == 0) {
+    // no countdown
+  } else {
+    previousCountdownValue = countdownValue;
     updateDisplay();
-  }, 1000);
+    countdownInterval = setInterval(function() {
+      countdownValue--;
+      updateDisplay();
+    }, 1000);
+  }
 }
 
 function stopCountdown() {
@@ -56,8 +61,3 @@ function updateDisplay() {
     displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
   }
 }
-
-document.getElementsByClassName("countdown-text").style.display = "none";
-
-// Call updateDisplay initially to display the initial countdown value
-updateDisplay();
