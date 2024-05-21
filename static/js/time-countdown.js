@@ -62,12 +62,10 @@ function updateDisplay() {
     displayTimeUp.style.display = "none";
     displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
 
-    if (countdownValue === 30) {
-      displayElement.classList.add("pulse-glow");
-    } else if (countdownValue <= 10) {
-      displayElement.classList.add("pulse-glow");
+    if (countdownValue <= 10) {
+      document.body.classList.add("warning-glow");
     } else {
-      displayElement.classList.remove("pulse-glow");
+      document.body.classList.remove("warning-glow");
     }
 
   }

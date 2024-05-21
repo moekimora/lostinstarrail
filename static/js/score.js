@@ -365,12 +365,12 @@ guessButton.addEventListener('click', function() {
         );
 
         var score;
-        if (distance > 15) {
-          score = Math.max(0, 5000 - distance * 64);
-        } else if (distance > 10) {
+        if (distance > 30) {
           score = Math.max(0, 5000 - distance * 32);
-        } else if (distance > 5) {
+        } else if (distance > 20) {
           score = Math.max(0, 5000 - distance * 16);
+        } else if (distance > 10) {
+          score = Math.max(0, 5000 - distance * 8);
         } else if (distance < 1) {
             score = 5000
         } else {
