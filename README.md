@@ -267,6 +267,7 @@ If you guess in the wrong map location, you get **0** points.
   - You can use **Spacebar** to click "Next Round" now
   - Update the scoring system and distance
   - Update Blur filter
+  - Now screen will glow red when the time is less or equal to 10 seconds
 - Small bug fixes
   - An error in Console log related to Countdown finally resolved (i was a total idiot lol)
   - Fixed some bugs for Time, See Time, and Round able to type in text input WAYYY more than the limit
