@@ -5,9 +5,7 @@ var previousCountdownValueS = 0;
 function startSCountdown() {
   var sliderValue = document.getElementById("SeeTime").value;
   countdownValueS = parseInt(sliderValue);
-  if (countdownValueS > 60000) {
-    // no countdown
-  } else if (countdownValueS == 0) {
+  if (countdownValueS == 0) {
     // no countdown
   } else {
     previousCountdownValueS = countdownValueS;

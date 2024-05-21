@@ -634,7 +634,7 @@ a:hover {
 .settings-displaySeeTime,
 .settings-displayRound  { 
     position: relative;
-    width: 3vw;
+    width: 4vw;
     padding: 1.5vh;
     font-family: 'DIN', sans-serif;
     font-size: 18px;
@@ -1142,6 +1142,21 @@ input:checked + .slider:before {
     opacity: 0.8;
     color: rgb(255, 177, 177);
 }
+@keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+  
+.pulse-glow {
+    animation: pulse 1s infinite;
+}
 .gameaudio {
     display: none;
 }
@@ -1186,9 +1201,6 @@ input:checked + .slider:before {
     .settings-gamemodesstandardtext.active,
     .settings-gamemodessurvivaltext.active,
     .settings-gamerulestext.active,
-    .settings-displayTime.active,
-    .settings-displaySeeTime.active,
-    .settings-displayRound.active,
     .settings-seedtext.active,
     .settings-filterstext.active,
     .options-volumetext.active,
@@ -1218,6 +1230,12 @@ input:checked + .slider:before {
     }
     .settings-gamerules-wrapper {
         height: 8%;
+    }
+    .settings-displayTime,
+    .settings-displaySeeTime,
+    .settings-displayRound  {
+        padding: 1vh;
+        font-size: 10px;
     }
     .seedtext {
         font-size: 16px;

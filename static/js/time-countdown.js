@@ -5,9 +5,7 @@ var previousCountdownValue = 0;
 function startCountdown() {
   var sliderValue = document.getElementById("Time").value;
   countdownValue = parseInt(sliderValue);
-  if (countdownValue > 60000) {
-    // no countdown
-  } else if (countdownValue == 0) {
+  if (countdownValue == 0) {
     // no countdown
   } else {
     previousCountdownValue = countdownValue;
@@ -39,6 +37,8 @@ function updateDisplay() {
 
   var displayElement = document.getElementById("countdown-text");
   var displayTimeUp = document.getElementById("countdown-timeup");
+
+
   if (countdownValue < 0) {
     displayElement.style.display = "none";
     displayTimeUp.style.display = "block";
@@ -55,9 +55,20 @@ function updateDisplay() {
       score = 0
     console.log('Score:', score);
     guessWrapper.style.zIndex = '4'; // Fix z-index value
+    guessButtonActivated = true;
+    nextRoundButtonActivated = false;
   } else {
     displayElement.style.display = "block";
     displayTimeUp.style.display = "none";
     displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
+
+    if (countdownValue === 30) {
+      displayElement.classList.add("pulse-glow");
+    } else if (countdownValue <= 10) {
+      displayElement.classList.add("pulse-glow");
+    } else {
+      displayElement.classList.remove("pulse-glow");
+    }
+
   }
 }

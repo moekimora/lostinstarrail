@@ -1,6 +1,6 @@
  //play
  function togglePlay() {
-    //show ui
+    //show game ui
     var gameStat = document.getElementById('game-stat');
     gameStat.style.display = 'flex';
 

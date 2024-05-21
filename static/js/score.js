@@ -140,7 +140,7 @@ if (seedValue === '') {
         imageElement.style.filter += ' invert()';
     }
     if (PixelateCheckbox.checked) {
-        imageElement.style.filter += ' blur(15px)';
+        imageElement.style.filter += ' blur(5px)';
     }
     if (ScrambleCheckbox.checked) {
       let scrambleHandler = function() {
@@ -249,7 +249,7 @@ if (InvertCheckbox.checked) {
     imageElement.style.filter += ' invert()';
 }
 if (PixelateCheckbox.checked) {
-    imageElement.style.filter += ' blur(15px)';
+    imageElement.style.filter += ' blur(5px)';
 }
 if (ScrambleCheckbox.checked) {
     let scrambleHandler = function() {
@@ -324,7 +324,7 @@ var guessOverlay = document.getElementById('guessOverlay');
 var score = null;
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-    const earthRadius = 50; // Radius of the Earth in kilometers
+    const earthRadius = 69; // Radius of the Earth in kilometers
     const dLat = toRadians(lat2 - lat1);
     const dLon = toRadians(lon2 - lon1);
 
@@ -365,20 +365,16 @@ guessButton.addEventListener('click', function() {
         );
 
         var score;
-        if (distance > 50) {
-            score = Math.max(0, 5000 - distance * 48);
-        } else if (distance > 30) {
-            score = Math.max(0, 5000 - distance * 32);
+        if (distance > 15) {
+          score = Math.max(0, 5000 - distance * 64);
         } else if (distance > 10) {
-          score = Math.max(0, 5000 - distance * 16);
+          score = Math.max(0, 5000 - distance * 32);
         } else if (distance > 5) {
-          score = Math.max(0, 5000 - distance * 8);
-        } else if (distance > 2.5) {
-          score = Math.max(0, 5000 - distance * 4);
+          score = Math.max(0, 5000 - distance * 16);
         } else if (distance < 1) {
             score = 5000
         } else {
-        score = Math.max(0, 5000 - distance);
+        score = Math.max(0, 5000 - distance * 4);
         }
         score = Math.ceil(score); // Round up the score to the nearest whole number
         updateScore();
@@ -505,9 +501,6 @@ output3.oninput = function() {
 };
 
 round = parseInt(output3.value);
-if (output3.value < 0) {
-  round = 5;
-}
 
 currentScore = 0;
 finalScore = 0;

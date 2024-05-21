@@ -261,3 +261,7 @@ output3.addEventListener('input', () => {
     slider3.value = output3.value;
 });
 output3.value = slider3.value;
+
+if (output3.value < 1) {
+    output3.value = 5;
+}
