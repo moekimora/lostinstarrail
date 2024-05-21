@@ -258,7 +258,7 @@ If you guess in the wrong map location, you get **0** points.
   - Updated timer UI
 
 ## v1.0.7
-- Several updates and improvements
+- A lot of updates and improvements
   - You can now input Time, See Time and Round with text, with Time and See Time limited to **60000** seconds, and Round limited to **250** rounds.
   - Time and See Time slider limit increases from **300** (5 minutes) to **600** (10 minutes)
   - Seed text limit increases from **16** to **64** (Note: You cannot write any number higher than **9 times (10^15)**)
@@ -273,6 +273,21 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed some bugs for Time, See Time, and Round able to type in text input WAYYY more than the limit
   - Fixed several issues related to the image
   - Fixed a bug that you cannot click on Options or Credits
+
+## v1.0.8
+- Several changes and improvements
+  - See Time default value is now 0 (Infinity)
+  - Now when you select a map from Star Rail Map, all submenus and menus will not show (Thank you deyuaru for your suggestion)
+  - Change Time and See Time countdown color
+  - Now incorrect guesses will not show your marker placed in the map (Thank you deyuaru for your suggestion)
+  - Now you can see the distance between your guess and the correct guess with a dashed line
+  - Added Python codes for generating image names quickly (in case if you want to mod this)
+  - Update the scoring system
+
+- Several bug fixes
+  - Fixed a bug where Supply Zone - F1 is incorrect even if it is correct
+  - Fixed a bug that the line between your guess and correct guess is not correct (line connected to the previous correct guess)
+  - Fixed a bug related to the scoring system
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

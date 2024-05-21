@@ -867,67 +867,67 @@ var images = [
         imageUrl: "randommap/145.png",
         lat: -28.380527770046346,
         lng: -42.76611074485988,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/146.png",
         lat: -16.77518115287947,
         lng: -42.61962639114723,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/147.png",
         lat: 8.29257510326005,
         lng: -36.467283535216765,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/148.png",
         lat: 26.23130299512427,
         lng: -44.64319016675373,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/149.png",
         lat: 24.421724689047405,
         lng: -63.30322367485065,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/150.png",
         lat: -32.89073483099992,
         lng: -43.61572188671157,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/151.png",
         lat: -31.40248884561958,
         lng: -64.27001576019242,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/152.png",
         lat: -30.21991580619289,
         lng: -95.266111213182,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/153.png",
         lat: -4.101251208990275,
         lng: -69.25335352154826,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/154.png",
         lat: -3.662807525032602,
         lng: -97.52483378808584,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/155.png",
         lat: 23.93924776235412,
         lng: -97.23895447642865,
-        currentLocation: "Supply Zone - F2"
+        currentLocation: "Supply Zone - F1"
     },
     {
         imageUrl: "randommap/156.png",

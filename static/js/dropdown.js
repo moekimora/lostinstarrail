@@ -19,6 +19,16 @@ function toggleSubMenu(mainMap, subMenuClass) {
     const subMenu = this.querySelector(`.${subMenuClass}`);
     subMenu.classList.toggle('show');
   });
+
+  const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li`);
+  subMenuItems.forEach((item) => {
+    item.addEventListener('click', function(event) {
+      event.stopPropagation();
+      const subMenu = this.closest(`.${subMenuClass}`);
+      subMenu.classList.remove('show');
+      dropdownMenu.classList.remove('show');
+    });
+  });
 }
 
 toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');

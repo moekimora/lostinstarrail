@@ -5,26 +5,6 @@ var guessWrapper = document.querySelector('.guess-wrapper');
 
 var currentImage = null;
 
-var customIcon = L.icon({
-    iconUrl: 'static/media/icons/z-marker2.png',
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
-});
-
-var correctMarker = null;
-
-guessButton.addEventListener('click', function() {
-    if (currentImage) {
-        correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
-        correctMarker.bindTooltip("Correct location", {className: 'guess-tooltip', maxWidth: 200});
-    }
-});
-nextRoundButton.addEventListener('click', function() {
-    if (currentImage) {
-        resultMap.removeLayer(correctMarker);
-    }
-});
-
 var seed;
 var uniqueID;
 var canvas;
@@ -366,7 +346,7 @@ guessButton.addEventListener('click', function() {
 
         var score;
         if (distance > 30) {
-          score = Math.max(0, 5000 - distance * 32);
+          score = Math.max(0, 5000 - distance * 24);
         } else if (distance > 20) {
           score = Math.max(0, 5000 - distance * 16);
         } else if (distance > 10) {
