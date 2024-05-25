@@ -323,6 +323,7 @@ function toRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
 
+
 var nextRoundButton = document.querySelector(".next-round");
 var backMenu = document.querySelector('.menu-btn');
 var guessButtonActivated = false;
@@ -359,7 +360,6 @@ guessButton.addEventListener('click', function() {
         score = Math.ceil(score); // Round up the score to the nearest whole number
         updateScore();
 
-
         function updateScore() {
           if (standardCheckbox.checked) {
             score = Math.ceil(score);
@@ -378,7 +378,7 @@ guessButton.addEventListener('click', function() {
             }
           }
         }
-
+        
         var displayElement = document.getElementById("countdown-text");
         displayElement.style.display = "none";
         var displaySElement = document.getElementById("countdown-s-text");
@@ -485,11 +485,35 @@ round = parseInt(output3.value);
 currentScore = 0;
 finalScore = 0;
 
+var diff1 = document.getElementById("diff1");
+var diff2 = document.getElementById("diff2");
+var diff3 = document.getElementById("diff3");
+var diff4 = document.getElementById("diff4");
+var diff5 = document.getElementById("diff5");
+var diff6 = document.getElementById("diff6");
+
+var filter1 = document.getElementById("filter1");
+var filter2 = document.getElementById("filter2");
+var filter3 = document.getElementById("filter3");
+var filter4 = document.getElementById("filter4");
+
 document.querySelector(".play").addEventListener("click", function() {
   if (standardCheckbox.checked) {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
+    if (BAWCheckbox.checked) {
+      filter1.style.display = "block";
+    }
+    if (InvertCheckbox.checked) {
+      filter2.style.display = "block";
+    }
+    if (PixelateCheckbox.checked) {
+      filter3.style.display = "block";
+    }
+    if (ScrambleCheckbox.checked) {
+      filter4.style.display = "block";
+    }
     updateRoundInfo();
     //console.log("Round: " + currentRound + "/" + round);
     //console.log("Current Score: " + currentScore);
@@ -499,7 +523,20 @@ document.querySelector(".play").addEventListener("click", function() {
     currentScore = 0;
     finalScore = 0;
     survivalCondition = 500;
+    if (BAWCheckbox.checked) {
+      filter1.style.display = "block";
+    }
+    if (InvertCheckbox.checked) {
+      filter2.style.display = "block";
+    }
+    if (PixelateCheckbox.checked) {
+      filter3.style.display = "block";
+    }
+    if (ScrambleCheckbox.checked) {
+      filter4.style.display = "block";
+    }
     updateRoundInfo();
+    diff1.style.display = "block";
     //console.log("Round: " + currentRound);
     //console.log("Current Score: " + currentScore);
     //console.log("Final Score: " + finalScore);
@@ -561,20 +598,36 @@ document.querySelector(".next-round").addEventListener("click", function() {
       if (currentRound < 6) {
         survivalCondition += 500;
       } else if (currentRound < 11) {
+        diff1.style.display = "none";
+        diff2.style.display = "block";
         survivalCondition += 1000;
       } else if (currentRound < 21) {
+        diff2.style.display = "none";
+        diff3.style.display = "block";
         survivalCondition += 1750;
       } else if (currentRound < 31) {
+        diff3.style.display = "none";
+        diff4.style.display = "block";
         survivalCondition += 2250;
       } else if (currentRound < 41) {
+        diff4.style.display = "none";
+        diff5.style.display = "block";
         survivalCondition += 3000;
       } else if (currentRound < 51) {
+        diff5.style.display = "none";
+        diff6.style.display = "block";
         survivalCondition += 3750;
       } else if (currentRound < 101) {
+        diff6.style.display = "none";
+        diff7.style.display = "block";
         survivalCondition += 4500;
       } else if (currentRound < 201) {
+        diff7.style.display = "none";
+        diff8.style.display = "block";
         survivalCondition += 5000;
       } else {
+        diff8.style.display = "none";
+        diff9.style.display = "block";
         survivalCondition += 6250;
       }
       updateRoundInfo();

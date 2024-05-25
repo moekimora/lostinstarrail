@@ -289,5 +289,23 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed a bug that the line between your guess and correct guess is not correct (line connected to the previous correct guess)
   - Fixed a bug related to the scoring system
 
+## v1.0.9
+- Update: Visual Update
+  - Now select a filter will display them next to score
+  - In Survival Mode, now display a Difficulty represent the requirements increase over time
+    - Difficulty I: Increase Req by 500
+    - Difficulty II: Increase Req by 1000
+    - Difficulty III: Increase Req by 1750
+    - Difficulty IV: Increase Req by 2250
+    - Difficulty V: Increase Req by 3000
+    - Difficulty VI: Increase Req by 3750
+    - Difficulty VII: Increase Req by 4500
+    - Difficulty VIII: Increase Req by 5000
+    - Difficulty IX: Increase Req by 6250 (Death Difficulty)
+- Several bug fixes and improvements
+  - Fixed an issue where the image looks weird/ not loaded properly (Thank you Zorus for finding this bug)
+  - Fixed several issues related to map
+  - Fixed a bug with spacebar function and scoring
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
