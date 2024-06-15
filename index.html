@@ -24,7 +24,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.9 (2.2#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.91 (2.2#open-beta)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -32,7 +32,7 @@
             <div class="options-text" onclick="toggleOptions()">⚙ Options</div>
             <div class="options-app">
                 <div class="options-volumewrapper">
-                    <img src="static/media/icons/volume-high-outline.svg" class="options-volume" title="How loud the audio will be during the game.">
+                    <img src="static/media/icons/volume-high-outline.svg" class="options-volume" title="How loud the audio will be during the game." title-delay="0">
                     <div class="options-volumecontainer">
                         <p class="options-volumetext"><span id="Volume"></span></p>
                         <input type="range" min="0" max="100" class="volume" id="Range4">
@@ -107,12 +107,12 @@
                 <div class="settings-gamerules-wrapper settings-gamerules-wrapper1">
                     <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
                     <div class="settings-gamerules-container1">
-                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="The amount of time the round will last.">
+                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="Round Duration&#10;Specifies the time limit for each round. (0: Infinite, Max: 60000)">
                         <div class="slider1-container">
                             <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displayTime" id="Time" value="120">
                             <input type="range" min="0" max="600" value="120" step="10" class="slider1" id="Range">
                         </div>
-                        <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="The amount of time the player can see the image.">
+                        <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="Image Viewing Duration&#10;Specifies the time available for viewing the image. (0: Infinite, Max: 60000)">
                         <div class="slider2-container">
                             <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displaySeeTime" id="SeeTime" value="120">
                             <input type="range" min="0" max="600" value="0" step="10" class="slider2" id="Range2">
@@ -125,7 +125,7 @@
                     <div>
                         <input type="text" maxlength="64" onkeyup="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" onkeydown="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" placeholder="Leave blank for random" class="seedinput" id="Input">
                     </div>
-                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="How many rounds will be played.">
+                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="Total Rounds&#10;Specifies the number of rounds scheduled to be played. (Min: 1, Max: 250)">
                     <div class="slider3-container">
                         <input type="number" min="1" max="250" onkeyup="if(parseInt(this.value) > 250 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" onkeydown="if(parseInt(this.value) > 250 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" class="settings-displayRound" id="Round" value="5">
                         <input type="range" min="5" max="100" value="5" step="5" class="slider3" id="Range3">
@@ -135,22 +135,22 @@
                 <div class="settings-gamerules-wrapper settings-gamerules-wrapper3">
                     <p class="settings-filterstext" onclick="toggleSettings">Filters</p>
                         <div class="settings-gamerules-container2">
-                        <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Change the color of the image to black and white.">
+                        <img src="static/media/icons/contrast-outline.svg" alt="BAW" class="settings-gamerulebaw" title="Black & White&#10;Transform the image to grayscale colors.">
                         <label class="switch baw-switch">
                             <input type="checkbox" id="BAW">
                             <span class="slider round"></span>
                         </label>
-                        <img src="static/media/icons/invert-mode-outline.svg" alt="Invert" class="settings-gameruleinvert" title="Invert the color of the image.">
+                        <img src="static/media/icons/invert-mode-outline.svg" alt="Invert" class="settings-gameruleinvert" title="Invert&#10;Reverse the color scheme of the image.">
                         <label class="switch invert-switch">
                             <input type="checkbox" id="Invert">>
                             <span class="slider round"></span>
                         </label>
-                        <img src="static/media/icons/grid-outline.svg" alt="Pixelate" class="settings-gamerulepixelate" title="Reduce visibility of the image by blur.">
+                        <img src="static/media/icons/grid-outline.svg" alt="Pixelate" class="settings-gamerulepixelate" title="Pixelate&#10;Apply pixelation effect to reduce image clarity.">
                         <label class="switch pixelate-switch">
                             <input type="checkbox" id="Pixelate">
                             <span class="slider round"></span>
                         </label>
-                        <img src="static/media/icons/dice-outline.svg" alt="Scramble" class="settings-gamerulescramble" title="Reduce visibility of the image by slice the image and reorder them.">
+                        <img src="static/media/icons/dice-outline.svg" alt="Scramble" class="settings-gamerulescramble" title="Scramble&#10;Disrupt the image by slicing and rearranging its parts.">
                         <label class="switch scramble-switch">
                             <input type="checkbox" id="Scramble">
                             <span class="slider round"></span>

@@ -307,5 +307,14 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed several issues related to map
   - Fixed a bug with spacebar function and scoring
 
+## v1.0.91
+- Update: Filters
+  - Blur is now replaced with Pixelate
+  - Update descriptions for Time, See Time, Rounds and Filters
+
+- Several bug fixes and improvements
+  - Fixed a bug where the timer does not work with Pixelate or Pixelate in combination with Scramble, this is now fixed
+  - Several bugs with Pixelate
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

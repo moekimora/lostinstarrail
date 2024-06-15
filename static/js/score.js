@@ -11,6 +11,20 @@ var canvas;
 standardCheckbox = document.getElementById('Standard');
 survivalCheckbox = document.getElementById('Survival');
 
+function countdown() {
+  loadingScreen.style.display = 'none';
+  if (countdownInterval) {
+      stopCountdown();
+  } else {
+      startCountdown();
+  }
+  if (countdownIntervalS) {
+      stopSCountdown();
+  } else {
+      startSCountdown();
+  }
+}
+
 playButton.addEventListener('click', function () {
 loadingScreen.style.display = 'flex';
 // seed system (v1.0.24)
@@ -120,7 +134,22 @@ if (seedValue === '') {
         imageElement.style.filter += ' invert()';
     }
     if (PixelateCheckbox.checked) {
-        imageElement.style.filter += ' blur(5px)';
+      let pixelateHandler = function() {
+          const pixelSize = 10; // Adjust the pixel size as needed
+  
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          canvas.width = imageElement.width;
+          canvas.height = imageElement.height;
+  
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
+          ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
+  
+          imageElement.src = canvas.toDataURL();
+          canvas.remove(); // Remove the canvas element after use
+      };
+      imageElement.addEventListener('load', pixelateHandler, { once: true });
     }
     if (ScrambleCheckbox.checked) {
       let scrambleHandler = function() {
@@ -162,36 +191,10 @@ if (seedValue === '') {
   
           imageElement.src = canvas.toDataURL();
           canvas.remove();
-
-        loadingScreen.style.display = 'none';
-        if (countdownInterval) {
-            stopCountdown();
-        } else {
-            startCountdown();
-        }
-        if (countdownIntervalS) {
-            stopSCountdown();
-        } else {
-            startSCountdown();
-        }
-    };
-
+      };
     imageElement.addEventListener('load', scrambleHandler, { once: true });
-    } else {
-        imageElement.addEventListener('load', function() {
-            loadingScreen.style.display = 'none';
-            if (countdownInterval) {
-                stopCountdown();
-            } else {
-                startCountdown();
-            }
-            if (countdownIntervalS) {
-                stopSCountdown();
-            } else {
-                startSCountdown();
-            }
-        });
     }
+    countdown();
 
     imageElement.classList.add('random-image');
     document.body.appendChild(imageElement);
@@ -229,7 +232,22 @@ if (InvertCheckbox.checked) {
     imageElement.style.filter += ' invert()';
 }
 if (PixelateCheckbox.checked) {
-    imageElement.style.filter += ' blur(5px)';
+     let pixelateHandler = function() {
+            const pixelSize = 10; // Adjust the pixel size as needed
+    
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = imageElement.width;
+            canvas.height = imageElement.height;
+    
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
+            ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
+    
+            imageElement.src = canvas.toDataURL();
+            canvas.remove(); // Remove the canvas element after use
+        };
+        imageElement.addEventListener('load', pixelateHandler, { once: true });
 }
 if (ScrambleCheckbox.checked) {
     let scrambleHandler = function() {
@@ -270,20 +288,10 @@ if (ScrambleCheckbox.checked) {
 
         imageElement.src = canvas.toDataURL();
         canvas.remove();
-
-        loadingScreen.style.display = 'none';
-        startCountdown();
-        startSCountdown();
     };
-
     imageElement.addEventListener('load', scrambleHandler, { once: true });
-} else {
-    imageElement.addEventListener('load', function() {
-        loadingScreen.style.display = 'none';
-        startCountdown();
-        startSCountdown();
-    });
 }
+countdown();
 
 imageElement.classList.add('random-image');
 document.body.appendChild(imageElement);
