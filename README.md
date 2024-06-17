@@ -321,5 +321,11 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed several severe bugs with Pixelate, Scramble, Time and See Time
   - Fixed a bug related to Time and See Time
 
+## v1.0.93
+- Several updates
+  - Pixelate Filter nerfed from size 10 to size 5
+  - Now if Time < 30 seconds, screen flashes red longer
+- Minor bug fixes
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

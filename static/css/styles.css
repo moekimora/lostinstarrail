@@ -776,7 +776,7 @@ input:checked + .slider:before {
     z-index: -1;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
 }
@@ -1109,6 +1109,11 @@ input:checked + .slider:before {
 .map-text {
     font-size: 20px;
     opacity: 0.5;
+}
+.req-text {
+    font-size: 18px;
+    opacity: 0.5;
+    font-style: italic;
 }
 #diff1,
 #diff2,

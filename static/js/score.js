@@ -132,7 +132,7 @@ if (seedValue === '') {
     }
     if (PixelateCheckbox.checked) {
       let pixelateHandler = function() {
-          const pixelSize = 10; // Adjust the pixel size as needed
+          const pixelSize = 5; // Adjust the pixel size as needed
   
           var canvas = document.createElement('canvas');
           var ctx = canvas.getContext('2d');
@@ -243,21 +243,21 @@ if (InvertCheckbox.checked) {
 }
 if (PixelateCheckbox.checked) {
      let pixelateHandler = function() {
-            const pixelSize = 5; // Adjust the pixel size as needed
-    
-            var canvas = document.createElement('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = imageElement.width;
-            canvas.height = imageElement.height;
-    
-            ctx.imageSmoothingEnabled = false;
-            ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
-            ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
-    
-            imageElement.src = canvas.toDataURL();
-            canvas.remove(); // Remove the canvas element after use
-        };
-        imageElement.addEventListener('load', pixelateHandler, { once: true });
+          const pixelSize = 5; // Adjust the pixel size as needed
+  
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          canvas.width = imageElement.width;
+          canvas.height = imageElement.height;
+  
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
+          ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
+  
+          imageElement.src = canvas.toDataURL();
+          canvas.remove(); // Remove the canvas element after use
+      };
+      imageElement.addEventListener('load', pixelateHandler, { once: true });
 }
 if (ScrambleCheckbox.checked) {
     let scrambleHandler = function() {
@@ -667,7 +667,7 @@ function updateRoundInfo() {
     var roundInfoElement = document.getElementById("round-info");
     roundInfoElement.innerHTML = "<span class='map-text'>Round</span><br>" + currentRound;
     var roundScoreElement = document.getElementById("score-info");
-    roundScoreElement.innerHTML = "<span class='map-text'>Score</span><br>" + currentScore + " (Req: " + survivalCondition + ")"
+    roundScoreElement.innerHTML = "<span class='map-text'>Score</span><br>" + currentScore + " <span class='req-text'> (Req: " + survivalCondition + ")</span>";
   }
 }
 

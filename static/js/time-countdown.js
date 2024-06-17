@@ -62,7 +62,7 @@ function updateDisplay() {
     displayTimeUp.style.display = "none";
     displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
 
-    if (countdownValue == 30) {
+    if (countdownValue >= 26 && countdownValue <= 30) {
       document.body.classList.add("warning-glow");
     } else if (countdownValue <= 10) {
       document.body.classList.add("warning-glow");
