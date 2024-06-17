@@ -11,20 +11,6 @@ var canvas;
 standardCheckbox = document.getElementById('Standard');
 survivalCheckbox = document.getElementById('Survival');
 
-function countdown() {
-  loadingScreen.style.display = 'none';
-  if (countdownInterval) {
-      stopCountdown();
-  } else {
-      startCountdown();
-  }
-  if (countdownIntervalS) {
-      stopSCountdown();
-  } else {
-      startSCountdown();
-  }
-}
-
 playButton.addEventListener('click', function () {
 loadingScreen.style.display = 'flex';
 // seed system (v1.0.24)
@@ -126,6 +112,17 @@ if (seedValue === '') {
     // Display the image
     var imageElement = document.createElement('img');
     imageElement.src = currentImage.imageUrl;
+    
+    let isImageLoaded = false;
+
+    imageElement.addEventListener('load', function() {
+      if (!isImageLoaded) {
+        isImageLoaded = true;
+        loadingScreen.style.display = 'none';
+        startCountdown();
+        startSCountdown();
+      }
+    });
 
     if (BAWCheckbox.checked) {
         imageElement.style.filter += ' grayscale()';
@@ -191,15 +188,17 @@ if (seedValue === '') {
   
           imageElement.src = canvas.toDataURL();
           canvas.remove();
-      };
+        };
     imageElement.addEventListener('load', scrambleHandler, { once: true });
     }
-    countdown();
+    
 
     imageElement.classList.add('random-image');
     document.body.appendChild(imageElement);
     });
+    
 var survivalCondition = null;
+
 function playNextRound() {
   loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
@@ -220,10 +219,21 @@ if (existingImage) {
   existingImage.remove();
 }
 
-
 // Display the new image
 var imageElement = document.createElement('img');
 imageElement.src = currentImage.imageUrl;
+
+
+let isImageLoaded = false;
+
+imageElement.addEventListener('load', function() {
+  if (!isImageLoaded) {
+    isImageLoaded = true;
+    loadingScreen.style.display = 'none';
+    startCountdown();
+    startSCountdown();
+  }
+});
 
 if (BAWCheckbox.checked) {
     imageElement.style.filter += ' grayscale()';
@@ -233,7 +243,7 @@ if (InvertCheckbox.checked) {
 }
 if (PixelateCheckbox.checked) {
      let pixelateHandler = function() {
-            const pixelSize = 10; // Adjust the pixel size as needed
+            const pixelSize = 5; // Adjust the pixel size as needed
     
             var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
@@ -291,7 +301,6 @@ if (ScrambleCheckbox.checked) {
     };
     imageElement.addEventListener('load', scrambleHandler, { once: true });
 }
-countdown();
 
 imageElement.classList.add('random-image');
 document.body.appendChild(imageElement);

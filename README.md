@@ -316,5 +316,10 @@ If you guess in the wrong map location, you get **0** points.
   - Fixed a bug where the timer does not work with Pixelate or Pixelate in combination with Scramble, this is now fixed
   - Several bugs with Pixelate
 
+## v1.0.92
+- Several bugs fixes
+  - Fixed several severe bugs with Pixelate, Scramble, Time and See Time
+  - Fixed a bug related to Time and See Time
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
