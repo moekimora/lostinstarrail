@@ -126,11 +126,18 @@ if (seedValue === '') {
 
     if (BAWCheckbox.checked) {
         imageElement.style.filter += ' grayscale()';
+        filter1.style.display = "block";
+    } else {
+      filter1.style.display = "none";
     }
     if (InvertCheckbox.checked) {
         imageElement.style.filter += ' invert()';
+        filter2.style.display = "block";
+    } else {
+      filter2.style.display = "none";
     }
     if (PixelateCheckbox.checked) {
+      filter3.style.display = "block";
       let pixelateHandler = function() {
           const pixelSize = 5; // Adjust the pixel size as needed
   
@@ -147,8 +154,11 @@ if (seedValue === '') {
           canvas.remove(); // Remove the canvas element after use
       };
       imageElement.addEventListener('load', pixelateHandler, { once: true });
+    } else {
+      filter3.style.display = "none";
     }
     if (ScrambleCheckbox.checked) {
+      filter4.style.display = "block";
       let scrambleHandler = function() {
           var canvas = document.createElement('canvas');
           canvas.width = imageElement.width;
@@ -190,6 +200,8 @@ if (seedValue === '') {
           canvas.remove();
         };
     imageElement.addEventListener('load', scrambleHandler, { once: true });
+    } else {
+      filter4.style.display = "none";
     }
     
 
@@ -237,11 +249,18 @@ imageElement.addEventListener('load', function() {
 
 if (BAWCheckbox.checked) {
     imageElement.style.filter += ' grayscale()';
+    filter1.style.display = "block";
+} else {
+    filter1.style.display = "none";
 }
 if (InvertCheckbox.checked) {
     imageElement.style.filter += ' invert()';
+    filter2.style.display = "block";
+} else {
+  filter2.style.display = "none";
 }
 if (PixelateCheckbox.checked) {
+  filter3.style.display = "block";
      let pixelateHandler = function() {
           const pixelSize = 5; // Adjust the pixel size as needed
   
@@ -258,8 +277,11 @@ if (PixelateCheckbox.checked) {
           canvas.remove(); // Remove the canvas element after use
       };
       imageElement.addEventListener('load', pixelateHandler, { once: true });
+} else {
+  filter3.style.display = "none";
 }
 if (ScrambleCheckbox.checked) {
+    filter4.style.display = "block";
     let scrambleHandler = function() {
         var canvas = document.createElement('canvas');
         canvas.width = imageElement.width;
@@ -300,6 +322,8 @@ if (ScrambleCheckbox.checked) {
         canvas.remove();
     };
     imageElement.addEventListener('load', scrambleHandler, { once: true });
+} else {
+  filter4.style.display = "none";
 }
 
 imageElement.classList.add('random-image');
@@ -519,18 +543,6 @@ document.querySelector(".play").addEventListener("click", function() {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
-    if (BAWCheckbox.checked) {
-      filter1.style.display = "block";
-    }
-    if (InvertCheckbox.checked) {
-      filter2.style.display = "block";
-    }
-    if (PixelateCheckbox.checked) {
-      filter3.style.display = "block";
-    }
-    if (ScrambleCheckbox.checked) {
-      filter4.style.display = "block";
-    }
     updateRoundInfo();
     //console.log("Round: " + currentRound + "/" + round);
     //console.log("Current Score: " + currentScore);
@@ -540,18 +552,6 @@ document.querySelector(".play").addEventListener("click", function() {
     currentScore = 0;
     finalScore = 0;
     survivalCondition = 500;
-    if (BAWCheckbox.checked) {
-      filter1.style.display = "block";
-    }
-    if (InvertCheckbox.checked) {
-      filter2.style.display = "block";
-    }
-    if (PixelateCheckbox.checked) {
-      filter3.style.display = "block";
-    }
-    if (ScrambleCheckbox.checked) {
-      filter4.style.display = "block";
-    }
     updateRoundInfo();
     diff1.style.display = "block";
     //console.log("Round: " + currentRound);
