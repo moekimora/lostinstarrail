@@ -1174,7 +1174,7 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     display: none;
-    background-color: rgb(91, 99, 206);
+    background-color: rgb(0, 0, 0);
     z-index: 10;
     transition: opacity 0.5s ease;
 }
@@ -1186,7 +1186,7 @@ input:checked + .slider:before {
     width: 50%;
     height: auto;
     color: white;
-    font-size: 15px; /* Adjust the font-size as needed */
+    font-size: 45px; /* Adjust the font-size as needed */
     text-shadow: 2px 2px 2px black;
     z-index: 10;
     display: none;
