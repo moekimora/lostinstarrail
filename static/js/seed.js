@@ -45,46 +45,40 @@ function seed() {
     seedText.style.display = 'block';
 
     function generateuniqueID(seed, roundElement) {
-        var uniqueIDs = new Set(); // Use a Set to store unique numbers
+        var uniqueIDs = [];
         var seedRandom = function(seed) {
-            var x = Math.sin(seed) * 10000;
-            return Math.abs(x - Math.floor(x));
+          var x = Math.sin(seed) * 10000;
+          return Math.abs(x - Math.floor(x));
         };
-        
+      
         var getRandomNumber = function(mapId) {
-            if (mapId === 0) {
-                return Math.floor(seedRandom(seed) * images.length);
-            } else if (mapId === 1) {
-                return Math.floor(seedRandom(seed) * 254);
-            } else if (mapId === 2) {
-                return Math.floor(seedRandom(seed) * 298) + 255;
-            } else if (mapId === 3) {
-                return Math.floor(seedRandom(seed) * 600) + 553;
-            } else {
-                return Math.floor(seedRandom(seed) * images.length);
-            }
+          if (mapId === 0) {
+            return Math.floor(seedRandom(seed) * images.length);
+          } else if (mapId === 1) {
+            return Math.floor(seedRandom(seed) * 254);
+          } else if (mapId === 2) {
+            return Math.floor(seedRandom(seed) * 298) + 255;
+          } else if (mapId === 3) {
+            return Math.floor(seedRandom(seed) * 600) + 553;
+          } else {
+            return Math.floor(seedRandom(seed) * images.length);
+          }
         };
-        
-        if (standardCheckbox.checked) {
-            while (uniqueIDs.size < roundElement) {
-                var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
-                uniqueIDs.add(randomNumber);
-                seed++; // Increase the seed for the next number
-            }
-            return Array.from(uniqueIDs); // Convert the Set to an Array and return
-        } else {
-            while (uniqueIDs.size < 250) {
-                var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
-                uniqueIDs.add(randomNumber);
-                seed++; // Increase the seed for the next number
-            }
-            return Array.from(uniqueIDs); // Convert the Set to an Array and return
+      
+        var maxElement = standardCheckbox.checked ? roundElement : 1000;
+      
+        while (uniqueIDs.length < maxElement) {
+          var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
+          uniqueIDs.push(randomNumber);
+          seed++; // Increase the seed for the next number
         }
-    }
-
-    var roundElement = parseInt(document.getElementById('Round').value);
-    uniqueID = generateuniqueID(seed, roundElement);
-
-    // Log the unique random numbers to the console
-    console.log("Unique ID:", uniqueID);
+      
+        return uniqueIDs;
+      }
+      
+      var roundElement = parseInt(document.getElementById('Round').value);
+      uniqueID = generateuniqueID(seed, roundElement);
+      
+      // Log the unique random numbers to the console
+      console.log("Unique ID:", uniqueID);
 }

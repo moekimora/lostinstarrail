@@ -27,7 +27,7 @@
                 <div class="rotate-screen-mobile-text">Rotate your device for best experience.</div>
             </div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.10 (2.3#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.101 (2.3#open-beta)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -133,9 +133,9 @@
                     <div>
                         <input type="text" maxlength="64" onkeyup="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" onkeydown="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" placeholder="Leave blank for random" class="seedinput" id="Input">
                     </div>
-                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="Total Rounds&#10;Specifies the number of rounds scheduled to be played. (Min: 1, Max: 250)">
+                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="Total Rounds&#10;Specifies the number of rounds scheduled to be played. (Min: 1, Max: 1000)">
                     <div class="slider3-container">
-                        <input type="number" min="1" max="250" onkeyup="if(parseInt(this.value) > 250 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" onkeydown="if(parseInt(this.value) > 250 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" class="settings-displayRound" id="Round" value="5">
+                        <input type="number" min="1" max="1000" onkeyup="if(parseInt(this.value) > 1000 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" onkeydown="if(parseInt(this.value) > 1000 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" class="settings-displayRound" id="Round" value="5">
                         <input type="range" min="5" max="100" value="5" step="5" class="slider3" id="Range3">
                     </div>
                 </div>

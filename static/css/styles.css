@@ -513,7 +513,7 @@ a:hover {
     background-color: #552d8a;
     display: none;
     color: white;
-    font-size: 35px;
+    font-size: 30px;
     text-shadow: 2px 2px 2px black;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
@@ -1364,7 +1364,7 @@ input:checked + .slider:before {
     #superstition1,
     #superstition2,
     #superstition3 {
-        font-size: 25px;
+        font-size: 16px;
     }
     #starrailmap {
         width: 250px;
@@ -1449,8 +1449,12 @@ input:checked + .slider:before {
     #filter4,
     #debuff1,
     #debuff2,
+    #debuff3,
+    #debuff4,
     #buff1,
-    #buff2 {
+    #buff2,
+    #buff3,
+    #buff4 {
     position: relative;
     z-index: 4;
     width: 35px;

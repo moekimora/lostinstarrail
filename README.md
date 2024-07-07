@@ -336,5 +336,14 @@ If you guess in the wrong map location, you get **0** points.
   - Easier looking code yippieeeeeee.
   - A lot of bug fixed related to Superstition mode.
 
+## v1.0.101
+- Minor fixes and changes
+  - Fixed some mobile and lower resolution UI issues.
+  - Fixed a bug with Buff "For every 10m from the correct location, gain 100 points, up to 100m."
+  - Rebalanced and adjust several Buffs and Debuffs in Superstition mode.
+  - EXTREMELY BUFFED Survival mode (for Superstition only).
+  - Rebalanced Survival mode.
+  - You can now play up to 1000 rounds! (For try hards if you can haha)
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
