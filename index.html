@@ -27,7 +27,7 @@
                 <div class="rotate-screen-mobile-text">Rotate your device for best experience.</div>
             </div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.94 (2.3#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.10 (2.3#open-beta)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -104,6 +104,11 @@
                             <input type="checkbox" id="Survival">
                             <span class="slider round"></span>
                         </label>
+                        <p class="settings-gamemodessuperstitiontext" onclick="toggleSettings">Superstition</p>
+                        <label class="switch superstition-switch">
+                            <input type="checkbox" id="Superstition">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                 </div>
                 <!--Mods-->
@@ -165,6 +170,14 @@
                 <div id="loading-screen">
                     <img id="kurukuru" src="static/media/home/kururin.gif" alt="Kurukuru">
                     <div id="loading-text">Loading...</div>
+                </div>
+
+                <!--Superstition-->
+                <div id="superstition-text">Select your Superstition</div>
+                <div id="superstition-screen">
+                    <div id="superstition1"></div>
+                    <div id="superstition2"></div>
+                    <div id="superstition3"></div>
                 </div>
 
                 <!--Functions-->
@@ -295,6 +308,14 @@
                     <img id="filter2" src="static/media/icons/filter2.png">
                     <img id="filter3" src="static/media/icons/filter3.png">
                     <img id="filter4" src="static/media/icons/filter4.png">
+                    <img id="debuff1" src="static/media/icons/debuff1.png">
+                    <img id="debuff2" src="static/media/icons/debuff2.png">
+                    <img id="debuff3" src="static/media/icons/debuff3.png">
+                    <img id="debuff4" src="static/media/icons/debuff4.png">
+                    <img id="buff1" src="static/media/icons/buff1.png">
+                    <img id="buff2" src="static/media/icons/buff2.png">
+                    <img id="buff3" src="static/media/icons/buff3.png">
+                    <img id="buff4" src="static/media/icons/buff4.png">
                 </div>
                 <div class="countdown-container">
                     <p id="countdown-text"><span id="countdown-value"></span></p>
@@ -323,6 +344,9 @@
         <script src="static/js/audio.js"></script>
         <script src="static/js/settings.js"></script>
         <script src="static/js/togglecredits.js"></script>
+        <script src="static/js/seed.js"></script>
+        <script src="static/js/filter.js"></script>
+        <script src="static/js/superstition.js"></script>
         <script src="static/js/score.js"></script>
         <script src="static/js/dropdown.js"></script>
         <script src="static/js/starrailmap.js"></script>
@@ -370,6 +394,11 @@
             PixelateCheckbox = document.getElementById("Pixelate");
             ScrambleCheckbox = document.getElementById("Scramble");
             loadingScreen = document.getElementById('loading-screen');
+            superstitionScreen = document.getElementById('superstition-screen');
+            superstition1 = document.getElementById('superstition1');
+            superstition2 = document.getElementById('superstition2');
+            superstition3 = document.getElementById('superstition3');
+            superstitionText = document.getElementById('superstition-text');
         </script>
 
     </body>

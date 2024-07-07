@@ -477,7 +477,52 @@ a:hover {
 .settings-map5.active {
     z-index: 4;
 }
-
+#superstition-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 5;
+    backdrop-filter: blur(25px);
+    transition: opacity 0.5s ease;
+}
+#superstition-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 45px;
+    text-shadow: 2px 2px 2px black;
+    z-index: 6;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+#superstition1,
+#superstition2,
+#superstition3 {
+    z-index: 6;
+    width: 20%;
+    height: 60%;
+    border-radius: 10px;
+    background-color: #552d8a;
+    display: none;
+    color: white;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px black;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
+#superstition1:hover,
+#superstition2:hover,
+#superstition3:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
 .settings-gamemode-wrapper {
     position: absolute;
     top: 9vw;
@@ -505,14 +550,15 @@ a:hover {
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 .settings-gamemodesstandardtext,
-.settings-gamemodessurvivaltext {
+.settings-gamemodessurvivaltext,
+.settings-gamemodessuperstitiontext {
     position: relative;
     color: white;
     font-size: 30px;
     text-shadow: 2px 2px 2px black;
     z-index: 4;
     display: none;
-    margin: 5vw;
+    margin: 2vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
 
@@ -1127,7 +1173,15 @@ input:checked + .slider:before {
 #filter1,
 #filter2,
 #filter3,
-#filter4 {
+#filter4,
+#debuff1,
+#debuff2,
+#debuff3,
+#debuff4,
+#buff1,
+#buff2,
+#buff3,
+#buff4 {
   position: relative;
   z-index: 4;
   width: 50px;
@@ -1219,7 +1273,7 @@ input:checked + .slider:before {
 .gameaudio {
     display: none;
 }
-@media (max-height: 768px) or (max-width: 1024px) {
+@media (max-height: 768px) or (max-width: 1366px) {
     .play,
     .settings {
         padding: 10px 20px;
@@ -1259,6 +1313,7 @@ input:checked + .slider:before {
     .settings-gamemodestext.active,
     .settings-gamemodesstandardtext.active,
     .settings-gamemodessurvivaltext.active,
+    .settings-gamemodessuperstitiontext.active,
     .settings-gamerulestext.active,
     .settings-seedtext.active,
     .settings-filterstext.active,
@@ -1302,6 +1357,14 @@ input:checked + .slider:before {
     .seedinput {
         padding: 2vh 8vw;
         font-size: 10px;
+    }
+    #superstition-text {
+        font-size: 30px;
+    }
+    #superstition1,
+    #superstition2,
+    #superstition3 {
+        font-size: 25px;
     }
     #starrailmap {
         width: 250px;
@@ -1383,7 +1446,11 @@ input:checked + .slider:before {
     #filter1,
     #filter2,
     #filter3,
-    #filter4 {
+    #filter4,
+    #debuff1,
+    #debuff2,
+    #buff1,
+    #buff2 {
     position: relative;
     z-index: 4;
     width: 35px;

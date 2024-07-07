@@ -327,5 +327,14 @@ If you guess in the wrong map location, you get **0** points.
   - Now if Time < 30 seconds, screen flashes red longer
 - Minor bug fixes
 
+## v1.0.10
+- New DLC!!! Superstition Gamemode
+  - Choose between 3 random Superstition, each contain 1 random Buff and 1 random Debuff. Depends on what you choose can make or break the run! (Some effects don't stack and only active once)
+  - You must choose a superstition every 5 rounds.
+
+- A lot of bug fixes and improvements
+  - Easier looking code yippieeeeeee.
+  - A lot of bug fixed related to Superstition mode.
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
