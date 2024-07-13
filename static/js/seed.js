@@ -1,3 +1,6 @@
+var uniqueIDs = [];
+var roundLimit = 100;
+
 function seed() {
     // seed system (v1.0.24)
     var inputElement = document.getElementById('Input');
@@ -44,41 +47,50 @@ function seed() {
     document.body.appendChild(seedText);
     seedText.style.display = 'block';
 
-    function generateuniqueID(seed, roundElement) {
-        var uniqueIDs = [];
-        var seedRandom = function(seed) {
-          var x = Math.sin(seed) * 10000;
-          return Math.abs(x - Math.floor(x));
-        };
-      
-        var getRandomNumber = function(mapId) {
-          if (mapId === 0) {
-            return Math.floor(seedRandom(seed) * images.length);
-          } else if (mapId === 1) {
-            return Math.floor(seedRandom(seed) * 254);
-          } else if (mapId === 2) {
-            return Math.floor(seedRandom(seed) * 298) + 255;
-          } else if (mapId === 3) {
-            return Math.floor(seedRandom(seed) * 600) + 553;
-          } else {
-            return Math.floor(seedRandom(seed) * images.length);
-          }
-        };
-      
-        var maxElement = standardCheckbox.checked ? roundElement : 1000;
-      
-        while (uniqueIDs.length < maxElement) {
-          var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
-          uniqueIDs.push(randomNumber);
-          seed++; // Increase the seed for the next number
-        }
-      
-        return uniqueIDs;
-      }
-      
       var roundElement = parseInt(document.getElementById('Round').value);
       uniqueID = generateuniqueID(seed, roundElement);
       
       // Log the unique random numbers to the console
       console.log("Unique ID:", uniqueID);
 }
+
+function generateuniqueID(seed, roundElement) {
+  var seedRandom = function(seed) {
+    var x = Math.sin(seed) * 10000;
+    return Math.abs(x - Math.floor(x));
+  };
+
+  var getRandomNumber = function(mapId) {
+    if (mapId === 0) {
+      return Math.floor(seedRandom(seed) * images.length);
+    } else if (mapId === 1) {
+      return Math.floor(seedRandom(seed) * 254);
+    } else if (mapId === 2) {
+      return Math.floor(seedRandom(seed) * 298) + 255;
+    } else if (mapId === 3) {
+      return Math.floor(seedRandom(seed) * 600) + 553;
+    } else {
+      return Math.floor(seedRandom(seed) * images.length);
+    }
+  };
+
+  var maxElement = standardCheckbox.checked ? roundElement : (Math.floor(currentRound / 100) + 1) * roundLimit;
+
+  while (uniqueIDs.length < maxElement) {
+    var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
+    uniqueIDs.push(randomNumber);
+    seed++; // Increase the seed for the next number
+  }
+
+  return uniqueIDs;
+}
+
+function generateNextBatch() {
+  if (currentRound % 100 === 0) {
+    uniqueID = generateuniqueID(seed + currentRound, currentRound);
+    console.log("Generated Next Batch:", uniqueID);
+  }
+}
+
+// Event listener for the click event of the guessButton
+document.getElementById('guessButton').addEventListener('click', generateNextBatch);

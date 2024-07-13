@@ -14,6 +14,7 @@ const superstitionBuffs = [
     'For every 10m from the correct location, gain 100 points, up to 100m.',
     'Remove 1 - 4 random Debuffs.',
     'Apply 1 - 4 random Buffs.',
+    'There is a 50% chance to gain 25000 points.',
 ];
 const superstitionDebuffs = [
     'Nothing happens.',
@@ -31,6 +32,8 @@ const superstitionDebuffs = [
     'Instant game over if your distance is higher than 50m. Incorrect guess will also trigger this effect.',
     'Remove 1 - 4 random Buffs.',
     'Apply 1 - 4 random Debuffs.',
+    'There is a 50% chance to lose 25000 points.',
+    'Restart game. Not a joke.',
 ];
 
 function superstitionStart() {
@@ -181,6 +184,11 @@ function applyBuffEffect(buff) {
     } else if (buff === 'Apply 1 - 4 random Buffs.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         addRandomBuff(randomCount);
+    } else if (buff === 'There is a 50% chance to gain 5000 points.') {
+        if (Math.random() < 0.5) {
+            currentScore += 25000;
+        }
+        updateRoundInfo();
     }
 }
 
@@ -231,6 +239,13 @@ function applyDebuffEffect(debuff) {
     } else if (debuff === 'Apply 1 - 4 random Debuffs.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         addRandomDebuff(randomCount);
+    } else if (debuff === 'There is a 50% chance to lose 5000 points.') {
+        if (Math.random() < 0.5) {
+            currentScore -= 25000;
+            updateRoundInfo();
+        }
+    } else if (debuff === 'Restart game. Not a joke.') {
+        location.reload();
     }
 }
 

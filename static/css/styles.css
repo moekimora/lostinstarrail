@@ -561,7 +561,17 @@ a:hover {
     margin: 2vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
+.settings-gamemodessurvivalinfo,
+.settings-gamemodessuperstitioninfo {
+    position: relative;
+    color: white;
+    z-index: 4;
+    width: 4vw;
+    height: 4vh;
+    margin-left: -2vw;
+    display: none;
+    transition: opacity 0.75s ease, transform 0.5s ease;
+}
 .settings-gamerules-wrapper {
     position: absolute;
     right: 2vw;

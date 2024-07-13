@@ -132,6 +132,8 @@ function toggleSettings() {
     document.querySelector('.settings-gamemodesstandardtext'),
     document.querySelector('.settings-gamemodessurvivaltext'),
     document.querySelector('.settings-gamemodessuperstitiontext'),
+    document.querySelector('.settings-gamemodessurvivalinfo'),
+    document.querySelector('.settings-gamemodessuperstitioninfo'),
     document.querySelector('.standard-switch'),
     document.querySelector('.survival-switch'),
     document.querySelector('.superstition-switch'),

@@ -366,40 +366,40 @@ document.querySelector(".next-round").addEventListener("click", function() {
     // Handle logic for the "Next Round" button
       currentRound++;
       if (superstitionCheckbox.checked && survivalCheckbox.checked) {
-        if (currentRound < 6) {
+        if (currentRound < 11) {
           survivalCondition += 1000;
-        } else if (currentRound < 11) {
+        } else if (currentRound < 21) {
           diff1.style.display = "none";
           diff2.style.display = "block";
-          survivalCondition += 2000;
-        } else if (currentRound < 21) {
+          survivalCondition += 1500;
+        } else if (currentRound < 31) {
           diff2.style.display = "none";
           diff3.style.display = "block";
-          survivalCondition += 3500;
-        } else if (currentRound < 31) {
+          survivalCondition += 2000;
+        } else if (currentRound < 41) {
           diff3.style.display = "none";
           diff4.style.display = "block";
-          survivalCondition += 5000;
-        } else if (currentRound < 56) {
+          survivalCondition += 2500;
+        } else if (currentRound < 51) {
           diff4.style.display = "none";
           diff5.style.display = "block";
-          survivalCondition += 7250;
-        } else if (currentRound < 81) {
+          survivalCondition += 3500;
+        } else if (currentRound < 61) {
           diff5.style.display = "none";
           diff6.style.display = "block";
-          survivalCondition += 9500;
-        } else if (currentRound < 131) {
+          survivalCondition += 5000;
+        } else if (currentRound < 71) {
           diff6.style.display = "none";
           diff7.style.display = "block";
-          survivalCondition += 11250;
-        } else if (currentRound < 181) {
+          survivalCondition += 6000;
+        } else if (currentRound < 81) {
           diff7.style.display = "none";
           diff8.style.display = "block";
-          survivalCondition += 13500;
+          survivalCondition += 7000;
         } else {
           diff8.style.display = "none";
           diff9.style.display = "block";
-          survivalCondition += 16750;
+          survivalCondition += 9000;
         }
         
       } else if (survivalCheckbox.checked) {
@@ -409,34 +409,34 @@ document.querySelector(".next-round").addEventListener("click", function() {
           diff1.style.display = "none";
           diff2.style.display = "block";
           survivalCondition += 750;
-        } else if (currentRound < 21) {
+        } else if (currentRound < 16) {
           diff2.style.display = "none";
           diff3.style.display = "block";
-          survivalCondition += 1250;
-        } else if (currentRound < 31) {
+          survivalCondition += 1000;
+        } else if (currentRound < 21) {
           diff3.style.display = "none";
           diff4.style.display = "block";
-          survivalCondition += 1750;
-        } else if (currentRound < 56) {
+          survivalCondition += 1250;
+        } else if (currentRound < 26) {
           diff4.style.display = "none";
           diff5.style.display = "block";
-          survivalCondition += 2500;
-        } else if (currentRound < 81) {
+          survivalCondition += 1750;
+        } else if (currentRound < 31) {
           diff5.style.display = "none";
           diff6.style.display = "block";
-          survivalCondition += 3250;
-        } else if (currentRound < 131) {
+          survivalCondition += 2500;
+        } else if (currentRound < 36) {
           diff6.style.display = "none";
           diff7.style.display = "block";
-          survivalCondition += 3950;
-        } else if (currentRound < 181) {
+          survivalCondition += 3000;
+        } else if (currentRound < 41) {
           diff7.style.display = "none";
           diff8.style.display = "block";
-          survivalCondition += 4250;
+          survivalCondition += 3500;
         } else {
           diff8.style.display = "none";
           diff9.style.display = "block";
-          survivalCondition += 5250;
+          survivalCondition += 4500;
         }
       }
       updateRoundInfo();

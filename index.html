@@ -27,7 +27,7 @@
                 <div class="rotate-screen-mobile-text">Rotate your device for best experience.</div>
             </div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.101 (2.3#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.0.102 (2.3#open-beta)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -100,11 +100,28 @@
                             <span class="slider round"></span>
                         </label>
                         <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
+                        <img src="static/media/icons/information-circle-outline.svg" class="settings-gamemodessurvivalinfo" title="Survival Mode
+                            Survival Mode allows you to play for as many rounds as you can with a twist, a Score Requirement. (Req.)
+                            The Score Requirement is increased every round, and can be increased every 5 rounds, indicated by a difficulty number (I-IX).
+                            The game ends when your Score is lower than the Score Requirements.
+                            The Score Requirement increase as follows:
+                            (I): Add 500 to Req. (II): Add 750 to Req.
+                            (III): Add 1250 to Req. (IV): Add 1750 to Req.
+                            (V): Add 2500 to Req. (VI): Add 3250 to Req.
+                            (VII): Add 3950 to Req. (VIII): Add 4250 to Req.
+                            (IX): Add 5250 to Req.">
                         <label class="switch survival-switch">
                             <input type="checkbox" id="Survival">
                             <span class="slider round"></span>
-                        </label>
+                        </label>                  
                         <p class="settings-gamemodessuperstitiontext" onclick="toggleSettings">Superstition</p>
+                        <img src="static/media/icons/information-circle-outline.svg" class="settings-gamemodessuperstitioninfo" title="Superstition Mode
+                            Superstition Mode is a new add-on to the previous modes.
+                            Every 5 rounds, you have to choose between 3 random Superstition, each contain 1 random Buff and 1 random Debuff.
+                            Some Superstitions takes effect immediately, while some Superstitions will apply a Mod.
+                            Mods can be a Filter, a random effect or instant game over.
+                            Make or break the run depend on what you choose!
+                            Recommend playing with Survival Mode. (Score Requirements for Superstition is doubled and increasing duration is twice as long.)">
                         <label class="switch superstition-switch">
                             <input type="checkbox" id="Superstition">
                             <span class="slider round"></span>

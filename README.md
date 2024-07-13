@@ -345,5 +345,11 @@ If you guess in the wrong map location, you get **0** points.
   - Rebalanced Survival mode.
   - You can now play up to 1000 rounds! (For try hards if you can haha)
 
+## v1.0.102
+- Minor changes
+  - Added more information (i)
+  - Rebalanced Survival mode.
+- Infinite generation, now you can play infinitely, the only thing stop you is your mental haha.
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
