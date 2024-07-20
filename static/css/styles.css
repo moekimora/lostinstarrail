@@ -460,6 +460,7 @@ a:hover {
 
 .settings-map5 {
     background-image: url("../media/map/penacony.png");
+    filter: grayscale();
 }
 
 .settings-map1:hover,

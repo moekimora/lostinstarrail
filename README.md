@@ -351,5 +351,11 @@ If you guess in the wrong map location, you get **0** points.
   - Rebalanced Survival mode.
 - Infinite generation, now you can play infinitely, the only thing stop you is your mental haha.
 
+## v1.1.0
+- Official release haha
+- Minor changes
+  - Rebalanced Survival mode.
+  - Disabled Penacony temporary (I have not touched Penacony)
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

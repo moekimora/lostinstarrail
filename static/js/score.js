@@ -300,11 +300,7 @@ document.querySelector(".play").addEventListener("click", function() {
     currentRound = 1;
     currentScore = 0;
     finalScore = 0;
-    if (superstitionCheckbox.checked) {
-      survivalCondition = 1000;
-    } else {
-    survivalCondition = 500;
-    }
+    survivalCondition = 1000;
     updateRoundInfo();
     diff1.style.display = "block";
     //console.log("Round: " + currentRound);
@@ -371,72 +367,72 @@ document.querySelector(".next-round").addEventListener("click", function() {
         } else if (currentRound < 21) {
           diff1.style.display = "none";
           diff2.style.display = "block";
-          survivalCondition += 1500;
+          survivalCondition += 2500;
         } else if (currentRound < 31) {
           diff2.style.display = "none";
           diff3.style.display = "block";
-          survivalCondition += 2000;
+          survivalCondition += 4000;
         } else if (currentRound < 41) {
           diff3.style.display = "none";
           diff4.style.display = "block";
-          survivalCondition += 2500;
-        } else if (currentRound < 51) {
+          survivalCondition += 5500;
+        } else if (currentRound < 101) {
           diff4.style.display = "none";
           diff5.style.display = "block";
-          survivalCondition += 3500;
-        } else if (currentRound < 61) {
+          survivalCondition += 7000;
+        } else if (currentRound < 201) {
           diff5.style.display = "none";
           diff6.style.display = "block";
-          survivalCondition += 5000;
-        } else if (currentRound < 71) {
+          survivalCondition += 9500;
+        } else if (currentRound < 301) {
           diff6.style.display = "none";
           diff7.style.display = "block";
-          survivalCondition += 6000;
-        } else if (currentRound < 81) {
+          survivalCondition += 9800;
+        } else if (currentRound < 501) {
           diff7.style.display = "none";
           diff8.style.display = "block";
-          survivalCondition += 7000;
+          survivalCondition += 10500;
         } else {
           diff8.style.display = "none";
           diff9.style.display = "block";
-          survivalCondition += 9000;
+          survivalCondition += 12000;
         }
         
       } else if (survivalCheckbox.checked) {
         if (currentRound < 6) {
-          survivalCondition += 500;
+          survivalCondition += 1000;
         } else if (currentRound < 11) {
           diff1.style.display = "none";
           diff2.style.display = "block";
-          survivalCondition += 750;
+          survivalCondition += 1750;
         } else if (currentRound < 16) {
           diff2.style.display = "none";
           diff3.style.display = "block";
-          survivalCondition += 1000;
+          survivalCondition += 2500;
         } else if (currentRound < 21) {
           diff3.style.display = "none";
           diff4.style.display = "block";
-          survivalCondition += 1250;
-        } else if (currentRound < 26) {
+          survivalCondition += 3250;
+        } else if (currentRound < 51) {
           diff4.style.display = "none";
           diff5.style.display = "block";
-          survivalCondition += 1750;
-        } else if (currentRound < 31) {
+          survivalCondition += 4000;
+        } else if (currentRound < 101) {
           diff5.style.display = "none";
           diff6.style.display = "block";
-          survivalCondition += 2500;
-        } else if (currentRound < 36) {
+          survivalCondition += 4750;
+        } else if (currentRound < 201) {
           diff6.style.display = "none";
           diff7.style.display = "block";
-          survivalCondition += 3000;
-        } else if (currentRound < 41) {
+          survivalCondition += 4900;
+        } else if (currentRound < 501) {
           diff7.style.display = "none";
           diff8.style.display = "block";
-          survivalCondition += 3500;
+          survivalCondition += 5250;
         } else {
           diff8.style.display = "none";
           diff9.style.display = "block";
-          survivalCondition += 4500;
+          survivalCondition += 6000;
         }
       }
       updateRoundInfo();

@@ -27,7 +27,7 @@
                 <div class="rotate-screen-mobile-text">Rotate your device for best experience.</div>
             </div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.0.102 (2.3#open-beta)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.0 (2.3#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button id="options" class="options" onclick="toggleOptions()"></button>
                 <button id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -64,7 +64,7 @@
                   <br>
                   Playtesters:<span class="highlighted-credit">&nbsp;moemoe</span>,<span class="highlighted-credit">&nbsp;Nryst</span>,<span class="highlighted-credit">&nbsp;tuechinh08</span>,<span class="highlighted-credit">&nbsp;kimura_zukikuto.0007</span>,<span class="highlighted-credit">&nbsp;pigeonontree</span>,<span class="highlighted-credit">&nbsp;deyuaru</span>,
                   <br>
-                  <span class="highlighted-credit">&nbsp;hromer_</span>,<span class="highlighted-credit">&nbsp;Zorus</span>
+                  <span class="highlighted-credit">&nbsp;hromer_</span>,<span class="highlighted-credit">&nbsp;Zorus</span>,<span class="highlighted-credit">&nbsp;(Sam)my</span>,<span class="highlighted-credit">&nbsp;Rabbit Missile</span>
                 </div>
             </div>
             <div class="options-container" onclick="toggleOptions()"></div>
@@ -87,7 +87,7 @@
                         <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
                         <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
                         <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
-                        <div class="settings-map5" onclick="changeColor()" title="Penacony"></div>
+                        <div class="settings-map5" onclick="changeColor()" title="Penacony (Currently not available)"></div>
                     </div>
                 </div>
                 <!--Gamemodes-->
@@ -102,14 +102,8 @@
                         <p class="settings-gamemodessurvivaltext" onclick="toggleSettings">Survival</p>
                         <img src="static/media/icons/information-circle-outline.svg" class="settings-gamemodessurvivalinfo" title="Survival Mode
                             Survival Mode allows you to play for as many rounds as you can with a twist, a Score Requirement. (Req.)
-                            The Score Requirement is increased every round, and can be increased every 5 rounds, indicated by a difficulty number (I-IX).
-                            The game ends when your Score is lower than the Score Requirements.
-                            The Score Requirement increase as follows:
-                            (I): Add 500 to Req. (II): Add 750 to Req.
-                            (III): Add 1250 to Req. (IV): Add 1750 to Req.
-                            (V): Add 2500 to Req. (VI): Add 3250 to Req.
-                            (VII): Add 3950 to Req. (VIII): Add 4250 to Req.
-                            (IX): Add 5250 to Req.">
+                            The Score Requirement is increased every round, and can be increased every 5 rounds, indicated by a difficulty number (I-V).
+                            The game ends when your Score is lower than the Score Requirements.">
                         <label class="switch survival-switch">
                             <input type="checkbox" id="Survival">
                             <span class="slider round"></span>
@@ -132,12 +126,12 @@
                 <div class="settings-gamerules-wrapper settings-gamerules-wrapper1">
                     <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
                     <div class="settings-gamerules-container1">
-                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="Round Duration&#10;Specifies the time limit for each round. (0: Infinite, Max: 60000)">
+                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="Round Duration&#10;Specifies the time limit for each round. (0: Infinite, Max: 60000, Default: 120)">
                         <div class="slider1-container">
                             <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displayTime" id="Time" value="120">
                             <input type="range" min="0" max="600" value="120" step="10" class="slider1" id="Range">
                         </div>
-                        <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="Image Viewing Duration&#10;Specifies the time available for viewing the image. (0: Infinite, Max: 60000)">
+                        <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="Image Viewing Duration&#10;Specifies the time available for viewing the image. (0: Infinite, Max: 60000, Default: 0)">
                         <div class="slider2-container">
                             <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displaySeeTime" id="SeeTime" value="120">
                             <input type="range" min="0" max="600" value="0" step="10" class="slider2" id="Range2">
@@ -150,7 +144,7 @@
                     <div>
                         <input type="text" maxlength="64" onkeyup="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" onkeydown="if(parseInt(this.value) > Math.pow(10, 15) - 1){this.value=null; return false;}" placeholder="Leave blank for random" class="seedinput" id="Input">
                     </div>
-                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="Total Rounds&#10;Specifies the number of rounds scheduled to be played. (Min: 1, Max: 1000)">
+                    <img src="static/media/icons/game-controller-outline.svg" alt="Zoom" class="settings-gameruleround" title="Total Rounds&#10;Specifies the number of rounds scheduled to be played. (Min: 1, Max: 1000, Default: 5)">
                     <div class="slider3-container">
                         <input type="number" min="1" max="1000" onkeyup="if(parseInt(this.value) > 1000 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" onkeydown="if(parseInt(this.value) > 1000 || parseInt(this.value) < 1){this.value=5; output3.value=5; round=5; return false;}" class="settings-displayRound" id="Round" value="5">
                         <input type="range" min="5" max="100" value="5" step="5" class="slider3" id="Range3">
