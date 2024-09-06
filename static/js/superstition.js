@@ -232,9 +232,8 @@ var debuff6effect = function() {
 
     for (var i = 0; i < debuffs.length; i++) {
         debuffs[i].style.display = i === lugubriousIncorrectGuesses ? 'block' : 'none';
-        currentScore -= 500;
     }
-
+    currentScore -= 500 * lugubriousIncorrectGuesses;
     updateRoundInfo();
 }
 
