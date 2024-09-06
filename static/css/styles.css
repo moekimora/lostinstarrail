@@ -514,7 +514,7 @@ a:hover {
     background-color: #552d8a;
     display: none;
     color: white;
-    font-size: 30px;
+    font-size: 24px;
     text-shadow: 2px 2px 2px black;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
@@ -1189,10 +1189,32 @@ input:checked + .slider:before {
 #debuff2,
 #debuff3,
 #debuff4,
+#debuff5,
+#debuff5-1,
+#debuff5-2,
+#debuff5-3,
+#debuff5-4,
+#debuff6,
+#debuff6-1,
+#debuff6-2,
+#debuff6-3,
+#debuff6-4,
+#debuff6-5,
+#debuff6-6,
+#debuff6-7,
+#debuff6-8,
+#debuff6-9,
+#debuff6-10,
 #buff1,
 #buff2,
 #buff3,
-#buff4 {
+#buff4,
+#buff5,
+#buff5-1,
+#buff5-2,
+#buff5-3,
+#buff5-4,
+#buff6 {
   position: relative;
   z-index: 4;
   width: 50px;
@@ -1370,12 +1392,12 @@ input:checked + .slider:before {
         font-size: 10px;
     }
     #superstition-text {
-        font-size: 30px;
+        font-size: 36px;
     }
     #superstition1,
     #superstition2,
     #superstition3 {
-        font-size: 16px;
+        font-size: 18px;
     }
     #starrailmap {
         width: 250px;
@@ -1462,10 +1484,32 @@ input:checked + .slider:before {
     #debuff2,
     #debuff3,
     #debuff4,
+    #debuff5,
+    #debuff5-1,
+    #debuff5-2,
+    #debuff5-3,
+    #debuff5-4,
+    #debuff6,
+    #debuff6-1,
+    #debuff6-2,
+    #debuff6-3,
+    #debuff6-4,
+    #debuff6-5,
+    #debuff6-6,
+    #debuff6-7,
+    #debuff6-8,
+    #debuff6-9,
+    #debuff6-10,
     #buff1,
     #buff2,
     #buff3,
-    #buff4 {
+    #buff4,
+    #buff5,
+    #buff5-1,
+    #buff5-2,
+    #buff5-3,
+    #buff5-4,
+    #buff6{
     position: relative;
     z-index: 4;
     width: 35px;

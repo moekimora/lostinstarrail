@@ -357,5 +357,13 @@ If you guess in the wrong map location, you get **0** points.
   - Rebalanced Survival mode.
   - Disabled Penacony temporary (I have not touched Penacony)
 
+## v1.1.1
+- Update Superstition mode
+  - New buffs and debuffs.
+  - Removed several old and repetitive effects.
+- Minor changes
+  - Rebalanced the scoring system.
+  
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

@@ -278,15 +278,6 @@ var filter2 = document.getElementById("filter2");
 var filter3 = document.getElementById("filter3");
 var filter4 = document.getElementById("filter4");
 
-var debuff1 = document.getElementById("debuff1");
-var debuff2 = document.getElementById("debuff2");
-var debuff3 = document.getElementById("debuff3");
-var debuff4 = document.getElementById("debuff4");
-var buff1 = document.getElementById("buff1");
-var buff2 = document.getElementById("buff2");
-var buff3 = document.getElementById("buff3");
-var buff4 = document.getElementById("buff4");
-
 document.querySelector(".play").addEventListener("click", function() {
   if (standardCheckbox.checked) {
     currentRound = 1;
