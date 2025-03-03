@@ -1,4 +1,3 @@
-// settings appear and stuff
 function toggleSettings() {
     // Define an array of settings maps
     var settingsMaps = [

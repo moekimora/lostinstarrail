@@ -7529,6 +7529,4 @@ var images = [
         lng: -149.06341382854498,
         currentLocation: "Scalegorge Waterscape"
     },
-    
-    // ... Add more images and their assigned coordinates here
     ];

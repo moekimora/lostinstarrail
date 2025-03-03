@@ -1,5 +1,4 @@
- //play
- function togglePlay() {
+function togglePlay() {
     //show game ui
     var gameStat = document.getElementById('game-stat');
     gameStat.style.display = 'flex';
@@ -44,6 +43,5 @@
         audio.currentTime = 0; // Reset the audio to the beginning
         audio.play(); // Start playing again
       });
-      
       audio.play();
 }

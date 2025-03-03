@@ -363,7 +363,10 @@ If you guess in the wrong map location, you get **0** points.
   - Removed several old and repetitive effects.
 - Minor changes
   - Rebalanced the scoring system.
-  
+
+## v1.1.12
+- Big optimizations and performance increase.
+- Balance Superstition buffs and debuffs.
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

@@ -1,16 +1,14 @@
-var countdownInterval;
-var countdownValue = 0;
-var previousCountdownValue = 0;
+let countdownInterval;
+let countdownValue = 0;
+let previousCountdownValue = 0;
 
 function startCountdown() {
-  var sliderValue = document.getElementById("Time").value;
+  const sliderValue = document.getElementById("Time").value;
   countdownValue = parseInt(sliderValue);
-  if (countdownValue == 0) {
-    // no countdown
-  } else {
+  if (countdownValue !== 0) {
     previousCountdownValue = countdownValue;
     updateDisplay();
-    countdownInterval = setInterval(function() {
+    countdownInterval = setInterval(() => {
       countdownValue--;
       updateDisplay();
     }, 1000);
@@ -28,16 +26,15 @@ function resetCountdown() {
 }
 
 function updateDisplay() {
-  var minutes = Math.floor(countdownValue / 60);
-  var seconds = countdownValue % 60;
+  const minutes = Math.floor(countdownValue / 60);
+  const seconds = countdownValue % 60;
 
   // Format the minutes and seconds with leading zeros if necessary
-  var formattedMinutes = minutes.toString().padStart(2, '0');
-  var formattedSeconds = seconds.toString().padStart(2, '0');
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+  const formattedSeconds = seconds.toString().padStart(2, '0');
 
-  var displayElement = document.getElementById("countdown-text");
-  var displayTimeUp = document.getElementById("countdown-timeup");
-
+  const displayElement = document.getElementById("countdown-text");
+  const displayTimeUp = document.getElementById("countdown-timeup");
 
   if (countdownValue < 0) {
     displayElement.style.display = "none";
@@ -49,26 +46,20 @@ function updateDisplay() {
     nextRoundButton.style.display = 'block';
     muffleAudio();
 
-    var displaySElement = document.getElementById("countdown-s-text");
-    displaySElement.style.display = "none";
-    var score;
-      score = 0
-    console.log('Score:', score);
-    guessWrapper.style.zIndex = '4'; // Fix z-index value
+    document.getElementById("countdown-s-text").style.display = "none";
+    console.log('Score:', 0);
+    guessWrapper.style.zIndex = '4';
     guessButtonActivated = true;
     nextRoundButtonActivated = false;
   } else {
     displayElement.style.display = "block";
     displayTimeUp.style.display = "none";
-    displayElement.textContent = formattedMinutes + " : " + formattedSeconds;
+    displayElement.textContent = `${formattedMinutes} : ${formattedSeconds}`;
 
-    if (countdownValue >= 26 && countdownValue <= 30) {
-      document.body.classList.add("warning-glow");
-    } else if (countdownValue <= 10) {
+    if ((countdownValue >= 26 && countdownValue <= 30) || countdownValue <= 10) {
       document.body.classList.add("warning-glow");
     } else {
       document.body.classList.remove("warning-glow");
     }
-
   }
 }

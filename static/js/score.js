@@ -73,7 +73,6 @@ function playNextRound() {
   imageElement = document.createElement('img');
   imageElement.src = currentImage.imageUrl;
 
-
   let isImageLoaded = false;
     imageElement.addEventListener('load', function () {
     if (superstitionCheckbox.checked && (currentRound - 1) % 5 === 0) {
@@ -87,8 +86,6 @@ function playNextRound() {
     }
   }
 });
-
-
   // Apply Filters
   filter();
 

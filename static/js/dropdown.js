@@ -1,12 +1,10 @@
 const dropdownBtn = document.querySelector('.dropdown-btn');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 
-// Toggle dropdown menu when the dropdown button is clicked
 dropdownBtn.addEventListener('click', () => {
   dropdownMenu.classList.toggle('show');
 });
 
-// Close dropdown menu when clicking outside of it
 document.addEventListener('click', (event) => {
   const isInsideDropdown = dropdownBtn.contains(event.target) || dropdownMenu.contains(event.target);
   if (!isInsideDropdown) {

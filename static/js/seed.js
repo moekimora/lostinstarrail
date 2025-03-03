@@ -1,6 +1,5 @@
 var uniqueIDs = [];
 var roundLimit = 100;
-
 function seed() {
     // seed system (v1.0.24)
     var inputElement = document.getElementById('Input');
@@ -53,13 +52,11 @@ function seed() {
       // Log the unique random numbers to the console
       console.log("Unique ID:", uniqueID);
 }
-
 function generateuniqueID(seed, roundElement) {
   var seedRandom = function(seed) {
     var x = Math.sin(seed) * 10000;
     return Math.abs(x - Math.floor(x));
   };
-
   var getRandomNumber = function(mapId) {
     if (mapId === 0) {
       return Math.floor(seedRandom(seed) * images.length);
@@ -73,24 +70,19 @@ function generateuniqueID(seed, roundElement) {
       return Math.floor(seedRandom(seed) * images.length);
     }
   };
-
   var maxElement = standardCheckbox.checked ? roundElement : (Math.floor(currentRound / 100) + 1) * roundLimit;
-
   while (uniqueIDs.length < maxElement) {
     var randomNumber = getRandomNumber(mapId); // Generate random number based on mapId
     uniqueIDs.push(randomNumber);
     seed++; // Increase the seed for the next number
   }
-
   return uniqueIDs;
 }
-
 function generateNextBatch() {
   if (currentRound % 100 === 0) {
     uniqueID = generateuniqueID(seed + currentRound, currentRound);
     console.log("Generated Next Batch:", uniqueID);
   }
 }
-
 // Event listener for the click event of the guessButton
 document.getElementById('guessButton').addEventListener('click', generateNextBatch);

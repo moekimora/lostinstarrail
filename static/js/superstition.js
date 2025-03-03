@@ -36,7 +36,7 @@ var lugubriousIncorrectGuesses = 0;
 const superstitionBuffs = [
     'Nothing happens.',
     'Gain 1000 - 5000 points this round.',
-    'Remove 1 - 4 random Filters. Starts from the 2 round.',
+    'Remove 1 - 4 random Filters.',
     'Set your score to 5000 - 25000 randomly.',
     'Gain 1000 points for each guess equal or higher than 3500 points.',
     'Gain 1000 points for each guess with distance lower than 40m.',
@@ -44,13 +44,12 @@ const superstitionBuffs = [
     'For every 10m from the correct location, gain 100 points, up to 100m.',
     'Remove 1 - 4 random Debuffs.',
     'Apply 1 - 4 random Buffs.',
-    '50% chance to gain 25000 points.',
-    'Apply Strict. For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict.',
-    'Apply Bliss. For every guess, there is a 5% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff".',
+    'For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict obtained.',
+    'Ruan Mei: For every guess, there is a 50% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff". This effect will be removed after triggering 1 time.',
 ];
 const superstitionDebuffs = [
     'Nothing happens.',
-    'Apply 1 - 4 random Filters. Starts from the 2 round.',
+    'Apply 1 - 4 random Filters.',
     'Deduct 1000 - 5000 points this round.',
     'Deduct 1000 points for each guess lower than 2500 points.',
     'Deduct 1000 points for each guess with distance higher than 25m. Incorrect guess will also deduct points this way.',
@@ -58,10 +57,8 @@ const superstitionDebuffs = [
     'Instant game over if your distance is higher than 50m. Incorrect guess will also trigger this effect.',
     'Remove 1 - 4 random Buffs.',
     'Apply 1 - 4 random Debuffs.',
-    '50% chance to lose 25000 points.',
-    'Literally restarts your game.',
-    'Apply Erroneous. For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous.',
-    'Apply Lugubrious. For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.',
+    'For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous obtained.',
+    'For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.',
 ];
 
 function superstitionStart() {
@@ -153,19 +150,28 @@ var buff5effect = function() {
 var buff6effect = function() {
     var random = Math.floor(Math.random() * 100) + 1;
 
-    // There is a 5% chance for the effect to trigger
+    // There is a 50% chance for the effect to trigger
     if (random <= 5) {
         var effect = Math.floor(Math.random() * 4); 
 
         switch (effect) {
             case 0:
                 currentScore += 25000;
+                buff6.active = false;
+                buff6.style.display = 'none';
+                guessButton.removeEventListener('click', buff6effect);
                 break;
             case 1:
                 addRandomBuff(1);
+                buff6.active = false;
+                buff6.style.display = 'none';
+                guessButton.removeEventListener('click', buff6effect);
                 break;
             case 2:
                 removeRandomDebuff(1);
+                buff6.active = false;
+                buff6.style.display = 'none';
+                guessButton.removeEventListener('click', buff6effect);
                 break;
         }
     }
@@ -256,7 +262,7 @@ function applyBuffEffect(buff) {
     if (buff === 'Gain 1000 - 5000 points this round.') {
         currentScore += Math.floor(Math.random() * 4000) + 1000;
         updateRoundInfo();
-    } else if (buff === 'Remove 1 - 4 random Filters. Starts from the 2 round.') {
+    } else if (buff === 'Remove 1 - 4 random Filters.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         removeRandomFilter(randomCount, checkedCheckboxes);
     } else if (buff === 'Set your score to 5000 - 25000 randomly.') {
@@ -284,15 +290,10 @@ function applyBuffEffect(buff) {
     } else if (buff === 'Apply 1 - 4 random Buffs.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         addRandomBuff(randomCount);
-    } else if (buff === '50% chance to gain 5000 points.') {
-        if (Math.random() < 0.5) {
-            currentScore += 25000;
-        }
-        updateRoundInfo();
-    } else if (buff === 'Apply Strict. For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict.') {
+    } else if (buff === 'For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict obtained.') {
         buff5Active = true;
         guessButton.addEventListener('click', buff5effect);
-    } else if (buff === 'Apply Bliss. For every guess, there is a 5% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff".') {
+    } else if (buff === 'Ruan Mei: For every guess, there is a 50% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff". This effect will be removed after triggering 1 time.') {
         buff6Active = true;
         buff6.style.display = 'block';
         guessButton.addEventListener('click', buff6effect);
@@ -300,7 +301,7 @@ function applyBuffEffect(buff) {
 }
 
 function applyDebuffEffect(debuff) {
-    if (debuff === 'Apply 1 - 4 random Filters. Starts from the 2 round.') {
+    if (debuff === 'Apply 1 - 4 random Filters.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         addRandomFilter(randomCount);
     } else if (debuff === 'Deduct 1000 - 5000 points this round.') {
@@ -328,17 +329,10 @@ function applyDebuffEffect(debuff) {
     } else if (debuff === 'Apply 1 - 4 random Debuffs.') {
         var randomCount = Math.floor(Math.random() * 4) + 1;
         addRandomDebuff(randomCount);
-    } else if (debuff === '50% chance to lose 5000 points.') {
-        if (Math.random() < 0.5) {
-            currentScore -= 25000;
-            updateRoundInfo();
-        }
-    } else if (debuff === 'Literally restarts your game.') {
-        location.reload();
-    } else if (debuff === 'Apply Erroneous. For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous.') {
+    } else if (debuff === 'For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous obtained.') {
         debuff5Active = true;
         guessButton.addEventListener('click', debuff5effect);
-    } else if (debuff === 'Apply Lugubrious. For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.') {
+    } else if (debuff === 'For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.') {
         debuff6Active = true;
         guessButton.addEventListener('click', debuff6effect);
     }

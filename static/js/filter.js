@@ -1,5 +1,4 @@
 var canvas;
-
 function filter() {
     if (BAWCheckbox.checked) {
         imageElement.style.filter += ' grayscale()';
@@ -17,16 +16,13 @@ function filter() {
     filter3.style.display = "block";
         let pixelateHandler = function() {
             const pixelSize = 5; // Adjust the pixel size as needed
-    
             var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
             canvas.width = imageElement.width;
             canvas.height = imageElement.height;
-    
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
             ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
-    
             imageElement.src = canvas.toDataURL();
             canvas.remove(); // Remove the canvas element after use
         };
@@ -54,16 +50,13 @@ function filter() {
                 ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
                 ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
             ];
-
             // Randomize the order of the slices
             for (var i = slices.length - 1; i > 0; i--) {
                 var j = Math.floor(Math.random() * (i + 1));
                 [slices[i], slices[j]] = [slices[j], slices[i]];
             }
-
             // Clear the canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             // Draw the randomized and flipped slices back to the canvas
             ctx.putImageData(slices[0], 0, 0);
             ctx.putImageData(slices[1], sliceWidth, 0);
@@ -71,7 +64,6 @@ function filter() {
             ctx.putImageData(slices[3], sliceWidth, sliceHeight);
             ctx.putImageData(slices[4], 0, sliceHeight * 2);
             ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
-
             imageElement.src = canvas.toDataURL();
             canvas.remove();
         };

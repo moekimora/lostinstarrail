@@ -1273,8 +1273,8 @@ input:checked + .slider:before {
     width: 50%;
     height: auto;
     color: white;
-    font-size: 45px; /* Adjust the font-size as needed */
-    text-shadow: 2px 2px 2px black;
+    font-size: 15px; /* Adjust the font-size as needed */
+    text-shadow: 1px 1px 1px black;
     z-index: 10;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
