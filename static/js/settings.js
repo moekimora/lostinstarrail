@@ -5,7 +5,6 @@ function toggleSettings() {
     document.querySelector('.settings-map2'),
     document.querySelector('.settings-map3'),
     document.querySelector('.settings-map4'),
-    document.querySelector('.settings-map5')
     ];
 
     // Loop through the settings maps
@@ -146,90 +145,27 @@ function toggleSettings() {
 //map
 var mapId = 0;
 
-function changeColor(element) {
-    if (element === map1) {
-        // Set map value to 0
-        mapId = 0;
-        map1.style.border = '2px solid #180872'; // Set border for map1 by default
-        map2.style.border = '';
-        map3.style.border = '';
-        map4.style.border = '';
-        map5.style.border = '';
-    } else if (element === map2) {
-        // Set map value to 1
-        mapId = 1;
-        map1.style.border = '';
-        map2.style.border = '2px solid #180872';
-        map3.style.border = '';
-        map4.style.border = '';
-        map5.style.border = '';
-    } else if (element === map3) {
-        // Set map value to 2
-        mapId = 2;
-        map1.style.border = '';
-        map2.style.border = '';
-        map3.style.border = '2px solid #180872';
-        map4.style.border = '';
-        map5.style.border = '';
-    } else if (element === map4) {
-        // Set map value to 3
-        mapId = 3;
-        map1.style.border = '';
-        map2.style.border = '';
-        map3.style.border = '';
-        map4.style.border = '2px solid #180872';
-        map5.style.border = '';
-    } else if (element === map5) {
-        // Set map value to 4
-        mapId = 4;
-        map1.style.border = '';
-        map2.style.border = '';
-        map3.style.border = '';
-        map4.style.border = '';
-        map5.style.border = '2px solid #180872';
-    }
-    
-    // Display map name
-    var roundMapElement = document.getElementById("map-info");  
-        if (mapId === 0) {
-            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Random";
-            } else if (mapId === 1) {
-            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Herta Space Station";
-            } else if (mapId === 2) {
-            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Jarilo-VI";
-            } else if (mapId === 3) {
-            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>The Xianzhou Luofu";
-            } else if (mapId === 4) {
-            roundMapElement.innerHTML = "<span class='map-text'>Map</span><br>Penacony";
-            } 
-                
-}
-
-    var map1 = document.querySelector('.settings-map1');
-    map1.style.border = '2px solid #180872'; // Set border for map1 by default
-    map1.addEventListener('click', function() {
-    changeColor(map1);
+var maps = [
+    { element: document.querySelector('.settings-map1'), id: 0, name: 'Random' },
+    { element: document.querySelector('.settings-map2'), id: 1, name: 'Herta Space Station' },
+    { element: document.querySelector('.settings-map3'), id: 2, name: 'Jarilo-VI' },
+    { element: document.querySelector('.settings-map4'), id: 3, name: 'The Xianzhou Luofu' },
+  ];
+  maps[0].element.style.border = '2px solid #180872';
+  document.getElementById("map-info").innerHTML = "<span class='map-text'>Map</span><br>Random";
+  
+  function changeColor(selectedMap) {
+    mapId = selectedMap.id;
+    maps.forEach(map => {
+        map.element.style.border = map.id === mapId ? '2px solid #180872' : '';
     });
-
-    var map2 = document.querySelector('.settings-map2');
-    map2.addEventListener('click', function() {
-    changeColor(map2);
-    });
-
-    var map3 = document.querySelector('.settings-map3');
-    map3.addEventListener('click', function() {
-    changeColor(map3);
-    });
-
-    var map4 = document.querySelector('.settings-map4');
-    map4.addEventListener('click', function() {
-    changeColor(map4);
-    });
-
-    var map5 = document.querySelector('.settings-map5');
-    map5.addEventListener('click', function() {
-    changeColor(map5);
-    });
+    document.getElementById("map-info").innerHTML = `<span class='map-text'>Map</span><br>${selectedMap.name}`;
+  }
+  
+  // Attach event listeners to all map elements
+  maps.forEach(map => {
+    map.element.addEventListener('click', () => changeColor(map));
+  });  
 
 var slider = document.getElementById("Range");
 var output = document.getElementById("Time");

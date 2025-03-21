@@ -32,4 +32,3 @@ function toggleSubMenu(mainMap, subMenuClass) {
 toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');
 toggleSubMenu(document.querySelector('.main-j6'), 'sub-menu-j6');
 toggleSubMenu(document.querySelector('.main-txl'), 'sub-menu-txl');
-toggleSubMenu(document.querySelector('.main-p'), 'sub-menu-p');

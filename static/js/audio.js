@@ -1,9 +1,7 @@
 const audio = document.getElementById("gameaudio");
-
 let audioContext;
 let gainNode;
 let filterNode;
-
 function createAudioContext() {
   if (typeof window.AudioContext !== 'undefined' && !audioContext) {
     audioContext = new AudioContext();
@@ -16,7 +14,6 @@ function createAudioContext() {
     gainNode.connect(audioContext.destination);
   }
 }
-
 guessButton.addEventListener("click", () => {
   if (guessButton.classList.contains('has-marker')) {
     createAudioContext();
@@ -29,13 +26,11 @@ nextRoundButton.addEventListener("click", () => {
   filterNode.type = "allpass";
   filterNode.frequency.value = 0;
 });
-
 function muffleAudio() {
   createAudioContext();
   filterNode.type = "lowpass";
   filterNode.frequency.value = 1000;
 }
-
 const audioLeft = document.querySelector('.options-audioleft');
 const audioRight = document.querySelector('.options-audioright');
 const audioName = document.querySelector('.audioname');
@@ -46,9 +41,7 @@ const audioList = [
   "Anthropic Domain",
   "Halfway House"
 ];
-
 let audioIndex = 0;
-
 const defaultAudio = localStorage.getItem('defaultAudio');
 if (defaultAudio) {
   audioIndex = audioList.indexOf(defaultAudio);

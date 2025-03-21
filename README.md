@@ -365,8 +365,17 @@ If you guess in the wrong map location, you get **0** points.
   - Rebalanced the scoring system.
 
 ## v1.1.12
-- Big optimizations and performance increase.
+- Big optimizations and performance enhancements
 - Balance Superstition buffs and debuffs.
+
+## v1.1.13
+- Some optimizations and performance enhancements
+- Several changes
+  - Map now zooms in based on distance between your guess and the correct location.
+  - Timers now use floats! (You can actually do 0.01 second guesses now xd).
+  - See Time now has an additional 3 second wait before the image shows up (I'm planning to be able to customize this variable also).
+  - Removed Penacony.
+
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

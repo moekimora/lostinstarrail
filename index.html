@@ -26,7 +26,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.12 (3.1#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.13 (3.1#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -69,8 +69,8 @@
             <div class="options-container" onclick="toggleOptions()"></div>
             <div class="credits-container" onclick="toggleCredits()"></div>
             <div class="game-container">
-                <button id="play-button" class="play" onclick="togglePlay()">Play</button>
-                <button id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
+                <button name="play" id="play-button" class="play" onclick="togglePlay()">Play</button>
+                <button name="settings" id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             </div>
             <div class="settings-container" onclick="toggleSettings()"></div>
             <div class="settings-text-container">
@@ -82,11 +82,10 @@
                 <div class="settings-map-wrapper">
                     <p class="settings-map">Map</p>
                     <div class="settings-map-container">
-                        <div class="settings-map1" onclick="changeColor()" title="Random"></div>
-                        <div class="settings-map2" onclick="changeColor()" title="Herta Space Station"></div>
-                        <div class="settings-map3" onclick="changeColor()" title="Jarilo-VI"></div>
-                        <div class="settings-map4" onclick="changeColor()" title="The Xianzhou Luofu"></div>
-                        <div class="settings-map5" onclick="changeColor()" title="Penacony (Currently not available)"></div>
+                        <div class="settings-map1" title="Random"></div>
+                        <div class="settings-map2" title="Herta Space Station"></div>
+                        <div class="settings-map3" title="Jarilo-VI"></div>
+                        <div class="settings-map4" title="The Xianzhou Luofu"></div>
                     </div>
                 </div>
                 <!--Gamemodes-->
@@ -194,7 +193,7 @@
                 <div class="starrail-container">
                 <div id="starrailmap"></div>
                     <div class="dropdown">
-                        <button class="dropdown-btn">Star Rail Map</button>
+                        <button name="star rail map" class="dropdown-btn">Star Rail Map</button>
                         <ul class="dropdown-menu">
                             <li class="main-hst">Herta Space Station
                                 <ul class="sub-menu-hst">
@@ -265,36 +264,6 @@
                                         <button class="txl-ac-f2 floor-btn">F2</button>
                                     </li>
                                     <li class="txl-sw">Scalegorge Waterscape</li>
-                                </ul>
-                            </li>
-                            <li class="main-p">Penacony
-                                <ul class="sub-menu-p">
-                                    <li class="p-tr">The Reverie (Reality)
-                                        <button class="p-tr-f1 floor-btn">F1</button>
-                                        <button class="p-tr-f2 floor-btn">F2</button>
-                                        <button class="p-tr-f3 floor-btn">F3</button>
-                                    </li>
-                                    <li class="p-gh">Golden Hour
-                                        <button class="p-gh-f1 floor-btn">F1</button>
-                                        <button class="p-gh-f2 floor-btn">F2</button>
-                                        <button class="p-gh-f3 floor-btn">F3</button>
-                                    </li>
-                                    <li class="p-de">Dream's Edge</li>
-                                    <li class="p-acd">A Child's Dream</li>
-                                    <li class="p-trd">The Reverie (Dreamscape)
-                                        <button class="p-trd-f1 floor-btn">F1</button>
-                                        <button class="p-trd-f2 floor-btn">F2</button>
-                                        <button class="p-trd-f3 floor-btn">F3</button>
-                                    </li>
-                                    <li class="p-dp">Dewlight Pavilion
-                                        <button class="p-dp-f1 floor-btn">F1</button>
-                                        <button class="p-dp-f2 floor-btn">F2</button>
-                                        <button class="p-dp-sm floor-btn">Sandpit Model</button>
-                                    </li>
-                                    <li class="p-cstp">Clock Studios Theme Park
-                                        <button class="p-cstp-f1 floor-btn">F1</button>
-                                        <button class="p-cstp-f2 floor-btn">F2</button>
-                                    </li>
                                 </ul>
                             </li>
                           </ul>

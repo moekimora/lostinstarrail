@@ -102,25 +102,19 @@ var resultMap = document.querySelector('#resultmap');
   resultMap.style.pointerEvents = 'none';
 }
 
-
 var guessButton = document.getElementById('guessButton');
 var guessOverlay = document.getElementById('guessOverlay');
 var score;
 var distance;
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-    const earthRadius = 69; // Radius of the Earth in kilometers
+    const r = 69; // Radius
     const dLat = toRadians(lat2 - lat1);
     const dLon = toRadians(lon2 - lon1);
-
-    const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = earthRadius * c;
-
-    return distance;
+    const d = r * c;
+    return d;
 }
 
 // Function to convert degrees to radians
@@ -133,7 +127,10 @@ var guessButtonActivated = false;
 var nextRoundButtonActivated = false;
 
 var resultText;
-var guessResult;
+var guessResult = document.getElementById('guessResult');
+
+var displayElement = document.getElementById("countdown-text");
+var displaySElement = document.getElementById("countdown-s-text");
 
 guessButton.addEventListener('click', function() {
     if (guessButton.classList.contains('has-marker')) {
@@ -151,30 +148,21 @@ guessButton.addEventListener('click', function() {
         currentImage.lng
         );
 
-        if (distance > 30) {
-          score = Math.max(0, 5000 - distance * 24);
-        } else if (distance > 20) {
-          score = Math.max(0, 5000 - distance * 16);
-        } else if (distance > 10) {
-          score = Math.max(0, 5000 - distance * 8);
+        if (distance > 40) {
+          score = Math.max(0, 5000 - distance * 36.25);
+        } else if (distance > 25) {
+          score = Math.max(0, 5000 - distance * 24.75);
         } else if (distance < 1) {
             score = 5000
         } else {
-        score = Math.max(0, 5000 - distance * 4);
+        score = Math.max(0, 5000 - distance * 18.5);
         }
-        score = Math.ceil(score); // Round up the score to the nearest whole number
+        score = Math.ceil(score);
         updateScore();
         
-        var displayElement = document.getElementById("countdown-text");
         displayElement.style.display = "none";
-        var displaySElement = document.getElementById("countdown-s-text");
         displaySElement.style.display = "none";
-
-        
-        // Create the text string
         resultText = `Your guess was <span style='color: rgb(255, 228, 107)'>${distance.toFixed(2)}m</span> away from the correct location. <br><span style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>${score}</span></br>`;
-
-        guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
         //console.log('Image Latitude:', currentImage.lat);
@@ -198,16 +186,9 @@ guessButton.addEventListener('click', function() {
         score = 0;
         updateScore();
 
-        var displayElement = document.getElementById("countdown-text");
         displayElement.style.display = "none";
-        var displaySElement = document.getElementById("countdown-s-text");
         displaySElement.style.display = "none";
-
-        
-        // Create the text string
         resultText = `Your guess was incorrect! The correct location is <span style='color: rgb(255, 228, 107)'>${currentMapLocation}</span>. <br><span style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>${score}</span></br>`;
-
-        guessResult = document.getElementById('guessResult');
         guessResult.insertAdjacentHTML('beforeend', resultText);
 
         //console.log('Image Latitude:', currentImage.lat);
@@ -473,5 +454,3 @@ function displayFinalScore() {
 
 // Call updateRoundInfo initially to display the initial round value
 updateRoundInfo();
-
-

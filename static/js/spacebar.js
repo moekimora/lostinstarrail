@@ -5,9 +5,7 @@ document.addEventListener('keydown', function(event) {
       event.preventDefault();
       return;
     }
-
     event.preventDefault();
-    
     if (!guessButtonActivated) {
       if (guessButton.classList.contains('has-marker')) {
         guessButton.click();
@@ -19,14 +17,12 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
-
 guessButton.addEventListener('click', function() {
   if (!guessButtonActivated) {
     guessButtonActivated = true;
     nextRoundButtonActivated = false;
   }
 });
-
 nextRoundButton.addEventListener('click', function() {
   if (!nextRoundButtonActivated) {
     nextRoundButtonActivated = true;
