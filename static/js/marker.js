@@ -61,9 +61,8 @@ guessButton.addEventListener('click', () => {
             const getZoomLevel = (d) => {
                 if (d < 2) return 5;
                 if (d < 5) return 4;
-                if (d < 10) return 3;
-                if (d < 20) return 2;
-                if (d < 40) return 1;
+                if (d < 25) return 3;
+                if (d < 50) return 2;
                 return resultMap.getZoom();
             };
             const zoomLevel = getZoomLevel(distance);

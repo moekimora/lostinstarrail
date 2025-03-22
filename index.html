@@ -26,7 +26,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.13 (3.1#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.14 (3.1#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -124,16 +124,22 @@
                 <div class="settings-gamerules-wrapper settings-gamerules-wrapper1">
                     <p class="settings-gamerulestext" onclick="toggleSettings">Mods</p>
                     <div class="settings-gamerules-container1">
-                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="Round Duration&#10;Specifies the time limit for each round. (0: Infinite, Max: 60000, Default: 120)">
+                        <img src="static/media/icons/timer-outline.svg" class="settings-gamerulestimer" title="Round Duration&#10;Specifies the time available for each round. (0: Infinite, Max: 60000, Default: 120)">
                         <div class="slider1-container">
                             <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displayTime" id="Time" value="120">
                             <input type="range" min="0" max="600" value="120" step="10" class="slider1" id="Range">
                         </div>
                         <img src="static/media/icons/eye-outline.svg" class="settings-gamerulesseetime" title="Image Viewing Duration&#10;Specifies the time available for viewing the image. (0: Infinite, Max: 60000, Default: 0)">
                         <div class="slider2-container">
-                            <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=120; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=120; return false;}" class="settings-displaySeeTime" id="SeeTime" value="120">
+                            <input type="number" onkeyup="if(parseInt(this.value) > 60000){this.value=0; return false;}" onkeydown="if(parseInt(this.value) > 60000){this.value=0; return false;}" class="settings-displaySeeTime" id="SeeTime" value="120">
                             <input type="range" min="0" max="600" value="0" step="10" class="slider2" id="Range2">
                         </div>
+                        <img src="static/media/icons/hand-left-outline.svg" class="settings-gameruleshold" title="Hold Duration&#10;Specifies the time delay before the round starts. (Max: 10, Default: 3)">
+                        <label class="switch hold-switch">
+                            <input type="checkbox" id="Hold">
+                            <span class="slider round"></span>
+                        </label>
+                        <input type="number" min="1" max="10" onkeyup="if(parseInt(this.value) > 10){this.value=3; return false;}" onkeydown="if(parseInt(this.value) > 10){this.value=3; return false;}" class="settings-displayHold" id="HoldTime" value="3">
                     </div>
                 </div>
 
@@ -319,16 +325,17 @@
                     <img id="buff6" src="static/media/icons/buff6.png">
                 </div>
                 <div class="countdown-container">
-                    <p id="countdown-text"><span id="countdown-value"></span></p>
-                    <p id="countdown-s-text"><span id="countdown-s-value"></span></p>
+                    <div id="countdown-text"></div>
+                    <div id="countdown-s-text"></div>
+                    <div id="countdown-h-text"></div>
                 </div>
-                <p id="finaltext" class="finaltext">Final Score</p>
+                <div id="finaltext" class="finaltext">Final Score</div>
                 <div id="final-score"></div>
                 <div id="guessOverlay" class="guess-overlay"></div>
                 <button id="guessButton" class="guess-btn">Guess</button>
                 <div class="guess-wrapper">
                     <div id="resultmap"></div>
-                    <p id="countdown-timeup"></p>
+                    <div id="countdown-timeup"></div>
                     <div class="guess-container">
                         <div id="guessResult" class="guess-result"></div>
                         <button id="next-round" class="next-round">Next Round</button>
@@ -353,8 +360,7 @@
         <script src="static/js/marker.js"></script>
         <script src="static/js/image.js"></script>
         <script src="static/js/spacebar.js"></script>
-        <script src="static/js/time-countdown.js"></script>
-        <script src="static/js/seetime-countdown.js"></script>
+        <script src="static/js/countdown.js"></script>
         <script src="static/js/audio.js"></script>
             
         <script>

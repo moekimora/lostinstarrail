@@ -330,7 +330,6 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.5s ease; 
 }
-
 .settings-container {
     position: fixed;
     top: 0;
@@ -373,7 +372,6 @@ a:hover {
     display: flex;
     align-items: center;
 }
-
 .settings-logo {
     width: 20%;
     height: auto;
@@ -383,7 +381,6 @@ a:hover {
     margin-right: 18px;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
 .settings-text {
     width: 10%;
     height: auto;
@@ -404,7 +401,6 @@ a:hover {
     display: none;
     transition: opacity 0.5s ease, transform 0.4s ease;
 }
-
 .settings-map-wrapper {
     position: absolute;
     top: 1.5vw;
@@ -416,19 +412,16 @@ a:hover {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .settings-map-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     right: 0;
 }
-
 .settings-map1,
 .settings-map2,
 .settings-map3,
-.settings-map4,
-.settings-map5 {
+.settings-map4 {
     position: relative;
     top: 1%;
     z-index: 4;
@@ -441,41 +434,22 @@ a:hover {
     display: none;
     transition: transform 0.2s ease;
 }
-
 .settings-map1 {
     background-image: url("../media/map/random.png");
 }
-
 .settings-map2 {
     background-image: url("../media/map/hertaspacestation.png");
 }
-
 .settings-map3 {
     background-image: url("../media/map/jarilovi.png");
 }
-
 .settings-map4 {
     background-image: url("../media/map/thexianzhouluofu.png");
 }
-
-.settings-map5 {
-    background-image: url("../media/map/penacony.png");
-    filter: grayscale();
-}
-
-.settings-map1:hover,
-.settings-map2:hover,
-.settings-map3:hover,
-.settings-map4:hover,
-.settings-map5:hover {
-    transform: scale(1.05);
-}
-
 .settings-map1.active,
 .settings-map2.active,
 .settings-map3.active,
-.settings-map4.active,
-.settings-map5.active {
+.settings-map4.active {
     z-index: 4;
 }
 #superstition-screen {
@@ -616,94 +590,86 @@ a:hover {
 }
 .settings-gamerulestimer,
 .settings-gamerulesseetime,
-.settings-gameruleround  {
-    position: relative;
-    color: white;
+.settings-gameruleshold,
+.settings-gameruleround,
+.settings-gamerulebaw,
+.settings-gameruleinvert,
+.settings-gamerulepixelate,
+.settings-gamerulescramble   {
     z-index: 4;
     width: 7vw;
     height: 7vh;
-    margin: -1vw;
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
 .slider1-container,
 .slider2-container,
 .slider3-container {
     display: flex;
     align-items: center;
 }
-
 .slider1,
 .slider2 {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
     appearance: none;
-    width: 20vw; /* Full-width */
-    height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 10vw;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    -webkit-transition: .2s;
     transition: opacity .2s;
     display: none;
     z-index: 4;
 }
 .slider3 {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
     appearance: none;
     width: 15vw; /* Full-width */
     height: 10px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    background: #d3d3d3;
+    outline: none;
+    -webkit-transition: .2s;
     transition: opacity .2s;
     display: none;
     z-index: 4;
 }
-.slider1:hover,
-.slider2:hover,
-.slider3:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-    z-index: 4;
-}
 .slider1::-webkit-slider-thumb,
 .slider2::-webkit-slider-thumb,
-.slider3::-webkit-slider-thumb  {
-    -webkit-appearance: none; /* Override default look */
+.slider3::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
-    width: 35px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
+    width: 35px;
+    height: 35px;
     background-image: url("../media/icons/radio-button-on-outline.svg");
-    cursor: pointer; /* Cursor on hover */
+    opacity: 0.8;
+    -webkit-transition: opacity .2s, transform .2s;
+    transition: opacity .2s, transform .2s;
+    cursor: pointer;
     z-index: 4;
 }
-.slider1::-moz-range-thumb,
-.slider2::-moz-range-thumb,
-.slider3::-moz-range-thumb  {
-    width: 25px; /* Set a specific slider handle width */
-    height: 10px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    z-index: 4;
+.slider1::-webkit-slider-thumb:hover,
+.slider2::-webkit-slider-thumb:hover,
+.slider3::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
 .settings-displayTime,
 .settings-displaySeeTime,
+.settings-displayHold,
 .settings-displayRound  { 
     position: relative;
-    width: 4vw;
+    width: 2.5vw;
     padding: 1.5vh;
     font-family: 'DIN', sans-serif;
     font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
-    background-color: rgba(255, 248, 248);
+    background-color: rgb(255, 248, 248);
     z-index: 4;
     display: none;
     margin: 1vw;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-
 .settings-seedtext {
     position: relative;
     color: white;
@@ -750,34 +716,19 @@ a:hover {
     display: none;
     transition: opacity 0.75s ease, transform 0.5s ease;
 }
-.settings-gamerulebaw,
-.settings-gameruleinvert,
-.settings-gamerulepixelate,
-.settings-gamerulescramble {
-    position: relative;
-    width: 7vw;
-    height: 7vh;
-    color: white;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
 
 .switch {
-    position: relative;
     display: inline-block;
     width: 75px;
-    height: 43px;
+    height: 42px;
     z-index: 4;
     display: none;
 }
-
 .switch input { 
     opacity: 0;
     width: 0;
     height: 0;
 }
-
 .slider {
     position: absolute;
     cursor: pointer;
@@ -788,7 +739,9 @@ a:hover {
     background-color: #ccc;
     transition: .4s;
 }
-
+.slider:hover{
+    background-color: #acacac;
+}
 .slider:before {
     position: absolute;
     content: "";
@@ -799,27 +752,24 @@ a:hover {
     background-color: white;
     transition: .4s;
 }
-
 input:checked + .slider {
     background-color: #252525;
 }
-
+input:checked + .slider:hover {
+    background-color: #535353;
+}
 input:focus + .slider {
     box-shadow: 0 0 2px #000000;
 }
-
 input:checked + .slider:before {
-    transform: translateX(33px);
+    transform: translateX(32px);
 }
-
 .slider.round {
-    border-radius: 34px;
+    border-radius: 30px;
 }
-
 .slider.round:before {
     border-radius: 50%;
 }
-
 .guess-tooltip {
     font-family: 'DIN', sans-serif;
     font-size: 10px;
@@ -1097,7 +1047,8 @@ input:checked + .slider:before {
     flex-direction: row;
 }
 #countdown-text,
-#countdown-s-text {
+#countdown-s-text,
+#countdown-h-text {
     font-size: 24px;
     margin: 10px;
     font-weight: bold;
@@ -1113,6 +1064,9 @@ input:checked + .slider:before {
 }
 #countdown-s-text {
     color: rgb(255, 245, 159);
+}
+#countdown-h-text {
+    color: rgb(255, 159, 159);
 }
 #countdown-timeup {
     position: absolute;
@@ -1377,8 +1331,20 @@ input:checked + .slider:before {
     .settings-gamerules-wrapper {
         height: 8%;
     }
+    .settings-gamerulestimer,
+    .settings-gamerulesseetime,
+    .settings-gameruleshold,
+    .settings-gameruleround,
+    .settings-gamerulebaw,
+    .settings-gameruleinvert,
+    .settings-gamerulepixelate,
+    .settings-gamerulescramble   {
+        width: 4vw;
+        height: 4vh;
+    }
     .settings-displayTime,
     .settings-displaySeeTime,
+    .settings-displayHold,
     .settings-displayRound  {
         padding: 1vh;
         font-size: 10px;
@@ -1406,10 +1372,9 @@ input:checked + .slider:before {
         width: 250px;
         height: 250px;
     }
-    #countdown-text {
-        font-size: 16px;
-    }
-    #countdown-s-text {
+    #countdown-text,
+    #countdown-s-text,
+    #countdown-h-text {
         font-size: 16px;
     }
     #countdown-timeup {

@@ -35,7 +35,6 @@ loadingScreen.style.display = 'flex';
         isImageLoaded = true;
         loadingScreen.style.display = 'none';
         startCountdown();
-        startSCountdown();
       }
     }
   });
@@ -82,7 +81,6 @@ function playNextRound() {
       isImageLoaded = true;
       loadingScreen.style.display = 'none';
       startCountdown();
-      startSCountdown();
     }
   }
 });
@@ -176,7 +174,6 @@ guessButton.addEventListener('click', function() {
     nextRoundButton.style.display = 'block';
     guessWrapper.style.zIndex = '4'; // Fix z-index value
     stopCountdown();
-    stopSCountdown();
       } else {
         var resultMap = document.querySelector('#resultmap');
         resultMap.style.opacity = '1';
@@ -202,7 +199,6 @@ guessButton.addEventListener('click', function() {
     nextRoundButton.style.display = 'block';
     guessWrapper.style.zIndex = '4'; // Fix z-index value
     stopCountdown();
-    stopSCountdown();
       }
     }
 });
@@ -227,20 +223,6 @@ function updateScore() {
 }
 
 currentRound = 1;
-slider3.oninput = function() {
-  round = parseInt(this.value);
-  output3.value = round;
-  updateRoundInfo();
-};
-
-output3.oninput = function() {
-  round = parseInt(this.value);
-  slider3.value = round;
-  updateRoundInfo();
-};
-
-round = parseInt(output3.value);
-
 currentScore = 0;
 finalScore = 0;
 
@@ -449,7 +431,6 @@ function displayFinalScore() {
   }
 }
   stopCountdown();
-  stopSCountdown();
 }
 
 // Call updateRoundInfo initially to display the initial round value

@@ -376,6 +376,12 @@ If you guess in the wrong map location, you get **0** points.
   - See Time now has an additional 3 second wait before the image shows up (I'm planning to be able to customize this variable also).
   - Removed Penacony.
 
+## v1.1.14
+- Some code optimizations
+- Several changes
+  - UI Updates for better visuals
+  - New setting: Hold (Time delayed before the round starts)
+
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
