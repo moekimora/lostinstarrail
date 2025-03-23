@@ -6,9 +6,6 @@ var guessWrapper = document.querySelector('.guess-wrapper');
 var currentImage = null;
 var imageElement;
 
-var seed;
-var uniqueID;
-
 standardCheckbox = document.getElementById('Standard');
 survivalCheckbox = document.getElementById('Survival');
 superstitionCheckbox = document.getElementById('Superstition');
@@ -146,15 +143,7 @@ guessButton.addEventListener('click', function() {
         currentImage.lng
         );
 
-        if (distance > 40) {
-          score = Math.max(0, 5000 - distance * 36.25);
-        } else if (distance > 25) {
-          score = Math.max(0, 5000 - distance * 24.75);
-        } else if (distance < 1) {
-            score = 5000
-        } else {
-        score = Math.max(0, 5000 - distance * 18.5);
-        }
+        if (distance < 3) {score = 5000} else {score = Math.max(0, 5000 - (distance - 3) * 29.333);}
         score = Math.ceil(score);
         updateScore();
         

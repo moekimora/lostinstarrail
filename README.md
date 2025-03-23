@@ -382,6 +382,12 @@ If you guess in the wrong map location, you get **0** points.
   - UI Updates for better visuals
   - New setting: Hold (Time delayed before the round starts)
 
+## v1.1.15
+- Several bug fixes
+  - Fixed incorrect guesses bug on Jarilo-VI - Corridor of Fading Echoes.
+  - Update the scoring system.
+  - The map after each guess will now zoom in the middle of your guess and the correct location marker.
+  - More randomized seed generations
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

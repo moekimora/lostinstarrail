@@ -1,3 +1,5 @@
+var seed;
+var uniqueID;
 var uniqueIDs = [];
 var roundLimit = 100;
 function seed() {
@@ -43,9 +45,11 @@ function seed() {
 }
 function generateuniqueID(seed, roundElement) {
   var seedRandom = function(seed) {
-    var x = Math.sin(seed) * 10000;
-    return Math.abs(x - Math.floor(x));
-  };
+    const scale = (seed * 1337 + 69420) % 233280; // Scale the seed with constants
+    const circularMod = (Math.sin(seed) * scale + Math.cos(seed * scale)) % 1;
+    return Math.abs(circularMod);
+};
+
   var getRandomNumber = function(mapId) {
     if (mapId === 0) {
       return Math.floor(seedRandom(seed) * images.length);

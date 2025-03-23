@@ -36,7 +36,7 @@ var overlays = [
     addOverlay('Outlying Snow Plains', 'starrailmap/j6/j6-2.png'),
     addOverlay('Backwater Pass', 'starrailmap/j6/j6-3.png'),
     addOverlay('Silvermane Guards Restricted Zone', 'starrailmap/j6/j6-4.png'),
-    addOverlay('Corridor of Fading Echos', 'starrailmap/j6/j6-5.png'),
+    addOverlay('Corridor of Fading Echoes', 'starrailmap/j6/j6-5.png'),
     addOverlay('Everwinter Hill', 'starrailmap/j6/j6-6.png'),
     addOverlay('Pillars of Creation', 'starrailmap/j6/j6-7.png'),
     addOverlay('Old Weapon Testing Ground - F1', 'starrailmap/j6/j6-8f1.png'),

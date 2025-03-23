@@ -58,18 +58,24 @@ guessButton.addEventListener('click', () => {
         correctMarker.bindTooltip("Correct location", { className: 'guess-tooltip', maxWidth: 200 });
         if (resultMapMarker) {
             drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
+            const m = L.latLng(
+                (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2,
+                (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2
+            );
             const getZoomLevel = (d) => {
-                if (d < 2) return 5;
+                if (d < 1.5) return 5;
                 if (d < 5) return 4;
                 if (d < 25) return 3;
                 if (d < 50) return 2;
                 return resultMap.getZoom();
             };
             const zoomLevel = getZoomLevel(distance);
-            resultMap.flyTo(starrailMarker.getLatLng(), zoomLevel, {
-                animate: true,
-                duration: 1 //seconds
-            });
+            if (zoomLevel > 1) {
+                resultMap.flyTo(m, zoomLevel, {
+                    animate: true,
+                    duration: 1 //seconds
+                });
+            }
         }
     }
 });
