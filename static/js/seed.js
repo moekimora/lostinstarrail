@@ -78,3 +78,23 @@ function generateNextBatch() {
   }
 }
 document.getElementById('guessButton').addEventListener('click', generateNextBatch);
+
+//debug
+function findSeed(targetID, mapId, roundElement) {
+  let testSeed = -100000; // Start testing with a very low seed value
+  const maxSeed = 100000; // Define a reasonable range for testing
+  var roundElement = parseInt(document.getElementById('Round').value);
+
+  while (testSeed < maxSeed) {
+      uniqueIDs = []; // Clear the array for each seed test
+      const result = generateuniqueID(testSeed, roundElement);
+
+      if (result.includes(targetID)) {
+          console.log(`Found seed: ${testSeed}`);
+          return testSeed;
+      }
+      testSeed++;
+  }
+  console.log("No seed found in the tested range");
+  return null;
+}
