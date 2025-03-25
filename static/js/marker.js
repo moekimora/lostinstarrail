@@ -65,17 +65,16 @@ guessButton.addEventListener('click', () => {
             const getZoomLevel = (d) => {
                 if (d < 1.5) return 5;
                 if (d < 5) return 4;
-                if (d < 25) return 3;
-                if (d < 50) return 2;
+                if (d < 35) return 3;
+                if (d < 70) return 2;
+                if (d < 100) return 1;
                 return resultMap.getZoom();
             };
-            const zoomLevel = getZoomLevel(distance);
-            if (zoomLevel > 1) {
-                resultMap.flyTo(m, zoomLevel, {
-                    animate: true,
-                    duration: 1 //seconds
-                });
-            }
+        const zoomLevel = getZoomLevel(distance);
+            resultMap.flyTo(m, zoomLevel, {
+                animate: true,
+                duration: 1 //seconds
+            });
         }
     }
 });
