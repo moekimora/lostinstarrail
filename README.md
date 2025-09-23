@@ -389,5 +389,10 @@ If you guess in the wrong map location, you get **0** points.
   - The map after each guess will now zoom in the middle of your guess and the correct location marker.
   - More randomized seed generations
 
+## v1.1.16
+- Several visual updates
+  - Score animation yes
+  - Map zoom go wwweeee
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

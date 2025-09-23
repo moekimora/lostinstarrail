@@ -127,70 +127,54 @@ var guessResult = document.getElementById('guessResult');
 var displayElement = document.getElementById("countdown-text");
 var displaySElement = document.getElementById("countdown-s-text");
 
-guessButton.addEventListener('click', function() {
-    if (guessButton.classList.contains('has-marker')) {
-      if (currentMap === currentMapLocation) {
-        var resultMap = document.querySelector('#resultmap');
-        resultMap.style.opacity = '1';
-        resultMap.style.pointerEvents = 'auto';
 
-    if (starrailMarker) {
+guessButton.addEventListener('click', function() {
+    if (!guessButton.classList.contains('has-marker')) return;
+
+    var resultMap = document.querySelector('#resultmap');
+    resultMap.style.opacity = '1';
+    resultMap.style.pointerEvents = 'auto';
+
+    if (currentMap === currentMapLocation && starrailMarker) {
         var playerMarker = starrailMarker.getLatLng();
-        distance = calculateDistance(
-        playerMarker.lat,
-        playerMarker.lng,
-        currentImage.lat,
-        currentImage.lng
+        let distance = calculateDistance(
+            playerMarker.lat,
+            playerMarker.lng,
+            currentImage.lat,
+            currentImage.lng
         );
 
-        if (distance < 3) {score = 5000} else {score = Math.max(0, 5000 - (distance - 3) * 29.333);}
+        let score = distance < 3 ? 5000 : Math.max(0, 5000 - (distance - 3) * 29.333);
         score = Math.ceil(score);
-        updateScore();
-        
-        displayElement.style.display = "none";
-        displaySElement.style.display = "none";
-        resultText = `Your guess was <span style='color: rgb(255, 228, 107)'>${distance.toFixed(2)}m</span> away from the correct location. <br><span style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>${score}</span></br>`;
-        guessResult.insertAdjacentHTML('beforeend', resultText);
-
-        //console.log('Image Latitude:', currentImage.lat);
-        //console.log('Image Longitude:', currentImage.lng);
-        //console.log('Distance:', distance);
-        console.log('Score:', score);
-    } else {
-        console.log('Marker not set');
-    }
-    guessOverlay.style.display = 'block';
-    nextRoundButton.style.display = 'block';
-    guessWrapper.style.zIndex = '4'; // Fix z-index value
-    stopCountdown();
-      } else {
-        var resultMap = document.querySelector('#resultmap');
-        resultMap.style.opacity = '1';
-        resultMap.style.pointerEvents = 'auto';
-
-    if (starrailMarker) {
-        score = 0;
-        updateScore();
+        currentScore += score;
 
         displayElement.style.display = "none";
         displaySElement.style.display = "none";
-        resultText = `Your guess was incorrect! The correct location is <span style='color: rgb(255, 228, 107)'>${currentMapLocation}</span>. <br><span style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>${score}</span></br>`;
-        guessResult.insertAdjacentHTML('beforeend', resultText);
 
-        //console.log('Image Latitude:', currentImage.lat);
-        //console.log('Image Longitude:', currentImage.lng);
-        //console.log('Distance:', distance);
-        console.log('Score:', score);
-    } else {
-        console.log('Marker not set');
+        resultText = `Your guess was <span style='color: rgb(255, 228, 107)'>${distance.toFixed(2)}m</span> away from the correct location. <br><span id="animated-score" style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>0</span></br>`;
+        guessResult.innerHTML = resultText;
+
+        let animatedScoreElement = document.getElementById("animated-score");
+        animateScoreEaseOut(score, animatedScoreElement, 1500, 500); 
+
+    } else if (starrailMarker) {
+        let score = 0;
+        displayElement.style.display = "none";
+        displaySElement.style.display = "none";
+
+        resultText = `Your guess was incorrect! The correct location is <span style='color: rgb(255, 228, 107)'>${currentMapLocation}</span>. <br><span id="animated-score" style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>0</span></br>`;
+        guessResult.innerHTML = resultText;
+
+        let animatedScoreElement = document.getElementById("animated-score");
+        animateScoreEaseOut(score, animatedScoreElement, 1500, 500); 
     }
+
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
-    guessWrapper.style.zIndex = '4'; // Fix z-index value
+    guessWrapper.style.zIndex = '4';
     stopCountdown();
-      }
-    }
 });
+
 
 function updateScore() {
   if (standardCheckbox.checked) {
@@ -384,6 +368,36 @@ document.querySelector(".next-round").addEventListener("click", function() {
   updateNextRoundButton();
 });
 updateNextRoundButton();
+
+function easeOutQuad(t) {
+    return t * (2 - t);
+}
+
+function animateScoreEaseOut(targetScore, element, duration = 1000, delay = 500) {
+    element.textContent = '0'; // start at 0
+    setTimeout(() => {
+        let startTime = null;
+
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            let progress = Math.min(elapsed / duration, 1); // 0 to 1
+            progress = easeOutQuad(progress);
+            const currentScore = Math.floor(progress * targetScore);
+            element.textContent = currentScore;
+
+            if (elapsed < duration) {
+                requestAnimationFrame(animate);
+            } else {
+                element.textContent = targetScore; // ensure exact final score
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }, delay);
+}
+
+
 
 function updateRoundInfo() {
   if (standardCheckbox.checked) {

@@ -59,7 +59,15 @@ var overlays = [
     addOverlay('Fyxestroll Garden', 'starrailmap/txl/txl-8.png'),
     addOverlay('Alchemy Commission - F1', 'starrailmap/txl/txl-9f1.png'),
     addOverlay('Alchemy Commission - F2', 'starrailmap/txl/txl-9f2.png'),
-    addOverlay('Scalegorge Waterscape', 'starrailmap/txl/txl-10.png')
+    addOverlay('Scalegorge Waterscape', 'starrailmap/txl/txl-10.png'),
+    addOverlay('The Shackling Prison - F1', 'starrailmap/txl/txl-11f1.png'),
+    addOverlay('The Shackling Prison - B1', 'starrailmap/txl/txl-11b1.png'),
+    addOverlay('The Shackling Prison - B2', 'starrailmap/txl/txl-11b2.png'),
+    addOverlay('The Shackling Prison - B3', 'starrailmap/txl/txl-11b3.png'),
+    addOverlay('The Shackling Prison - B4', 'starrailmap/txl/txl-11b4.png'),
+    addOverlay('Skysplitter - F1', 'starrailmap/txl/txl-12f1.png'),
+    addOverlay('Skysplitter - F2', 'starrailmap/txl/txl-12f2.png'),
+    addOverlay('Skysplitter - F3', 'starrailmap/txl/txl-12f3.png')
 ];
 var resultMapOverlay = null;
 overlays.forEach(function (overlay) {
@@ -85,7 +93,8 @@ var selectors = [
     '.j6-bp', '.j6-sgrz', '.j6-cofe', '.j6-eh', '.j6-poc', '.j6-owtg-f1', '.j6-owtg-f2', '.j6-bt',
     '.j6-gm', '.j6-rt-f1', '.j6-rt-f2', '.j6-rs-f1', '.j6-rs-f2', '.txl-csh', '.txl-c-f1', '.txl-c-f2',
     '.txl-sn', '.txl-es', '.txl-aa', '.txl-dc-f1', '.txl-dc-f2', '.txl-arc', '.txl-fg', '.txl-ac-f1',
-    '.txl-ac-f2', '.txl-sw'
+    '.txl-ac-f2', '.txl-sw', '.txl-tsp-f1', '.txl-tsp-b1', '.txl-tsp-b2', '.txl-tsp-b3', '.txl-tsp-b4', 
+    '.txl-s-f1', '.txl-s-f2', '.txl-s-f3'
 ];
 selectors.forEach(function (selector, index) {
     addClickListener(selector, index);

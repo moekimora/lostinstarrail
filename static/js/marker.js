@@ -51,33 +51,51 @@ const onMapClick = e => {
 };
 guessButton.addEventListener('click', () => {
     if (currentImage) {
+        // Remove previous correct marker
         if (correctMarker) {
             resultMap.removeLayer(correctMarker);
         }
+
+        // Add correct marker
         correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
         correctMarker.bindTooltip("Correct location", { className: 'guess-tooltip', maxWidth: 200 });
+
         if (resultMapMarker) {
             drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
-            const m = L.latLng(
-                (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2,
-                (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2
+
+            // Calculate midpoint
+            const midLat = (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2;
+            const midLng = (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2;
+            const midPoint = L.latLng(midLat, midLng);
+
+            // Calculate distance between guess and correct location
+            const d = calculateDistance(
+                resultMapMarker.getLatLng().lat,
+                resultMapMarker.getLatLng().lng,
+                correctMarker.getLatLng().lat,
+                correctMarker.getLatLng().lng
             );
-            const getZoomLevel = (d) => {
-                if (d < 1.5) return 5;
-                if (d < 5) return 4;
-                if (d < 35) return 3;
-                if (d < 70) return 2;
-                if (d < 100) return 1;
+
+            // Determine zoom based on distance
+            const getZoomLevel = (distance) => {
+                if (distance < 1.5) return 5;
+                if (distance < 5) return 4;
+                if (distance < 35) return 3;
+                if (distance < 70) return 2;
+                if (distance < 100) return 1;
                 return resultMap.getZoom();
             };
-        const zoomLevel = getZoomLevel(distance);
-            resultMap.flyTo(m, zoomLevel, {
+            const zoomLevel = getZoomLevel(d);
+
+            // Fly to midpoint with zoom
+            resultMap.flyTo(midPoint, zoomLevel, {
                 animate: true,
-                duration: 1 //seconds
+                duration: 1
             });
         }
     }
 });
+
 nextRoundButton.addEventListener('click', () => {
     if (currentImage) {
         resultMap.removeLayer(correctMarker);
