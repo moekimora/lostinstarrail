@@ -24,7 +24,7 @@ function togglePlay() {
 
     //toggle map
     var starrailMap = document.querySelector('#starrailmap');
-    starrailMap.style.opacity = '1';
+    starrailMap.style.opacity = '0.2';
     starrailMap.style.pointerEvents = 'auto';
 
     var dropdownBtn = document.querySelector('.dropdown-btn');

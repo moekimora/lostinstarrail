@@ -26,7 +26,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.17 (3.6#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.18 (3.6#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -197,7 +197,10 @@
 
                 <!--Functions-->
                 <div class="starrail-container">
-                <div id="starrailmap"></div>
+                <div id="starrailmap-wrapper">
+                    <div id="starrailmap"></div>
+                    <button id="guessButton" class="guess-btn">Guess</button>
+                </div>
                     <div class="dropdown">
                         <button name="star rail map" class="dropdown-btn">Star Rail Map</button>
                         <ul class="dropdown-menu">
@@ -348,7 +351,6 @@
                 <div id="finaltext" class="finaltext">Final Score</div>
                 <div id="final-score"></div>
                 <div id="guessOverlay" class="guess-overlay"></div>
-                <button id="guessButton" class="guess-btn">Guess</button>
                 <div class="guess-wrapper">
                     <div id="resultmap"></div>
                     <div id="countdown-timeup"></div>

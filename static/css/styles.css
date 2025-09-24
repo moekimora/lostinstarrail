@@ -789,6 +789,7 @@ input:checked + .slider:before {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    pointer-events: none;
 }
 .starrail-container {
     position: fixed;
@@ -813,11 +814,11 @@ input:checked + .slider:before {
     cursor: pointer;
     z-index: 4;
     display: none;
+    opacity: 0.2;
     transition: 0.5s ease;
 }
 .dropdown-btn:hover {
     opacity: 0.8;
-    color: rgb(255, 177, 177);
 }
 .dropdown-menu {
     position: absolute;
@@ -943,12 +944,21 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
-#starrailmap {
+#starrailmap-wrapper {
     position: fixed;
-    opacity: 0;
-    pointer-events: none;
     bottom: 2%;
     right: 1%;
+    width: 350px;
+    height: 350px;
+    pointer-events: auto; /* allow hover */
+    z-index: 3;
+}
+#starrailmap {
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    opacity: 0;
+    pointer-events: none;
     border-radius: 10px;
     transform-origin: bottom right;
     width: 350px;
@@ -960,9 +970,6 @@ input:checked + .slider:before {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-#starrailmap:hover {
-    transform: scale(1.26);
-}
 .guess-btn {
     position: fixed;
     display: none;
@@ -971,9 +978,11 @@ input:checked + .slider:before {
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
+    transform-origin: bottom right;
+    opacity: 0.2;
     background-color: rgb(180, 180, 180);
     color: rgb(105, 105, 105);
-    z-index: 2;
+    z-index: 4;
     bottom: 2%;
     right: 1%;
     transition: 0.5s ease;
@@ -982,6 +991,16 @@ input:checked + .slider:before {
     background-color: green;
     cursor: pointer;
     color: white;
+}
+#starrailmap-wrapper:hover #starrailmap {
+    opacity: 1 !important;
+    transform: scale(1.75);
+}
+
+#starrailmap-wrapper:hover #guessButton {
+    display: block;
+    opacity: 1;
+    transform: scale(1.75); /* match map scale */
 }
 .guess-overlay {
     position: fixed;
@@ -1125,7 +1144,6 @@ input:checked + .slider:before {
   gap: 6px;
   width: 100%;             /* make row span whole box */
 }
-
 .stat-icons img {
   width: 50px;
   height: 50px;
