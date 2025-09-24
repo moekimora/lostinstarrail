@@ -785,6 +785,10 @@ input:checked + .slider:before {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .starrail-container {
     position: fixed;
@@ -932,6 +936,13 @@ input:checked + .slider:before {
 .floor-btn:hover {
     background-color: rgba(165, 165, 165, 0.5)
 }
+.floor-btn.active {
+  background-color: #444;
+  border: 2px solid #ffcc00;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
 #starrailmap {
     position: fixed;
     opacity: 0;
@@ -939,14 +950,18 @@ input:checked + .slider:before {
     bottom: 2%;
     right: 1%;
     border-radius: 10px;
+    transform-origin: bottom right;
     width: 350px;
     height: 350px;
     transition: opacity 0.5s ease, transform 0.4s ease;
     z-index: 3;
+    user-select: none;     /* prevent text/image selection */
+    -webkit-user-drag: none; /* prevent drag ghost image (Safari/Chrome) */
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 #starrailmap:hover {
-    transform: scale(1.2) translateX(-8%) translateY(-8%);
-    justify-content: right;
+    transform: scale(1.26);
 }
 .guess-btn {
     position: fixed;
@@ -1053,8 +1068,8 @@ input:checked + .slider:before {
     margin: 10px;
     font-weight: bold;
     background-color: rgba(25, 28, 56, 0.6);
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 55px;
+    padding: 10px 20px;
     z-index: 4;
     display: none;
     transition: 0.5s ease;
@@ -1080,17 +1095,42 @@ input:checked + .slider:before {
     display: none;
 }
 .game-stat {
-    position: fixed;
-    top: 1%;
-    right: 1%;
-    background-color: rgb(91, 99, 206);
-    min-width: 280px;
-    height: 80px;
-    border-radius: 10px;
-    display: none;
-    align-items: center;
-    justify-content: flex-end;
+  position: fixed;
+  top: 1%;
+  right: 1%;
+  background-color: rgb(91, 99, 206);
+  min-width: 280px;
+  max-width: 800px;
+  border-radius: 25px;
+  display: none;          /* make sure it's flex */
+  flex-direction: row;    /* text left, icons right */
+  justify-content: space-between;
+  align-items: center; /* top align */
+  padding: 8px;
+  gap: 12px;
 }
+
+.stat-info {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.stat-icons {
+  display: flex;
+  flex-wrap: wrap;         /* allow wrapping */
+  justify-content: center; /* center icons in container */
+  gap: 6px;
+  width: 100%;             /* make row span whole box */
+}
+
+.stat-icons img {
+  width: 50px;
+  height: 50px;
+}
+
 #map-info,
 #round-info,
 #score-info {
@@ -1482,6 +1522,7 @@ input:checked + .slider:before {
     }
     .game-stat {
         min-width: 220px;
+        max-width: 600px;
         height: 60px;
         border-radius: 10px;
         display: none;

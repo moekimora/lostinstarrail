@@ -18,6 +18,7 @@ var debuff67 = document.getElementById("debuff6-7");
 var debuff68 = document.getElementById("debuff6-8");
 var debuff69 = document.getElementById("debuff6-9");
 var debuff610 = document.getElementById("debuff6-10");
+
 var buff1 = document.getElementById("buff1");
 var buff2 = document.getElementById("buff2");
 var buff3 = document.getElementById("buff3");
@@ -64,31 +65,29 @@ const superstitionDebuffs = [
 function superstitionStart() {
     superstitionScreen.style.display = 'flex';
     superstitionText.style.display = 'block';
-  
+
     const superstitions = [superstition1, superstition2, superstition3];
-  
+
     for (let i = 0; i < superstitions.length; i++) {
-      const randomBuff = getRandomElement(superstitionBuffs);
-      const randomDebuff = getRandomElement(superstitionDebuffs);
-  
-      const superstition = superstitions[i];
-      superstition.innerHTML = `Buff: ${randomBuff}<br><br>Debuff: ${randomDebuff}`;
-      superstition.setAttribute('data-buff', randomBuff);
-      superstition.setAttribute('data-debuff', randomDebuff);
-      superstition.addEventListener('click', handleSuperstitionClick);
-      superstition.style.display = 'block';
+        const randomBuff = getRandomElement(superstitionBuffs);
+        const randomDebuff = getRandomElement(superstitionDebuffs);
+
+        const superstition = superstitions[i];
+        superstition.innerHTML = `Buff: ${randomBuff}<br><br>Debuff: ${randomDebuff}`;
+        superstition.setAttribute('data-buff', randomBuff);
+        superstition.setAttribute('data-debuff', randomDebuff);
+        superstition.addEventListener('click', handleSuperstitionClick);
+        superstition.style.display = 'block';
     }
 }
-  
 function getRandomElement(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
     return array[randomIndex];
 }
-  
 function handleSuperstitionClick() {
     const buff = this.getAttribute('data-buff');
     const debuff = this.getAttribute('data-debuff');
-  
+
     applyBuffEffect(buff);
     applyDebuffEffect(debuff);
 
@@ -103,146 +102,192 @@ function handleSuperstitionClick() {
     startSCountdown();
 }
 
+/* ---------------- Buff/Debuff effect functions ---------------- */
+
+/* ---------------- Buff effect functions (return deltas) ---------------- */
+
 var buff1effect = function() {
-    if (score >= 3500) {
+    if (typeof score !== 'undefined' && score >= 3500) {
         currentScore += 1000;
-    }
-    updateRoundInfo();
-}
-var buff2effect = function() {
-    if (distance < 40) {
-        currentScore += 1000;
-    }
-    updateRoundInfo();
-}
-var buff3effect = function() {
-    updateScore();
-    updateRoundInfo();
-}
-var buff4effect = function() {
-    if (score > 0) {
-        currentScore += Math.floor(Math.min(Math.abs(distance), 100) / 10) * 100;
         updateRoundInfo();
+        return 1000;
     }
-}
+    return 0;
+};
+
+var buff2effect = function() {
+    if (typeof distance !== 'undefined' && distance < 40) {
+        currentScore += 1000;
+        updateRoundInfo();
+        return 1000;
+    }
+    return 0;
+};
+
+var buff3effect = function() {
+    if (typeof score !== 'undefined' && score > 0) {
+        currentScore += score; // double round reward
+        updateRoundInfo();
+        return score;
+    }
+    return 0;
+};
+
+var buff4effect = function() {
+    if (typeof distance !== 'undefined' && score > 0) {
+        let add = Math.floor(Math.min(Math.abs(distance), 100) / 10) * 100;
+        currentScore += add;
+        updateRoundInfo();
+        return add;
+    }
+    return 0;
+};
+
 var buff5effect = function() {
-    if (score > 0) {
-        correctGuesses++;
-    }
+    if (typeof score !== 'undefined' && score > 0) correctGuesses++;
 
     var buffs = [buff5, buff51, buff52, buff53, buff54];
-
     for (var i = 0; i < buffs.length; i++) {
         buffs[i].style.display = i === correctGuesses ? 'block' : 'none';
     }
 
     if (correctGuesses === 5) {
         buff5.style.display = 'block';
-        buffs.slice(1).forEach(function(buff) {
-            buff.style.display = 'none';
-        });
+        buffs.slice(1).forEach(function(b) { b.style.display = 'none'; });
         currentScore += 5000;
         correctGuesses = 0;
+        updateRoundInfo();
+        return 5000;
     }
+    return 0;
+};
 
-    updateRoundInfo();
-}
 var buff6effect = function() {
     var random = Math.floor(Math.random() * 100) + 1;
-
-    // There is a 50% chance for the effect to trigger
-    if (random <= 5) {
-        var effect = Math.floor(Math.random() * 4); 
-
+    if (random <= 50) { // 50% chance
+        var effect = Math.floor(Math.random() * 3);
+        let delta = 0;
         switch (effect) {
             case 0:
                 currentScore += 25000;
-                buff6.active = false;
-                buff6.style.display = 'none';
-                guessButton.removeEventListener('click', buff6effect);
+                delta = 25000;
                 break;
             case 1:
                 addRandomBuff(1);
-                buff6.active = false;
-                buff6.style.display = 'none';
-                guessButton.removeEventListener('click', buff6effect);
                 break;
             case 2:
                 removeRandomDebuff(1);
-                buff6.active = false;
-                buff6.style.display = 'none';
-                guessButton.removeEventListener('click', buff6effect);
                 break;
         }
+        buff6Active = false;
+        if (buff6) buff6.style.display = 'none';
+        updateRoundInfo();
+        return delta;
     }
-    updateRoundInfo();
-}
+    return 0;
+};
+
+/* ---------------- Debuff effect functions (return deltas) ---------------- */
+
 var debuff1effect = function() {
-    if (score < 2500) {
+    if (typeof score !== 'undefined' && score < 2500) {
         currentScore -= 1000;
+        updateRoundInfo();
+        return -1000;
     }
-    updateRoundInfo();
-}
+    return 0;
+};
+
 var debuff2effect = function() {
-    if (distance > 25 || score < 1) {
+    if ((typeof distance !== 'undefined' && distance > 25) || typeof score === 'undefined' || score < 1) {
         currentScore -= 1000;
+        updateRoundInfo();
+        return -1000;
     }
-    updateRoundInfo();
-}
+    return 0;
+};
+
 var debuff3effect = function() {
-    if (score < 2500) {
+    if (typeof score !== 'undefined' && score < 2500) {
         nextRoundButton.classList.add('view-result');
         nextRoundButton.innerText = 'View Result';
     }
     updateRoundInfo();
-}
+    return 0;
+};
+
 var debuff4effect = function() {
-    if (distance > 50 || score < 1) {
+    if ((typeof distance !== 'undefined' && distance > 50) || typeof score === 'undefined' || score < 1) {
         nextRoundButton.classList.add('view-result');
         nextRoundButton.innerText = 'View Result';
     }
     updateRoundInfo();
-}
+    return 0;
+};
 
 var debuff5effect = function() {
-    if (score == 0) {
-        incorrectGuesses++;
-    }
+    if (typeof score !== 'undefined' && score == 0) incorrectGuesses++;
 
     var debuffs = [debuff5, debuff51, debuff52, debuff53, debuff54];
-
     for (var i = 0; i < debuffs.length; i++) {
         debuffs[i].style.display = i === incorrectGuesses ? 'block' : 'none';
     }
 
     if (incorrectGuesses === 5) {
         debuff5.style.display = 'block';
-        debuffs.slice(1).forEach(function(debuff) {
-            debuff.style.display = 'none';
-        });
+        debuffs.slice(1).forEach(function(d) { d.style.display = 'none'; });
         currentScore -= 10000;
         incorrectGuesses = 0;
+        updateRoundInfo();
+        return -10000;
     }
-
-    updateRoundInfo();
-}
+    return 0;
+};
 
 var debuff6effect = function() {
-    if (score == 0 && lugubriousIncorrectGuesses < 10) {
+    if (typeof score !== 'undefined' && score == 0 && lugubriousIncorrectGuesses < 10) {
         lugubriousIncorrectGuesses++;
-    } else if (score >= 2500 && lugubriousIncorrectGuesses > 0) {
+    } else if (typeof score !== 'undefined' && score >= 2500 && lugubriousIncorrectGuesses > 0) {
         lugubriousIncorrectGuesses--;
     }
 
     var debuffs = [debuff6, debuff61, debuff62, debuff63, debuff64, debuff65, debuff66, debuff67, debuff68, debuff69, debuff610];
-
     for (var i = 0; i < debuffs.length; i++) {
         debuffs[i].style.display = i === lugubriousIncorrectGuesses ? 'block' : 'none';
     }
-    currentScore -= 500 * lugubriousIncorrectGuesses;
-    updateRoundInfo();
+    if (lugubriousIncorrectGuesses > 0) {
+        let penalty = -500 * lugubriousIncorrectGuesses;
+        currentScore += penalty;
+        updateRoundInfo();
+        return penalty;
+    }
+    return 0;
+};
+
+/* ---------------- Central executor ---------------- */
+
+function applyActiveBuffsAndDebuffs() {
+    let deltas = [];
+
+    buffItems.forEach(it => {
+        if (it.isActive()) {
+            let delta = it.effect();
+            if (typeof delta === "number" && delta !== 0) deltas.push(delta);
+        }
+    });
+
+    debuffItems.forEach(it => {
+        if (it.isActive()) {
+            let delta = it.effect();
+            if (typeof delta === "number" && delta !== 0) deltas.push(delta);
+        }
+    });
+
+    return deltas;
 }
 
+
+/* ---------------- Active flags (globals) ---------------- */
 let buff1Active = false;
 let buff2Active = false;
 let buff3Active = false;
@@ -256,86 +301,84 @@ let debuff4Active = false;
 let debuff5Active = false;
 let debuff6Active = false;
 
-function applyBuffEffect(buff) {
-    const checkedCheckboxes = [BAWCheckbox, InvertCheckbox, PixelateCheckbox, ScrambleCheckbox].filter(checkbox => checkbox.checked);
-  
-    if (buff === 'Gain 1000 - 5000 points this round.') {
-        currentScore += Math.floor(Math.random() * 4000) + 1000;
-        updateRoundInfo();
-    } else if (buff === 'Remove 1 - 4 random Filters.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        removeRandomFilter(randomCount, checkedCheckboxes);
-    } else if (buff === 'Set your score to 5000 - 25000 randomly.') {
-        currentScore = Math.floor(Math.random() * 20000) + 5000;
-        updateRoundInfo();
-    } else if (buff === 'Gain 1000 points for each guess equal or higher than 3500 points.' && !buff1Active) {
-        buff1Active = true;
-        buff1.style.display = 'block';
-        guessButton.addEventListener('click', buff1effect);
-    } else if (buff === 'Gain 1000 points for each guess with distance lower than 40m.' && !buff2Active) {
-        buff2Active = true;
-        buff2.style.display = 'block';
-        guessButton.addEventListener('click', buff2effect);
-    } else if (buff === 'Double your score for each correct guess.' && !buff3Active) {
-        buff3Active = true;
-        buff3.style.display = 'block';
-        guessButton.addEventListener('click', buff3effect);
-    } else if (buff === 'For every 10m from the correct location, gain 100 points, up to 100m.' && !buff4Active) {
-        buff4Active = true;
-        buff4.style.display = 'block';
-        guessButton.addEventListener('click', buff4effect);
-    } else if (buff === 'Remove 1 - 4 random Debuffs.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        removeRandomDebuff(randomCount);
-    } else if (buff === 'Apply 1 - 4 random Buffs.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        addRandomBuff(randomCount);
-    } else if (buff === 'For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict obtained.') {
-        buff5Active = true;
-        guessButton.addEventListener('click', buff5effect);
-    } else if (buff === 'Ruan Mei: For every guess, there is a 50% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff". This effect will be removed after triggering 1 time.') {
-        buff6Active = true;
-        buff6.style.display = 'block';
-        guessButton.addEventListener('click', buff6effect);
+/* ---------------- Helpers: centralized lists ---------------- */
+
+const buffItems = [
+    { el: buff1, isActive: () => buff1Active, setActive: v => { buff1Active = v; }, effect: buff1effect, id: 'buff1' },
+    { el: buff2, isActive: () => buff2Active, setActive: v => { buff2Active = v; }, effect: buff2effect, id: 'buff2' },
+    { el: buff3, isActive: () => buff3Active, setActive: v => { buff3Active = v; }, effect: buff3effect, id: 'buff3' },
+    { el: buff4, isActive: () => buff4Active, setActive: v => { buff4Active = v; }, effect: buff4effect, id: 'buff4' },
+    { el: buff5, isActive: () => buff5Active, setActive: v => { buff5Active = v; }, effect: buff5effect, id: 'buff5' },
+    { el: buff6, isActive: () => buff6Active, setActive: v => { buff6Active = v; }, effect: buff6effect, id: 'buff6' },
+];
+
+const debuffItems = [
+    { el: debuff1, isActive: () => debuff1Active, setActive: v => { debuff1Active = v; }, effect: debuff1effect, id: 'debuff1' },
+    { el: debuff2, isActive: () => debuff2Active, setActive: v => { debuff2Active = v; }, effect: debuff2effect, id: 'debuff2' },
+    { el: debuff3, isActive: () => debuff3Active, setActive: v => { debuff3Active = v; }, effect: debuff3effect, id: 'debuff3' },
+    { el: debuff4, isActive: () => debuff4Active, setActive: v => { debuff4Active = v; }, effect: debuff4effect, id: 'debuff4' },
+    { el: debuff5, isActive: () => debuff5Active, setActive: v => { debuff5Active = v; }, effect: debuff5effect, id: 'debuff5' },
+    { el: debuff6, isActive: () => debuff6Active, setActive: v => { debuff6Active = v; }, effect: debuff6effect, id: 'debuff6' },
+];
+
+/* ---------------- Random add/remove helpers ---------------- */
+
+function removeRandomDebuff(count) {
+    let active = debuffItems.filter(i => i.isActive());
+    for (let i = 0; i < count && active.length > 0; i++) {
+        const idx = Math.floor(Math.random() * active.length);
+        const item = active.splice(idx, 1)[0];
+        item.setActive(false);
+        if (item.el) item.el.style.display = 'none';
     }
+    // hide sub-icons if main is hidden
+    if (debuff5 && debuff5.style.display === 'none') {
+        debuff51.style.display = 'none';
+        debuff52.style.display = 'none';
+        debuff53.style.display = 'none';
+        debuff54.style.display = 'none';
+    }
+    updateRoundInfo();
 }
 
-function applyDebuffEffect(debuff) {
-    if (debuff === 'Apply 1 - 4 random Filters.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        addRandomFilter(randomCount);
-    } else if (debuff === 'Deduct 1000 - 5000 points this round.') {
-        currentScore -= Math.floor(Math.random() * 4000) + 1000;
-        updateRoundInfo();
-    } else if (debuff === 'Deduct 1000 points for each guess lower than 2500 points.' && !debuff1Active) {
-        debuff1Active = true;
-        debuff1.style.display = 'block';
-        guessButton.addEventListener('click', debuff1effect);
-    } else if (debuff === 'Deduct 1000 points for each guess with distance higher than 25m. Incorrect guess will also deduct points this way.' && !debuff2Active) {
-        debuff2Active = true;
-        debuff2.style.display = 'block';
-        guessButton.addEventListener('click', debuff2effect);
-    } else if (debuff === 'Instant game over if your guess is lower than 2500 points.' && !debuff3Active) {
-        debuff3Active = true;
-        debuff3.style.display = 'block';
-        guessButton.addEventListener('click', debuff3effect);
-    } else if (debuff === 'Instant game over if your distance is higher than 50m. Incorrect guess will also trigger this effect.' && !debuff4Active) {
-        debuff4Active = true;
-        debuff4.style.display = 'block';
-        guessButton.addEventListener('click', debuff4effect);
-    } else if (debuff === 'Remove 1 - 4 random Buffs.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        removeRandomBuff(randomCount);
-    } else if (debuff === 'Apply 1 - 4 random Debuffs.') {
-        var randomCount = Math.floor(Math.random() * 4) + 1;
-        addRandomDebuff(randomCount);
-    } else if (debuff === 'For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous obtained.') {
-        debuff5Active = true;
-        guessButton.addEventListener('click', debuff5effect);
-    } else if (debuff === 'For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.') {
-        debuff6Active = true;
-        guessButton.addEventListener('click', debuff6effect);
+function addRandomDebuff(count) {
+    let inactive = debuffItems.filter(i => !i.isActive());
+    for (let i = 0; i < count && inactive.length > 0; i++) {
+        const idx = Math.floor(Math.random() * inactive.length);
+        const item = inactive.splice(idx, 1)[0];
+        item.setActive(true);
+        if (item.el) item.el.style.display = 'block';
     }
+    updateRoundInfo();
+}
+
+function removeRandomBuff(count) {
+    let active = buffItems.filter(i => i.isActive());
+    for (let i = 0; i < count && active.length > 0; i++) {
+        const idx = Math.floor(Math.random() * active.length);
+        const item = active.splice(idx, 1)[0];
+        item.setActive(false);
+        if (item.el) item.el.style.display = 'none';
+    }
+    // hide sub-icons if main is hidden
+    if (buff5 && buff5.style.display === 'none') {
+        buff51.style.display = 'none';
+        buff52.style.display = 'none';
+        buff53.style.display = 'none';
+        buff54.style.display = 'none';
+    }
+    updateRoundInfo();
+}
+
+function addRandomBuff(count) {
+    let inactive = buffItems.filter(i => !i.isActive());
+    for (let i = 0; i < count && inactive.length > 0; i++) {
+        const idx = Math.floor(Math.random() * inactive.length);
+        const item = inactive.splice(idx, 1)[0];
+        item.setActive(true);
+        if (item.el) item.el.style.display = 'block';
+    }
+    updateRoundInfo();
 }
 
 function removeRandomFilter(count, checkedCheckboxes) {
@@ -371,129 +414,59 @@ function addRandomFilter(count) {
   
     updateRoundInfo();
 }
+/* ---------------- Apply / central executor ---------------- */
 
-function removeRandomDebuff(count) {
-    var debuffs = [
-        { active: debuff1Active, style: debuff1, effect: debuff1effect },
-        { active: debuff2Active, style: debuff2, effect: debuff2effect },
-        { active: debuff3Active, style: debuff3, effect: debuff3effect },
-        { active: debuff4Active, style: debuff4, effect: debuff4effect },
-        { active: debuff5Active, style: debuff5, effect: debuff5effect },
-        { active: debuff6Active, style: debuff6, effect: debuff6effect }
-    ];
-  
-    // Filter active debuffs
-    var activeDebuffs = debuffs.filter(function(debuff) {
-        return debuff.active;
-    });
-  
-    // Randomly select and remove debuffs
-    for (var i = 0; i < count; i++) {
-      if (activeDebuffs.length > 0) {
-        var randomIndex = Math.floor(Math.random() * activeDebuffs.length);
-        var debuffRemove = activeDebuffs[randomIndex];
-        
-        debuffRemove.active = false;
-        debuffRemove.style.style.display = 'none';
-        guessButton.removeEventListener('click', debuffRemove.effect);
-        activeDebuffs.splice(randomIndex, 1);
-        }
-    }
-
-    if (debuff5.style.display = 'none') {
-        debuff51.style.display = 'none';
-        debuff52.style.display = 'none';
-        debuff53.style.display = 'none';
-        debuff54.style.display = 'none';
+function applyBuffEffect(buff) {
+    if (buff === 'Gain 1000 - 5000 points this round.') {
+        currentScore += Math.floor(Math.random() * 4000) + 1000;
+        updateRoundInfo();
+    } else if (buff === 'Remove 1 - 4 random Filters.') {
+        var randomCount = Math.floor(Math.random() * 4) + 1;
+        const checkedCheckboxes = [BAWCheckbox, InvertCheckbox, PixelateCheckbox, ScrambleCheckbox].filter(c => c && c.checked);
+        removeRandomFilter(randomCount, checkedCheckboxes);
+    } else if (buff === 'Set your score to 5000 - 25000 randomly.') {
+        currentScore = Math.floor(Math.random() * 20000) + 5000;
+        updateRoundInfo();
+    } else if (buff === 'Gain 1000 points for each guess equal or higher than 3500 points.' && !buff1Active) {
+        buff1Active = true; if (buff1) buff1.style.display = 'block';
+    } else if (buff === 'Gain 1000 points for each guess with distance lower than 40m.' && !buff2Active) {
+        buff2Active = true; if (buff2) buff2.style.display = 'block';
+    } else if (buff === 'Double your score for each correct guess.' && !buff3Active) {
+        buff3Active = true; if (buff3) buff3.style.display = 'block';
+    } else if (buff === 'For every 10m from the correct location, gain 100 points, up to 100m.' && !buff4Active) {
+        buff4Active = true; if (buff4) buff4.style.display = 'block';
+    } else if (buff === 'Remove 1 - 4 random Debuffs.') {
+        removeRandomDebuff(Math.floor(Math.random() * 4) + 1);
+    } else if (buff === 'Apply 1 - 4 random Buffs.') {
+        addRandomBuff(Math.floor(Math.random() * 4) + 1);
+    } else if (buff === 'For every correct guess, gain a stack of Strict. Gain 5000 points for every 5 stack of Strict obtained.') {
+        buff5Active = true; if (buff5) buff5.style.display = 'block';
+    } else if (buff === 'Ruan Mei: For every guess, there is a 50% chance to receive one of following: "25000 points, apply 1 Buff, remove 1 Debuff". This effect will be removed after triggering 1 time.') {
+        buff6Active = true; if (buff6) buff6.style.display = 'block';
     }
 }
 
-function removeRandomBuff(count) {
-    var buffs = [
-        { active: buff1Active, style: buff1, effect: buff1effect },
-        { active: buff2Active, style: buff2, effect: buff2effect },
-        { active: buff3Active, style: buff3, effect: buff3effect },
-        { active: buff4Active, style: buff4, effect: buff4effect },
-        { active: buff5Active, style: buff5, effect: buff5effect },
-        { active: buff6Active, style: buff6, effect: buff6effect }
-    ];
-  
-    // Filter active debuffs
-    var activeBuffs = buffs.filter(function(buff) {
-        return buff.active;
-    });
-  
-    // Randomly select and remove debuffs
-    for (var i = 0; i < count; i++) {
-        if (activeBuffs.length > 0) {
-            var randomIndex = Math.floor(Math.random() * activeBuffs.length);
-            var buffRemove = activeBuffs[randomIndex];
-            
-            buffRemove.active = false;
-            buffRemove.style.style.display = 'none';
-            guessButton.removeEventListener('click', buffRemove.effect);
-            activeBuffs.splice(randomIndex, 1);
-        }
-    }
-
-    if (buff5.style.display = 'none') {
-        buff51.style.display = 'none';
-        buff52.style.display = 'none';
-        buff53.style.display = 'none';
-        buff54.style.display = 'none';
-    }
-}
-
-function addRandomDebuff(count) {
-    var debuffs = [
-        { active: debuff1Active, style: debuff1, effect: debuff1effect },
-        { active: debuff2Active, style: debuff2, effect: debuff2effect },
-        { active: debuff3Active, style: debuff3, effect: debuff3effect },
-        { active: debuff4Active, style: debuff4, effect: debuff4effect },
-        { active: debuff5Active, style: debuff5, effect: debuff5effect },
-        { active: debuff6Active, style: debuff6, effect: debuff6effect }
-    ];
-  
-    var inactiveDebuffs = debuffs.filter(function(debuff) {
-        return !debuff.active;
-    });
-  
-    for (var i = 0; i < count; i++) {
-        if (inactiveDebuffs.length > 0) {
-            var randomIndex = Math.floor(Math.random() * inactiveDebuffs.length);
-            var debuffToAdd = inactiveDebuffs[randomIndex];
-    
-            debuffToAdd.active = true;
-            debuffToAdd.style.style.display = 'block';
-            guessButton.addEventListener('click', debuffToAdd.effect);
-            inactiveDebuffs.splice(randomIndex, 1);
-        }
-    }
-}
-
-function addRandomBuff(count) {
-    var buffs = [
-        { active: buff1Active, style: buff1, effect: buff1effect },
-        { active: buff2Active, style: buff2, effect: buff2effect },
-        { active: buff3Active, style: buff3, effect: buff3effect },
-        { active: buff4Active, style: buff4, effect: buff4effect },
-        { active: buff5Active, style: buff5, effect: buff5effect },
-        { active: buff6Active, style: buff6, effect: buff6effect }
-    ];
-  
-    var inactiveBuffs = buffs.filter(function(buff) {
-        return !buff.active;
-    });
-  
-    for (var i = 0; i < count; i++) {
-        if (inactiveBuffs.length > 0) {
-            var randomIndex = Math.floor(Math.random() * inactiveBuffs.length);
-            var buffToAdd = inactiveBuffs[randomIndex];
-    
-            buffToAdd.active = true;
-            buffToAdd.style.style.display = 'block';
-            guessButton.addEventListener('click', buffToAdd.effect);
-            inactiveBuffs.splice(randomIndex, 1);
-        }
+function applyDebuffEffect(debuff) {
+    if (debuff === 'Apply 1 - 4 random Filters.') {
+        addRandomFilter(Math.floor(Math.random() * 4) + 1);
+    } else if (debuff === 'Deduct 1000 - 5000 points this round.') {
+        currentScore -= Math.floor(Math.random() * 4000) + 1000;
+        updateRoundInfo();
+    } else if (debuff === 'Deduct 1000 points for each guess lower than 2500 points.' && !debuff1Active) {
+        debuff1Active = true; if (debuff1) debuff1.style.display = 'block';
+    } else if (debuff === 'Deduct 1000 points for each guess with distance higher than 25m. Incorrect guess will also deduct points this way.' && !debuff2Active) {
+        debuff2Active = true; if (debuff2) debuff2.style.display = 'block';
+    } else if (debuff === 'Instant game over if your guess is lower than 2500 points.' && !debuff3Active) {
+        debuff3Active = true; if (debuff3) debuff3.style.display = 'block';
+    } else if (debuff === 'Instant game over if your distance is higher than 50m. Incorrect guess will also trigger this effect.' && !debuff4Active) {
+        debuff4Active = true; if (debuff4) debuff4.style.display = 'block';
+    } else if (debuff === 'Remove 1 - 4 random Buffs.') {
+        removeRandomBuff(Math.floor(Math.random() * 4) + 1);
+    } else if (debuff === 'Apply 1 - 4 random Debuffs.') {
+        addRandomDebuff(Math.floor(Math.random() * 4) + 1);
+    } else if (debuff === 'For every incorrect guess, gain a stack of Erroneous. Deduct 10000 points for every 5 stack of Erroneous obtained.') {
+        debuff5Active = true; if (debuff5) debuff5.style.display = 'block';
+    } else if (debuff === 'For every incorrect guess, gain a stack of Lugubrious. Deduct 500 points every round for each stack, up to 10 stacks. Every guess equal or greater than 2500 points removes 1 stack.') {
+        debuff6Active = true; if (debuff6) debuff6.style.display = 'block';
     }
 }

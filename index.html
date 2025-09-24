@@ -26,7 +26,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.16 (3.6#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.17 (3.6#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -289,52 +289,56 @@
                     </div>
                 <div id="map"></div>
                 <div id="game-stat" class="game-stat">
-                    <p id="map-info"><span class="map-text">Map</span><br>Random</p>
-                    <p id="round-info"></p>
-                    <p id="score-info"></p>
-                    <img id="diff1" src="static/media/icons/diff1.png">
-                    <img id="diff2" src="static/media/icons/diff2.png">
-                    <img id="diff3" src="static/media/icons/diff3.png">
-                    <img id="diff4" src="static/media/icons/diff4.png">
-                    <img id="diff5" src="static/media/icons/diff5.png">
-                    <img id="diff6" src="static/media/icons/diff6.png">
-                    <img id="diff7" src="static/media/icons/diff7.png">
-                    <img id="diff8" src="static/media/icons/diff8.png">
-                    <img id="diff9" src="static/media/icons/diff9.png">
-                    <img id="filter1" src="static/media/icons/filter1.png">
-                    <img id="filter2" src="static/media/icons/filter2.png">
-                    <img id="filter3" src="static/media/icons/filter3.png">
-                    <img id="filter4" src="static/media/icons/filter4.png">
-                    <img id="debuff1" src="static/media/icons/debuff1.png">
-                    <img id="debuff2" src="static/media/icons/debuff2.png">
-                    <img id="debuff5" src="static/media/icons/debuff5.png">
-                    <img id="debuff3" src="static/media/icons/debuff3.png">
-                    <img id="debuff4" src="static/media/icons/debuff4.png">
-                    <img id="debuff5-1" src="static/media/icons/debuff5-1.png">
-                    <img id="debuff5-2" src="static/media/icons/debuff5-2.png">
-                    <img id="debuff5-3" src="static/media/icons/debuff5-3.png">
-                    <img id="debuff5-4" src="static/media/icons/debuff5-4.png">
-                    <img id="debuff6" src="static/media/icons/debuff6.png">
-                    <img id="debuff6-1" src="static/media/icons/debuff6-1.png">
-                    <img id="debuff6-2" src="static/media/icons/debuff6-2.png">
-                    <img id="debuff6-3" src="static/media/icons/debuff6-3.png">
-                    <img id="debuff6-4" src="static/media/icons/debuff6-4.png">
-                    <img id="debuff6-5" src="static/media/icons/debuff6-5.png">
-                    <img id="debuff6-6" src="static/media/icons/debuff6-6.png">
-                    <img id="debuff6-7" src="static/media/icons/debuff6-7.png">
-                    <img id="debuff6-8" src="static/media/icons/debuff6-8.png">
-                    <img id="debuff6-9" src="static/media/icons/debuff6-9.png">
-                    <img id="debuff6-10" src="static/media/icons/debuff6-10.png">
-                    <img id="buff1" src="static/media/icons/buff1.png">
-                    <img id="buff2" src="static/media/icons/buff2.png">
-                    <img id="buff3" src="static/media/icons/buff3.png">
-                    <img id="buff4" src="static/media/icons/buff4.png">
-                    <img id="buff5" src="static/media/icons/buff5.png">
-                    <img id="buff5-1" src="static/media/icons/buff5-1.png">
-                    <img id="buff5-2" src="static/media/icons/buff5-2.png">
-                    <img id="buff5-3" src="static/media/icons/buff5-3.png">
-                    <img id="buff5-4" src="static/media/icons/buff5-4.png">
-                    <img id="buff6" src="static/media/icons/buff6.png">
+                    <div class="stat-info">
+                        <p id="map-info"><span class="map-text">Map</span><br>Random</p>
+                        <p id="round-info"></p>
+                        <p id="score-info"></p>
+                    </div>
+                    <div class="stat-icons">
+                        <img id="diff1" src="static/media/icons/diff1.png">
+                        <img id="diff2" src="static/media/icons/diff2.png">
+                        <img id="diff3" src="static/media/icons/diff3.png">
+                        <img id="diff4" src="static/media/icons/diff4.png">
+                        <img id="diff5" src="static/media/icons/diff5.png">
+                        <img id="diff6" src="static/media/icons/diff6.png">
+                        <img id="diff7" src="static/media/icons/diff7.png">
+                        <img id="diff8" src="static/media/icons/diff8.png">
+                        <img id="diff9" src="static/media/icons/diff9.png">
+                        <img id="filter1" src="static/media/icons/filter1.png">
+                        <img id="filter2" src="static/media/icons/filter2.png">
+                        <img id="filter3" src="static/media/icons/filter3.png">
+                        <img id="filter4" src="static/media/icons/filter4.png">
+                        <img id="debuff1" src="static/media/icons/debuff1.png">
+                        <img id="debuff2" src="static/media/icons/debuff2.png">
+                        <img id="debuff5" src="static/media/icons/debuff5.png">
+                        <img id="debuff3" src="static/media/icons/debuff3.png">
+                        <img id="debuff4" src="static/media/icons/debuff4.png">
+                        <img id="debuff5-1" src="static/media/icons/debuff5-1.png">
+                        <img id="debuff5-2" src="static/media/icons/debuff5-2.png">
+                        <img id="debuff5-3" src="static/media/icons/debuff5-3.png">
+                        <img id="debuff5-4" src="static/media/icons/debuff5-4.png">
+                        <img id="debuff6" src="static/media/icons/debuff6.png">
+                        <img id="debuff6-1" src="static/media/icons/debuff6-1.png">
+                        <img id="debuff6-2" src="static/media/icons/debuff6-2.png">
+                        <img id="debuff6-3" src="static/media/icons/debuff6-3.png">
+                        <img id="debuff6-4" src="static/media/icons/debuff6-4.png">
+                        <img id="debuff6-5" src="static/media/icons/debuff6-5.png">
+                        <img id="debuff6-6" src="static/media/icons/debuff6-6.png">
+                        <img id="debuff6-7" src="static/media/icons/debuff6-7.png">
+                        <img id="debuff6-8" src="static/media/icons/debuff6-8.png">
+                        <img id="debuff6-9" src="static/media/icons/debuff6-9.png">
+                        <img id="debuff6-10" src="static/media/icons/debuff6-10.png">
+                        <img id="buff1" src="static/media/icons/buff1.png">
+                        <img id="buff2" src="static/media/icons/buff2.png">
+                        <img id="buff3" src="static/media/icons/buff3.png">
+                        <img id="buff4" src="static/media/icons/buff4.png">
+                        <img id="buff5" src="static/media/icons/buff5.png">
+                        <img id="buff5-1" src="static/media/icons/buff5-1.png">
+                        <img id="buff5-2" src="static/media/icons/buff5-2.png">
+                        <img id="buff5-3" src="static/media/icons/buff5-3.png">
+                        <img id="buff5-4" src="static/media/icons/buff5-4.png">
+                        <img id="buff6" src="static/media/icons/buff6.png">
+                    </div>
                 </div>
                 <div class="countdown-container">
                     <div id="countdown-text"></div>
@@ -419,6 +423,5 @@
             superstition3 = document.getElementById('superstition3');
             superstitionText = document.getElementById('superstition-text');
         </script>
-
     </body>
 </html>

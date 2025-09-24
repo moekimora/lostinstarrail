@@ -32,9 +32,9 @@ function seed() {
         seedText.innerHTML = 'Random Seed<br>' + seed;
     } else {
         if (!isNaN(parsedSeed)) {
-        seedText.innerHTML = 'Provided Seed<br>' + parsedSeed;
+        seedText.innerHTML = 'Set Seed<br>' + parsedSeed;
         } else {
-        seedText.innerHTML = 'Provided Seed<br>' + seedValue + ' (' + seed + ')';
+        seedText.innerHTML = 'Set Seed<br>' + seedValue + ' (' + seed + ')';
         }
     }
     document.body.appendChild(seedText);

@@ -394,5 +394,15 @@ If you guess in the wrong map location, you get **0** points.
   - Score animation yes
   - Map zoom go wwweeee
 
+## v1.1.17
+- QoL changes
+  - Score now accounts for changes from buffs, debuffs from Superstition mode
+  - Better animations wahooo
+  - Select locations made easier, now for multi-floor locations, clicking on the said location will display the most common floor players guess, instead of forcing
+  to press the floor buttons, which are small and inconvinient (Thank you Rabbit for suggestion)
+  - Score compensation for guessing the correct location but wrong floor (Thank you Rabbit for suggestion)
+  - Prevented drag highlights for images and maps
+  - Updated countdown UI
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

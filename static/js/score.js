@@ -127,7 +127,45 @@ var guessResult = document.getElementById('guessResult');
 var displayElement = document.getElementById("countdown-text");
 var displaySElement = document.getElementById("countdown-s-text");
 
+function animateScoreEaseOut(targetScore, element, duration = 1000, delay = 500, callback = null, startScore = 0) {
+    // show starting number
+    element.textContent = String(startScore);
+    setTimeout(() => {
+        let startTime = null;
 
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            let progress = Math.min(elapsed / duration, 1);
+            progress = easeOutQuad(progress);
+            const current = Math.floor(startScore + (targetScore - startScore) * progress);
+            element.textContent = current;
+
+            if (elapsed < duration) {
+                requestAnimationFrame(animate);
+            } else {
+                element.textContent = targetScore;
+                if (callback) callback();
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }, delay);
+}
+
+function isSameZoneDifferentFloor(correctLocation, guessedLocation) {
+  // Example: "Storage Zone - F1" → base = "Storage Zone"
+  function baseName(name) {
+    return name.split(" - ")[0].trim();
+  }
+
+  return (
+    baseName(correctLocation) === baseName(guessedLocation) &&
+    correctLocation !== guessedLocation
+  );
+}
+
+// Patch the guessButton event
 guessButton.addEventListener('click', function() {
     if (!guessButton.classList.contains('has-marker')) return;
 
@@ -137,15 +175,20 @@ guessButton.addEventListener('click', function() {
 
     if (currentMap === currentMapLocation && starrailMarker) {
         var playerMarker = starrailMarker.getLatLng();
-        let distance = calculateDistance(
+
+        // assign to the global variables (was 'let distance' before)
+        distance = calculateDistance(
             playerMarker.lat,
             playerMarker.lng,
             currentImage.lat,
             currentImage.lng
         );
 
-        let score = distance < 3 ? 5000 : Math.max(0, 5000 - (distance - 3) * 29.333);
+        // assign to global 'score' (was 'let score' before)
+        score = distance < 3 ? 5000 : Math.max(0, 5000 - (distance - 3) * 29.333);
         score = Math.ceil(score);
+
+        // add base score to total now
         currentScore += score;
 
         displayElement.style.display = "none";
@@ -155,19 +198,122 @@ guessButton.addEventListener('click', function() {
         guessResult.innerHTML = resultText;
 
         let animatedScoreElement = document.getElementById("animated-score");
-        animateScoreEaseOut(score, animatedScoreElement, 1500, 500); 
+
+        // Step 1: animate base score (0 -> score)
+        animateScoreEaseOut(score, animatedScoreElement, 1500, 500, () => {
+            // Step 2: apply buffs/debuffs (they now read the global 'score' and 'distance')
+            // Step 2: apply buffs/debuffs and get individual deltas
+            let beforeBuffScore = currentScore;
+            let deltas = [];
+            if (typeof applyActiveBuffsAndDebuffs === "function") {
+                deltas = applyActiveBuffsAndDebuffs(); // array of numbers
+            }
+            let afterBuffScore = currentScore;
+
+            if (deltas.length > 0) {
+                let runningScore = score; // start from base score
+                deltas.forEach((delta, index) => {
+                    setTimeout(() => {
+                        // popup for this delta
+                        let popupElement = document.createElement("span");
+                        popupElement.textContent = (delta > 0 ? "+" : "") + delta;
+                        popupElement.style.position = "absolute";
+                        popupElement.style.left = "50%";
+                        popupElement.style.top = "55%";
+                        popupElement.style.transform = "translateX(-50%)";
+                        popupElement.style.fontSize = "40px";
+                        popupElement.style.fontWeight = "bold";
+                        popupElement.style.color = delta > 0 ? "limegreen" : "crimson";
+                        popupElement.style.opacity = "1";
+                        popupElement.style.transition = "all 900ms ease";
+                        animatedScoreElement.parentNode.appendChild(popupElement);
+
+                        setTimeout(() => {
+                            popupElement.style.top = "45%";
+                            popupElement.style.opacity = "0";
+                        }, 50);
+                        setTimeout(() => popupElement.remove(), 1000);
+
+                        // animate yellow score from runningScore → runningScore+delta
+                        animateScoreEaseOut(runningScore + delta, animatedScoreElement, 1000, 0, null, runningScore);
+                        runningScore += delta;
+                    }, index * 1200); // stagger animations
+                });
+            }
+        });
 
     } else if (starrailMarker) {
-        let score = 0;
-        displayElement.style.display = "none";
-        displaySElement.style.display = "none";
+    let compensation = 0;
+    let message = "Your guess was incorrect!";
 
-        resultText = `Your guess was incorrect! The correct location is <span style='color: rgb(255, 228, 107)'>${currentMapLocation}</span>. <br><span id="animated-score" style='color: rgb(255, 228, 107); font-size: 80px; display: block; text-align: center'>0</span></br>`;
-        guessResult.innerHTML = resultText;
-
-        let animatedScoreElement = document.getElementById("animated-score");
-        animateScoreEaseOut(score, animatedScoreElement, 1500, 500); 
+    if (isSameZoneDifferentFloor(currentMapLocation, currentMap)) {
+        compensation = 500;
+        message = `Your guess was <span style='color: rgb(255, 228, 107)'>close</span>!`;
     }
+
+    score = compensation; // either 500 or 0
+    currentScore += score;
+
+    displayElement.style.display = "none";
+    displaySElement.style.display = "none";
+
+    resultText = `
+      ${message} The correct location is 
+      <span style='color: rgb(255, 228, 107)'>${currentMapLocation}</span>.
+      <br>
+      <span id="animated-score" 
+            style='color: rgb(255, 228, 107); font-size: 80px; display: inline-block; text-align: center'>
+            0
+      </span>
+      <br>
+    `;
+    guessResult.innerHTML = resultText;
+
+    let animatedScoreElement = document.getElementById("animated-score");
+
+    // animate base score (0 -> compensation)
+    animateScoreEaseOut(score, animatedScoreElement, 800, 200, () => {
+        let deltas = [];
+        if (typeof applyActiveBuffsAndDebuffs === "function") {
+            deltas = applyActiveBuffsAndDebuffs();
+        }
+        if (Array.isArray(deltas) && deltas.length > 0) {
+            let runningScore = score;
+            deltas.forEach((delta, index) => {
+                setTimeout(() => {
+                    let popupElement = document.createElement("span");
+                    popupElement.textContent = (delta > 0 ? "+" : "") + delta;
+                    popupElement.style.position = "absolute";
+                    popupElement.style.left = "50%";
+                    popupElement.style.top = "55%";
+                    popupElement.style.transform = "translateX(-50%)";
+                    popupElement.style.fontSize = "40px";
+                    popupElement.style.fontWeight = "bold";
+                    popupElement.style.color = delta > 0 ? "limegreen" : "crimson";
+                    popupElement.style.opacity = "1";
+                    popupElement.style.transition = "all 900ms ease";
+                    animatedScoreElement.parentNode.appendChild(popupElement);
+
+                    setTimeout(() => {
+                        popupElement.style.top = "45%";
+                        popupElement.style.opacity = "0";
+                    }, 50);
+                    setTimeout(() => popupElement.remove(), 1000);
+
+                    animateScoreEaseOut(
+                        runningScore + delta,
+                        animatedScoreElement,
+                        1000,
+                        0,
+                        null,
+                        runningScore
+                    );
+                    runningScore += delta;
+                }, index * 1200);
+            });
+        }
+    });
+}
 
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
@@ -372,32 +518,6 @@ updateNextRoundButton();
 function easeOutQuad(t) {
     return t * (2 - t);
 }
-
-function animateScoreEaseOut(targetScore, element, duration = 1000, delay = 500) {
-    element.textContent = '0'; // start at 0
-    setTimeout(() => {
-        let startTime = null;
-
-        function animate(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            let progress = Math.min(elapsed / duration, 1); // 0 to 1
-            progress = easeOutQuad(progress);
-            const currentScore = Math.floor(progress * targetScore);
-            element.textContent = currentScore;
-
-            if (elapsed < duration) {
-                requestAnimationFrame(animate);
-            } else {
-                element.textContent = targetScore; // ensure exact final score
-            }
-        }
-
-        requestAnimationFrame(animate);
-    }, delay);
-}
-
-
 
 function updateRoundInfo() {
   if (standardCheckbox.checked) {
