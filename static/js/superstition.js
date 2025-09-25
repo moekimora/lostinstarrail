@@ -131,7 +131,7 @@ var buff4effect = function() {
     return 0;
 };
 
-var buff5effect() {
+var buff5effect = function() {
   if (typeof score !== 'undefined' && score > 0) correctGuesses++;
 
   showGroup([buff5, ...buff5Variants], correctGuesses);
@@ -210,7 +210,7 @@ var debuff4effect = function() {
     return 0;
 };
 
-var debuff5effect() {
+var debuff5effect = function() {
   if (typeof score !== 'undefined' && score == 0) incorrectGuesses++;
 
   // 0..4 variants
@@ -228,7 +228,7 @@ var debuff5effect() {
 }
 
 // Example usage in debuff6effect
-var debuff6effect() {
+var debuff6effect = function() {
   if (typeof score !== 'undefined' && score == 0 && lugubriousIncorrectGuesses < 10) {
     lugubriousIncorrectGuesses++;
   } else if (typeof score !== 'undefined' && score >= 2500 && lugubriousIncorrectGuesses > 0) {
