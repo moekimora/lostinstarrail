@@ -91,7 +91,15 @@ function handleSuperstitionClick() {
 }
 
 /* ---------------- Buff/Debuff effect functions ---------------- */
+function hideGroup(group) {
+    group.forEach(el => el.style.display = 'none');
+}
 
+function showGroup(group, index) {
+    group.forEach((el, i) => {
+        el.style.display = (i === index ? 'block' : 'none');
+    });
+}
 /* ---------------- Buff effect functions (return deltas) ---------------- */
 
 var buff1effect = function() {
