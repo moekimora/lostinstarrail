@@ -1,34 +1,22 @@
-var debuff1 = document.getElementById("debuff1");
-var debuff2 = document.getElementById("debuff2");
-var debuff3 = document.getElementById("debuff3");
-var debuff4 = document.getElementById("debuff4");
-var debuff5 = document.getElementById("debuff5");
-var debuff51 = document.getElementById("debuff5-1");
-var debuff52 = document.getElementById("debuff5-2");
-var debuff53 = document.getElementById("debuff5-3");
-var debuff54 = document.getElementById("debuff5-4");
-var debuff6 = document.getElementById("debuff6");
-var debuff61 = document.getElementById("debuff6-1");
-var debuff62 = document.getElementById("debuff6-2");
-var debuff63 = document.getElementById("debuff6-3");
-var debuff64 = document.getElementById("debuff6-4");
-var debuff65 = document.getElementById("debuff6-5");
-var debuff66 = document.getElementById("debuff6-6");
-var debuff67 = document.getElementById("debuff6-7");
-var debuff68 = document.getElementById("debuff6-8");
-var debuff69 = document.getElementById("debuff6-9");
-var debuff610 = document.getElementById("debuff6-10");
+// Base icons
+const debuff1 = document.getElementById("debuff1");
+const debuff2 = document.getElementById("debuff2");
+const debuff3 = document.getElementById("debuff3");
+const debuff4 = document.getElementById("debuff4");
+const debuff5 = document.getElementById("debuff5");
+const debuff6 = document.getElementById("debuff6");
 
-var buff1 = document.getElementById("buff1");
-var buff2 = document.getElementById("buff2");
-var buff3 = document.getElementById("buff3");
-var buff4 = document.getElementById("buff4");
-var buff5 = document.getElementById("buff5");
-var buff51 = document.getElementById("buff5-1");
-var buff52 = document.getElementById("buff5-2");
-var buff53 = document.getElementById("buff5-3");
-var buff54 = document.getElementById("buff5-4");
-var buff6 = document.getElementById("buff6");
+const buff1 = document.getElementById("buff1");
+const buff2 = document.getElementById("buff2");
+const buff3 = document.getElementById("buff3");
+const buff4 = document.getElementById("buff4");
+const buff5 = document.getElementById("buff5");
+const buff6 = document.getElementById("buff6");
+
+// Variant groups (lazy select all with prefix match)
+const debuff5Variants = Array.from(document.querySelectorAll('[id^="debuff5-"]'));
+const debuff6Variants = Array.from(document.querySelectorAll('[id^="debuff6-"]'));
+const buff5Variants   = Array.from(document.querySelectorAll('[id^="buff5-"]'));
 
 var correctGuesses = 0;
 var incorrectGuesses = 0;
@@ -143,24 +131,21 @@ var buff4effect = function() {
     return 0;
 };
 
-var buff5effect = function() {
-    if (typeof score !== 'undefined' && score > 0) correctGuesses++;
+var buff5effect() {
+  if (typeof score !== 'undefined' && score > 0) correctGuesses++;
 
-    var buffs = [buff5, buff51, buff52, buff53, buff54];
-    for (var i = 0; i < buffs.length; i++) {
-        buffs[i].style.display = i === correctGuesses ? 'block' : 'none';
-    }
+  showGroup([buff5, ...buff5Variants], correctGuesses);
 
-    if (correctGuesses === 5) {
-        buff5.style.display = 'block';
-        buffs.slice(1).forEach(function(b) { b.style.display = 'none'; });
-        currentScore += 5000;
-        correctGuesses = 0;
-        updateRoundInfo();
-        return 5000;
-    }
-    return 0;
-};
+  if (correctGuesses === 5) {
+    buff5.style.display = 'block';
+    hideGroup(buff5Variants);
+    currentScore += 5000;
+    correctGuesses = 0;
+    updateRoundInfo();
+    return 5000;
+  }
+  return 0;
+}
 
 var buff6effect = function() {
     var random = Math.floor(Math.random() * 100) + 1;
@@ -225,44 +210,41 @@ var debuff4effect = function() {
     return 0;
 };
 
-var debuff5effect = function() {
-    if (typeof score !== 'undefined' && score == 0) incorrectGuesses++;
+var debuff5effect() {
+  if (typeof score !== 'undefined' && score == 0) incorrectGuesses++;
 
-    var debuffs = [debuff5, debuff51, debuff52, debuff53, debuff54];
-    for (var i = 0; i < debuffs.length; i++) {
-        debuffs[i].style.display = i === incorrectGuesses ? 'block' : 'none';
-    }
+  // 0..4 variants
+  showGroup([debuff5, ...debuff5Variants], incorrectGuesses);
 
-    if (incorrectGuesses === 5) {
-        debuff5.style.display = 'block';
-        debuffs.slice(1).forEach(function(d) { d.style.display = 'none'; });
-        currentScore -= 10000;
-        incorrectGuesses = 0;
-        updateRoundInfo();
-        return -10000;
-    }
-    return 0;
-};
+  if (incorrectGuesses === 5) {
+    debuff5.style.display = 'block';
+    hideGroup(debuff5Variants);
+    currentScore -= 10000;
+    incorrectGuesses = 0;
+    updateRoundInfo();
+    return -10000;
+  }
+  return 0;
+}
 
-var debuff6effect = function() {
-    if (typeof score !== 'undefined' && score == 0 && lugubriousIncorrectGuesses < 10) {
-        lugubriousIncorrectGuesses++;
-    } else if (typeof score !== 'undefined' && score >= 2500 && lugubriousIncorrectGuesses > 0) {
-        lugubriousIncorrectGuesses--;
-    }
+// Example usage in debuff6effect
+var debuff6effect() {
+  if (typeof score !== 'undefined' && score == 0 && lugubriousIncorrectGuesses < 10) {
+    lugubriousIncorrectGuesses++;
+  } else if (typeof score !== 'undefined' && score >= 2500 && lugubriousIncorrectGuesses > 0) {
+    lugubriousIncorrectGuesses--;
+  }
 
-    var debuffs = [debuff6, debuff61, debuff62, debuff63, debuff64, debuff65, debuff66, debuff67, debuff68, debuff69, debuff610];
-    for (var i = 0; i < debuffs.length; i++) {
-        debuffs[i].style.display = i === lugubriousIncorrectGuesses ? 'block' : 'none';
-    }
-    if (lugubriousIncorrectGuesses > 0) {
-        let penalty = -500 * lugubriousIncorrectGuesses;
-        currentScore += penalty;
-        updateRoundInfo();
-        return penalty;
-    }
-    return 0;
-};
+  showGroup([debuff6, ...debuff6Variants], lugubriousIncorrectGuesses);
+
+  if (lugubriousIncorrectGuesses > 0) {
+    let penalty = -500 * lugubriousIncorrectGuesses;
+    currentScore += penalty;
+    updateRoundInfo();
+    return penalty;
+  }
+  return 0;
+}
 
 /* ---------------- Central executor ---------------- */
 
