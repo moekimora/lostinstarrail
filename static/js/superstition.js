@@ -90,7 +90,6 @@ function handleSuperstitionClick() {
     startSCountdown();
 }
 
-/* ---------------- Buff/Debuff effect functions ---------------- */
 /* ---------------- Helpers: centralized lists ---------------- */
 
 function hideGroup(group) {
@@ -107,7 +106,26 @@ function showGroup(group, index) {
     });
 }
 
-/* ---------------- Buff effect functions (return deltas) ---------------- */
+function preloadAllIcons() {
+    const allGroups = [
+        debuff5Variants,
+        debuff6Variants,
+        buff5Variants
+    ];
+
+    allGroups.forEach(group => {
+        group.forEach(el => {
+            if (!el.src || el.src === "") {
+                const src = el.getAttribute("data-src");
+                if (src) el.setAttribute("src", src);
+            }
+            // keep them hidden until needed
+            el.style.display = "none";
+        });
+    });
+}
+
+/* ---------------- Buff effect functions ---------------- */
 
 var buff1effect = function() {
     if (typeof score !== 'undefined' && score >= 3500) {
