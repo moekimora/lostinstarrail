@@ -91,15 +91,22 @@ function handleSuperstitionClick() {
 }
 
 /* ---------------- Buff/Debuff effect functions ---------------- */
+/* ---------------- Helpers: centralized lists ---------------- */
+
 function hideGroup(group) {
-    group.forEach(el => el.style.display = 'none');
+    group.forEach(el => hideIcon(el));
 }
 
 function showGroup(group, index) {
     group.forEach((el, i) => {
-        el.style.display = (i === index ? 'block' : 'none');
+        if (i === index) {
+            showIcon(el);  // load + show
+        } else {
+            hideIcon(el);
+        }
     });
 }
+
 /* ---------------- Buff effect functions (return deltas) ---------------- */
 
 var buff1effect = function() {
@@ -313,6 +320,7 @@ const debuffItems = [
 
 /* ---------------- Random add/remove helpers ---------------- */
 
+
 function removeRandomDebuff(count) {
     let active = debuffItems.filter(i => i.isActive());
     for (let i = 0; i < count && active.length > 0; i++) {
@@ -324,6 +332,9 @@ function removeRandomDebuff(count) {
     // If base debuff5 is hidden, hide all its variants too
     if (debuff5 && debuff5.style.display === 'none') {
         hideGroup(debuff5Variants);
+    }
+    if (debuff6 && debuff6.style.display === 'none') {
+        hideGroup(debuff6Variants);
     }
     updateRoundInfo();
 }
@@ -353,7 +364,6 @@ function removeRandomBuff(count) {
     }
     updateRoundInfo();
 }
-
 
 function addRandomBuff(count) {
     let inactive = buffItems.filter(i => !i.isActive());
