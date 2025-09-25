@@ -10,37 +10,38 @@ standardCheckbox = document.getElementById('Standard');
 survivalCheckbox = document.getElementById('Survival');
 superstitionCheckbox = document.getElementById('Superstition');
 
+let originalImageUrl = null;
+
 playButton.addEventListener('click', function () {
-loadingScreen.style.display = 'flex';
+  loadingScreen.style.display = 'flex';
   seed();
   // Choose a random image
   randomIndex = uniqueID[currentRound - 1];
   currentImage = images[randomIndex];
   currentMapLocation = images[randomIndex].currentLocation;
-  // console.log('Current map location:', currentMapLocation);
+  originalImageUrl = currentImage.imageUrl; // store original
 
   // Display the image
   imageElement = document.createElement('img');
-  imageElement.src = currentImage.imageUrl;
-  
-  let isImageLoaded = false;
-  imageElement.addEventListener('load', function () {
-    if (superstitionCheckbox.checked) {
-        superstitionStart();
-    } else {
-      if (!isImageLoaded) {
-        isImageLoaded = true;
-        loadingScreen.style.display = 'none';
-        startCountdown();
-      }
-    }
-  });
-
-  // Apply Filters
-  filter();
-
+  imageElement.src = originalImageUrl;
   imageElement.classList.add('random-image');
   document.body.appendChild(imageElement);
+
+  let isImageLoaded = false;
+  imageElement.addEventListener('load', function () {
+    if (isImageLoaded) return; // extra safety
+    isImageLoaded = true;
+    loadingScreen.style.display = 'none';
+    filter();
+    // If Superstition mode and it's a superstition round -> show it
+    if (superstitionCheckbox.checked && (currentRound - 1) % 5 === 0) {
+      superstitionStart();
+    } else {
+      // apply filters and start the timers
+      
+      startCountdown();
+    }
+  }, { once: true }); // <--- IMPORTANT: the handler is removed after firing once
   });
     
 var survivalCondition = null;
@@ -49,43 +50,36 @@ function playNextRound() {
   loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
   guessResult.textContent = '';
-  guessWrapper.style.zIndex = '-1'; // Fix z-index value
-  // Choose a random image
+  guessWrapper.style.zIndex = '-1';
+
   randomIndex = uniqueID[currentRound - 1];
   currentImage = images[randomIndex];
   currentMapLocation = images[randomIndex].currentLocation;
-  // console.log('Current map location:', currentMapLocation);
 
-  // Reset marker class
   guessButton.classList.remove('has-marker');
 
-  // Remove existing image
   var existingImage = document.querySelector('.random-image');
-  if (existingImage) {
-    existingImage.remove();
-  }
+  if (existingImage) existingImage.remove();
 
-  // Display the new image
+  originalImageUrl = currentImage.imageUrl;
   imageElement = document.createElement('img');
-  imageElement.src = currentImage.imageUrl;
-
-  let isImageLoaded = false;
-    imageElement.addEventListener('load', function () {
-    if (superstitionCheckbox.checked && (currentRound - 1) % 5 === 0) {
-        superstitionStart();
-    } else {
-    if (!isImageLoaded) {
-      isImageLoaded = true;
-      loadingScreen.style.display = 'none';
-      startCountdown();
-    }
-  }
-});
-  // Apply Filters
-  filter();
-
+  imageElement.src = originalImageUrl;
   imageElement.classList.add('random-image');
   document.body.appendChild(imageElement);
+
+  let isImageLoaded = false;
+  imageElement.addEventListener('load', function () {
+    if (isImageLoaded) return;
+    isImageLoaded = true;
+    loadingScreen.style.display = 'none';
+    filter();
+    if (superstitionCheckbox.checked && (currentRound - 1) % 5 === 0) {
+      superstitionStart();
+    } else {
+      
+      startCountdown();
+    }
+  }, { once: true });
 
 // Hide the next round button
 nextRoundButton.style.display = 'none';

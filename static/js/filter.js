@@ -1,74 +1,90 @@
-var canvas;
+let baseCanvas = document.createElement("canvas");
+let baseCtx = baseCanvas.getContext("2d");
+
+/* ---------------- Main filter handler ---------------- */
 function filter() {
+    if (!imageElement) return;
+    if (!originalImageUrl) originalImageUrl = imageElement.src;
+
+    // Always redraw from original imageElement (already loaded)
+    const w = imageElement.naturalWidth;
+    const h = imageElement.naturalHeight;
+    baseCanvas.width = w;
+    baseCanvas.height = h;
+    baseCtx.clearRect(0, 0, w, h);
+    baseCtx.drawImage(imageElement, 0, 0, w, h);
+
+    // Step 1: CSS filters
+    let cssFilters = [];
     if (BAWCheckbox.checked) {
-        imageElement.style.filter += ' grayscale()';
-        filter1.style.display = "block";
-    } else {
-        filter1.style.display = "none";
-    }
+        cssFilters.push("grayscale(100%)");
+        showIcon(filter1);
+    } else hideIcon(filter1);
+
     if (InvertCheckbox.checked) {
-        imageElement.style.filter += ' invert()';
-        filter2.style.display = "block";
-    } else {
-    filter2.style.display = "none";
-    }
+        cssFilters.push("invert(100%)");
+        showIcon(filter2);
+    } else hideIcon(filter2);
+
+    // Step 2: pixelate & scramble
     if (PixelateCheckbox.checked) {
-    filter3.style.display = "block";
-        let pixelateHandler = function() {
-            const pixelSize = 5; // Adjust the pixel size as needed
-            var canvas = document.createElement('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = imageElement.width;
-            canvas.height = imageElement.height;
-            ctx.imageSmoothingEnabled = false;
-            ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize);
-            ctx.drawImage(canvas, 0, 0, imageElement.width / pixelSize, imageElement.height / pixelSize, 0, 0, imageElement.width, imageElement.height);
-            imageElement.src = canvas.toDataURL();
-            canvas.remove(); // Remove the canvas element after use
-        };
-        imageElement.addEventListener('load', pixelateHandler, { once: true });
-    } else {
-    filter3.style.display = "none";
-    }
+        showIcon(filter3);
+        applyPixelate(baseCanvas, baseCtx);
+    } else hideIcon(filter3);
+
     if (ScrambleCheckbox.checked) {
-        filter4.style.display = "block";
-        let scrambleHandler = function() {
-            var canvas = document.createElement('canvas');
-            canvas.width = imageElement.width;
-            canvas.height = imageElement.height;
-            var ctx = canvas.getContext('2d');
-            ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+        showIcon(filter4);
+        applyScramble(baseCanvas, baseCtx);
+    } else hideIcon(filter4);
 
-            var sliceWidth = imageElement.width / 2;
-            var sliceHeight = imageElement.height / 3;
+    // Step 3: push result back into <img>
+    const url = baseCanvas.toDataURL();
+    imageElement.style.filter = cssFilters.join(" ");
+    imageElement.src = url; // ⚠️ no superstition trigger
+}
 
-            var slices = [
-                ctx.getImageData(0, 0, sliceWidth, sliceHeight),
-                ctx.getImageData(sliceWidth, 0, sliceWidth, sliceHeight),
-                ctx.getImageData(0, sliceHeight, sliceWidth, sliceHeight),
-                ctx.getImageData(sliceWidth, sliceHeight, sliceWidth, sliceHeight),
-                ctx.getImageData(0, sliceHeight * 2, sliceWidth, sliceHeight),
-                ctx.getImageData(sliceWidth, sliceHeight * 2, sliceWidth, sliceHeight)
-            ];
-            // Randomize the order of the slices
-            for (var i = slices.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [slices[i], slices[j]] = [slices[j], slices[i]];
-            }
-            // Clear the canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Draw the randomized and flipped slices back to the canvas
-            ctx.putImageData(slices[0], 0, 0);
-            ctx.putImageData(slices[1], sliceWidth, 0);
-            ctx.putImageData(slices[2], 0, sliceHeight);
-            ctx.putImageData(slices[3], sliceWidth, sliceHeight);
-            ctx.putImageData(slices[4], 0, sliceHeight * 2);
-            ctx.putImageData(slices[5], sliceWidth, sliceHeight * 2);
-            imageElement.src = canvas.toDataURL();
-            canvas.remove();
-        };
-        imageElement.addEventListener('load', scrambleHandler, { once: true });
-    } else {
-    filter4.style.display = "none";
+/* ---------------- Pixelate ---------------- */
+function applyPixelate(canvas, ctx) {
+    const pixelSize = 5;
+    const w = canvas.width, h = canvas.height;
+    let tempCanvas = document.createElement("canvas");
+    let tctx = tempCanvas.getContext("2d");
+    tempCanvas.width = w / pixelSize;
+    tempCanvas.height = h / pixelSize;
+
+    // downscale & upscale
+    tctx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, w, h);
+}
+
+/* ---------------- Scramble ---------------- */
+function applyScramble(canvas, ctx) {
+    const w = canvas.width, h = canvas.height;
+    const sliceW = w / 2, sliceH = h / 3;
+
+    let slices = [
+        ctx.getImageData(0, 0, sliceW, sliceH),
+        ctx.getImageData(sliceW, 0, sliceW, sliceH),
+        ctx.getImageData(0, sliceH, sliceW, sliceH),
+        ctx.getImageData(sliceW, sliceH, sliceW, sliceH),
+        ctx.getImageData(0, sliceH * 2, sliceW, sliceH),
+        ctx.getImageData(sliceW, sliceH * 2, sliceW, sliceH)
+    ];
+
+    // shuffle
+    for (let i = slices.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [slices[i], slices[j]] = [slices[j], slices[i]];
     }
+
+    // redraw scrambled
+    ctx.clearRect(0, 0, w, h);
+    ctx.putImageData(slices[0], 0, 0);
+    ctx.putImageData(slices[1], sliceW, 0);
+    ctx.putImageData(slices[2], 0, sliceH);
+    ctx.putImageData(slices[3], sliceW, sliceH);
+    ctx.putImageData(slices[4], 0, sliceH * 2);
+    ctx.putImageData(slices[5], sliceW, sliceH * 2);
 }

@@ -950,7 +950,7 @@ input:checked + .slider:before {
     right: 1%;
     width: 350px;
     height: 350px;
-    pointer-events: auto; /* allow hover */
+    pointer-events: none; /* allow hover */
     z-index: 3;
 }
 #starrailmap {
@@ -1425,6 +1425,13 @@ input:checked + .slider:before {
     #starrailmap {
         width: 250px;
         height: 250px;
+    }
+    #starrailmap-wrapper:hover #starrailmap {
+    transform: scale(1.5);
+    }
+
+    #starrailmap-wrapper:hover #guessButton {
+        transform: scale(1.5); /* match map scale */
     }
     #resultmap {
         width: 250px;

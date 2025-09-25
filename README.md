@@ -404,5 +404,13 @@ If you guess in the wrong map location, you get **0** points.
   - Prevented drag highlights for images and maps
   - Updated countdown UI
 
+## v1.1.18
+- Minor UI change
+  - Bigger map zoom
+  - Updated game stat UI
+- Some network optimizations
+  - Optimized lazy loading
+  - More minor optimizations
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
