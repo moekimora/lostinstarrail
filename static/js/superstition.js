@@ -250,7 +250,7 @@ var debuff5effect = function() {
   showGroup([debuff5, ...debuff5Variants], incorrectGuesses);
 
   if (incorrectGuesses === 5) {
-    debuff5.style.display = 'block';
+    showIcon(debuff5);
     hideGroup(debuff5Variants);
     currentScore -= 10000;
     incorrectGuesses = 0;
