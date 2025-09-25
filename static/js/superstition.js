@@ -321,8 +321,9 @@ function removeRandomDebuff(count) {
         item.setActive(false);
         hideIcon(item.el);
     }
+    // If base debuff5 is hidden, hide all its variants too
     if (debuff5 && debuff5.style.display === 'none') {
-        [debuff51, debuff52, debuff53, debuff54].forEach(hideIcon);
+        hideGroup(debuff5Variants);
     }
     updateRoundInfo();
 }
@@ -346,11 +347,13 @@ function removeRandomBuff(count) {
         item.setActive(false);
         hideIcon(item.el);
     }
+    // If base buff5 is hidden, hide all its variants too
     if (buff5 && buff5.style.display === 'none') {
-        [buff51, buff52, buff53, buff54].forEach(hideIcon);
+        hideGroup(buff5Variants);
     }
     updateRoundInfo();
 }
+
 
 function addRandomBuff(count) {
     let inactive = buffItems.filter(i => !i.isActive());
