@@ -80,21 +80,102 @@ function generateNextBatch() {
 document.getElementById('guessButton').addEventListener('click', generateNextBatch);
 
 //debug
-function findSeed(targetID, mapId, roundElement) {
-  let testSeed = -100000; // Start testing with a very low seed value
-  const maxSeed = 100000; // Define a reasonable range for testing
-  var roundElement = parseInt(document.getElementById('Round').value);
-
-  while (testSeed < maxSeed) {
-      uniqueIDs = []; // Clear the array for each seed test
-      const result = generateuniqueID(testSeed, roundElement);
-
-      if (result.includes(targetID)) {
-          console.log(`Found seed: ${testSeed}`);
-          return testSeed;
-      }
-      testSeed++;
+/**
+ * findSeed(targetSeq, mapId, rounds, opts)
+ *
+ * - targetSeq : array of integers you want the generator to produce (required)
+ * - mapId     : 0..3 (controls the getRandomNumber branch) (default 0)
+ * - rounds    : how many IDs to generate per seed (must be >= targetSeq.length) (default = targetSeq.length)
+ * - opts      : optional object:
+ *      { start: -100000, end: 100000, prefixOnly: true, firstOnly: true }
+ *        - start/end: seed search range (inclusive)
+ *        - prefixOnly: if true, compare targetSeq with the generated prefix [0..tlen-1].
+ *                      if false, search for targetSeq anywhere as a contiguous subsequence.
+ *        - firstOnly: return only the first matching seed (true) or all matches (false)
+ *
+ * Returns an array of matching seeds (empty if none found).
+ */
+function findSeed(targetSeq, mapId = 0, rounds = null, opts = {}) {
+  if (!Array.isArray(targetSeq) || targetSeq.length === 0) {
+    throw new Error("targetSeq must be a non-empty array");
   }
-  console.log("No seed found in the tested range");
-  return null;
+
+  const start = typeof opts.start === "number" ? opts.start : -100000;
+  const end = typeof opts.end === "number" ? opts.end : 100000;
+  const prefixOnly = opts.prefixOnly !== undefined ? !!opts.prefixOnly : true;
+  const firstOnly = opts.firstOnly !== undefined ? !!opts.firstOnly : true;
+
+  const tlen = targetSeq.length;
+  if (rounds === null) rounds = Math.max(tlen, 1);
+  if (rounds < tlen) {
+    throw new Error("rounds must be >= targetSeq.length");
+  }
+
+  // local copy of your seedRandom (same math as your generateuniqueID)
+  function seedRandom(s) {
+    const scale = (s * 1337 + 69420) % 233280;
+    const circularMod = (Math.sin(s) * scale + Math.cos(s * scale)) % 1;
+    return Math.abs(circularMod);
+  }
+
+  // local getRandomNumber matching your branches (use images.length if available)
+  function getRandomNumberForSeedValue(s, mapIdLocal) {
+    const imagesLen = (typeof images !== "undefined" && images && images.length) ? images.length : 1000;
+    if (mapIdLocal === 0) {
+      return Math.floor(seedRandom(s) * imagesLen);
+    } else if (mapIdLocal === 1) {
+      return Math.floor(seedRandom(s) * 254);
+    } else if (mapIdLocal === 2) {
+      return Math.floor(seedRandom(s) * 298) + 255;
+    } else if (mapIdLocal === 3) {
+      return Math.floor(seedRandom(s) * 600) + 553;
+    } else {
+      return Math.floor(seedRandom(s) * imagesLen);
+    }
+  }
+
+  const matches = [];
+
+  // iterate seed range
+  for (let seedTest = start; seedTest <= end; seedTest++) {
+    // generate 'rounds' numbers for this seed (note your code increments seed each push)
+    const generated = new Array(rounds);
+    for (let i = 0; i < rounds; i++) {
+      const s = seedTest + i; // you increment seed each iteration in your code
+      generated[i] = getRandomNumberForSeedValue(s, mapId);
+    }
+
+    if (prefixOnly) {
+      let ok = true;
+      for (let j = 0; j < tlen; j++) {
+        if (generated[j] !== targetSeq[j]) { ok = false; break; }
+      }
+      if (ok) {
+        matches.push(seedTest);
+        if (firstOnly) return matches;
+      }
+    } else {
+      // search for targetSeq anywhere as contiguous subsequence
+      let found = false;
+      for (let offset = 0; offset <= rounds - tlen; offset++) {
+        let ok = true;
+        for (let j = 0; j < tlen; j++) {
+          if (generated[offset + j] !== targetSeq[j]) { ok = false; break; }
+        }
+        if (ok) { found = true; break; }
+      }
+      if (found) {
+        matches.push(seedTest);
+        if (firstOnly) return matches;
+      }
+    }
+  }
+
+  return matches;
 }
+
+// Examples:
+// 1) look for a prefix match [1,2,3] with mapId 0, generate 5 values per seed, default seed range:
+//    findSeed([1,2,3], 0, 5)
+// 2) search seeds 0..5000 and return all matching seeds, allow subsequence anywhere:
+//    findSeed([1,2,3], 0, 10, { start: 0, end: 5000, prefixOnly: false, firstOnly: false })
