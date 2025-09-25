@@ -59,7 +59,6 @@ var overlays = [
   addOverlay('Exalting Sanctum', 'starrailmap/txl/txl-4.png'),
   addOverlay('Aurum Alley', 'starrailmap/txl/txl-5.png'),
   addOverlay('Divination Commission - F1', 'starrailmap/txl/txl-6f1.png'),
-  addOverlay('Divination Commission - F1', 'starrailmap/txl/txl-6f1.png'),
   addOverlay('Divination Commission - F2', 'starrailmap/txl/txl-6f2.png'),
   addOverlay('Artisanship Commission', 'starrailmap/txl/txl-7.png'),
   addOverlay('Fyxestroll Garden', 'starrailmap/txl/txl-8.png'),
