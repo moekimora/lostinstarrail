@@ -5,7 +5,8 @@ function initialize(map) {
     minZoom: 0,
     maxZoom: 5,
     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
-    maxBoundsViscosity: 1
+    maxBoundsViscosity: 1,
+    attributionControl:false,
   }).setView([0, 0], 0);
 }
 var starrailMap = initialize('starrailmap');

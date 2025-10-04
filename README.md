@@ -412,5 +412,9 @@ If you guess in the wrong map location, you get **0** points.
   - Optimized lazy loading
   - More minor optimizations
 
+## v1.1.19
+- Fixed a bug related to map showing when the player hovers the corner
+- Removed Leaflet attribution (Still credited them in Credits)
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

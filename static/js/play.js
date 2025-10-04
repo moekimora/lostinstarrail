@@ -1,9 +1,9 @@
 function togglePlay() {
-    //show game ui
+    // show game ui
     var gameStat = document.getElementById('game-stat');
     gameStat.style.display = 'flex';
 
-    //hide ui
+    // hide ui
     var video = document.getElementById('loadingscreen');
     var homelogo = document.getElementById('homelogo');
     var home = document.getElementById('home');
@@ -22,10 +22,14 @@ function togglePlay() {
     options.style.display = 'none';
     credits.style.display = 'none';
 
-    //toggle map
+    // toggle map - enable interactivity and low opacity
     var starrailMap = document.querySelector('#starrailmap');
     starrailMap.style.opacity = '0.2';
     starrailMap.style.pointerEvents = 'auto';
+
+    // Add .active to the wrapper so hover rules will apply from CSS
+    var starrailWrapper = document.getElementById('starrailmap-wrapper');
+    if (starrailWrapper) starrailWrapper.classList.add('active');
 
     var dropdownBtn = document.querySelector('.dropdown-btn');
     dropdownBtn.style.display = 'block';
@@ -34,7 +38,7 @@ function togglePlay() {
     guessButton.style.display = 'block';
 
     var audio = document.getElementById('gameaudio');
-    volume = localStorage.getItem('volume');
+    var volume = localStorage.getItem('volume');
     if (volume == null) {
         volume = 20;
     }
@@ -42,6 +46,6 @@ function togglePlay() {
     audio.addEventListener('ended', function() {
         audio.currentTime = 0; // Reset the audio to the beginning
         audio.play(); // Start playing again
-      });
-      audio.play();
+    });
+    audio.play();
 }
