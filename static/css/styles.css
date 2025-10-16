@@ -1019,12 +1019,15 @@ input:checked + .slider:before {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
-    height: 25%;
+    height: auto; /* let it grow with content */
     z-index: -1;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* vertical stack */
+    justify-content: center; /* center vertically */
+    align-items: center; /* center horizontally */
+    gap: 1rem; /* space between items */
 }
+
 .guess-container {
     display: flex;
     position: relative;
@@ -1064,8 +1067,8 @@ input:checked + .slider:before {
     pointer-events: none;
     border-radius: 10px;
     margin: 0 20px;
-    height: 350px;
-    width: 350px;
+    height: 500px;
+    width: 500px;
     transition: opacity 0.5s ease, transform 0.4s ease;
     flex-shrink: 0;
 }

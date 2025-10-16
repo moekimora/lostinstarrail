@@ -1,16 +1,25 @@
 // starrailmap.js — lazy-load overlays to avoid startup lag
 
-function initialize(map) {
+function initialize(map, options = {}) {
+  const {
+    minZoom = 0,
+    maxZoom = 5,
+    startZoom = 0
+  } = options;
+
   return L.map(map, {
-    minZoom: 0,
-    maxZoom: 5,
+    minZoom,
+    maxZoom,
     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
     maxBoundsViscosity: 1,
-    attributionControl:false,
-  }).setView([0, 0], 0);
+    attributionControl: false,
+  }).setView([0, 0], startZoom);
 }
-var starrailMap = initialize('starrailmap');
-var resultMap = initialize('resultmap');
+
+// usage:
+var starrailMap = initialize('starrailmap'); // defaults to 0
+var resultMap = initialize('resultmap', { minZoom: 1, startZoom: 1 });
+
 
 const bounds = [[-90, -180], [90, 180]];
 
