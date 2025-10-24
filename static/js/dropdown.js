@@ -135,3 +135,188 @@
   });
 
 })();
+
+// Hover preview anchored above hovered item; does NOT follow cursor
+(function () {
+  if ('ontouchstart' in window) return; // skip on touch devices
+
+  const selectors = [
+    '.hst-mcz', '.hst-bz', '.hst-stz-b1', '.hst-stz-f1', '.hst-stz-f2', '.hst-suz-f1',
+    '.hst-suz-f2', '.hst-scz-f1', '.hst-scz-f2', '.hst-scz-f3', '.j6-ad-b1', '.j6-ad-f1', '.j6-osp',
+    '.j6-bp', '.j6-sgrz', '.j6-cofe', '.j6-eh', '.j6-poc', '.j6-owtg-f1', '.j6-owtg-f2', '.j6-bt',
+    '.j6-gm', '.j6-rt-f1', '.j6-rt-f2', '.j6-rs-f1', '.j6-rs-f2', '.txl-csh', '.txl-c-f1', '.txl-c-f2',
+    '.txl-sn', '.txl-es', '.txl-aa', '.txl-dc-f1', '.txl-dc-f2', '.txl-arc', '.txl-fg', '.txl-ac-f1',
+    '.txl-ac-f2', '.txl-sw', '.txl-tsp-f1', '.txl-tsp-b1', '.txl-tsp-b2', '.txl-tsp-b3', '.txl-tsp-b4',
+    '.txl-s-f1', '.txl-s-f2', '.txl-s-f3'
+  ];
+
+  if ('ontouchstart' in window) {
+    document.addEventListener('touchstart', (ev) => {
+      const target = ev.target.closest(selectors.join(','));
+      if (!target) {
+        preview.classList.remove('show');
+        preview.style.display = 'none';
+        return;
+      }
+      const idx = selectors.findIndex(s => target.matches(s));
+      if (idx !== -1) {
+        ev.preventDefault();
+        showPreviewFor(idx, target);
+      }
+    }, { passive: false });
+  }
+
+
+  // create preview element (reused)
+  const preview = document.createElement('div');
+  preview.className = 'map-preview';
+  preview.style.left = '0px';
+  preview.style.top = '0px';
+  preview.style.display = 'none';
+
+  const img = document.createElement('img');
+  img.alt = 'map preview';
+  img.draggable = false;
+
+  const label = document.createElement('div');
+  label.className = 'label';
+  label.style.display = 'none';
+
+  preview.appendChild(img);
+  preview.appendChild(label);
+  document.body.appendChild(preview);
+
+  let hideTimeout = null;
+  let lastIndex = -1;
+  const FADE_OUT_DELAY = 180; // ms before actually hiding display after removing .show
+  const HIDE_DEBOUNCE = 160; // ms delay before starting fade-out (prevents flicker)
+
+  function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+
+  function positionPreviewAbove(anchorRect) {
+    // ensure preview has its natural size before positioning
+    const previewW = preview.offsetWidth || Math.min(360, window.innerWidth - 24);
+    const previewH = preview.offsetHeight || 200;
+
+    // center horizontally over the anchor
+    let left = Math.round(anchorRect.left + (anchorRect.width / 2) - (previewW / 2));
+    // place above the anchor with an 8px gap
+    let top = Math.round(anchorRect.top - previewH - 8);
+
+    // if not enough space above, place below the anchor with small gap
+    if (top < 8) {
+      top = Math.round(anchorRect.bottom + 8);
+    }
+
+    // clamp to viewport
+    const margin = 8;
+    left = clamp(left, margin, window.innerWidth - previewW - margin);
+    top = clamp(top, margin, window.innerHeight - previewH - margin);
+
+    preview.style.left = left + 'px';
+    preview.style.top = top + 'px';
+  }
+
+  function showPreviewFor(index, anchorEl) {
+    const desc = window.overlays[index];
+    if (!desc) return;
+    lastIndex = index;
+
+    // cancel any pending hide
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+      hideTimeout = null;
+    }
+
+    // preload image if needed
+    if (!desc.preloaded) {
+      const p = new Image();
+      p.src = desc.imageUrl;
+      desc.preloaded = true;
+    }
+
+    // set image; wait for load to compute sizes and position
+    img.onload = function () {
+      label.textContent = desc.name || '';
+      label.style.display = desc.name ? 'block' : 'none';
+
+      // make visible
+      preview.style.display = 'flex';
+
+      // position now using anchor's rect
+      const anchorRect = anchorEl.getBoundingClientRect();
+      // ensure layout updated before reading preview size
+      requestAnimationFrame(() => {
+        positionPreviewAbove(anchorRect);
+        // trigger fade-in
+        preview.classList.add('show');
+      });
+    };
+
+    img.src = desc.imageUrl;
+    // if cached, call onload handler directly
+    if (img.complete && img.naturalWidth) {
+      img.onload();
+    }
+  }
+
+  function hidePreviewSoon() {
+    // don't hide immediately; debounce to avoid flicker when moving between items
+    if (hideTimeout) clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(() => {
+      preview.classList.remove('show');
+      // after fade-out, set display none
+      setTimeout(() => {
+        // ensure no new show happened in the meantime
+        if (!preview.classList.contains('show')) {
+          preview.style.display = 'none';
+        }
+      }, FADE_OUT_DELAY);
+      hideTimeout = null;
+      lastIndex = -1;
+    }, HIDE_DEBOUNCE);
+  }
+
+  function hidePreviewNow() {
+    if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+    preview.classList.remove('show');
+    preview.style.display = 'none';
+    lastIndex = -1;
+  }
+
+  // Attach handlers to each selector element
+  selectors.forEach((sel, idx) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+
+    // anchor should be the element hovered; for floor buttons, anchor the button itself
+    el.addEventListener('mouseenter', (ev) => {
+      // anchor element could be the specific element hovered (ev.currentTarget)
+      const anchor = ev.currentTarget;
+      showPreviewFor(idx, anchor);
+    });
+
+    // handle floor-btns or button children inside the item — anchor to that button
+    el.querySelectorAll('button, .floor-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', (ev) => {
+        // anchor to the button and find correct overlay index: same idx
+        showPreviewFor(idx, ev.currentTarget);
+      });
+      btn.addEventListener('mouseleave', hidePreviewSoon);
+    });
+
+    el.addEventListener('mouseleave', hidePreviewSoon);
+  });
+
+  // hide immediately when dropdown is closed by outside click
+  document.addEventListener('click', (ev) => {
+    const dropdown = document.querySelector('.dropdown-menu');
+    if (dropdown && dropdown.contains(ev.target)) return;
+    hidePreviewNow();
+  });
+
+  // hide on scroll/resize
+  window.addEventListener('scroll', hidePreviewNow, { passive: true });
+  window.addEventListener('resize', hidePreviewNow, { passive: true });
+
+})();

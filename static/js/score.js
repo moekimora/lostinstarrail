@@ -148,7 +148,6 @@ function animateScoreEaseOut(targetScore, element, duration = 1000, delay = 500,
 }
 
 function isSameZoneDifferentFloor(correctLocation, guessedLocation) {
-  // Example: "Storage Zone - F1" → base = "Storage Zone"
   function baseName(name) {
     return name.split(" - ")[0].trim();
   }
@@ -158,6 +157,118 @@ function isSameZoneDifferentFloor(correctLocation, guessedLocation) {
     correctLocation !== guessedLocation
   );
 }
+
+function triggerConfetti(targetElement = null, confettiCount = 120, intensity = 0.75) {
+  // intensity: 0.5 = small, 1 = normal, 1.6 = huge
+  const warmColors = ["#FFD700", "#FF69B4", "#ff6969", "#00FFFF", "#ADFF2F", "#FFA500"];
+  const container = document.createElement("div");
+  container.className = "confetti-container";
+  document.body.appendChild(container);
+
+  // set up perspective for 3D illusion
+  container.style.perspective = "1000px";
+  container.style.transformStyle = "preserve-3d";
+  container.style.position = "fixed";
+  container.style.left = 0;
+  container.style.top = 0;
+  container.style.width = "100%";
+  container.style.height = "100%";
+  container.style.overflow = "visible";
+  container.style.pointerEvents = "none";
+
+  // compute origin
+  let originX = window.innerWidth / 2;
+  let originY = window.innerHeight * 0.3;
+  if (targetElement && targetElement.getBoundingClientRect) {
+    const r = targetElement.getBoundingClientRect();
+    originX = r.left + r.width / 2;
+    originY = r.top + r.height / 2;
+  }
+
+  // --- flash (fireball burst) ---
+  const flash = document.createElement("div");
+  flash.className = "confetti-flash";
+  const flashSize = Math.max(80, 140 * intensity);
+  Object.assign(flash.style, {
+    position: "absolute",
+    left: originX - flashSize / 2 + "px",
+    top: originY - flashSize / 2 + "px",
+    width: flashSize + "px",
+    height: flashSize + "px",
+    borderRadius: "50%",
+    background: "radial-gradient(circle, rgba(255,255,220,0.95) 0%, rgba(255,200,90,0.9) 30%, rgba(255,120,30,0.6) 60%, rgba(0,0,0,0) 70%)",
+  });
+  container.appendChild(flash);
+
+  flash.animate(
+    [
+      { transform: "scale(0.6)", opacity: 1 },
+      { transform: `scale(${2 + intensity})`, opacity: 0 }
+    ],
+    { duration: 500 + intensity * 200, easing: "ease-out", fill: "forwards" }
+  );
+  setTimeout(() => flash.remove(), 900 + intensity * 300);
+
+  // --- confetti pieces ---
+  const maxDuration = 12000 * intensity;
+
+  for (let i = 0; i < confettiCount; i++) {
+    const isSpark = Math.random() < 0.3;
+    const el = document.createElement("div");
+    container.appendChild(el);
+
+    const color = warmColors[Math.floor(Math.random() * warmColors.length)];
+    const size = (isSpark ? 3 + Math.random() * 4 : 10 + Math.random() * 24) * intensity;
+    const depth = Math.random(); // 0 (front) → 1 (back)
+
+    Object.assign(el.style, {
+      position: "absolute",
+      left: originX + (Math.random() - 0.5) * 60 * intensity + "px",
+      top: originY + (Math.random() - 0.5) * 40 * intensity + "px",
+      width: isSpark ? "2px" : size + "px",
+      height: isSpark ? (10 + Math.random() * 40) * intensity + "px" : size + "px",
+      background: color,
+      borderRadius: isSpark ? "2px" : "4px",
+      opacity: 0.95 - depth * 0.4,
+      transformOrigin: "center",
+      transform: `translateZ(${(depth - 0.5) * 500}px) rotateX(${Math.random() * 360}deg) rotateY(${Math.random() * 360}deg)`,
+    });
+
+    // motion physics
+    const angle = Math.random() * Math.PI * 2;
+    const baseSpeed = 350 + Math.random() * 700;
+    const speed = baseSpeed * (0.6 + Math.random() * 1.1) * (1 - depth * 0.5);
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed;
+    const vz = (Math.random() - 0.5) * 600 * (1 - depth);
+
+    const gravity = 0.18 + Math.random() * 0.22;
+    const duration = Math.round((2800 + Math.random() * 4800) * intensity * (1 + depth * 0.4));
+
+    const rotStart = Math.random() * 360;
+    const rotEnd = rotStart + (isSpark ? 720 : 1440) * (0.6 + Math.random());
+
+    // add perspective drift + slight z rotation
+    el.animate(
+      [
+        { transform: `translate3d(0,0,0) rotateX(${rotStart}deg) rotateY(${rotStart}deg) scale(1)`, opacity: 1 },
+        { transform: `translate3d(${vx * 0.6}px, ${vy * 0.6}px, ${vz * 0.5}px) rotateX(${rotStart + (rotEnd - rotStart) * 0.6}deg) rotateY(${rotStart + (rotEnd - rotStart) * 0.5}deg) scale(1)`, opacity: 0.95 },
+        { transform: `translate3d(${vx}px, ${vy + gravity * duration * 0.6}px, ${vz}px) rotateX(${rotEnd}deg) rotateY(${rotEnd}deg) scale(0.95)`, opacity: 0 }
+      ],
+      {
+        duration,
+        easing: "cubic-bezier(.25,.8,.25,1)",
+        delay: Math.random() * 100,
+        fill: "forwards"
+      }
+    );
+
+    setTimeout(() => el.remove(), duration + 500);
+  }
+
+  setTimeout(() => container.remove(), maxDuration + 1000);
+}
+
 
 // Patch the guessButton event
 guessButton.addEventListener('click', function() {
@@ -181,6 +292,9 @@ guessButton.addEventListener('click', function() {
         // assign to global 'score' (was 'let score' before)
         score = distance < 3 ? 5000 : Math.max(0, 5000 - (distance - 3) * 29.333);
         score = Math.ceil(score);
+        if (score >= 4500) {
+          triggerConfetti();
+        }
 
         // add base score to total now
         currentScore += score;
