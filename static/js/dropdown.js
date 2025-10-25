@@ -173,40 +173,52 @@ function toggleSubMenu(mainMap, subMenuClass) {
 
   const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-  // --- Mobile: show preview when tapping items inside the dropdown ---
-// Mobile-friendly dropdown touch: first tap = preview, quick second tap = activate/select
-(function addDropdownTouchPreviewDoubleTap() {
+// Mobile: long-press to preview, short tap = normal select
+(function addDropdownTouchPreviewLongPress() {
   const dropdown = document.querySelector('.dropdown-menu');
-  if (!dropdown || !isTouch) return;
+  if (!dropdown) return;
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  if (!isTouch) return;
 
-  // small helpers
-  function elementToSelectorIndex(el) {
+  // helpers (reused logic from your code)
+  function elementToSelectorIndex(el, selectorsList) {
     if (!el) return -1;
-    for (let i = 0; i < selectors.length; i++) {
-      try { if (el.matches && el.matches(selectors[i])) return i; } catch(e){}
+    // try matching element itself to selectors[]
+    for (let i = 0; i < selectorsList.length; i++) {
+      try { if (el.matches && el.matches(selectorsList[i])) return i; } catch (e) { }
     }
+    // try class-based lookup via selectorToIndex if available
     const classes = Array.from(el.classList || []);
     for (const cls of classes) {
-      const idx = selectorToIndex('.' + cls);
-      if (idx !== -1) return idx;
+      try {
+        if (typeof selectorToIndex === 'function') {
+          const idx = selectorToIndex('.' + cls);
+          if (idx !== -1) return idx;
+        }
+      } catch (e) {}
     }
-    // climb up
+    // climb up the tree a bit to find an element matching
     let parent = el.parentElement;
     while (parent && parent !== dropdown) {
-      for (let i = 0; i < selectors.length; i++) {
-        try { if (parent.matches && parent.matches(selectors[i])) return i; } catch(e){}
+      for (let i = 0; i < selectorsList.length; i++) {
+        try { if (parent.matches && parent.matches(selectorsList[i])) return i; } catch (e) {}
       }
       const pcls = Array.from(parent.classList || []);
       for (const pc of pcls) {
-        const idx = selectorToIndex('.' + pc);
-        if (idx !== -1) return idx;
+        try {
+          if (typeof selectorToIndex === 'function') {
+            const idx = selectorToIndex('.' + pc);
+            if (idx !== -1) return idx;
+          }
+        } catch (e) {}
       }
       parent = parent.parentElement;
     }
     return -1;
   }
+
   function findDefaultFloorIndexFromParent(el) {
-    if (!window.defaultFloors) return -1;
+    if (!window.defaultFloors || typeof selectorToIndex !== 'function') return -1;
     let node = el;
     while (node && node !== dropdown) {
       const classes = Array.from(node.classList || []);
@@ -220,70 +232,88 @@ function toggleSubMenu(mainMap, subMenuClass) {
     return -1;
   }
 
-  // timing thresholds
-  const ACTIVATE_WINDOW = 700; // ms: second tap inside this = activate (click)
-  const AUTO_HIDE_AFTER = 2200; // ms: if they don't do anything, hide preview
+  const selectorsList = [
+    '.hst-mcz', '.hst-bz', '.hst-stz-b1', '.hst-stz-f1', '.hst-stz-f2', '.hst-suz-f1',
+    '.hst-suz-f2', '.hst-scz-f1', '.hst-scz-f2', '.hst-scz-f3', '.j6-ad-b1', '.j6-ad-f1', '.j6-osp',
+    '.j6-bp', '.j6-sgrz', '.j6-cofe', '.j6-eh', '.j6-poc', '.j6-owtg-f1', '.j6-owtg-f2', '.j6-bt',
+    '.j6-gm', '.j6-rt-f1', '.j6-rt-f2', '.j6-rs-f1', '.j6-rs-f2', '.txl-csh', '.txl-c-f1', '.txl-c-f2',
+    '.txl-sn', '.txl-es', '.txl-aa', '.txl-dc-f1', '.txl-dc-f2', '.txl-arc', '.txl-fg', '.txl-ac-f1',
+    '.txl-ac-f2', '.txl-sw', '.txl-tsp-f1', '.txl-tsp-b1', '.txl-tsp-b2', '.txl-tsp-b3', '.txl-tsp-b4',
+    '.txl-s-f1', '.txl-s-f2', '.txl-s-f3'
+  ];
 
-  // store last preview per element (weak map to avoid DOM attrs)
-  const lastPreview = new WeakMap();
+  // timing config
+  const LONG_PRESS_MS = 480;         // how long to hold to trigger preview
+  const SUPPRESS_CLICK_MS = 400;     // how long to suppress the immediate click after long-press
 
-  dropdown.addEventListener('touchstart', function (ev) {
-    const target = ev.target;
-    if (!target) return;
+  let longPressTimer = null;
+  let longPressed = false;
+  let activeAnchor = null;
+  let suppressClick = false;
 
-    // find selector index first
-    let idx = elementToSelectorIndex(target);
-    if (idx === -1) idx = findDefaultFloorIndexFromParent(target);
+  // start potential long-press
+  dropdown.addEventListener('touchstart', (ev) => {
+    const t = ev.target;
+    if (!t) return;
+
+    // determine if this target is previewable
+    let idx = elementToSelectorIndex(t, selectorsList);
+    if (idx === -1) idx = findDefaultFloorIndexFromParent(t);
     if (idx === -1) {
-      // not a previewable item — let the event continue normally
+      // not a previewable item — do nothing special (short tap will select)
       return;
     }
 
-    // find a good anchor (prefer clicked button or nearest li)
-    const anchor = (target.closest('button, .floor-btn') || target.closest('li') || target);
+    // find best anchor element to position preview above
+    activeAnchor = t.closest('button, .floor-btn') || t.closest('li') || t;
 
-    // check last preview time for this anchor
-    const now = Date.now();
-    const last = lastPreview.get(anchor) || 0;
-    const since = now - last;
+    // schedule long-press
+    longPressed = false;
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    longPressTimer = setTimeout(() => {
+      longPressed = true;
+      suppressClick = true;
+      try {
+        showPreviewFor(idx, activeAnchor);
+      } catch (e) { /* swallow: showPreviewFor may not exist yet */ }
+    }, LONG_PRESS_MS);
+  }, { passive: true });
 
-    if (since <= ACTIVATE_WINDOW) {
-      // Second quick tap -> activate (select). Don't block it.
-      // Clear preview timers / state
-      lastPreview.delete(anchor);
-      if (window._dropdown_preview_hide_timer) { clearTimeout(window._dropdown_preview_hide_timer); window._dropdown_preview_hide_timer = null; }
-      hidePreviewNow(); // reuse existing function to hide preview immediately
-
-      // Simulate click on the anchor so existing click handlers (map switching) run
-      // Use setTimeout to allow the current touch event to finish (safer on some browsers)
-      setTimeout(() => {
-        try { anchor.click(); } catch (e) { /* ignore */ }
-      }, 0);
-
-      // allow event to bubble (don't preventDefault) so other handlers run if needed
-      return;
+  // finger up -> if we didn't long-press, allow normal tap behavior (do nothing)
+  // if we did long-press, hide preview and suppress the immediate click that often follows touchend
+  dropdown.addEventListener('touchend', (ev) => {
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    if (longPressed) {
+      // user performed a long-press: hide preview soon and suppress the click fired by touchend
+      try { hidePreviewSoon(); } catch (e) {}
+      // prevent the click that will normally follow this touch from selecting the map
+      // we suppress it globally for a short window and intercept below in a capturing click handler
+      setTimeout(() => { suppressClick = false; }, SUPPRESS_CLICK_MS);
     }
-
-    // First tap -> show preview and prevent immediate dropdown-close
-    ev.preventDefault();
-    ev.stopPropagation();
-
-    showPreviewFor(idx, anchor);
-
-    // mark preview timestamp for this anchor
-    lastPreview.set(anchor, now);
-
-    // schedule an auto-hide so preview doesn't stay forever
-    if (window._dropdown_preview_hide_timer) clearTimeout(window._dropdown_preview_hide_timer);
-    window._dropdown_preview_hide_timer = setTimeout(() => {
-      hidePreviewSoon();
-      window._dropdown_preview_hide_timer = null;
-      lastPreview.delete(anchor);
-    }, AUTO_HIDE_AFTER);
+    longPressed = false;
+    activeAnchor = null;
   }, { passive: false });
+
+  dropdown.addEventListener('touchcancel', () => {
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    longPressed = false;
+    activeAnchor = null;
+    suppressClick = false;
+  }, { passive: true });
+
+  // capture clicks and cancel them if they came immediately after a long-press
+  document.addEventListener('click', (ev) => {
+    if (!suppressClick) return;
+    // if click is inside the dropdown, stop it (was a long-press)
+    const clicked = ev.target.closest('li, button, .floor-btn, .dropdown-menu');
+    if (clicked) {
+      ev.stopImmediatePropagation();
+      ev.preventDefault();
+      suppressClick = false;
+    }
+  }, true); // capture phase so we block other handlers early
+
 })();
-
-
 
   // create preview element (reused)
   const preview = document.createElement('div');
