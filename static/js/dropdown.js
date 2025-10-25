@@ -174,37 +174,30 @@ function toggleSubMenu(mainMap, subMenuClass) {
   const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
   // --- Mobile: show preview when tapping items inside the dropdown ---
-(function addDropdownTouchPreview() {
+// Mobile-friendly dropdown touch: first tap = preview, quick second tap = activate/select
+(function addDropdownTouchPreviewDoubleTap() {
   const dropdown = document.querySelector('.dropdown-menu');
   if (!dropdown || !isTouch) return;
 
-  // helper: given an element, try to find the selector index that corresponds to it
+  // small helpers
   function elementToSelectorIndex(el) {
     if (!el) return -1;
-    // check the element itself for a match to any selector
     for (let i = 0; i < selectors.length; i++) {
-      try {
-        if (el.matches && el.matches(selectors[i])) return i;
-      } catch (e) { /* ignore invalid selector matches */ }
+      try { if (el.matches && el.matches(selectors[i])) return i; } catch(e){}
     }
-
-    // fall back to checking class names (useful for floor-btn classes)
     const classes = Array.from(el.classList || []);
     for (const cls of classes) {
       const idx = selectorToIndex('.' + cls);
       if (idx !== -1) return idx;
     }
-
-    // climb up until reaching the dropdown root to find anything matchable
+    // climb up
     let parent = el.parentElement;
     while (parent && parent !== dropdown) {
       for (let i = 0; i < selectors.length; i++) {
-        try {
-          if (parent.matches && parent.matches(selectors[i])) return i;
-        } catch (e) {}
+        try { if (parent.matches && parent.matches(selectors[i])) return i; } catch(e){}
       }
-      const parentClasses = Array.from(parent.classList || []);
-      for (const pc of parentClasses) {
+      const pcls = Array.from(parent.classList || []);
+      for (const pc of pcls) {
         const idx = selectorToIndex('.' + pc);
         if (idx !== -1) return idx;
       }
@@ -212,8 +205,6 @@ function toggleSubMenu(mainMap, subMenuClass) {
     }
     return -1;
   }
-
-  // Also try defaultFloors mapping: given a tapped element, find a parent that has a mapped default floor
   function findDefaultFloorIndexFromParent(el) {
     if (!window.defaultFloors) return -1;
     let node = el;
@@ -229,43 +220,69 @@ function toggleSubMenu(mainMap, subMenuClass) {
     return -1;
   }
 
-  // Touch handler on the dropdown — shows preview for tapped item (does NOT close dropdown)
+  // timing thresholds
+  const ACTIVATE_WINDOW = 700; // ms: second tap inside this = activate (click)
+  const AUTO_HIDE_AFTER = 2200; // ms: if they don't do anything, hide preview
+
+  // store last preview per element (weak map to avoid DOM attrs)
+  const lastPreview = new WeakMap();
+
   dropdown.addEventListener('touchstart', function (ev) {
-    const t = ev.target;
-    // try direct mapping first
-    let idx = elementToSelectorIndex(t);
+    const target = ev.target;
+    if (!target) return;
 
-    // if not found, try looking for a default floor mapping for a parent li
-    if (idx === -1) idx = findDefaultFloorIndexFromParent(t);
-
-    if (idx !== -1) {
-      // handled: prevent the tap from also closing/hiding and show preview
-      ev.preventDefault();
-      ev.stopPropagation();
-
-      // find a good anchor: prefer the actual button or li ancestor
-      const anchor = (t.closest('button, .floor-btn') || t.closest('li') || t);
-
-      // show preview (reuses your existing function)
-      showPreviewFor(idx, anchor);
-
-      // keep preview visible for a short time on mobile (fallback if user doesn't tap again)
-      // hide after a timeout if they don't interact further
-      if (typeof hidePreviewSoon === 'function') {
-        // ensure we clear any scheduled hide and then schedule a hide
-        if (window._dropdown_preview_hide_timer) clearTimeout(window._dropdown_preview_hide_timer);
-        window._dropdown_preview_hide_timer = setTimeout(() => {
-          hidePreviewSoon();
-          window._dropdown_preview_hide_timer = null;
-        }, 2200);
-      }
-
+    // find selector index first
+    let idx = elementToSelectorIndex(target);
+    if (idx === -1) idx = findDefaultFloorIndexFromParent(target);
+    if (idx === -1) {
+      // not a previewable item — let the event continue normally
       return;
     }
 
-    // otherwise let the touch event fold through (so taps on non-preview areas behave normally)
+    // find a good anchor (prefer clicked button or nearest li)
+    const anchor = (target.closest('button, .floor-btn') || target.closest('li') || target);
+
+    // check last preview time for this anchor
+    const now = Date.now();
+    const last = lastPreview.get(anchor) || 0;
+    const since = now - last;
+
+    if (since <= ACTIVATE_WINDOW) {
+      // Second quick tap -> activate (select). Don't block it.
+      // Clear preview timers / state
+      lastPreview.delete(anchor);
+      if (window._dropdown_preview_hide_timer) { clearTimeout(window._dropdown_preview_hide_timer); window._dropdown_preview_hide_timer = null; }
+      hidePreviewNow(); // reuse existing function to hide preview immediately
+
+      // Simulate click on the anchor so existing click handlers (map switching) run
+      // Use setTimeout to allow the current touch event to finish (safer on some browsers)
+      setTimeout(() => {
+        try { anchor.click(); } catch (e) { /* ignore */ }
+      }, 0);
+
+      // allow event to bubble (don't preventDefault) so other handlers run if needed
+      return;
+    }
+
+    // First tap -> show preview and prevent immediate dropdown-close
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    showPreviewFor(idx, anchor);
+
+    // mark preview timestamp for this anchor
+    lastPreview.set(anchor, now);
+
+    // schedule an auto-hide so preview doesn't stay forever
+    if (window._dropdown_preview_hide_timer) clearTimeout(window._dropdown_preview_hide_timer);
+    window._dropdown_preview_hide_timer = setTimeout(() => {
+      hidePreviewSoon();
+      window._dropdown_preview_hide_timer = null;
+      lastPreview.delete(anchor);
+    }, AUTO_HIDE_AFTER);
   }, { passive: false });
 })();
+
 
 
   // create preview element (reused)
