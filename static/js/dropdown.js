@@ -60,74 +60,59 @@
     });
   });
 
-  // add this helper inside the same IIFE (near your other helpers)
-function closeAllSubmenus(except = null) {
-  document.querySelectorAll('.sub-menu-hst, .sub-menu-j6, .sub-menu-txl').forEach(sm => {
-    if (sm !== except) sm.classList.remove('show');
-  });
-}
+  // Reuse the existing toggleSubMenu behaviour, but attach it to parents (main-hst, main-j6, main-txl)
+  function toggleSubMenu(mainMap, subMenuClass) {
+    if (!mainMap) return;
 
-// Replaced toggleSubMenu: ensures only one main submenu can be visible at a time
-function toggleSubMenu(mainMap, subMenuClass) {
-  if (!mainMap) return;
+    mainMap.addEventListener('click', function (event) {
+      // Toggle the submenu (same UX as before)
+      const subMenu = this.querySelector(`.${subMenuClass}`);
+      if (subMenu) subMenu.classList.toggle('show');
 
-  mainMap.addEventListener('click', function (event) {
-    // find the submenu for this parent
-    const subMenu = this.querySelector(`.${subMenuClass}`);
-    const isOpen = subMenu && subMenu.classList.contains('show');
+      // If the user clicked the parent entry itself (not an inner floor button), we want to trigger a default floor.
+      // Find a clicked child li (the actual "zone" item) if present
+      const clickedChildLi = event.target.closest('li'); // could be the zone li or a nested li
+      if (clickedChildLi && clickedChildLi !== mainMap) {
+        // If this click landed on a child li (like .hst-stz), and it wasn't on a floor button inside it,
+        // then trigger its default if we have one.
+        const childClasses = Array.from(clickedChildLi.classList || []);
+        for (const cls of childClasses) {
+          if (defaultFloors[cls]) {
+            // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
+            if (event.target.closest('button')) return;
 
-    // close other submenus (but keep this one alone)
-    closeAllSubmenus(subMenu);
-
-    // toggle this submenu: if it was open -> close it, otherwise open it
-    if (subMenu) {
-      if (isOpen) {
-        subMenu.classList.remove('show');
-      } else {
-        subMenu.classList.add('show');
-      }
-    }
-
-    // Existing logic: if the user clicked a child <li> (a zone), trigger default floor
-    const clickedChildLi = event.target.closest('li');
-    if (clickedChildLi && clickedChildLi !== mainMap) {
-      const childClasses = Array.from(clickedChildLi.classList || []);
-      for (const cls of childClasses) {
-        if (defaultFloors[cls]) {
-          // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
-          if (event.target.closest('button')) return;
-
-          const defaultSelector = defaultFloors[cls];
-          const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
-          if (defaultBtn) {
-            defaultBtn.click();      // triggers starrail's click listener (toggleMapVisibility)
-            setActiveFloor(defaultBtn); // visually mark it
-            // close menus: keep other submenus closed already via closeAllSubmenus
-            dropdownMenu.classList.remove('show');
-            if (subMenu) subMenu.classList.remove('show');
+            const defaultSelector = defaultFloors[cls];
+            // prefer local query (inside dropdown) then fallback to global document
+            const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
+            if (defaultBtn) {
+              defaultBtn.click();      // triggers starrailmap's click listener (toggleMapVisibility)
+              setActiveFloor(defaultBtn); // visually mark it
+              // close menus
+              dropdownMenu.classList.remove('show');
+              subMenu.classList.remove('show');
+            }
+            return;
           }
-          return;
         }
       }
-    }
-  });
-
-  // keep the existing subMenuItems behavior (closing submenu when clicking an inner item)
-  const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
-  subMenuItems.forEach((item) => {
-    item.addEventListener('click', function (event) {
-      event.stopPropagation();
-      const subMenu = this.closest(`.${subMenuClass}`);
-      if (subMenu) subMenu.classList.remove('show');
-      dropdownMenu.classList.remove('show');
-
-      if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
-        setActiveFloor(this);
-      }
     });
-  });
-}
 
+    // When a submenu item (li) or its buttons are clicked, close submenu and dropdown (existing behavior)
+    const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
+    subMenuItems.forEach((item) => {
+      item.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const subMenu = this.closest(`.${subMenuClass}`);
+        if (subMenu) subMenu.classList.remove('show');
+        dropdownMenu.classList.remove('show');
+
+        // If they clicked a floor button specifically, ensure the active highlight is set
+        if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
+          setActiveFloor(this);
+        }
+      });
+    });
+  }
 
   // Attach to the three main parent nodes
   toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');
