@@ -61,73 +61,72 @@
   });
 
   // add this helper inside the same IIFE (near your other helpers)
-function closeAllSubmenus(except = null) {
-  document.querySelectorAll('.sub-menu-hst, .sub-menu-j6, .sub-menu-txl').forEach(sm => {
-    if (sm !== except) sm.classList.remove('show');
-  });
-}
+  function closeAllSubmenus(except = null) {
+    document.querySelectorAll('.sub-menu-hst, .sub-menu-j6, .sub-menu-txl').forEach(sm => {
+      if (sm !== except) sm.classList.remove('show');
+    });
+  }
 
-// Replaced toggleSubMenu: ensures only one main submenu can be visible at a time
-function toggleSubMenu(mainMap, subMenuClass) {
-  if (!mainMap) return;
+  // Replaced toggleSubMenu: ensures only one main submenu can be visible at a time
+  function toggleSubMenu(mainMap, subMenuClass) {
+    if (!mainMap) return;
 
-  mainMap.addEventListener('click', function (event) {
-    // find the submenu for this parent
-    const subMenu = this.querySelector(`.${subMenuClass}`);
-    const isOpen = subMenu && subMenu.classList.contains('show');
+    mainMap.addEventListener('click', function (event) {
+      // find the submenu for this parent
+      const subMenu = this.querySelector(`.${subMenuClass}`);
+      const isOpen = subMenu && subMenu.classList.contains('show');
 
-    // close other submenus (but keep this one alone)
-    closeAllSubmenus(subMenu);
+      // close other submenus (but keep this one alone)
+      closeAllSubmenus(subMenu);
 
-    // toggle this submenu: if it was open -> close it, otherwise open it
-    if (subMenu) {
-      if (isOpen) {
-        subMenu.classList.remove('show');
-      } else {
-        subMenu.classList.add('show');
-      }
-    }
-
-    // Existing logic: if the user clicked a child <li> (a zone), trigger default floor
-    const clickedChildLi = event.target.closest('li');
-    if (clickedChildLi && clickedChildLi !== mainMap) {
-      const childClasses = Array.from(clickedChildLi.classList || []);
-      for (const cls of childClasses) {
-        if (defaultFloors[cls]) {
-          // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
-          if (event.target.closest('button')) return;
-
-          const defaultSelector = defaultFloors[cls];
-          const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
-          if (defaultBtn) {
-            defaultBtn.click();      // triggers starrail's click listener (toggleMapVisibility)
-            setActiveFloor(defaultBtn); // visually mark it
-            // close menus: keep other submenus closed already via closeAllSubmenus
-            dropdownMenu.classList.remove('show');
-            if (subMenu) subMenu.classList.remove('show');
-          }
-          return;
+      // toggle this submenu: if it was open -> close it, otherwise open it
+      if (subMenu) {
+        if (isOpen) {
+          subMenu.classList.remove('show');
+        } else {
+          subMenu.classList.add('show');
         }
       }
-    }
-  });
 
-  // keep the existing subMenuItems behavior (closing submenu when clicking an inner item)
-  const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
-  subMenuItems.forEach((item) => {
-    item.addEventListener('click', function (event) {
-      event.stopPropagation();
-      const subMenu = this.closest(`.${subMenuClass}`);
-      if (subMenu) subMenu.classList.remove('show');
-      dropdownMenu.classList.remove('show');
+      // Existing logic: if the user clicked a child <li> (a zone), trigger default floor
+      const clickedChildLi = event.target.closest('li');
+      if (clickedChildLi && clickedChildLi !== mainMap) {
+        const childClasses = Array.from(clickedChildLi.classList || []);
+        for (const cls of childClasses) {
+          if (defaultFloors[cls]) {
+            // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
+            if (event.target.closest('button')) return;
 
-      if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
-        setActiveFloor(this);
+            const defaultSelector = defaultFloors[cls];
+            const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
+            if (defaultBtn) {
+              defaultBtn.click();      // triggers starrail's click listener (toggleMapVisibility)
+              setActiveFloor(defaultBtn); // visually mark it
+              // close menus: keep other submenus closed already via closeAllSubmenus
+              dropdownMenu.classList.remove('show');
+              if (subMenu) subMenu.classList.remove('show');
+            }
+            return;
+          }
+        }
       }
     });
-  });
-}
 
+    // keep the existing subMenuItems behavior (closing submenu when clicking an inner item)
+    const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
+    subMenuItems.forEach((item) => {
+      item.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const subMenu = this.closest(`.${subMenuClass}`);
+        if (subMenu) subMenu.classList.remove('show');
+        dropdownMenu.classList.remove('show');
+
+        if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
+          setActiveFloor(this);
+        }
+      });
+    });
+  }
 
   // Attach to the three main parent nodes
   toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');
@@ -381,23 +380,66 @@ function toggleSubMenu(mainMap, subMenuClass) {
     btn.addEventListener('mouseleave', hidePreviewSoon);
   });
 
-  // Touch devices: tap to preview, tap outside to hide
+  // Touch devices: long-press (~0.8s) to preview, tap acts like a normal click to select,
+  // tap outside hides the preview
   if (isTouch) {
+    let longPressTimer = null;
+    let longPressed = false;
+    let moved = false;
+    let ignoreClickUntil = 0;
+    const LONG_PRESS_MS = 800;
+    const IGNORE_CLICK_AFTER_LONGPRESS_MS = 700;
+    let currentTarget = null;
+
+    function startLongPressTimer(target, idx) {
+      currentTarget = { el: target, idx };
+      moved = false;
+      longPressed = false;
+      clearLongPressTimer();
+      longPressTimer = setTimeout(() => {
+        // trigger preview on long press
+        showPreviewFor(idx, target);
+        longPressed = true;
+        // suppress the follow-up synthetic/native click for a short window
+        ignoreClickUntil = Date.now() + IGNORE_CLICK_AFTER_LONGPRESS_MS;
+      }, LONG_PRESS_MS);
+    }
+
+    function clearLongPressTimer() {
+      if (longPressTimer) {
+        clearTimeout(longPressTimer);
+        longPressTimer = null;
+      }
+      currentTarget = null;
+      longPressed = false;
+    }
+
+    // Cancel on touchmove (user is scrolling / dragging)
+    document.addEventListener('touchmove', (ev) => {
+      if (longPressTimer) {
+        moved = true;
+        clearLongPressTimer();
+      }
+    }, { passive: true });
+
+    // Handle touchstart: begin long-press detection when touching a matched selector or a floor-btn
     document.addEventListener('touchstart', (ev) => {
-      const target = ev.target.closest(selectors.join(','));
-      if (target) {
-        const idx = selectors.findIndex(s => target.matches(s));
-        if (idx !== -1) {
-          ev.preventDefault();
-          showPreviewFor(idx, target);
-          return;
-        }
+      const touch = ev.touches && ev.touches[0];
+      const target = (touch && document.elementFromPoint(touch.clientX, touch.clientY)) || ev.target;
+
+      // If user touched a matching zone/floor element, start timer
+      const matchedIndex = selectors.findIndex(s => target.closest(s));
+      if (matchedIndex !== -1) {
+        // anchor to the closest matched element
+        const anchor = target.closest(selectors[matchedIndex]);
+        startLongPressTimer(anchor, matchedIndex);
+        return;
       }
 
-      // check floor-btn taps
-      const floorBtn = ev.target.closest('.floor-btn');
+      // If user touched a floor button specifically, try to find index by its classes
+      const floorBtn = target.closest('.floor-btn');
       if (floorBtn) {
-        // try to determine selector index
+        // try to find selector index from button classes
         const classes = Array.from(floorBtn.classList || []);
         let idx = -1;
         for (const cls of classes) {
@@ -405,18 +447,48 @@ function toggleSubMenu(mainMap, subMenuClass) {
           if (idx !== -1) break;
         }
         if (idx !== -1) {
-          ev.preventDefault();
-          showPreviewFor(idx, floorBtn.closest('li') || floorBtn);
+          startLongPressTimer(floorBtn.closest('li') || floorBtn, idx);
           return;
         }
       }
 
-      // tap outside preview/dropdown: hide preview
+      // touched outside any previewable item -> hide preview
       const dropdown = document.querySelector('.dropdown-menu');
       if (!dropdown || !dropdown.contains(ev.target)) {
         hidePreviewNow();
       }
-    }, { passive: false });
+    }, { passive: true });
+
+    // On touchend: if longPress didn't fire, do nothing (allow native click to happen).
+    // If longPress did fire, suppress the following click (native) by short window.
+    document.addEventListener('touchend', (ev) => {
+      // If long press performed, we want to keep preview visible but ignore the subsequent click.
+      // Clear the timer; the ignoreClickUntil flag was already set when the longpress fired.
+      if (!longPressed) {
+        clearLongPressTimer();
+        // Not a longpress — this is a tap. Let native click/select behavior occur.
+        return;
+      } else {
+        // Longpress had shown preview. Keep preview open, but prevent the next immediate click.
+        clearLongPressTimer();
+      }
+    });
+
+    // touchcancel: clear and reset
+    document.addEventListener('touchcancel', (ev) => {
+      clearLongPressTimer();
+    });
+
+    // Prevent accidental click immediately after a long-press
+    document.addEventListener('click', (ev) => {
+      if (Date.now() < ignoreClickUntil) {
+        // swallow the click that would otherwise select an item after longpress
+        ev.stopImmediatePropagation();
+        ev.preventDefault();
+        return;
+      }
+    }, true); // capture phase to try to catch the click early
+
   }
 
   // hide immediately when dropdown is closed by outside click
@@ -429,104 +501,5 @@ function toggleSubMenu(mainMap, subMenuClass) {
   // hide on scroll/resize
   window.addEventListener('scroll', hidePreviewNow, { passive: true });
   window.addEventListener('resize', hidePreviewNow, { passive: true });
-
-})();
-
-// --- Touch: long-press to preview (~2000ms), tap = normal select ---
-(function addTouchLongPressPreview() {
-  const dropdown = document.querySelector('.dropdown-menu');
-  if (!dropdown) return;
-  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-  if (!isTouch) return;
-
-  const LONG_PRESS_MS = 2000;   // hold time to show preview
-  const CLICK_SUPPRESS_MS = 400; // suppress click after long-press
-  let longPressTimer = null;
-  let longPressed = false;
-  let activeAnchor = null;
-  let suppressClick = false;
-
-  // find preview index for an element (matches selectors[] or defaultFloors on parent)
-  function findPreviewIndex(el) {
-    if (!el) return -1;
-    for (let i = 0; i < selectors.length; i++) {
-      try { if (el.matches && el.matches(selectors[i])) return i; } catch (e) {}
-    }
-    // class-name fallback using selectorToIndex
-    const classes = Array.from(el.classList || []);
-    for (const cls of classes) {
-      try {
-        const idx = selectorToIndex('.' + cls);
-        if (idx !== -1) return idx;
-      } catch (e) {}
-    }
-    // walk up and check for a mapped default floor on parents
-    let node = el;
-    while (node && node !== dropdown) {
-      const nodeClasses = Array.from(node.classList || []);
-      for (const c of nodeClasses) {
-        if (window.defaultFloors && window.defaultFloors[c]) {
-          const idx = selectorToIndex(window.defaultFloors[c]);
-          if (idx !== -1) return idx;
-        }
-      }
-      node = node.parentElement;
-    }
-    return -1;
-  }
-
-  // touchstart: maybe start long-press detection
-  dropdown.addEventListener('touchstart', (ev) => {
-    const t = ev.target;
-    if (!t) return;
-    const idx = findPreviewIndex(t);
-    if (idx === -1) return; // not previewable => let normal tap flow
-
-    // choose anchor for positioning preview (button preferred)
-    activeAnchor = t.closest('button, .floor-btn') || t.closest('li') || t;
-
-    // schedule long-press
-    longPressed = false;
-    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
-    longPressTimer = setTimeout(() => {
-      longPressed = true;
-      suppressClick = true;
-      // show preview
-      try { showPreviewFor(idx, activeAnchor); } catch (e) { /* silent */ }
-      // small vibration feedback if available
-      if (navigator.vibrate) navigator.vibrate(16);
-    }, LONG_PRESS_MS);
-  }, { passive: true });
-
-  // touchend: if not longPressed -> normal tap passes through.
-  // if longPressed -> hide preview then suppress click for a short window.
-  dropdown.addEventListener('touchend', (ev) => {
-    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
-    if (longPressed) {
-      // user performed a long-press; hide preview soon and block the immediate click
-      try { hidePreviewSoon(); } catch (e) {}
-      setTimeout(() => { suppressClick = false; }, CLICK_SUPPRESS_MS);
-    }
-    longPressed = false;
-    activeAnchor = null;
-  }, { passive: true });
-
-  dropdown.addEventListener('touchcancel', () => {
-    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
-    longPressed = false;
-    activeAnchor = null;
-    suppressClick = false;
-  }, { passive: true });
-
-  // capture clicks and drop them if they happen right after a long-press
-  document.addEventListener('click', (ev) => {
-    if (!suppressClick) return;
-    const clickedInsideDropdown = !!ev.target.closest('.dropdown-menu');
-    if (clickedInsideDropdown) {
-      ev.stopImmediatePropagation();
-      ev.preventDefault();
-      suppressClick = false;
-    }
-  }, true); // capture phase to cancel early
 
 })();
