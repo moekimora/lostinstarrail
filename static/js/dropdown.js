@@ -431,3 +431,102 @@ function toggleSubMenu(mainMap, subMenuClass) {
   window.addEventListener('resize', hidePreviewNow, { passive: true });
 
 })();
+
+// --- Touch: long-press to preview (~2000ms), tap = normal select ---
+(function addTouchLongPressPreview() {
+  const dropdown = document.querySelector('.dropdown-menu');
+  if (!dropdown) return;
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  if (!isTouch) return;
+
+  const LONG_PRESS_MS = 2000;   // hold time to show preview
+  const CLICK_SUPPRESS_MS = 400; // suppress click after long-press
+  let longPressTimer = null;
+  let longPressed = false;
+  let activeAnchor = null;
+  let suppressClick = false;
+
+  // find preview index for an element (matches selectors[] or defaultFloors on parent)
+  function findPreviewIndex(el) {
+    if (!el) return -1;
+    for (let i = 0; i < selectors.length; i++) {
+      try { if (el.matches && el.matches(selectors[i])) return i; } catch (e) {}
+    }
+    // class-name fallback using selectorToIndex
+    const classes = Array.from(el.classList || []);
+    for (const cls of classes) {
+      try {
+        const idx = selectorToIndex('.' + cls);
+        if (idx !== -1) return idx;
+      } catch (e) {}
+    }
+    // walk up and check for a mapped default floor on parents
+    let node = el;
+    while (node && node !== dropdown) {
+      const nodeClasses = Array.from(node.classList || []);
+      for (const c of nodeClasses) {
+        if (window.defaultFloors && window.defaultFloors[c]) {
+          const idx = selectorToIndex(window.defaultFloors[c]);
+          if (idx !== -1) return idx;
+        }
+      }
+      node = node.parentElement;
+    }
+    return -1;
+  }
+
+  // touchstart: maybe start long-press detection
+  dropdown.addEventListener('touchstart', (ev) => {
+    const t = ev.target;
+    if (!t) return;
+    const idx = findPreviewIndex(t);
+    if (idx === -1) return; // not previewable => let normal tap flow
+
+    // choose anchor for positioning preview (button preferred)
+    activeAnchor = t.closest('button, .floor-btn') || t.closest('li') || t;
+
+    // schedule long-press
+    longPressed = false;
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    longPressTimer = setTimeout(() => {
+      longPressed = true;
+      suppressClick = true;
+      // show preview
+      try { showPreviewFor(idx, activeAnchor); } catch (e) { /* silent */ }
+      // small vibration feedback if available
+      if (navigator.vibrate) navigator.vibrate(16);
+    }, LONG_PRESS_MS);
+  }, { passive: true });
+
+  // touchend: if not longPressed -> normal tap passes through.
+  // if longPressed -> hide preview then suppress click for a short window.
+  dropdown.addEventListener('touchend', (ev) => {
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    if (longPressed) {
+      // user performed a long-press; hide preview soon and block the immediate click
+      try { hidePreviewSoon(); } catch (e) {}
+      setTimeout(() => { suppressClick = false; }, CLICK_SUPPRESS_MS);
+    }
+    longPressed = false;
+    activeAnchor = null;
+  }, { passive: true });
+
+  dropdown.addEventListener('touchcancel', () => {
+    if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    longPressed = false;
+    activeAnchor = null;
+    suppressClick = false;
+  }, { passive: true });
+
+  // capture clicks and drop them if they happen right after a long-press
+  document.addEventListener('click', (ev) => {
+    if (!suppressClick) return;
+    const clickedInsideDropdown = !!ev.target.closest('.dropdown-menu');
+    if (clickedInsideDropdown) {
+      ev.stopImmediatePropagation();
+      ev.preventDefault();
+      suppressClick = false;
+    }
+  }, true); // capture phase to cancel early
+
+})();
