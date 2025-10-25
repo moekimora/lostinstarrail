@@ -1,4 +1,7 @@
 (function () {
+  // --------------------------
+  // Dropdown / submenu logic
+  // --------------------------
   const dropdownBtn = document.querySelector('.dropdown-btn');
   const dropdownMenu = document.querySelector('.dropdown-menu');
   if (!dropdownBtn || !dropdownMenu) return;
@@ -38,6 +41,9 @@
     "txl-s": ".txl-s-f1"        // Skysplitter → F1
   };
 
+  // expose mapping globally so other IIFEs or modules can use it
+  window.defaultFloors = defaultFloors;
+
   // Hook floor button clicks to set active highlight (works even if starrailmap.js already handles map change)
   document.querySelectorAll('.floor-btn').forEach(btn => {
     btn.addEventListener('click', function (ev) {
@@ -54,59 +60,74 @@
     });
   });
 
-  // Reuse the existing toggleSubMenu behaviour, but attach it to parents (main-hst, main-j6, main-txl)
-  function toggleSubMenu(mainMap, subMenuClass) {
-    if (!mainMap) return;
+  // add this helper inside the same IIFE (near your other helpers)
+function closeAllSubmenus(except = null) {
+  document.querySelectorAll('.sub-menu-hst, .sub-menu-j6, .sub-menu-txl').forEach(sm => {
+    if (sm !== except) sm.classList.remove('show');
+  });
+}
 
-    mainMap.addEventListener('click', function (event) {
-      // Toggle the submenu (same UX as before)
-      const subMenu = this.querySelector(`.${subMenuClass}`);
-      if (subMenu) subMenu.classList.toggle('show');
+// Replaced toggleSubMenu: ensures only one main submenu can be visible at a time
+function toggleSubMenu(mainMap, subMenuClass) {
+  if (!mainMap) return;
 
-      // If the user clicked the parent entry itself (not an inner floor button), we want to trigger a default floor.
-      // Find a clicked child li (the actual "zone" item) if present
-      const clickedChildLi = event.target.closest('li'); // could be the zone li or a nested li
-      if (clickedChildLi && clickedChildLi !== mainMap) {
-        // If this click landed on a child li (like .hst-stz), and it wasn't on a floor button inside it,
-        // then trigger its default if we have one.
-        const childClasses = Array.from(clickedChildLi.classList || []);
-        for (const cls of childClasses) {
-          if (defaultFloors[cls]) {
-            // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
-            if (event.target.closest('button')) return;
+  mainMap.addEventListener('click', function (event) {
+    // find the submenu for this parent
+    const subMenu = this.querySelector(`.${subMenuClass}`);
+    const isOpen = subMenu && subMenu.classList.contains('show');
 
-            const defaultSelector = defaultFloors[cls];
-            // prefer local query (inside dropdown) then fallback to global document
-            const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
-            if (defaultBtn) {
-              defaultBtn.click();      // triggers starrailmap's click listener (toggleMapVisibility)
-              setActiveFloor(defaultBtn); // visually mark it
-              // close menus
-              dropdownMenu.classList.remove('show');
-              subMenu.classList.remove('show');
-            }
-            return;
+    // close other submenus (but keep this one alone)
+    closeAllSubmenus(subMenu);
+
+    // toggle this submenu: if it was open -> close it, otherwise open it
+    if (subMenu) {
+      if (isOpen) {
+        subMenu.classList.remove('show');
+      } else {
+        subMenu.classList.add('show');
+      }
+    }
+
+    // Existing logic: if the user clicked a child <li> (a zone), trigger default floor
+    const clickedChildLi = event.target.closest('li');
+    if (clickedChildLi && clickedChildLi !== mainMap) {
+      const childClasses = Array.from(clickedChildLi.classList || []);
+      for (const cls of childClasses) {
+        if (defaultFloors[cls]) {
+          // if the click is directly on a floor button inside this li, do nothing (floor button handler will run)
+          if (event.target.closest('button')) return;
+
+          const defaultSelector = defaultFloors[cls];
+          const defaultBtn = dropdownMenu.querySelector(defaultSelector) || document.querySelector(defaultSelector);
+          if (defaultBtn) {
+            defaultBtn.click();      // triggers starrail's click listener (toggleMapVisibility)
+            setActiveFloor(defaultBtn); // visually mark it
+            // close menus: keep other submenus closed already via closeAllSubmenus
+            dropdownMenu.classList.remove('show');
+            if (subMenu) subMenu.classList.remove('show');
           }
+          return;
         }
       }
-    });
+    }
+  });
 
-    // When a submenu item (li) or its buttons are clicked, close submenu and dropdown (existing behavior)
-    const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
-    subMenuItems.forEach((item) => {
-      item.addEventListener('click', function (event) {
-        event.stopPropagation();
-        const subMenu = this.closest(`.${subMenuClass}`);
-        if (subMenu) subMenu.classList.remove('show');
-        dropdownMenu.classList.remove('show');
+  // keep the existing subMenuItems behavior (closing submenu when clicking an inner item)
+  const subMenuItems = mainMap.querySelectorAll(`.${subMenuClass} li, .${subMenuClass} button`);
+  subMenuItems.forEach((item) => {
+    item.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const subMenu = this.closest(`.${subMenuClass}`);
+      if (subMenu) subMenu.classList.remove('show');
+      dropdownMenu.classList.remove('show');
 
-        // If they clicked a floor button specifically, ensure the active highlight is set
-        if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
-          setActiveFloor(this);
-        }
-      });
+      if (this.tagName.toLowerCase() === "button" && this.classList.contains('floor-btn')) {
+        setActiveFloor(this);
+      }
     });
-  }
+  });
+}
+
 
   // Attach to the three main parent nodes
   toggleSubMenu(document.querySelector('.main-hst'), 'sub-menu-hst');
@@ -136,10 +157,10 @@
 
 })();
 
-// Hover preview anchored above hovered item; does NOT follow cursor
+// Hover preview anchored above hovered item; works for mouse and touch
 (function () {
-  if ('ontouchstart' in window) return; // skip on touch devices
-
+  // overlay descriptors must exist (from starrailmap.js)
+  // if not present, the preview code will still set up but will early-exit when needed
   const selectors = [
     '.hst-mcz', '.hst-bz', '.hst-stz-b1', '.hst-stz-f1', '.hst-stz-f2', '.hst-suz-f1',
     '.hst-suz-f2', '.hst-scz-f1', '.hst-scz-f2', '.hst-scz-f3', '.j6-ad-b1', '.j6-ad-f1', '.j6-osp',
@@ -150,37 +171,126 @@
     '.txl-s-f1', '.txl-s-f2', '.txl-s-f3'
   ];
 
-  if ('ontouchstart' in window) {
-    document.addEventListener('touchstart', (ev) => {
-      const target = ev.target.closest(selectors.join(','));
-      if (!target) {
-        preview.classList.remove('show');
-        preview.style.display = 'none';
-        return;
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
+  // --- Mobile: show preview when tapping items inside the dropdown ---
+(function addDropdownTouchPreview() {
+  const dropdown = document.querySelector('.dropdown-menu');
+  if (!dropdown || !isTouch) return;
+
+  // helper: given an element, try to find the selector index that corresponds to it
+  function elementToSelectorIndex(el) {
+    if (!el) return -1;
+    // check the element itself for a match to any selector
+    for (let i = 0; i < selectors.length; i++) {
+      try {
+        if (el.matches && el.matches(selectors[i])) return i;
+      } catch (e) { /* ignore invalid selector matches */ }
+    }
+
+    // fall back to checking class names (useful for floor-btn classes)
+    const classes = Array.from(el.classList || []);
+    for (const cls of classes) {
+      const idx = selectorToIndex('.' + cls);
+      if (idx !== -1) return idx;
+    }
+
+    // climb up until reaching the dropdown root to find anything matchable
+    let parent = el.parentElement;
+    while (parent && parent !== dropdown) {
+      for (let i = 0; i < selectors.length; i++) {
+        try {
+          if (parent.matches && parent.matches(selectors[i])) return i;
+        } catch (e) {}
       }
-      const idx = selectors.findIndex(s => target.matches(s));
-      if (idx !== -1) {
-        ev.preventDefault();
-        showPreviewFor(idx, target);
+      const parentClasses = Array.from(parent.classList || []);
+      for (const pc of parentClasses) {
+        const idx = selectorToIndex('.' + pc);
+        if (idx !== -1) return idx;
       }
-    }, { passive: false });
+      parent = parent.parentElement;
+    }
+    return -1;
   }
+
+  // Also try defaultFloors mapping: given a tapped element, find a parent that has a mapped default floor
+  function findDefaultFloorIndexFromParent(el) {
+    if (!window.defaultFloors) return -1;
+    let node = el;
+    while (node && node !== dropdown) {
+      const classes = Array.from(node.classList || []);
+      for (const cls of classes) {
+        if (window.defaultFloors[cls]) {
+          return selectorToIndex(window.defaultFloors[cls]);
+        }
+      }
+      node = node.parentElement;
+    }
+    return -1;
+  }
+
+  // Touch handler on the dropdown — shows preview for tapped item (does NOT close dropdown)
+  dropdown.addEventListener('touchstart', function (ev) {
+    const t = ev.target;
+    // try direct mapping first
+    let idx = elementToSelectorIndex(t);
+
+    // if not found, try looking for a default floor mapping for a parent li
+    if (idx === -1) idx = findDefaultFloorIndexFromParent(t);
+
+    if (idx !== -1) {
+      // handled: prevent the tap from also closing/hiding and show preview
+      ev.preventDefault();
+      ev.stopPropagation();
+
+      // find a good anchor: prefer the actual button or li ancestor
+      const anchor = (t.closest('button, .floor-btn') || t.closest('li') || t);
+
+      // show preview (reuses your existing function)
+      showPreviewFor(idx, anchor);
+
+      // keep preview visible for a short time on mobile (fallback if user doesn't tap again)
+      // hide after a timeout if they don't interact further
+      if (typeof hidePreviewSoon === 'function') {
+        // ensure we clear any scheduled hide and then schedule a hide
+        if (window._dropdown_preview_hide_timer) clearTimeout(window._dropdown_preview_hide_timer);
+        window._dropdown_preview_hide_timer = setTimeout(() => {
+          hidePreviewSoon();
+          window._dropdown_preview_hide_timer = null;
+        }, 2200);
+      }
+
+      return;
+    }
+
+    // otherwise let the touch event fold through (so taps on non-preview areas behave normally)
+  }, { passive: false });
+})();
 
 
   // create preview element (reused)
   const preview = document.createElement('div');
   preview.className = 'map-preview';
+  preview.style.position = 'fixed';
   preview.style.left = '0px';
   preview.style.top = '0px';
   preview.style.display = 'none';
+  preview.style.zIndex = 999999;
+  preview.style.pointerEvents = 'none';
 
   const img = document.createElement('img');
   img.alt = 'map preview';
   img.draggable = false;
+  img.style.display = 'block';
+  img.style.maxWidth = '360px';
+  img.style.maxHeight = '240px';
 
   const label = document.createElement('div');
   label.className = 'label';
   label.style.display = 'none';
+  label.style.padding = '6px 10px';
+  label.style.fontWeight = '600';
+  label.style.fontSize = '13px';
 
   preview.appendChild(img);
   preview.appendChild(label);
@@ -188,8 +298,8 @@
 
   let hideTimeout = null;
   let lastIndex = -1;
-  const FADE_OUT_DELAY = 180; // ms before actually hiding display after removing .show
-  const HIDE_DEBOUNCE = 160; // ms delay before starting fade-out (prevents flicker)
+  const FADE_OUT_DELAY = 180; // ms
+  const HIDE_DEBOUNCE = 160;  // ms
 
   function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
@@ -217,8 +327,21 @@
     preview.style.top = top + 'px';
   }
 
+  // helper: find overlay index given a selector (like ".hst-stz-f1")
+  function selectorToIndex(sel) {
+    if (!sel) return -1;
+    const norm = sel.startsWith('.') ? sel : '.' + sel;
+    for (let i = 0; i < selectors.length; i++) {
+      if (selectors[i] === norm) return i;
+    }
+    // fallback: try to find overlay whose name or other property matches (not used by default)
+    return -1;
+  }
+
   function showPreviewFor(index, anchorEl) {
-    const desc = window.overlays[index];
+    // index should correspond to window.overlays ordering (same as selectors[])
+    const overlays = window.overlays || [];
+    const desc = overlays[index];
     if (!desc) return;
     lastIndex = index;
 
@@ -240,16 +363,19 @@
       label.textContent = desc.name || '';
       label.style.display = desc.name ? 'block' : 'none';
 
-      // make visible
+      // make visible (flex so label + img layout nicely)
       preview.style.display = 'flex';
+      preview.style.flexDirection = 'column';
+      preview.style.alignItems = 'stretch';
 
       // position now using anchor's rect
       const anchorRect = anchorEl.getBoundingClientRect();
-      // ensure layout updated before reading preview size
       requestAnimationFrame(() => {
         positionPreviewAbove(anchorRect);
-        // trigger fade-in
+        // trigger fade-in - uses a class hook, but we can do inline transition fallback
         preview.classList.add('show');
+        preview.style.transition = 'opacity 180ms ease';
+        preview.style.opacity = '1';
       });
     };
 
@@ -265,9 +391,9 @@
     if (hideTimeout) clearTimeout(hideTimeout);
     hideTimeout = setTimeout(() => {
       preview.classList.remove('show');
+      preview.style.opacity = '0';
       // after fade-out, set display none
       setTimeout(() => {
-        // ensure no new show happened in the meantime
         if (!preview.classList.contains('show')) {
           preview.style.display = 'none';
         }
@@ -280,33 +406,113 @@
   function hidePreviewNow() {
     if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
     preview.classList.remove('show');
+    preview.style.opacity = '0';
     preview.style.display = 'none';
     lastIndex = -1;
   }
 
-  // Attach handlers to each selector element
-  selectors.forEach((sel, idx) => {
-    const el = document.querySelector(sel);
-    if (!el) return;
+  // --- Attach parent-hover handlers for defaultFloors mapping ---
+  // This shows the mapped default floor preview when hovering the parent <li>
+  if (window.defaultFloors) {
+    Object.keys(window.defaultFloors).forEach(parentClass => {
+      const parentEl = document.querySelector(`.${parentClass}`);
+      if (!parentEl) return;
+      const defaultSelector = window.defaultFloors[parentClass];
+      const idx = selectorToIndex(defaultSelector);
+      if (idx === -1) return;
 
-    // anchor should be the element hovered; for floor buttons, anchor the button itself
-    el.addEventListener('mouseenter', (ev) => {
-      // anchor element could be the specific element hovered (ev.currentTarget)
-      const anchor = ev.currentTarget;
-      showPreviewFor(idx, anchor);
+      parentEl.addEventListener('mouseenter', (ev) => {
+        showPreviewFor(idx, parentEl);
+      });
+      parentEl.addEventListener('mouseleave', hidePreviewSoon);
+
+      // also ensure floor buttons inside parent still anchor properly
+      parentEl.querySelectorAll('.floor-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', (ev) => {
+          // anchor to button for tighter positioning
+          showPreviewFor(idx, btn);
+        });
+        btn.addEventListener('mouseleave', hidePreviewSoon);
+      });
     });
+  }
 
-    // handle floor-btns or button children inside the item — anchor to that button
-    el.querySelectorAll('button, .floor-btn').forEach(btn => {
-      btn.addEventListener('mouseenter', (ev) => {
-        // anchor to the button and find correct overlay index: same idx
+  // Attach handlers to each selector element (zone items and specific floor selectors)
+  selectors.forEach((sel, idx) => {
+    // there may be multiple matching elements — attach to each
+    document.querySelectorAll(sel).forEach(el => {
+      // anchor should be the element hovered; for floor buttons, anchor the button itself
+      el.addEventListener('mouseenter', (ev) => {
         showPreviewFor(idx, ev.currentTarget);
       });
-      btn.addEventListener('mouseleave', hidePreviewSoon);
-    });
 
-    el.addEventListener('mouseleave', hidePreviewSoon);
+      // handle floor-btns or button children inside the item — anchor to that button
+      el.querySelectorAll('button, .floor-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', (ev) => {
+          // anchor to the button and find correct overlay index: same idx
+          showPreviewFor(idx, ev.currentTarget);
+        });
+        btn.addEventListener('mouseleave', hidePreviewSoon);
+      });
+
+      el.addEventListener('mouseleave', hidePreviewSoon);
+    });
   });
+
+  // Also attach to standalone floor buttons (handles default floor buttons that might exist elsewhere)
+  document.querySelectorAll('.floor-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', (ev) => {
+      // attempt to find matching selector index by class name
+      const classes = Array.from(btn.classList || []);
+      let idx = -1;
+      for (const cls of classes) {
+        idx = selectorToIndex('.' + cls);
+        if (idx !== -1) break;
+      }
+      if (idx !== -1) {
+        showPreviewFor(idx, btn.closest('li') || btn);
+      }
+    });
+    btn.addEventListener('mouseleave', hidePreviewSoon);
+  });
+
+  // Touch devices: tap to preview, tap outside to hide
+  if (isTouch) {
+    document.addEventListener('touchstart', (ev) => {
+      const target = ev.target.closest(selectors.join(','));
+      if (target) {
+        const idx = selectors.findIndex(s => target.matches(s));
+        if (idx !== -1) {
+          ev.preventDefault();
+          showPreviewFor(idx, target);
+          return;
+        }
+      }
+
+      // check floor-btn taps
+      const floorBtn = ev.target.closest('.floor-btn');
+      if (floorBtn) {
+        // try to determine selector index
+        const classes = Array.from(floorBtn.classList || []);
+        let idx = -1;
+        for (const cls of classes) {
+          idx = selectorToIndex('.' + cls);
+          if (idx !== -1) break;
+        }
+        if (idx !== -1) {
+          ev.preventDefault();
+          showPreviewFor(idx, floorBtn.closest('li') || floorBtn);
+          return;
+        }
+      }
+
+      // tap outside preview/dropdown: hide preview
+      const dropdown = document.querySelector('.dropdown-menu');
+      if (!dropdown || !dropdown.contains(ev.target)) {
+        hidePreviewNow();
+      }
+    }, { passive: false });
+  }
 
   // hide immediately when dropdown is closed by outside click
   document.addEventListener('click', (ev) => {

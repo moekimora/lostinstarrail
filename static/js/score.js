@@ -117,6 +117,7 @@ var nextRoundButtonActivated = false;
 
 var resultText;
 var guessResult = document.getElementById('guessResult');
+var guessHelper = document.getElementById('guessHelper');
 
 var displayElement = document.getElementById("countdown-text");
 var displaySElement = document.getElementById("countdown-s-text");
@@ -159,22 +160,55 @@ function isSameZoneDifferentFloor(correctLocation, guessedLocation) {
 }
 
 function triggerConfetti(targetElement = null, confettiCount = 120, intensity = 0.75) {
-  // intensity: 0.5 = small, 1 = normal, 1.6 = huge
+  // Adaptive heuristics (tweak thresholds if you want)
+  const supportsReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hwConcurrency = navigator.hardwareConcurrency || 4;
+  const dpr = window.devicePixelRatio || 1;
+
+  // Heuristics for low-end devices
+  const lowEnd = hwConcurrency <= 2 || dpr > 2 || /Mobi|Android/i.test(navigator.userAgent);
+
+  // Respect reduced-motion
+  if (supportsReducedMotion) {
+    confettiCount = Math.min(confettiCount, 18);
+    intensity = Math.min(intensity, 0.6);
+  }
+
+  // Scale confetti count by device capability
+  let canvasCount = confettiCount;
+  let domForegroundCount = Math.max(6, Math.round(confettiCount * 0.8)); // few 3D DOM pieces
+  if (lowEnd) {
+    canvasCount = Math.max(18, Math.round(confettiCount * 0.28));
+    domForegroundCount = Math.min(domForegroundCount, 6);
+  } else if (hwConcurrency <= 4) {
+    canvasCount = Math.max(32, Math.round(confettiCount * 0.5));
+    domForegroundCount = Math.min(domForegroundCount, 10);
+  } else {
+    canvasCount = confettiCount;
+  }
+
+  // limit absolute counts (safety)
+  canvasCount = Math.min(800, canvasCount);
+  domForegroundCount = Math.min(16, domForegroundCount);
+
   const warmColors = ["#FFD700", "#FF69B4", "#ff6969", "#00FFFF", "#ADFF2F", "#FFA500"];
+
+  // create container
   const container = document.createElement("div");
   container.className = "confetti-container";
+  Object.assign(container.style, {
+    position: "fixed",
+    left: 0,
+    top: 0,
+    width: "100%",
+    height: "100%",
+    pointerEvents: "none",
+    overflow: "visible",
+    zIndex: 99,
+    perspective: "900px",
+    transformStyle: "preserve-3d"
+  });
   document.body.appendChild(container);
-
-  // set up perspective for 3D illusion
-  container.style.perspective = "1000px";
-  container.style.transformStyle = "preserve-3d";
-  container.style.position = "fixed";
-  container.style.left = 0;
-  container.style.top = 0;
-  container.style.width = "100%";
-  container.style.height = "100%";
-  container.style.overflow = "visible";
-  container.style.pointerEvents = "none";
 
   // compute origin
   let originX = window.innerWidth / 2;
@@ -185,88 +219,198 @@ function triggerConfetti(targetElement = null, confettiCount = 120, intensity = 
     originY = r.top + r.height / 2;
   }
 
-  // --- flash (fireball burst) ---
-  const flash = document.createElement("div");
-  flash.className = "confetti-flash";
-  const flashSize = Math.max(80, 140 * intensity);
-  Object.assign(flash.style, {
-    position: "absolute",
-    left: originX - flashSize / 2 + "px",
-    top: originY - flashSize / 2 + "px",
-    width: flashSize + "px",
-    height: flashSize + "px",
-    borderRadius: "50%",
-    background: "radial-gradient(circle, rgba(255,255,220,0.95) 0%, rgba(255,200,90,0.9) 30%, rgba(255,120,30,0.6) 60%, rgba(0,0,0,0) 70%)",
-  });
-  container.appendChild(flash);
-
-  flash.animate(
-    [
+  // small flash (keep light-weight)
+  if (!supportsReducedMotion) {
+    const flash = document.createElement("div");
+    Object.assign(flash.style, {
+      position: "absolute",
+      left: (originX - 50) + "px",
+      top: (originY - 50) + "px",
+      width: (100 * intensity) + "px",
+      height: (100 * intensity) + "px",
+      borderRadius: "50%",
+      pointerEvents: "none",
+      background: "radial-gradient(circle, rgba(255,255,220,0.95) 0%, rgba(255,150,40,0.85) 30%, rgba(255,80,10,0.4) 60%, rgba(0,0,0,0) 72%)",
+      transform: "scale(0.6)",
+      opacity: "1",
+      zIndex: 99999,
+      willChange: "transform, opacity"
+    });
+    container.appendChild(flash);
+    flash.animate([
       { transform: "scale(0.6)", opacity: 1 },
       { transform: `scale(${2 + intensity})`, opacity: 0 }
-    ],
-    { duration: 500 + intensity * 200, easing: "ease-out", fill: "forwards" }
-  );
-  setTimeout(() => flash.remove(), 900 + intensity * 300);
-
-  // --- confetti pieces ---
-  const maxDuration = 12000 * intensity;
-
-  for (let i = 0; i < confettiCount; i++) {
-    const isSpark = Math.random() < 0.3;
-    const el = document.createElement("div");
-    container.appendChild(el);
-
-    const color = warmColors[Math.floor(Math.random() * warmColors.length)];
-    const size = (isSpark ? 3 + Math.random() * 4 : 10 + Math.random() * 24) * intensity;
-    const depth = Math.random(); // 0 (front) → 1 (back)
-
-    Object.assign(el.style, {
-      position: "absolute",
-      left: originX + (Math.random() - 0.5) * 60 * intensity + "px",
-      top: originY + (Math.random() - 0.5) * 40 * intensity + "px",
-      width: isSpark ? "2px" : size + "px",
-      height: isSpark ? (10 + Math.random() * 40) * intensity + "px" : size + "px",
-      background: color,
-      borderRadius: isSpark ? "2px" : "4px",
-      opacity: 0.95 - depth * 0.4,
-      transformOrigin: "center",
-      transform: `translateZ(${(depth - 0.5) * 500}px) rotateX(${Math.random() * 360}deg) rotateY(${Math.random() * 360}deg)`,
-    });
-
-    // motion physics
-    const angle = Math.random() * Math.PI * 2;
-    const baseSpeed = 350 + Math.random() * 700;
-    const speed = baseSpeed * (0.6 + Math.random() * 1.1) * (1 - depth * 0.5);
-    const vx = Math.cos(angle) * speed;
-    const vy = Math.sin(angle) * speed;
-    const vz = (Math.random() - 0.5) * 600 * (1 - depth);
-
-    const gravity = 0.18 + Math.random() * 0.22;
-    const duration = Math.round((2800 + Math.random() * 4800) * intensity * (1 + depth * 0.4));
-
-    const rotStart = Math.random() * 360;
-    const rotEnd = rotStart + (isSpark ? 720 : 1440) * (0.6 + Math.random());
-
-    // add perspective drift + slight z rotation
-    el.animate(
-      [
-        { transform: `translate3d(0,0,0) rotateX(${rotStart}deg) rotateY(${rotStart}deg) scale(1)`, opacity: 1 },
-        { transform: `translate3d(${vx * 0.6}px, ${vy * 0.6}px, ${vz * 0.5}px) rotateX(${rotStart + (rotEnd - rotStart) * 0.6}deg) rotateY(${rotStart + (rotEnd - rotStart) * 0.5}deg) scale(1)`, opacity: 0.95 },
-        { transform: `translate3d(${vx}px, ${vy + gravity * duration * 0.6}px, ${vz}px) rotateX(${rotEnd}deg) rotateY(${rotEnd}deg) scale(0.95)`, opacity: 0 }
-      ],
-      {
-        duration,
-        easing: "cubic-bezier(.25,.8,.25,1)",
-        delay: Math.random() * 100,
-        fill: "forwards"
-      }
-    );
-
-    setTimeout(() => el.remove(), duration + 500);
+    ], { duration: 420 + intensity * 200, easing: "ease-out", fill: "forwards" });
+    setTimeout(() => { try { flash.remove(); } catch(e) {} }, 900 + intensity * 300);
   }
 
-  setTimeout(() => container.remove(), maxDuration + 1000);
+  // --- Canvas bulk particles (fast) ---
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  canvas.style.position = "absolute";
+  canvas.style.left = "0";
+  canvas.style.top = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = 99998;
+  container.appendChild(canvas);
+
+  // particles
+  const particles = [];
+  const now = performance.now();
+  for (let i = 0; i < canvasCount; i++) {
+    // depth (fake 3D): 0 (near) -> 1 (far)
+    const depth = Math.random();
+    const isSpark = Math.random() < 0.28;
+    const speed = (120 + Math.random() * 420) * (1 - depth * 0.6) * intensity;
+    const angle = (Math.random() * Math.PI * 2);
+    const size = (isSpark ? (2 + Math.random() * 4) : (8 + Math.random() * 18)) * (1 - depth * 0.5) * intensity;
+    particles.push({
+      x: originX + (Math.random() - 0.5) * 40 * intensity,
+      y: originY + (Math.random() - 0.5) * 30 * intensity,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed * 0.6 - 140 * (1 - depth),
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: (Math.random() - 0.5) * 0.3,
+      size,
+      color: warmColors[Math.floor(Math.random() * warmColors.length)],
+      alpha: 1 - depth * 0.6,
+      gravity: 0.25 + Math.random() * 0.35,
+      life: 2200 + Math.random() * 3000 * (1 + depth * 0.6),
+      birth: now,
+      depth
+    });
+  }
+
+  // render loop
+  let rafId = null;
+  function renderCanvas(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const current = t;
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const age = current - p.birth;
+      if (age > p.life) continue;
+
+      // simple physics integrated at fixed dt approximation
+      const dt = Math.min(32, age === 0 ? 16 : (16)); // keep stable
+      p.x += p.vx * (dt / 1000);
+      p.y += p.vy * (dt / 1000) + p.gravity * (dt / 1000) * 16;
+      p.vy += p.gravity * 0.03;
+
+      p.rotation += p.rotationSpeed * (dt / 16);
+
+      const lifeRatio = 1 - (age / p.life);
+      const drawAlpha = lifeRatio * p.alpha;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      // fake perspective tilt by scaling Y based on depth
+      const tiltScale = 1 - p.depth * 0.28;
+      ctx.scale(tiltScale, 1);
+      ctx.globalAlpha = Math.max(0, drawAlpha);
+      ctx.fillStyle = p.color;
+      // draw small rounded rectangle quickly
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      ctx.restore();
+    }
+
+    // remove dead particles occasionally to keep loop light
+    // (but keep array size stable; we simply stop drawing expired ones)
+    // stop condition
+    const stillAlive = particles.some(p => (current - p.birth) < p.life);
+    if (stillAlive) {
+      rafId = requestAnimationFrame(renderCanvas);
+    } else {
+      // cleanup canvas after short fade to let DOM foreground remain
+      setTimeout(() => {
+        try { canvas.remove(); } catch(e) {}
+      }, 800);
+    }
+  }
+  rafId = requestAnimationFrame(renderCanvas);
+
+  // --- Small number of DOM 3D foreground "chunks" for real 3D feel ---
+  const fgFragment = document.createDocumentFragment();
+  const fgEls = [];
+  const fgCount = domForegroundCount;
+
+  // cap durations (keeps animations fast on low-end)
+  const fgDurationBase = lowEnd ? 1100 : 1700;
+  const fgExtra = lowEnd ? 600 : 1400;
+
+  for (let i = 0; i < fgCount; i++) {
+    const el = document.createElement("div");
+    el.className = "confetti-3d";
+    const isSpark = Math.random() < 0.25;
+    const sz = Math.round((isSpark ? (4 + Math.random() * 6) : (18 + Math.random() * 36)) * intensity);
+    Object.assign(el.style, {
+      position: "absolute",
+      left: (originX + (Math.random() - 0.5) * 40 * intensity) + "px",
+      top: (originY + (Math.random() - 0.5) * 26 * intensity) + "px",
+      width: (isSpark ? 3 : sz) + "px",
+      height: (isSpark ? (10 + Math.random() * 26) * intensity : sz) + "px",
+      background: warmColors[Math.floor(Math.random() * warmColors.length)],
+      borderRadius: isSpark ? "2px" : "4px",
+      transformStyle: "preserve-3d",
+      willChange: "transform, opacity",
+      pointerEvents: "none",
+      zIndex: 99999
+    });
+
+    fgFragment.appendChild(el);
+    fgEls.push({ el, isSpark });
+  }
+  container.appendChild(fgFragment);
+
+  // animate foreground DOM pieces with Web Animations API
+  fgEls.forEach((o, idx) => {
+    const el = o.el;
+    const isSpark = o.isSpark;
+    const angle = Math.random() * Math.PI * 2;
+    const baseV = 420 + Math.random() * 380;
+    const depthFactor = 1.0 - Math.random() * 0.6;
+    const vx = Math.cos(angle) * baseV * depthFactor * (1 + Math.random() * 0.4);
+    const vy = Math.sin(angle) * baseV * depthFactor * (1 + Math.random() * 0.4);
+    const vz = (Math.random() - 0.5) * 700 * (1 - depthFactor);
+    const rotX = Math.random() * 720 + 360;
+    const rotY = Math.random() * 720 + 360;
+    const dur = Math.round(fgDurationBase + Math.random() * fgExtra) * (1 + (1 - depthFactor) * 0.6);
+
+    const keyframes = [
+      { transform: `translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)`, opacity: 1 },
+      { transform: `translate3d(${vx * 0.4}px, ${vy * 0.4}px, ${vz * 0.35}px) rotateX(${rotX * 0.4}deg) rotateY(${rotY * 0.4}deg) scale(1)`, opacity: 0.95, offset: 0.45 },
+      { transform: `translate3d(${vx}px, ${vy}px, ${vz}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(0.95)`, opacity: 0 }
+    ];
+
+    // stagger delay so not everything moves exactly at same time
+    const anim = el.animate(keyframes, {
+      duration: Math.max(700, dur),
+      easing: "cubic-bezier(.22,.9,.3,1)",
+      delay: Math.random() * 120,
+      fill: "forwards"
+    });
+
+    // cleanup element after animation ends
+    anim.onfinish = () => { try { el.remove(); } catch(e) {} };
+    // safety: remove after dur+500ms in case onfinish not fired
+    setTimeout(() => { try { el.remove(); } catch(e) {} }, dur + 800);
+  });
+
+  // final cleanup of container after everything done
+  const maxDuration = Math.max(4500, Math.round(3000 + confettiCount * 10 * intensity));
+  setTimeout(() => {
+    try {
+      rafId && cancelAnimationFrame(rafId);
+      canvas.remove();
+      // remove any leftover fg els
+      try { container.remove(); } catch(e) {}
+    } catch (e) {}
+  }, maxDuration);
 }
 
 
@@ -519,6 +663,7 @@ document.querySelector(".next-round").addEventListener("click", function() {
   if (nextRoundButton.classList.contains('view-result')) {
     updateRoundInfo(); 
     // Handle logic for the "View Result" button
+    guessHelper.style.display = 'none';
     nextRoundButton.style.display = 'none';
     var displayTimeUp = document.getElementById("countdown-timeup");
     displayTimeUp.style.display = 'none';

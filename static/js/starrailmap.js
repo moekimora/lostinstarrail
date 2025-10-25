@@ -18,7 +18,7 @@ function initialize(map, options = {}) {
 
 // usage:
 var starrailMap = initialize('starrailmap'); // defaults to 0
-var resultMap = initialize('resultmap', { minZoom: 1, startZoom: 1 });
+var resultMap = initialize('resultmap', { minZoom: 0, startZoom: 1 });
 
 
 const bounds = [[-90, -180], [90, 180]];

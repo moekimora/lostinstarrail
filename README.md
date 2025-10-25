@@ -418,6 +418,8 @@ If you guess in the wrong map location, you get **0** points.
 
 ## v1.1.20
 - Minor changes
+  - Change game result layout
+  - Minor improvements
 
 ## v1.1.21
 - More UI updates
