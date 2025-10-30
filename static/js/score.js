@@ -2,6 +2,7 @@ var guessButton = document.querySelector('.guess-btn');
 var nextRoundButton = document.querySelector('.next-round');
 var playButton = document.querySelector('.play');
 var guessWrapper = document.querySelector('.guess-wrapper');
+var guessHelper = document.getElementById('guessHelper');
 
 var currentImage = null;
 var imageElement;
@@ -50,6 +51,7 @@ function playNextRound() {
   loadingScreen.style.display = 'flex';
   guessOverlay.style.display = 'none';
   guessResult.textContent = '';
+  guessHelper.style.display = 'none';
   guessWrapper.style.zIndex = '-1';
 
   randomIndex = uniqueID[currentRound - 1];
@@ -413,8 +415,6 @@ function triggerConfetti(targetElement = null, confettiCount = 120, intensity = 
   }, maxDuration);
 }
 
-
-// Patch the guessButton event
 guessButton.addEventListener('click', function() {
     if (!guessButton.classList.contains('has-marker')) return;
 
@@ -569,6 +569,7 @@ guessButton.addEventListener('click', function() {
 
     guessOverlay.style.display = 'block';
     nextRoundButton.style.display = 'block';
+    guessHelper.style.display = 'block';
     guessWrapper.style.zIndex = '4';
     stopCountdown();
 });

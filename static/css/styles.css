@@ -301,14 +301,38 @@ a:hover {
 }
 .game-container {
     position: absolute;
-    bottom: 6.5vw;
+    bottom: 5vw;
     right: 0%;
     width: 100%;
     height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;    /* top-align flex items so Play and Settings top edges match */
+    justify-content: center !important;
+    gap: 1.5rem;                            /* space between Play group and Settings */
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    padding: 0 1rem;     
+}
+.play-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  flex: 0 0 200px;        /* do NOT let this grow/shrink to push siblings */
+  min-width: 120px;       /* prevents collapse on narrow screens */
+  box-sizing: border-box;
+}
+.play-info {
+  display: block;
+  text-align: center;
+  margin-top: 0;    /* controlled by gap on .play-container */
+  width: auto;
+  line-height: 1;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-size: 15px;
 }
 .play,
 .settings {
@@ -324,7 +348,9 @@ a:hover {
     cursor: pointer;
     z-index: 2;
     transition: 0.5s ease;
+    user-select: none;
 }
+
 .play:hover,
 .settings:hover {
     background-color: rgba(0, 0, 0, 0.8);
@@ -359,6 +385,7 @@ a:hover {
     display: none;
     z-index: 4;
     transition: opacity 0.5s ease, transform 0.4s ease;
+    user-select: none;
 }
 .settings-app.active {
     display: block;
@@ -836,6 +863,7 @@ input:checked + .slider:before {
     margin: 0px;
     white-space: nowrap;         /* keep items on one line */
     border-radius: 12px;
+    user-select: none;
 }
 
 .dropdown-menu.show {
@@ -1051,6 +1079,7 @@ input:checked + .slider:before {
     word-break: break-word;
     text-shadow: 2px 2px 2px black;
     font-size: 30px;
+    user-select: none;
 }
 .guess-result {
     font-size: 30px;
@@ -1150,6 +1179,7 @@ input:checked + .slider:before {
     justify-content: center;
     align-items: baseline;
     flex-direction: row;
+    user-select: none;
 }
 #countdown-text,
 #countdown-s-text,
@@ -1331,6 +1361,7 @@ input:checked + .slider:before {
     display: none;
     transition: 0.5s ease;
     position: fixed;
+    user-select: none;
 }
 .menu-btn:hover {
     opacity: 0.8;
@@ -1413,6 +1444,12 @@ input:checked + .slider:before {
     .settings {
         padding: 10px 20px;
         font-size: 16px;
+    }
+    .play-container {
+        flex: 0 0 150px;        /* do NOT let this grow/shrink to push siblings */
+    }
+    .play-info {
+        font-size: 12px;
     }
     h1 {
         font-size: 16px;

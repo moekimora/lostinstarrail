@@ -12,6 +12,8 @@ function togglePlay() {
     var settingsButton = document.getElementById('settings-button');
     var options = document.getElementById('options');
     var credits = document.getElementById('credits');
+    var guessHelper = document.getElementById('guessHelper');
+    var playInfo = document.getElementById('playInfo');
 
     video.style.display = 'none';
     homelogo.style.display = 'none';
@@ -21,6 +23,8 @@ function togglePlay() {
     settingsButton.style.display = 'none';
     options.style.display = 'none';
     credits.style.display = 'none';
+    guessHelper.style.display = 'none';
+    playInfo.style.display = 'none';
 
     // toggle map - enable interactivity and low opacity
     var starrailMap = document.querySelector('#starrailmap');

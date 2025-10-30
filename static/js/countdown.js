@@ -19,10 +19,52 @@ function setupRing() {
   el.style.backgroundClip = "padding-box, border-box";
 }
 
+// --- JS-only shrink-then-grow helper (Web Animations API + fallback) ---
+function animateTimerScale() {
+  const ids = ['countdown-text', 'countdown-s-text', 'countdown-h-text'];
+  const keyframes = [
+    { transform: 'scale(0.85)', offset: 0 },
+    { transform: 'scale(1)', offset: 1 }
+  ];
+  const opts = { duration: 1200, easing: 'cubic-bezier(.2,.9,.3,1)', iterations: 1 };
+
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const cs = window.getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden') return;
+
+    // Cancel any running animations so this restarts cleanly
+    if (el.getAnimations) {
+      el.getAnimations().forEach(a => a.cancel());
+    }
+
+    if (el.animate) {
+      // Preferred: Web Animations API
+      el.animate(keyframes, opts);
+    } else {
+      // shrink, then let transition bring it back to scale(1)
+      el.style.transition = `transform ${opts.duration}ms ${opts.easing}`;
+      el.style.transform = 'scale(0.85)';
+
+      // Trigger grow on next frame
+      requestAnimationFrame(() => {
+        el.style.transform = 'scale(1)';
+      });
+
+      // Cleanup transition after it's done so it won't interfere with other style changes
+      setTimeout(() => {
+        // Only clear if still our transition (avoid clobbering)
+        if (el.style.transition.includes('transform')) el.style.transition = '';
+      }, opts.duration + 30);
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", setupRing);
 
 function startTCountdown() {
+  animateTimerScale();
   const sliderValue = document.getElementById("Time").value;
   countdownValue = parseFloat(sliderValue);
   if (countdownValue > 0) {
@@ -104,6 +146,7 @@ function updateDisplay() {
 
 
 function startSCountdown() {
+  animateTimerScale();
   const sliderValue = document.getElementById("SeeTime").value;
   countdownValueS = parseFloat(sliderValue);
   if (countdownValueS > 0) {

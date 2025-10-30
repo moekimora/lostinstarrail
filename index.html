@@ -36,7 +36,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.21 (3.6#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.22 (3.7#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -79,7 +79,10 @@
             <div class="options-container" onclick="toggleOptions()"></div>
             <div class="credits-container" onclick="toggleCredits()"></div>
             <div class="game-container">
-                <button name="play" id="play-button" class="play" onclick="togglePlay()">Play</button>
+                <div class="play-container">
+                    <button name="play" id="play-button" class="play" onclick="togglePlay()">Play</button>
+                    <div id="playInfo" class="play-info"></div>
+                </div>
                 <button name="settings" id="settings-button" class="settings" onclick="toggleSettings()">Settings</button>
             </div>
             <div class="settings-container" onclick="toggleSettings()"></div>

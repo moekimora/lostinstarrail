@@ -35,7 +35,7 @@
     "j6-rt": ".j6-rt-f1",       // Rivet Town → F1
     "j6-rs": ".j6-rs-f2",       // Robot Settlement → F2
     "txl-c": ".txl-c-f1",       // Cloudford → F1
-    "txl-dc": ".txl-dc-f2",     // Divination Commission → F2
+    "txl-dc": ".txl-dc-f1",     // Divination Commission → F1
     "txl-ac": ".txl-ac-f2",     // Alchemy Commission → F2
     "txl-tsp": ".txl-tsp-f1",   // Shackling Prison → F1
     "txl-s": ".txl-s-f1"        // Skysplitter → F1
