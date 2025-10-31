@@ -155,12 +155,24 @@ output3.addEventListener('input', () => {
 
 function formatTimeShort(totalSeconds) {
   totalSeconds = Number(totalSeconds) || 0;
-  const m = Math.floor(totalSeconds / 60);
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
   const s = Math.floor(totalSeconds % 60);
-  if (m > 0 && s === 0) return `${m}m`;
-  if (m > 0) return `${m}m ${s}s`;
-  return `${s}s`;
+  // Hours
+  if (h > 0) {
+    if (m === 0 && s === 0) return `${h} hr`;
+    if (s === 0) return `${h} hr ${m} min`;
+    return `${h} hr ${m} min ${s} sec`;
+  }
+  // Minutes 
+  if (m > 0) {
+    if (s === 0) return `${m} min`;
+    return `${m} min ${s} sec`;
+  }
+  // Seconds
+  return `${s} sec`;
 }
+
 
 // --------- Robust switch detection + listeners ----------
 
@@ -256,46 +268,102 @@ function attachSwitchListeners() {
 // call once (safe to call multiple times)
 attachSwitchListeners();
 
+// replace updatePlayInfo() with the version below
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"'`=\/]/g, function (s) {
+    return ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+      '`': '&#96;',
+      '=': '&#61;',
+      '/': '&#47;'
+    })[s];
+  });
+}
+
 function updatePlayInfo() {
   const infoEl = document.getElementById('playInfo');
   if (!infoEl) return;
 
-  // --- Game mode detection ---
+  // --- Game mode detection with superstition as add-on ---
+  const isStandard = getSwitchState('.standard-switch');
+  const isSurvival = getSwitchState('.survival-switch');
+  const isSuperstition = getSwitchState('.superstition-switch');
+
   let mode = 'Standard';
-  if (getSwitchState('.survival-switch')) mode = 'Survival';
-  else if (getSwitchState('.superstition-switch')) mode = 'Superstition';
-  else if (getSwitchState('.standard-switch')) mode = 'Standard';
+  if (isSurvival) mode = 'Survival';
+  else if (isStandard) mode = 'Standard';
+  else if (!isStandard && !isSurvival && isSuperstition) mode = 'Superstition';
+
+  // Add-on: if superstition active with base mode, append
+  if (isSuperstition && (mode === 'Standard' || mode === 'Survival')) {
+    mode = `${mode} Superstition`;
+  }
 
   // --- Time / SeeTime ---
   const timeVal = Number(document.getElementById('Time')?.value || 0);
-  const seeVal  = Number(document.getElementById('SeeTime')?.value || 0);
-  const timeStr = formatTimeShort(timeVal);
-  const seeStr  = formatTimeShort(seeVal);
+  const seeVal = Number(document.getElementById('SeeTime')?.value || 0);
 
-  // --- Filters / rules ---
+  const timeStr = timeVal > 0 ? formatTimeShort(timeVal) : 'No time limit';
+
+  // SeeTime: if less than 10 seconds, show decimals; otherwise, normal formatting
+  let seeStr;
+  if (seeVal > 0) {
+    if (seeVal < 10) {
+      // Keep one decimal precision for short see times
+      seeStr = `${parseFloat(seeVal.toFixed(2))} sec`;
+    } else {
+      seeStr = formatTimeShort(seeVal);
+    }
+  }
+
+  // --- Filters ---
   const filterMap = [
-    { sel: '.baw-switch',      name: 'BAW' },
-    { sel: '.invert-switch',   name: 'Inverted' },
-    { sel: '.pixelate-switch', name: 'Pixelated' },
-    { sel: '.scramble-switch', name: 'Scrambled' },
+    { sel: '.baw-switch', name: 'Black And White' },
+    { sel: '.invert-switch', name: 'Invert' },
+    { sel: '.pixelate-switch', name: 'Pixelate' },
+    { sel: '.scramble-switch', name: 'Scramble' },
   ];
   const activeFilters = filterMap.filter(f => getSwitchState(f.sel)).map(f => f.name);
 
   // --- Hold / Rounds ---
   const holdActive = getSwitchState('.hold-switch');
+  const holdVal = Number(document.getElementById('HoldTime')?.value || 0);
   const roundVal = Number(document.getElementById('Round')?.value || 0);
 
-  // Build body items in requested order: Rounds, Time, SeeTime, Hold, Filters
-  const bodyParts = [];
-  if (roundVal > 0) bodyParts.push(`${roundVal} rounds`);
-  bodyParts.push(timeStr);
-  if (seeVal > 0) bodyParts.push(`See ${seeStr}`);
-  if (holdActive) bodyParts.push('Hold');
-  if (activeFilters.length) bodyParts.push(activeFilters.join(', '));
+  // --- Build main info parts ---
+  const mainParts = [];
 
-  // Final assembly with gamemode first, dash, then the body joined by spaces
-  const body = bodyParts.join(', ');
-  infoEl.textContent = `(${mode} - ${body})`;
+  // Only include rounds if NOT Survival mode
+  if (!isSurvival && roundVal > 0) {
+    mainParts.push(`${roundVal} round${roundVal === 1 ? '' : 's'}`);
+  }
+
+  // Add time info
+  mainParts.push(`${timeStr}`);
+
+  // Add SeeTime if > 0
+  if (seeVal > 0) mainParts.push(`${seeStr} viewing time`);
+
+  // Add Hold if active, with value if available
+  if (holdActive) {
+    if (holdVal > 0) mainParts.push(`${holdVal} sec hold`);
+    else mainParts.push('hold');
+  }
+
+  const mainBody = mainParts.join(', ');
+  const mainText = `${mode} - ${mainBody}`;
+
+  // --- Filters line ---
+  const filtersText = activeFilters.length ? `Filters: ${activeFilters.join(', ')}` : '';
+
+  // --- Render output safely ---
+  infoEl.innerHTML =
+    `<span class="play-info-main">(${escapeHtml(mainText)})</span>` +
+    (filtersText ? `<span class="play-info-filters">(${escapeHtml(filtersText)})</span>` : '');
 }
 
 // -------------------------
@@ -350,3 +418,66 @@ if (typeof toggleSettings === 'function') {
 // 6) populate on load
 document.addEventListener('DOMContentLoaded', updatePlayInfo);
 updatePlayInfo();
+
+// Lock .play-container width to the Play button width so long one-line .play-info can't push siblings.
+// Uses ResizeObserver if available and falls back to window resize.
+
+(function keepPlayContainerFixedToButton() {
+const playBtn = document.getElementById('play-button');
+if (!playBtn) return;
+const playContainer = playBtn.closest('.play-container');
+if (!playContainer) return;
+
+function setPlayContainerWidthBuffer(buffer = 8) {
+    // Measure the rendered width of the button (includes padding)
+    const rect = playBtn.getBoundingClientRect();
+    const widthPx = Math.ceil(rect.width) + buffer; // small buffer so play-info sits under the button nicely
+    // Lock the play container width so layout won't expand when play-info grows
+    playContainer.style.width = widthPx + 'px';
+    playContainer.style.minWidth = widthPx + 'px';
+    playContainer.style.maxWidth = widthPx + 'px';
+    // Ensure flex properties keep it stable
+    playContainer.style.flex = '0 0 ' + widthPx + 'px';
+}
+
+// Initial set (defer slightly in case fonts/layout change)
+function initial() {
+    setTimeout(() => setPlayContainerWidthBuffer(8), 10);
+}
+
+// ResizeObserver to watch button size changes (modern browsers)
+if (window.ResizeObserver) {
+    try {
+    const ro = new ResizeObserver(() => setPlayContainerWidthBuffer(8));
+    ro.observe(playBtn);
+    // Also observe the container in case styles change
+    ro.observe(playContainer);
+    } catch (e) {
+    // fallback below
+    window.addEventListener('resize', () => setPlayContainerWidthBuffer(8));
+    }
+} else {
+    // fallback: listen to window resize
+    window.addEventListener('resize', () => setPlayContainerWidthBuffer(8));
+}
+
+// React if Play text changes (MutationObserver on the button's text)
+try {
+    const mo = new MutationObserver(() => setPlayContainerWidthBuffer(8));
+    mo.observe(playBtn, { childList: true, characterData: true, subtree: true });
+} catch (e) {
+    // ignore if not supported
+}
+
+// Also update after font loading (handles webfont loading)
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => setPlayContainerWidthBuffer(8)).catch(() => {});
+}
+
+// Ensure initial run after DOM content loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initial);
+} else {
+    initial();
+}
+})();

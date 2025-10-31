@@ -433,5 +433,10 @@ If you guess in the wrong map location, you get **0** points.
   - Now displays the game settings under Play button
   - Minor visual updates
 
+## v1.1.23
+- More UI updates
+  - Better game settings under Play button
+  - Better UI
+
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.

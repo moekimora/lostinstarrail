@@ -320,19 +320,24 @@ a:hover {
   align-items: center;
   justify-content: flex-start;
   gap: 0.35rem;
-  flex: 0 0 200px;        /* do NOT let this grow/shrink to push siblings */
+  flex: 0 0 auto;        /* do NOT let this grow/shrink to push siblings */
   min-width: 120px;       /* prevents collapse on narrow screens */
-  box-sizing: border-box;
+  white-space: normal;
+  overflow: visible;
 }
 .play-info {
-  display: block;
-  text-align: center;
-  margin-top: 0;    /* controlled by gap on .play-container */
-  width: auto;
-  line-height: 1;
-  color: white;
-  text-shadow: 2px 2px 2px black;
-  font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: auto;
+    line-height: 1;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    user-select: none;
 }
 .play,
 .settings {
@@ -1214,21 +1219,101 @@ input:checked + .slider:before {
     z-index: 4;
     display: none;
 }
+:root{
+  --dot-size: 10px;        /* diameter of each circle */
+  --dot-gap: 10px;         /* space between circles */
+  --dot-color: rgba(255,255,255,0.12); /* circle color (use rgba for translucency) */
+  --pattern-rotation: -22deg; /* rotate the whole pattern */
+  --fade-strong-end: 20%;  /* where the fade starts (keeps pattern visible left of this) */
+  --fade-complete: 69%;    /* where the pattern becomes fully transparent */
+}
+
+/* your base container (keep your original rules) */
 .game-stat {
   position: fixed;
   top: 1%;
   right: 1%;
-  background-color: rgb(91, 99, 206);
   min-width: 280px;
   max-width: 800px;
-  border-radius: 25px;
-  display: none;          /* make sure it's flex */
-  flex-direction: row;    /* text left, icons right */
+  display: none; /* will become flex when visible */
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center; /* top align */
-  padding: 8px;
+  align-items: center;
+  padding: 12px 18px;
   gap: 12px;
+  background: linear-gradient(135deg, rgb(91, 99, 206), rgb(60, 68, 180));
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.45);
+
+  /* important: clip the pseudo element to rounded corners */
+  overflow: hidden;
+  /* keep stacking context for pseudo layers */
+  isolation: isolate;
 }
+
+/* subtle inner highlight you already had */
+.game-stat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  -webkit-clip-path: inherit;
+          clip-path: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+}
+
+/* ROTATED CIRCLE-CHECKERBOARD PATTERN + LEFT->RIGHT FADE */
+.game-stat::after {
+  content: "";
+  position: absolute;
+  /* extend the pattern layer beyond the container so rotation can't reveal empty corners */
+  inset: -40%;
+  border-radius: inherit;   /* parent will clip it, this keeps corners soft if visible */
+  pointer-events: none;
+  z-index: 0;
+
+  /* checkerboard of circles (same as before) */
+  background-image:
+    radial-gradient(circle at center, var(--dot-color) 45%, transparent 46%),
+    radial-gradient(circle at center, var(--dot-color) 45%, transparent 46%);
+  background-size: calc(var(--dot-size) + var(--dot-gap))
+                   calc(var(--dot-size) + var(--dot-gap));
+  background-position: 0 0,
+                       calc((var(--dot-size) + var(--dot-gap)) / 2)
+                       calc((var(--dot-size) + var(--dot-gap)) / 2);
+  background-repeat: repeat;
+
+  /* rotate and slightly scale so tiling always covers the container */
+  transform-origin: center;
+  transform: rotate(var(--pattern-rotation)) scale(1.15);
+
+  /* left -> right fade mask (fixed variable name) */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) var(--fade-strong-end),
+    rgba(0,0,0,0.2) calc(var(--fade-strong-end) + 10%),
+    rgba(0,0,0,0) var(--fade-complete)
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) var(--fade-strong-end),
+    rgba(0,0,0,0.2) calc(var(--fade-strong-end) + 10%),
+    rgba(0,0,0,0) var(--fade-complete)
+  );
+
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* small accessibility: keep content above the pattern */
+.game-stat > * { position: relative; z-index: 1; }
 
 .stat-info {
   display: flex;
