@@ -1208,17 +1208,6 @@ input:checked + .slider:before {
 #countdown-h-text {
     color: rgb(255, 159, 159);
 }
-#countdown-timeup {
-    position: absolute;
-    display: flex;
-    font-size: 96px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0, 0.8);
-    padding: 10px;
-    z-index: 4;
-    display: none;
-}
 :root{
   --dot-size: 10px;        /* diameter of each circle */
   --dot-gap: 10px;         /* space between circles */

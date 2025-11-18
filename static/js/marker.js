@@ -49,57 +49,63 @@ const onMapClick = e => {
     addMarker(e.latlng);
     guessButton.classList.add('has-marker');
 };
-guessButton.addEventListener('click', () => {
-    if (currentImage) {
-        // Remove previous correct marker
-        if (correctMarker) {
-            resultMap.removeLayer(correctMarker);
-        }
+starrailMap.on('click', onMapClick);
+function handleMarker() {
+    if (!currentImage) return;
 
-        // Add correct marker
-        correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
-        correctMarker.bindTooltip("Correct location", { className: 'guess-tooltip', maxWidth: 200 });
-
-        if (resultMapMarker) {
-            drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
-
-            // Calculate midpoint
-            const midLat = (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2;
-            const midLng = (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2;
-            const midPoint = L.latLng(midLat, midLng);
-
-            // Calculate distance between guess and correct location
-            const d = calculateDistance(
-                resultMapMarker.getLatLng().lat,
-                resultMapMarker.getLatLng().lng,
-                correctMarker.getLatLng().lat,
-                correctMarker.getLatLng().lng
-            );
-
-            // Determine zoom based on distance
-            const getZoomLevel = (distance) => {
-                if (distance < 1.5) return 5;
-                if (distance < 5) return 4;
-                if (distance < 35) return 3;
-                if (distance < 70) return 2;
-                if (distance < 100) return 1;
-                return resultMap.getZoom();
-            };
-            const zoomLevel = getZoomLevel(d);
-
-            // Fly to midpoint with zoom
-            resultMap.flyTo(midPoint, zoomLevel, {
-                animate: true,
-                duration: 1
-            });
-        }
+    // Remove previous correct marker
+    if (correctMarker) {
+        resultMap.removeLayer(correctMarker);
     }
-});
+
+    // Add correct marker
+    correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+    correctMarker.bindTooltip("Correct location", { className: 'guess-tooltip', maxWidth: 200 });
+
+    if (resultMapMarker) {
+        drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
+
+        // Calculate midpoint
+        const midLat = (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2;
+        const midLng = (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2;
+        const midPoint = L.latLng(midLat, midLng);
+
+        // Calculate distance
+        const d = calculateDistance(
+            resultMapMarker.getLatLng().lat,
+            resultMapMarker.getLatLng().lng,
+            correctMarker.getLatLng().lat,
+            correctMarker.getLatLng().lng
+        );
+
+        // Zoom logic
+        const getZoomLevel = (distance) => {
+            if (distance < 1.5) return 5;
+            if (distance < 5) return 4;
+            if (distance < 35) return 3;
+            if (distance < 70) return 2;
+            if (distance < 100) return 1;
+            return resultMap.getZoom();
+        };
+
+        const zoomLevel = getZoomLevel(d);
+
+        // Fly to midpoint
+        resultMap.flyTo(midPoint, zoomLevel, {
+            animate: true,
+            duration: 1
+        });
+    }
+}
+
+guessButton.addEventListener('click', handleMarker);
 
 nextRoundButton.addEventListener('click', () => {
     if (currentImage) {
         resultMap.removeLayer(correctMarker);
+        resultMap.removeLayer(resultMapMarker);
         correctMarker = null;
+        resultMapMarker = null;
+        removeLine();
     }
 });
-starrailMap.on('click', onMapClick);

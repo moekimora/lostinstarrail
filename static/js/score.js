@@ -666,8 +666,6 @@ document.querySelector(".next-round").addEventListener("click", function() {
     // Handle logic for the "View Result" button
     guessHelper.style.display = 'none';
     nextRoundButton.style.display = 'none';
-    var displayTimeUp = document.getElementById("countdown-timeup");
-    displayTimeUp.style.display = 'none';
     guessResult.textContent = '';
     guessResult.style.display = 'none';
     var finalTextElement = document.getElementById("finaltext");

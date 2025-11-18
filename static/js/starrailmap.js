@@ -159,21 +159,25 @@ selectors.forEach(function (selector, index) {
 
 toggleMapVisibility(0);
 
-// Result map overlay handling on guess — unchanged logic, but ensure we remove previous
-guessButton.addEventListener('click', function () {
+function applyResultMapOverlay() {
   var selectedOverlay = overlays.find(function (overlay) {
     return overlay.name === currentMapLocation;
   });
+
   if (selectedOverlay) {
     var selectedMapImageUrl = selectedOverlay.imageUrl;
+
     if (resultMapOverlay) {
       try { resultMap.removeLayer(resultMapOverlay); } catch (e) { /* ignore */ }
       resultMapOverlay = null;
     }
+
     resultMapOverlay = L.imageOverlay(selectedMapImageUrl, selectedOverlay.bounds).addTo(resultMap);
     resultMapOverlay.setOpacity(1);
   }
-});
+}
+guessButton.addEventListener('click', applyResultMapOverlay);
+
 
 // reset map zoom to 0 after each round (unchanged)
 document.querySelector(".next-round").addEventListener("click", function () {

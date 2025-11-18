@@ -18,7 +18,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 guessButton.addEventListener('click', function() {
-  if (!guessButtonActivated) {
+  if (!guessButtonActivated || getComputedStyle(nextRoundButton).display === 'block') {
     guessButtonActivated = true;
     nextRoundButtonActivated = false;
   }

@@ -82,23 +82,71 @@ function startTCountdown() {
     }, 10);
   }
 }
+
+// robust marker detection
+function hasMapMarker() {
+  try {
+    // If the marker exists and is actually on the map
+    if (typeof starrailMarker !== 'undefined' && starrailMarker) {
+      // Leaflet-style: marker._map exists when added to a map
+      if (starrailMarker._map) return true;
+      // Otherwise, marker exists but not placed yet
+      return false;
+    }
+
+    return false;
+  } catch (e) {
+    console.warn('hasMapMarker error:', e);
+    return false;
+  }
+}
+
+
 function updateDisplay() {
   const minutes = Math.floor(countdownValue / 60);
   const seconds = Math.floor(countdownValue % 60);
   const formattedMinutes = minutes.toString().padStart(2, '0');
   const formattedSeconds = seconds.toString().padStart(2, '0');
   const displayElement = document.getElementById("countdown-text");
-  const displayTimeUp = document.getElementById("countdown-timeup");
 
   if (!displayElement) return;
 
   if (countdownValue <= 0) {
     displayElement.style.display = "none";
+      applyResultMapOverlay();
+      handleMarker();
+    // --- treat marker-as-guess: click guessButton automatically if marker exists ---
+// (replaces the old tryAutoGuess IIFE)
+(function tryAutoGuess() {
+  const guessBtn = document.getElementById('guessButton') || document.querySelector('.guess-btn') || document.querySelector('.guess-button');
 
-    if (displayTimeUp) {
-      displayTimeUp.style.display = "block";
-      displayTimeUp.textContent = "Time up!";
+  // If a marker exists on the map, dispatch a click on the guess button.
+  if (hasMapMarker()) {
+    if (guessBtn) {
+      guessBtn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    } else {
+      // fallback: if no DOM button found but a marker exists, try calling the handler directly
+      if (typeof guessButton === 'function') try { guessButton(); } catch(e) {}
     }
+    return;
+  }
+
+    // fallback inline behavior if score.js helper isn't present
+    const resultMap = document.querySelector('#resultmap');
+    if (resultMap) {
+      resultMap.style.opacity = '1';
+      resultMap.style.pointerEvents = 'auto';
+    }
+    if (typeof guessResult !== 'undefined' && guessResult) {
+      guessResult.innerHTML = "Your time ran out before you could make a guess!<br><span id='animated-score' style='color: rgb(255, 228, 107); font-size: 80px; display:block; text-align:center'>0</span>";
+    }
+    if (typeof guessOverlay !== 'undefined' && guessOverlay) guessOverlay.style.display = 'block';
+    if (typeof nextRoundButton !== 'undefined' && nextRoundButton) nextRoundButton.style.display = 'block';
+    if (typeof guessHelper !== 'undefined' && guessHelper) guessHelper.style.display = 'block';
+    if (typeof guessWrapper !== 'undefined' && guessWrapper) guessWrapper.style.zIndex = '4';
+    stopCountdown();
+  }
+)();
 
     stopTCountdown();
     stopSCountdown();
@@ -120,7 +168,6 @@ function updateDisplay() {
     guessWrapper.style.zIndex = '4';
   } else {
     displayElement.style.display = "block";
-    if (displayTimeUp) displayTimeUp.style.display = "none";
     displayElement.textContent = `${formattedMinutes} : ${formattedSeconds}`;
 
     // ✅ Ring stroke progress
