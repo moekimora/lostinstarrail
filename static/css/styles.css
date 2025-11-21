@@ -1335,20 +1335,6 @@ input:checked + .slider:before {
     transition: opacity 0.75s ease;
     margin: 10px;
 }
-#final-score {
-    position: absolute;
-    text-align: center;
-    color: rgb(255, 228, 107);
-    font-size: 200px;
-    text-shadow: 2px 2px 2px black;
-    top: 35%;
-    margin: auto;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
-}
 .map-text {
     font-size: 20px;
     opacity: 0.5;
@@ -1407,21 +1393,53 @@ input:checked + .slider:before {
   height: 50px;
   display: none;
 }
-.finaltext {
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-size: 40px;
-    text-shadow: 2px 2px 2px black;
-    top: 33%;
-    z-index: 4;
-    display: none;
-    transition: opacity 0.75s ease, transform 0.5s ease;
+.final-wrapper {
+  position: absolute;
+  inset: 0;                     /* fill parent so we can center vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;                    /* vertical spacing between items */
+  pointer-events: none;         /* allow inner children to control pointer events */
+  z-index: 5;
+  padding: 12px;
+  box-sizing: border-box;
 }
-.menu-btn {
+.final-wrapper > * {
+  pointer-events: auto;
+}
+.finaltext {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(20px, 3.4vw, 40px);
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.85);
+  display: none;                /* unchanged behavior — controlled by JS */
+  transition: opacity 0.75s ease, transform 0.5s ease;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+#final-score {
+  margin: 0;
+  text-align: center;
+  color: rgb(255, 228, 107);
+  font-size: clamp(72px, 16vw, 200px);
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.85);
+  display: none;                /* unchanged; show via JS */
+  transition: opacity 0.75s ease, transform 0.5s ease;
+  line-height: 0.9;
+}
+.final-btns {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.menu-btn,
+.breakdown-btn {
     padding: 20px 30px;
     font-family: 'DIN', sans-serif;
     font-size: 24px;
@@ -1430,17 +1448,58 @@ input:checked + .slider:before {
     background-color: rgba(255, 248, 248, 0.5);
     color: rgb(0, 0, 0);
     cursor: pointer;
-    z-index: 4;
-    bottom: 15%;
+    z-index: 5;
     display: none;
     transition: 0.5s ease;
-    position: fixed;
     user-select: none;
 }
-.menu-btn:hover {
+.menu-btn:hover,
+.breakdown-btn:hover {
     opacity: 0.8;
     color: rgb(255, 177, 177);
 }
+.breakdown-panel,
+.breakdown-panel .breakdown-content {
+  scrollbar-color: rgba(255,244,244,0.18) rgba(0,0,0,0.15);
+}
+
+.breakdown-panel::-webkit-scrollbar,
+.breakdown-panel .breakdown-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.breakdown-panel::-webkit-scrollbar-track,
+.breakdown-panel .breakdown-content::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+  border-radius: 999px;
+  margin: 6px 0;
+}
+
+.breakdown-panel::-webkit-scrollbar-thumb,
+.breakdown-panel .breakdown-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255,228,107,0.22), rgba(255,228,107,0.14));
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0.12);
+  min-height: 28px;
+}
+
+.breakdown-panel::-webkit-scrollbar-thumb:hover,
+.breakdown-panel .breakdown-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(255,228,107,0.32), rgba(255,228,107,0.20));
+}
+#breakdown-modal {
+  overflow: hidden;
+}
+.breakdown-panel .breakdown-content {
+  max-height: calc(80vh - 80px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.breakdown-panel {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
 .rotate-screen-mobile {
     position: fixed;
     top: 0;

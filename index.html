@@ -36,7 +36,7 @@
         </div>
         <div>
             <h1 id="home">Can you find where you are in Honkai Star Rail?</h1>
-            <div id="version" class="version">v.1.1.24 (3.7#release)/ @moemoe</div>
+            <div id="version" class="version">v.1.1.25 (3.7#release)/ @moemoe</div>
             <div class="options-wrapper">
                 <button name="options" id="options" class="options" onclick="toggleOptions()"></button>
                 <button name="credits" id="credits" class="credits" onclick="toggleCredits()"></button>
@@ -366,8 +366,13 @@
                     <div id="countdown-s-text"></div>
                     <div id="countdown-h-text"></div>
                 </div>
-                <div id="finaltext" class="finaltext">Final Score</div>
-                <div id="final-score"></div>
+                <div class="final-wrapper">
+                    <div id="finaltext" class="finaltext">Final Score</div>
+                    <div id="final-score"></div>
+                    <button id="breakdown-btn" class="breakdown-btn">Game Breakdown</button>
+                    <button id="menu-btn" class="menu-btn">Menu</button>
+                </div>
+
                 <div id="guessOverlay" class="guess-overlay"></div>
                 <div class="guess-wrapper">
                     <div id="resultmap"></div>
@@ -379,7 +384,6 @@
                 </div>
             </div>    
         </div>
-        <button id="menu-btn" class="menu-btn">Menu</button>
         
         <audio id="gameaudio" class="gameaudio" controls>
             <source id="audioSource" class="audioSource" type="audio/mp3" src="">
