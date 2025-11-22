@@ -1332,6 +1332,7 @@ input:checked + .slider:before {
     font-size: 30px;
     text-shadow: 2px 2px 2px black;
     z-index: 4;
+    font-weight: bold;
     transition: opacity 0.75s ease;
     margin: 10px;
 }

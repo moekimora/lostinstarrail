@@ -790,18 +790,127 @@ document.querySelector(".next-round").addEventListener("click", function() {
 updateNextRoundButton();
 
 // ---- Breakdown modal + render logic ----
-var breakdownMaps = []; // to track created small Leaflet maps for cleanup
+// global tracker (keeps using same var name)
+var breakdownMaps = [];
 
+// Helper: find overlay by name (safe)
+function findOverlay(name) {
+  if (!window.overlays || !Array.isArray(window.overlays) || !name) return null;
+  return overlays.find(o => o.name === name) || null;
+}
+
+// Helper: create and return a Leaflet map, optionally add an ImageOverlay and a marker
+function createMap({ containerId, overlayName = null, markerLatLng = null, markerIcon = null, initialZoom = 1 }) {
+  const map = L.map(containerId, {
+    center: [0, 0],
+    zoom: initialZoom,
+    dragging: true,
+    zoomControl: true,
+    attributionControl: false,
+    scrollWheelZoom: true,
+    doubleClickZoom: true,
+    boxZoom: true,
+    closePopupOnClick: false,
+  });
+
+  try {
+    const overlayDesc = findOverlay(overlayName);
+    if (overlayDesc) {
+      L.imageOverlay(overlayDesc.imageUrl, overlayDesc.bounds).addTo(map);
+      map.fitBounds(overlayDesc.bounds);
+    } else {
+      map.setView([0, 0], initialZoom);
+    }
+
+    if (markerLatLng) {
+      L.marker([markerLatLng.lat, markerLatLng.lng], { icon: markerIcon }).addTo(map);
+      try { map.setView([markerLatLng.lat, markerLatLng.lng], Math.max(map.getZoom(), 2)); } catch (e) {}
+    }
+  } catch (err) {
+    console.warn('createMap error', err);
+  }
+
+  // store for cleanup
+  breakdownMaps.push(map);
+  return map;
+}
+
+// Helper: opens a fullscreen preview overlay for an image src
+function openImagePreview(src, alt = '') {
+  if (!src) return;
+  // avoid duplicate preview
+  if (document.getElementById('image-preview-overlay')) return;
+
+  const overlay = document.createElement('div');
+  overlay.id = 'image-preview-overlay';
+  Object.assign(overlay.style, {
+    position: 'fixed',
+    inset: '0',
+    zIndex: 1000001,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'rgba(0,0,0,0.88)'
+  });
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePreview();
+  });
+
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = alt;
+  Object.assign(img.style, {
+    maxWidth: 'min(95vw, 1400px)',
+    maxHeight: '90vh',
+    width: 'auto',
+    height: 'auto',
+    objectFit: 'contain',
+    borderRadius: '8px',
+    boxShadow: '0 8px 30px rgba(0,0,0,0.6)'
+  });
+  img.addEventListener('click', (e) => e.stopPropagation());
+  overlay.appendChild(img);
+
+
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = '✕';
+  Object.assign(closeBtn.style, {
+    position: 'absolute',
+    right: '22px',
+    top: '22px',
+    padding: '6px 10px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    background: '#222',
+    color: '#ffd',
+    border: '1px solid rgba(255,255,255,0.06)',
+    zIndex: 1000002
+  });
+  overlay.appendChild(closeBtn);
+  closeBtn.addEventListener('click', closePreview);
+
+  function onKey(e) { if (e.key === 'Escape') closePreview(); }
+  document.addEventListener('keydown', onKey);
+
+  function closePreview() {
+    try { overlay.remove(); } catch (e) {}
+    document.removeEventListener('keydown', onKey);
+  }
+}
+
+// The optimized openBreakdownModal function (drop-in)
 function openBreakdownModal() {
   if (document.getElementById('breakdown-modal')) return; // already open
 
-  // modal container
+  // backdrop / modal container
   const modal = document.createElement('div');
   modal.id = 'breakdown-modal';
   Object.assign(modal.style, {
     position: 'fixed',
     inset: '0',
-    zIndex: 69,
+    zIndex: 999999,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -811,7 +920,15 @@ function openBreakdownModal() {
   });
   document.body.appendChild(modal);
 
-  // panel (kept smaller width)
+  // clicking backdrop closes modal
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      cleanupBreakdown();
+      try { modal.remove(); } catch (e) {}
+    }
+  });
+
+  // panel
   const panel = document.createElement('div');
   panel.className = 'breakdown-panel';
   Object.assign(panel.style, {
@@ -821,11 +938,14 @@ function openBreakdownModal() {
     background: '#121212',
     color: '#fff',
     borderRadius: '12px',
-    padding: '18px 36px'
+    padding: '18px 36px',
+    boxSizing: 'border-box'
   });
+  // prevent clicks inside panel from closing
+  panel.addEventListener('click', (e) => e.stopPropagation());
   modal.appendChild(panel);
 
-  // header row
+  // header
   const header = document.createElement('div');
   Object.assign(header.style, {
     display: 'flex',
@@ -851,19 +971,18 @@ function openBreakdownModal() {
     border: '1px solid rgba(255,255,255,0.06)'
   });
   header.appendChild(closeBtn);
-
   closeBtn.addEventListener('click', () => {
     cleanupBreakdown();
     try { modal.remove(); } catch (e) {}
   });
 
-  // content list — increased gap for easier scrolling
+  // content container (larger gaps for scrolling/readability)
   const content = document.createElement('div');
   content.className = 'breakdown-content';
   Object.assign(content.style, {
     display: 'grid',
     gridTemplateColumns: '1fr',
-    gap: '18px' // bigger gap between cards
+    gap: '18px'
   });
   panel.appendChild(content);
 
@@ -875,39 +994,132 @@ function openBreakdownModal() {
     return;
   }
 
-  // create cards
+  // iterate rounds and build cards
   guessedRounds.forEach((g, index) => {
     const wasCorrect = !!g.wasCorrect || (g.guessedMapName === g.correctMapName);
 
-    // card container (will be 1 or 2 columns depending on wasCorrect)
+    // card
     const card = document.createElement('div');
     Object.assign(card.style, {
       background: '#161616',
       borderRadius: '10px',
       padding: '12px',
       display: 'grid',
-      gap: '16px', // larger internal gap for readability
+      gap: '16px',
       alignItems: 'stretch'
     });
 
-    // header inside card
+    // header row (thumbnail + title/metadata)
     const cardHeader = document.createElement('div');
-    Object.assign(cardHeader.style, { display: 'flex', justifyContent: 'space-between', marginBottom: '6px' });
+    Object.assign(cardHeader.style, {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '12px',
+      marginBottom: '6px'
+    });
+
+    // find thumbnail image object (prefer stored item)
+    let imgObj = g.currentImage || g.image || null;
+    if (!imgObj && typeof images !== 'undefined' && Array.isArray(images) && typeof uniqueID !== 'undefined') {
+      try {
+        const roundIdx = uniqueID && uniqueID[g.roundNumber - 1];
+        if (typeof roundIdx !== 'undefined') imgObj = images[roundIdx];
+      } catch (e) { /* ignore */ }
+    }
+    const thumbSrc = imgObj ? (imgObj.imageUrl || imgObj.url || imgObj.src || null) : null;
+
+    // thumbnail wrapper w/ tooltip (keeps map layout unaffected)
+    if (thumbSrc) {
+      const thumbWrap = document.createElement('div');
+      Object.assign(thumbWrap.style, {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: '0 0 144px',
+        gap: '8px'
+      });
+
+      const thumb = document.createElement('img');
+      thumb.src = thumbSrc;
+      thumb.alt = `Round ${g.roundNumber}`;
+      Object.assign(thumb.style, {
+        width: '144px',
+        height: '64px',
+        borderRadius: '6px',
+        objectFit: 'cover',
+        background: '#0b0b0b',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.6)',
+        cursor: 'pointer'
+      });
+
+      // tooltip shown right side
+      const tooltip = document.createElement('div');
+      tooltip.textContent = 'Click to show image';
+      Object.assign(tooltip.style, {
+        position: 'relative',
+        marginLeft: '8px',
+        background: 'rgba(0,0,0,0.85)',
+        color: 'white',
+        padding: '6px 10px',
+        borderRadius: '6px',
+        whiteSpace: 'nowrap',
+        fontSize: '12px',
+        opacity: '0',
+        pointerEvents: 'none',
+        transition: 'opacity 0.12s ease'
+      });
+
+      // hover handlers
+      thumb.addEventListener('mouseenter', () => { tooltip.style.opacity = '1'; });
+      thumb.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+
+      // click -> large preview
+      thumb.addEventListener('click', (ev) => { ev.stopPropagation(); openImagePreview(thumbSrc, `Round ${g.roundNumber}`); });
+
+      thumbWrap.appendChild(thumb);
+      thumbWrap.appendChild(tooltip);
+      cardHeader.appendChild(thumbWrap);
+    }
+
+    // title + subtitle
+    const titleWrap = document.createElement('div');
+    Object.assign(titleWrap.style, { display: 'flex', flexDirection: 'column', gap: '6px', minWidth: '0' });
+
     const title = document.createElement('div');
     title.innerHTML = `<strong>Round ${g.roundNumber}</strong> — Score: ${g.scoreEarned}`;
-    cardHeader.appendChild(title);
-    const mapsInfo = document.createElement('div');
-    mapsInfo.style.opacity = '0.85';
-    mapsInfo.textContent = wasCorrect ? (g.correctMapName || '—') : `${g.guessedMapName || '—'} → ${g.correctMapName || '—'}`;
-    cardHeader.appendChild(mapsInfo);
+    Object.assign(title.style, {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    });
+    titleWrap.appendChild(title);
 
+    const subtitle = document.createElement('div');
+    Object.assign(subtitle.style, {
+      opacity: '0.85',
+      fontSize: '13px',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
+    });
+    subtitle.textContent = wasCorrect ? (g.correctMapName || '—') : `${g.guessedMapName || '—'} → ${g.correctMapName || '—'}`;
+    titleWrap.appendChild(subtitle);
+
+    cardHeader.appendChild(titleWrap);
+    card.appendChild(cardHeader);
+
+    // maps area
     if (wasCorrect) {
-      // single-column wide result
       card.style.gridTemplateColumns = '1fr';
-      card.appendChild(cardHeader);
 
       const singleWrap = document.createElement('div');
-      Object.assign(singleWrap.style, { minHeight: '160px', borderRadius: '8px', overflow: 'hidden', background: '#0c0c0c' });
+      Object.assign(singleWrap.style, {
+        minHeight: '160px',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        background: '#0c0c0c'
+      });
 
       const label = document.createElement('div');
       label.textContent = 'Result';
@@ -923,36 +1135,16 @@ function openBreakdownModal() {
       card.appendChild(singleWrap);
       content.appendChild(card);
 
-      // init map showing both markers + connecting line (if guessed coords exist)
+      // initialize map with both markers + connecting line if guessed exists
       setTimeout(() => {
         try {
-          const rm = L.map(mapDiv.id, {
-            center: [0,0],
-            zoom: 1,
-            dragging: true,
-            zoomControl: true,
-            attributionControl: false,
-            scrollWheelZoom: true,
-            doubleClickZoom: true,
-            boxZoom: true,
-            closePopupOnClick: false,
+          const rm = createMap({
+            containerId: mapDiv.id,
+            overlayName: g.correctMapName,
+            markerLatLng: g.correctLatLng || null,
+            markerIcon: customIcon,
+            initialZoom: 1
           });
-
-          if (window.overlays && Array.isArray(window.overlays)) {
-            const correctOverlayDesc = overlays.find(o => o.name === g.correctMapName);
-            if (correctOverlayDesc) {
-              L.imageOverlay(correctOverlayDesc.imageUrl, correctOverlayDesc.bounds).addTo(rm);
-              rm.fitBounds(correctOverlayDesc.bounds);
-            } else {
-              rm.setView([0,0], 0);
-            }
-          } else {
-            rm.setView([0,0], 0);
-          }
-
-          if (g.correctLatLng) {
-            L.marker([g.correctLatLng.lat, g.correctLatLng.lng], { icon: customIcon }).addTo(rm).bindTooltip('Correct location');
-          }
 
           if (g.guessedLatLng) {
             L.marker([g.guessedLatLng.lat, g.guessedLatLng.lng], { icon: icon }).addTo(rm).bindTooltip('Your guess');
@@ -961,25 +1153,27 @@ function openBreakdownModal() {
               const b = L.latLngBounds([[g.guessedLatLng.lat, g.guessedLatLng.lng], [g.correctLatLng.lat, g.correctLatLng.lng]]);
               rm.fitBounds(b.pad(0.45));
             } else {
-              try { rm.setView([g.guessedLatLng.lat, g.guessedLatLng.lng], Math.max(rm.getZoom(), 2)); } catch(e) {}
+              try { rm.setView([g.guessedLatLng.lat, g.guessedLatLng.lng], Math.max(rm.getZoom(), 2)); } catch (e) {}
             }
           }
-
-          breakdownMaps.push(rm);
         } catch (err) {
           console.warn('Breakdown (correct) map init error', err);
         }
       }, 40);
 
     } else {
-      // incorrect -> two columns side-by-side
+      // incorrect -> two-column layout
       card.style.gridTemplateColumns = '1fr 1fr';
       cardHeader.style.gridColumn = '1 / -1';
-      card.appendChild(cardHeader);
 
-      // left: Your Guess
+      // left (guess)
       const leftWrap = document.createElement('div');
-      Object.assign(leftWrap.style, { minHeight: '160px', borderRadius: '8px', overflow: 'hidden', background: '#0c0c0c' });
+      Object.assign(leftWrap.style, {
+        minHeight: '160px',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        background: '#0c0c0c'
+      });
       const leftLabel = document.createElement('div');
       leftLabel.textContent = 'Your Guess';
       Object.assign(leftLabel.style, { fontSize: '12px', color: '#ddd', padding: '6px 4px' });
@@ -991,9 +1185,14 @@ function openBreakdownModal() {
       leftWrap.appendChild(lmapDiv);
       card.appendChild(leftWrap);
 
-      // right: Result (only correct marker)
+      // right (result only correct marker)
       const rightWrap = document.createElement('div');
-      Object.assign(rightWrap.style, { minHeight: '160px', borderRadius: '8px', overflow: 'hidden', background: '#0c0c0c' });
+      Object.assign(rightWrap.style, {
+        minHeight: '160px',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        background: '#0c0c0c'
+      });
       const rightLabel = document.createElement('div');
       rightLabel.textContent = 'Result';
       Object.assign(rightLabel.style, { fontSize: '12px', color: '#ddd', padding: '6px 4px' });
@@ -1011,67 +1210,23 @@ function openBreakdownModal() {
       setTimeout(() => {
         try {
           // guessed map (left)
-          const sm = L.map(lmapDiv.id, {
-            center: [0,0],
-            zoom: 1,
-            dragging: true,
-            zoomControl: true,
-            attributionControl: false,
-            scrollWheelZoom: true,
-            doubleClickZoom: true,
-            boxZoom: true,
-            closePopupOnClick: false,
+          const sm = createMap({
+            containerId: lmapDiv.id,
+            overlayName: g.guessedMapName,
+            markerLatLng: g.guessedLatLng,
+            markerIcon: icon,
+            initialZoom: 1
+          });
+          // result map (right) - only correct marker
+          const rm = createMap({
+            containerId: rmapDiv.id,
+            overlayName: g.correctMapName,
+            markerLatLng: g.correctLatLng,
+            markerIcon: customIcon,
+            initialZoom: 1
           });
 
-          if (window.overlays && Array.isArray(window.overlays)) {
-            const guessedOverlayDesc = overlays.find(o => o.name === g.guessedMapName);
-            if (guessedOverlayDesc) {
-              L.imageOverlay(guessedOverlayDesc.imageUrl, guessedOverlayDesc.bounds).addTo(sm);
-              sm.fitBounds(guessedOverlayDesc.bounds);
-            } else {
-              sm.setView([0,0], 0);
-            }
-          } else {
-            sm.setView([0,0], 0);
-          }
-
-          if (g.guessedLatLng) {
-            L.marker([g.guessedLatLng.lat, g.guessedLatLng.lng], { icon: icon }).addTo(sm).bindTooltip('Your guess');
-            try { sm.setView([g.guessedLatLng.lat, g.guessedLatLng.lng], Math.max(sm.getZoom(), 2)); } catch(e) {}
-          }
-
-          // result map (right) — only correct marker, NO guess marker, NO line
-          const rm = L.map(rmapDiv.id, {
-            center: [0,0],
-            zoom: 1,
-            dragging: true,
-            zoomControl: true,
-            attributionControl: false,
-            scrollWheelZoom: true,
-            doubleClickZoom: true,
-            boxZoom: true,
-            closePopupOnClick: false,
-          });
-
-          if (window.overlays && Array.isArray(window.overlays)) {
-            const correctOverlayDesc = overlays.find(o => o.name === g.correctMapName);
-            if (correctOverlayDesc) {
-              L.imageOverlay(correctOverlayDesc.imageUrl, correctOverlayDesc.bounds).addTo(rm);
-              rm.fitBounds(correctOverlayDesc.bounds);
-            } else {
-              rm.setView([0,0], 0);
-            }
-          } else {
-            rm.setView([0,0], 0);
-          }
-
-          if (g.correctLatLng) {
-            L.marker([g.correctLatLng.lat, g.correctLatLng.lng], { icon: customIcon }).addTo(rm).bindTooltip('Correct location');
-            try { rm.setView([g.correctLatLng.lat, g.correctLatLng.lng], Math.max(rm.getZoom(), 2)); } catch(e) {}
-          }
-
-          breakdownMaps.push(sm);
-          breakdownMaps.push(rm);
+          // if both maps exist and both latlng exist, we keep them independent (no connecting line here)
         } catch (err) {
           console.warn('Breakdown (incorrect) map init error', err);
         }
@@ -1079,7 +1234,7 @@ function openBreakdownModal() {
     }
   });
 
-  // ensure modal scrolled to top
+  // scroll modal to top
   modal.scrollTop = 0;
 }
 
@@ -1087,7 +1242,7 @@ function openBreakdownModal() {
 function cleanupBreakdown() {
   try {
     breakdownMaps.forEach(m => {
-      if (m && m.remove) try { m.remove(); } catch(e) {}
+      if (m && m.remove) try { m.remove(); } catch (e) {}
     });
   } finally {
     breakdownMaps = [];

@@ -18,7 +18,7 @@ const addMarker = latlng => {
     starrailMarker = L.marker(latlng, { icon }).addTo(starrailMap);
     if (currentMap === currentMapLocation) {
         resultMapMarker = L.marker(latlng, { icon }).addTo(resultMap);
-        resultMapMarker.bindTooltip("Your guess: " + currentMap, { className: 'guess-tooltip', maxWidth: 200 });
+        resultMapMarker.bindTooltip("Your guess", { className: 'guess-tooltip', maxWidth: 200 });
         if (correctMarker) {
             drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
         }
@@ -51,51 +51,76 @@ const onMapClick = e => {
 };
 starrailMap.on('click', onMapClick);
 function handleMarker() {
-    if (!currentImage) return;
+  if (!currentImage) return;
 
-    // Remove previous correct marker
-    if (correctMarker) {
-        resultMap.removeLayer(correctMarker);
+  // Remove previous correct marker (if any)
+  if (correctMarker) {
+    try { resultMap.removeLayer(correctMarker); } catch (e) { /* ignore */ }
+    correctMarker = null;
+  }
+
+  // Create and add correct marker
+  correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
+  correctMarker.bindTooltip("Click to see image", { className: 'guess-tooltip', maxWidth: 200 });
+
+  // Helper to open preview: prefer existing openImagePreview, otherwise fallback to window.open
+  const openPreview = (typeof openImagePreview === 'function')
+    ? openImagePreview
+    : function(src, alt = '') { if (!src) return; window.open(src, '_blank'); };
+
+  // Make the marker clickable to show the currentImage
+  correctMarker.on('click', () => {
+    const src = currentImage && (currentImage.imageUrl || currentImage.url || currentImage.src);
+    try {
+      openPreview(src, `Round ${currentRound || ''}`);
+    } catch (err) {
+      console.warn('Error opening image preview:', err);
+      if (src) window.open(src, '_blank');
     }
+  });
 
-    // Add correct marker
-    correctMarker = L.marker([currentImage.lat, currentImage.lng], { icon: customIcon }).addTo(resultMap);
-    correctMarker.bindTooltip("Correct location", { className: 'guess-tooltip', maxWidth: 200 });
+  // Try to set pointer cursor on the marker's DOM element (may be undefined until after render)
+  setTimeout(() => {
+    try {
+      const el = correctMarker && correctMarker.getElement && correctMarker.getElement();
+      if (el) el.style.cursor = 'pointer';
+    } catch (e) { /* ignore */ }
+  }, 40);
 
-    if (resultMapMarker) {
-        drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
+  // If user already placed a resultMapMarker (their guess), draw line and fly to midpoint
+  if (resultMapMarker) {
+    drawLine(resultMapMarker.getLatLng(), correctMarker.getLatLng());
 
-        // Calculate midpoint
-        const midLat = (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2;
-        const midLng = (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2;
-        const midPoint = L.latLng(midLat, midLng);
+    // Calculate midpoint
+    const midLat = (resultMapMarker.getLatLng().lat + correctMarker.getLatLng().lat) / 2;
+    const midLng = (resultMapMarker.getLatLng().lng + correctMarker.getLatLng().lng) / 2;
+    const midPoint = L.latLng(midLat, midLng);
 
-        // Calculate distance
-        const d = calculateDistance(
-            resultMapMarker.getLatLng().lat,
-            resultMapMarker.getLatLng().lng,
-            correctMarker.getLatLng().lat,
-            correctMarker.getLatLng().lng
-        );
+    // Calculate distance (meters according to your calculateDistance)
+    const d = calculateDistance(
+      resultMapMarker.getLatLng().lat,
+      resultMapMarker.getLatLng().lng,
+      correctMarker.getLatLng().lat,
+      correctMarker.getLatLng().lng
+    );
 
-        // Zoom logic
-        const getZoomLevel = (distance) => {
-            if (distance < 1.5) return 5;
-            if (distance < 5) return 4;
-            if (distance < 35) return 3;
-            if (distance < 70) return 2;
-            if (distance < 100) return 1;
-            return resultMap.getZoom();
-        };
+    // Zoom logic (same thresholds as before)
+    const getZoomLevel = (distance) => {
+      if (distance < 1.5) return 5;
+      if (distance < 5) return 4;
+      if (distance < 35) return 3;
+      if (distance < 70) return 2;
+      if (distance < 100) return 1;
+      return resultMap.getZoom();
+    };
+    const zoomLevel = getZoomLevel(d);
 
-        const zoomLevel = getZoomLevel(d);
-
-        // Fly to midpoint
-        resultMap.flyTo(midPoint, zoomLevel, {
-            animate: true,
-            duration: 1
-        });
-    }
+    // Fly to midpoint
+    resultMap.flyTo(midPoint, zoomLevel, {
+      animate: true,
+      duration: 1
+    });
+  }
 }
 
 guessButton.addEventListener('click', handleMarker);

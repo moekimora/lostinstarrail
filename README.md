@@ -443,7 +443,10 @@ If you guess in the wrong map location, you get **0** points.
 
 ## v1.1.25
 - Added Game Breakdown
+  - After the game ends, you can click on Game Breakdown button and this will display your guesses including: The location's image, the correct location, and score.
 - Several UI updates
+  - Adjust map markers: Correct location is now clickable and shows you the full unfiltered image of that location
+  - Adjust stats info
 
 # Attribution
 All images, music, anything related to Honkai Star Rail and Hoyoverse belongs to Hoyoverse. I am not affiliated with Honkai Star Rail or Hoyoverse.
